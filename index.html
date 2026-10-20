@@ -81,6 +81,28 @@ td.muted{color:var(--ink-3);font-size:12px;}
 tbody tr.row.xp{cursor:pointer;}
 tbody tr.row.xp td:first-child::before{content:'▸';display:inline-block;width:14px;color:var(--ink-3);font-size:10px;}
 tbody tr.row.xp.open td:first-child::before{content:'▾';}
+details.wk{background:var(--bg-card);border:1px solid var(--rule);border-radius:3px;margin-bottom:10px;}
+details.wk summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;gap:14px;align-items:baseline;}
+details.wk summary::-webkit-details-marker{display:none;}
+details.wk summary::after{content:'▸';margin-left:auto;color:var(--ink-3);}
+details.wk[open] summary::after{content:'▾';}
+details.wk[open] summary{border-bottom:1px solid var(--rule);}
+.wk-n{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--accent);min-width:54px;}
+.wk-t{font-family:'DM Serif Display',serif;font-size:1.25rem;line-height:1.2;}
+.wk-s{font-size:12.5px;color:var(--ink-3);display:block;margin-top:2px;font-family:'Instrument Sans',sans-serif;}
+.wk-b{padding:16px 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;}
+.wk-b h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin:0 0 6px;}
+.wk-b p,.wk-b li{font-size:13px;line-height:1.6;color:var(--ink-2);}
+.wk-b ul{padding-left:1.1rem;}
+.wk-b li{margin-bottom:4px;}
+.wk-ins{background:var(--gold-light);border:1px solid #e8d4a8;border-radius:3px;padding:10px 14px;grid-column:1/-1;}
+.wk-ins li b{color:var(--ink);}
+.wk-full{grid-column:1/-1;}
+.bd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:1rem 0 1.25rem;}
+.bd-card{background:var(--bg-card);border:1px solid var(--rule);border-radius:3px;padding:12px 14px;}
+.bd-card h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin:0 0 6px;}
+.bd-card p,.bd-card li{font-size:12.5px;line-height:1.55;color:var(--ink-2);}
+.bd-card ul{padding-left:1.05rem;}
 tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px solid var(--rule);}
 .dgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;}
 .dgrid h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin:0 0 6px;}
@@ -126,6 +148,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
 .btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:2px;cursor:pointer;}
 .btn.ghost{background:transparent;color:var(--ink);}
 @media(max-width:760px){
+  .wk-b{grid-template-columns:1fr;}
   .masthead,.tab-bar{padding-left:1.25rem;padding-right:1.25rem;}
   .tab-bar{padding:0;}
   .shell{padding:1.5rem 1rem 3rem;}
@@ -154,6 +177,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <button class="tab-btn" data-tab="buckets">Buckets</button>
   <button class="tab-btn" data-tab="revenue">Revenue y1–y10</button>
   <button class="tab-btn" data-tab="flow">Who &amp; What</button>
+  <button class="tab-btn" data-tab="bd201">BD201</button>
   <button class="tab-btn" data-tab="method">Method</button>
 </nav>
 
@@ -253,6 +277,15 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <span class="chip incl-toggle"></span>
   </div>
   <div class="vz-wrap"><svg id="sk-flow" class="min"></svg></div>
+</div></section>
+
+<section class="tab-panel" id="tab-bd201"><div class="shell">
+  <div class="view-head"><div class="view-title">BD201 · Biopharma business development</div>
+  <div class="view-desc">A proposed MBA elective built on this almanac: how drugs are found, valued, licensed, bought and stretched across indications. Each week pairs a view from the almanac with readings and the lessons its numbers carry. Figures in the insight boxes are computed live from the data on this page.</div></div>
+  <div id="bd-head"></div>
+  <div class="ctl-row"><button class="btn ghost" id="bd-open">Expand all</button><button class="btn ghost" id="bd-close">Collapse all</button></div>
+  <div id="bd-weeks"></div>
+  <p class="note fn" id="bd-foot"></p>
 </div></section>
 
 <section class="tab-panel" id="tab-method"><div class="shell method">
@@ -743,6 +776,164 @@ builders.buckets = renderers.buckets = function(){
   }
   renderBuckets();
 };
+
+/* ---------- BD201 ---------- */
+function bdStats(){
+  const big = new Set(programs.map(p=>p.company)), bigN = drugs.filter(d=>big.has(d.company));
+  const acqRx = /SEAGEN|ARRAY BIO|GLOBAL BLOOD|PORTOLA|ALEXION|ABLYNX|CELGENE|INTRA.?CELL|HORIZON|CHEMOCENTRYX|IMMUNOMEDICS|IMMUNOGEN|LOXO|PROVENTION|KAI PHARM|\bAAA\b|IVERIC|AUDENTES|MYOVANT|ARENA|MEDIVATION|BIOHAVEN|ARIAD|MILLENNIUM|TESARO|REATA|KARUNA|MIRATI/i;
+  const acq = bigN.filter(d=>acqRx.test(d.sponsor||''));
+  const res = programs.filter(p=>p.outcome!=='ongoing'), r2=res.filter(p=>p.reached>=2), r3=res.filter(p=>p.reached>=3), ok=res.filter(p=>p.outcome==='approved'), ok3=r3.filter(p=>p.outcome==='approved');
+  const tot = drugs.map(d=>d3.sum(d.rev.y)).sort((a,b)=>b-a), all=d3.sum(tot);
+  const old = drugs.filter(d=>d.elapsed>=2), bk = k=>old.filter(d=>BK.find(b=>b.t((d.supps||[]).length)).k===k).length;
+  const taTot = d3.rollups(drugs,v=>d3.sum(v,d=>d3.sum(d.rev.y)),d=>d.ta).sort((a,b)=>b[1]-a[1]);
+  const taN = d3.rollups(drugs,v=>v.length,d=>d.ta).sort((a,b)=>b[1]-a[1]);
+  const sp = d3.rollups(drugs,v=>v.length,d=>d.company);
+  return {n:drugs.length, orph:drugs.filter(d=>d.orphan).length/drugs.length, onc:drugs.filter(d=>d.ta==='Oncology').length/drugs.length,
+    ab:drugs.filter(d=>d.modality==='Antibody / ADC').length/drugs.length, sm:drugs.filter(d=>d.modality==='Small molecule').length/drugs.length,
+    bigShare:bigN.length/drugs.length, bigCos:big.size, acq, bigN:bigN.length,
+    halted:drugs.filter(d=>d.trials.p1.halted+d.trials.p2.halted+d.trials.p3.halted>0).length/drugs.length,
+    noP1:drugs.filter(d=>!d.trials.p1.n).length/drugs.length, prio:drugs.filter(d=>d.priority==='Priority').length/drugs.length,
+    dev:d3.median(drugs,d=>d.trials.devYears), top20:d3.sum(tot.slice(0,20))/all, top50:d3.sum(tot.slice(0,50))/all,
+    p1:r2.length/res.length, p2:r3.length/r2.length, p3:ok3.length/r3.length, hit:ok.length/res.length, resolved:res.length,
+    bOne:bk('one')/old.length, bFew:bk('few')/old.length, bMany:bk('many')/old.length, bFran:bk('fran'), oldN:old.length,
+    topProd:products.slice().sort((a,b)=>b.d.length-a.d.length)[0], exp:expansions.length,
+    taRev:taTot[0], taNum:taN[0], taN, sponsors:sp.length, single:sp.filter(d=>d[1]===1).length,
+    beone:drugs.filter(d=>d.company==='BeOne Medicines').length, topCo:d3.rollups(drugs,v=>v.length,d=>d.company).sort((a,b)=>b[1]-a[1]).slice(0,3)};
+}
+const pc = v=>Math.round(v*100)+'%';
+function bdWeeks(S){
+  const go=(t,l)=>`<a href="#${t}" data-goto="${t}">${l} →</a>`;
+  return [
+  {t:'Where new drugs come from',s:'The shape of a decade of first-time approvals',
+   use:[go('flow','Who & What'),go('approvals','Approvals')],
+   body:'Frame the course: BD exists because many new drugs are not invented by the company that ends up selling them. Students map who sponsors, what they treat and what kind of molecule it is.',
+   ins:[`<b>${S.n}</b> first-time approvals in ten years; the <b>${S.bigCos}</b> largest sponsors hold <b>${pc(S.bigShare)}</b> of them, so the long tail of ${S.sponsors} sponsors is most of the supply.`,
+        `<b>${pc(S.orph)}</b> carry an orphan designation and <b>${pc(S.onc)}</b> are cancer drugs; <b>${pc(S.ab)}</b> are antibodies or ADCs.`,
+        `<b>${S.single}</b> of ${S.sponsors} sponsors have exactly one approval: a single asset often is the company.`],
+   read:['Munos, B. (2009) Lessons from 60 years of pharmaceutical innovation. <i>Nature Reviews Drug Discovery</i> 8:959–968.','Pisano, G. (2006) Can science be a business? Lessons from biotech. <i>Harvard Business Review</i>, October.','Paul, S.M. et al. (2010) How to improve R&D productivity. <i>Nature Reviews Drug Discovery</i> 9:203–214.'],
+   disc:'Is a large pharma company mainly an inventor or an aggregator and commercialiser?',
+   asg:'Pick one sponsor from the almanac and classify each of its approvals as home-grown, acquired or licensed-in, using press releases and the sponsor field.'},
+  {t:'Attrition and the economics of failure',s:'Why most programs die and what that does to deal pricing',
+   use:[go('funnel','Funnel')],
+   body:'Introduce phase transition probabilities and the idea that a deal buys a probability-weighted stream, not a drug.',
+   ins:[`Pooled across the big sponsors, <b>${pc(S.p1)}</b> of Phase 1 programs reach Phase 2, <b>${pc(S.p2)}</b> of those reach Phase 3 and <b>${pc(S.p3)}</b> of those are approved: <b>${pc(S.hit)}</b> overall across ${S.resolved} resolved programs.`,
+        `Published benchmarks are lower overall (around 8%). The gap is a lesson in survivorship: failures that never get labelled never get counted.`,
+        `<b>${pc(S.halted)}</b> of approved drugs had at least one terminated, withdrawn or suspended study on the way, so a halted trial is not a death sentence.`],
+   read:['Wong, C.H., Siah, K.W. & Lo, A.W. (2019) Estimation of clinical trial success rates and related parameters. <i>Biostatistics</i> 20(2):273–286.','Hay, M. et al. (2014) Clinical development success rates for investigational drugs. <i>Nature Biotechnology</i> 32:40–51.','BIO, Informa Pharma Intelligence & QLS (2021) <i>Clinical Development Success Rates and Contributing Factors 2011–2020</i>.'],
+   disc:'Our pooled hit rate is higher than the benchmarks. List three reasons and say which direction each biases a company comparison.',
+   asg:'Choose one sponsor card. Compute its phase pass rates with 90% confidence intervals and decide whether it is distinguishable from the pooled rate.'},
+  {t:'R&D productivity and the cost of a drug',s:'Speed, spend and the "Eroom" problem',
+   use:[go('cards','Baseball Cards')],
+   body:'Link success rates to cost. Time is the cheapest lever BD can pull: buying a late-stage asset skips years of capital at risk.',
+   ins:[`Median time from first registered study to approval is <b>${S.dev.toFixed(1)} years</b>; <b>${pc(S.noP1)}</b> of approvals show no registered Phase 1 at all, so early work is often invisible to outsiders.`,
+        `Cards show a wide spread in speed across sponsors even at similar sample sizes: a candidate for what an acquirer is really paying for.`],
+   read:['Scannell, J.W. et al. (2012) Diagnosing the decline in pharmaceutical R&D efficiency. <i>Nature Reviews Drug Discovery</i> 11:191–200.','DiMasi, J.A., Grabowski, H.G. & Hansen, R.W. (2016) Innovation in the pharmaceutical industry: new estimates of R&D costs. <i>Journal of Health Economics</i> 47:20–33.','Wouters, O.J., McKee, M. & Luyten, J. (2020) Estimated research and development investment needed to bring a new medicine to market, 2009–2018. <i>JAMA</i> 323(9):844–853.','Ringel, M.S. et al. (2020) Breaking Eroom\'s law. <i>Nature Reviews Drug Discovery</i> 19:833–834.'],
+   disc:'If an average drug costs billions once failures are included, what does that imply for the maximum a buyer can pay for a Phase 2 asset?',
+   asg:'Estimate the capitalised cost of reaching approval from Phase 1 for one area using the funnel rates and a cost per phase you source and defend.'},
+  {t:'Build, buy or partner',s:'Sourcing innovation: organic, alliances, acquisitions',
+   use:[go('approvals','Approvals'),go('cards','Baseball Cards')],
+   body:'Compare the three sourcing routes and what each does to returns, speed and control. Use the approvals whose sponsor of record is an acquired biotech.',
+   ins:[`<b>${S.acq.length}</b> of the <b>${S.bigN}</b> big-sponsor approvals were filed by a company the sponsor later acquired, for example ${S.acq.slice(0,6).map(d=>d.brand).join(', ')}.`,
+        `Counting only the sponsor of record understates outside sourcing: licensed and co-developed assets file under the big company too.`],
+   read:['Higgins, M.J. & Rodriguez, D. (2006) The outsourcing of R&D through acquisitions in the pharmaceutical industry. <i>Journal of Financial Economics</i> 80:351–383.','Danzon, P.M., Nicholson, S. & Pereira, N.S. (2005) Productivity in pharmaceutical–biotechnology R&D: the role of experience and alliances. <i>Journal of Health Economics</i> 24:317–339.','Schuhmacher, A., Gassmann, O. & Hinder, M. (2016) Changing R&D models in research-based pharmaceutical companies. <i>Journal of Translational Medicine</i> 14:105.'],
+   disc:'When does buying a company beat licensing its lead asset? Use two drugs from the list.',
+   asg:'Short memo: for one acquired-biotech approval, reconstruct the deal timeline and say whether the acquirer would have done better to license.'},
+  {t:'Areas, modalities and portfolio strategy',s:'Where to play: oncology, rare disease and the modality mix',
+   use:[go('flow','Who & What'),go('revenue','Revenue y1–y10')],
+   body:'Use approval counts and modelled sales together to ask which areas are crowded and which pay. Distinguish a count of approvals from the value of them.',
+   ins:[`<b>${S.taNum[0]}</b> leads on approvals (${S.taNum[1]}) while <b>${S.taRev[0]}</b> leads on modelled 10-year sales: crowded and valuable are different questions.`,
+        `<b>${pc(S.orph)}</b> orphan share shows rare disease is mainstream, not niche; <b>${pc(S.sm)}</b> are small molecules, which matters for the Medicare clock in week 11.`],
+   read:['Tambuyzer, E. et al. (2020) Therapies for rare diseases: therapeutic modalities, progress and challenges ahead. <i>Nature Reviews Drug Discovery</i> 19:93–111.','Pisano, G.P. (2006) <i>Science Business: The Promise, the Reality, and the Future of Biotech</i>. Harvard Business School Press.','Christensen, C.M., Grossman, J.H. & Hwang, J. (2009) <i>The Innovator\'s Prescription</i>. McGraw-Hill.'],
+   disc:'Should a mid-size company concentrate in one area or diversify? What does the almanac say about concentration risk?',
+   asg:'Propose a three-year BD focus for a hypothetical mid-cap using area, modality and orphan data, and name the one area you would avoid.'},
+  {t:'Valuing a program: rNPV and the launch curve',s:'From probability and peak sales to a price',
+   use:[go('revenue','Revenue y1–y10')],
+   body:'Teach risk-adjusted NPV. Students rebuild the almanac\'s crude sales model and then break it, because the model is deliberately simple.',
+   ins:[`The top 20 drugs hold <b>${pc(S.top20)}</b> of modelled 10-year sales and the top 50 hold <b>${pc(S.top50)}</b>: a portfolio is a few winners paying for many ordinary drugs.`,
+        `Launch is slow: year 1 is a fraction of peak for most drugs, so discounting punishes late peaks. Peak assumptions dominate everything else.`,
+        `The almanac\'s sales are modelled, not reported. Use that as the hook: what would you need to see in a data room to replace each assumption?`],
+   read:['Stewart, J.J., Allison, P.N. & Johnson, R.S. (2001) Putting a price on biotechnology. <i>Nature Biotechnology</i> 19:813–817.','Bogdan, B. & Villiger, R. (2010) <i>Valuation in Life Sciences: A Practical Guide</i>, 3rd ed. Springer.'],
+   disc:'Which single assumption moves value most, and who in a negotiation controls it?',
+   asg:'Build an rNPV for one drug using the funnel probabilities, a peak you justify, and a sensitivity table on peak sales and time to peak.'},
+  {t:'Deal structures',s:'Licences, options, milestones, royalties, co-development and M&A',
+   use:[go('approvals','Approvals')],
+   body:'Structure is risk allocation. Walk through upfront versus milestone, royalty tiers, options, equity, CVRs and co-commercialisation, and who bears which risk.',
+   ins:[`Phase attrition (week 2) is why milestones exist: with roughly <b>${pc(S.p3)}</b> late-stage success the buyer wants to pay on evidence, not hope.`,
+        `Look at the deals behind the acquired-biotech approvals in week 4 and note what was paid up front versus contingent.`],
+   read:['Edwards, M.G., Murray, F. & Yu, R.J. (2003) Value creation and sharing among universities, biotechnology and pharma. <i>Nature Biotechnology</i> 21:618–624.','Lerner, J. & Merges, R.P. (1998) The control of technology alliances: an empirical analysis of the biotechnology industry. <i>Journal of Industrial Economics</i> 46:125–156.','Bogdan & Villiger (2010), chapters on deal valuation.'],
+   disc:'Design a deal for a Phase 2 asset where the two sides disagree about peak sales by a factor of three.',
+   asg:'Draft a one-page term sheet (upfront, milestones, royalty, options, termination) for a licence of one asset from the almanac.'},
+  {t:'Due diligence with public data',s:'What the registry, the label and the halted trials tell you',
+   use:[go('approvals','Approvals'),go('products','Product Pipelines')],
+   body:'Run a diligence exercise using only free sources. Read a drug\'s timeline, its halted studies and why, and its label.',
+   ins:[`<b>${pc(S.halted)}</b> of approved drugs carried at least one halted study; the stated reason (safety, futility, business reasons, enrolment) separates a red flag from noise.`,
+        `<b>${pc(S.noP1)}</b> show no registered Phase 1, so absence in the registry is not evidence of absence and you must ask the seller.`],
+   read:['Hwang, T.J. et al. (2016) Failure of investigational drugs in late-stage clinical development and publication of trial results. <i>JAMA Internal Medicine</i> 176(12):1826–1833.','Darrow, J.J., Avorn, J. & Kesselheim, A.S. (2020) FDA approval and regulation of pharmaceuticals, 1983–2018. <i>JAMA</i> 323(2):164–176.','FDA Drugs@FDA and ClinicalTrials.gov (primary sources used throughout).'],
+   disc:'A pivotal trial was terminated for "business reasons". What do you ask for before you bid?',
+   asg:'Diligence memo on one approval: timeline, halted studies and reasons, label claims, comparators and three questions for the seller.'},
+  {t:'Regulatory strategy as a business lever',s:'Orphan, priority review, accelerated approval',
+   use:[go('approvals','Approvals')],
+   body:'Regulatory designations change speed, exclusivity and price power. Treat them as levers that BD can buy or build around.',
+   ins:[`<b>${pc(S.prio)}</b> of first-time approvals received priority review and <b>${pc(S.orph)}</b> carry an orphan designation: the typical new drug has at least one fast-track-style advantage.`,
+        `Because so many drugs qualify, a designation alone no longer differentiates; evidence quality and comparator choice do.`],
+   read:['Kesselheim, A.S., Wang, B., Franklin, J.M. & Darrow, J.J. (2015) Trends in utilization of FDA expedited drug development and approval programs, 1987–2014. <i>BMJ</i> 351:h4633.','Beaver, J.A. et al. (2018) A 25-year experience of US FDA accelerated approval of malignant hematology and oncology drugs and biologics. <i>JAMA Oncology</i> 4(6):849–856.','Darrow, Avorn & Kesselheim (2020), as above.'],
+   disc:'When is an accelerated approval an asset and when is it a liability on the balance sheet?',
+   asg:'For one orphan drug, estimate how exclusivity and designations change the revenue curve versus a non-orphan comparator.'},
+  {t:'Lifecycle: one and done, or one then many',s:'Why the same molecule can be worth ten times more',
+   use:[go('buckets','Buckets'),go('products','Product Pipelines')],
+   body:'The most valuable products keep winning approvals. Students learn to read a product pipeline by condition and to value optionality.',
+   ins:[`Of drugs old enough to judge, <b>${pc(S.bOne)}</b> are one and done, <b>${pc(S.bFew)}</b> gather a few more approvals, and only a handful become franchises.`,
+        `The busiest product, <b>${esc(S.topProd.brand)}</b>, collected <b>${S.topProd.d.length}</b> efficacy supplements in ten years across dozens of conditions.`,
+        `<b>${S.exp}</b> drugs first approved before 2016 also won new approvals in the window: lifecycle management is a bigger business than first approvals.`],
+   read:['Pushpakom, S. et al. (2019) Drug repurposing: progress, challenges and recommendations. <i>Nature Reviews Drug Discovery</i> 18:41–58.','Public FDA labels and approval letters for one franchise product (Drugs@FDA).'],
+   disc:'What do franchise products have in common at launch that a one-and-done drug lacks?',
+   asg:'Map the indication pipeline of one product from the Product Pipelines tab and value the optionality of its Phase 3 conditions.'},
+  {t:'Pricing, access and the patent cliff',s:'Policy risk, exclusivity and loss of exclusivity',
+   use:[go('revenue','Revenue y1–y10')],
+   body:'Price is a strategic variable shaped by policy. Cover the Medicare negotiation provisions and the different clocks for small molecules and biologics.',
+   ins:[`<b>${pc(S.sm)}</b> of first-time approvals are small molecules, which the Inflation Reduction Act exposes to price negotiation sooner than biologics, so mix matters to value.`,
+        `Years 9 and 10 of the modelled curves are where policy and competition bite; the model deliberately ignores both, which is a weakness to discuss.`],
+   read:['Kesselheim, A.S., Avorn, J. & Sarpatwari, A. (2016) The high cost of prescription drugs in the United States: origins and prospects for reform. <i>JAMA</i> 316(8):858–871.','Grabowski, H., Long, G. & Mortimer, R. (2014) Recent trends in brand-name and generic drug competition. <i>Journal of Medical Economics</i> 17(3):207–214.','Inflation Reduction Act of 2022 (Pub. L. 117-169), drug price negotiation provisions.'],
+   disc:'How should a buyer adjust the price of a small-molecule asset versus a biologic with the same peak sales?',
+   asg:'Add a loss-of-exclusivity and a negotiated-price scenario to your rNPV and report the change in value.'},
+  {t:'The ecosystem: biotech, capital and geography',s:'Who funds and finds the next approval',
+   use:[go('flow','Who & What')],
+   body:'Zoom out to the supply chain of innovation: venture, royalty and structured finance, and non-US sources of assets.',
+   ins:[`<b>${pc(1-S.bigShare)}</b> of approvals come from sponsors outside the ${S.bigCos} largest, and <b>${S.single}</b> sponsors have a single approval.`,
+        `BeOne Medicines alone holds <b>${S.beone}</b> approvals, a reminder that assets now originate outside the US and Europe.`],
+   read:['Lerner, J. (2012) <i>The Architecture of Innovation: The Economics of Creative Organizations</i>. Harvard Business Review Press.','Fernandez, J.-M., Stein, R.M. & Lo, A.W. (2012) Commercializing biomedical research through securitization techniques. <i>Nature Biotechnology</i> 30:964–975.'],
+   disc:'If most approvals come from small sponsors, what is the durable advantage of a big company?',
+   asg:'Sketch a financing and partnering path for a one-asset biotech from Phase 2 to approval and name the likely acquirer.'},
+  {t:'Capstone: the deal committee',s:'Teams recommend a deal on a real asset',
+   use:[go('approvals','Approvals'),go('products','Product Pipelines'),go('funnel','Funnel')],
+   body:'Teams take one of the acquired-biotech assets below, argue the case for and against, price it with rNPV and propose a structure. A panel plays the investment committee.',
+   ins:[`Portfolio math: at the pooled <b>${pc(S.hit)}</b> hit rate you need about <b>${(1/S.hit).toFixed(1)}</b> Phase 1 programs per approval; at the benchmark 8% it is about 12.5. Either way BD is a numbers game.`,
+        `Assets for the case list are below; they come straight from the almanac\'s sponsor mapping.`],
+   read:['All readings above, plus the primary sources for your chosen deal (press release, 8-K, FDA label).'],
+   disc:'Would you have bought it, at what price and with what structure?',
+   asg:'Final deal-committee memo (8 pages) and a 15-minute defence.',
+   cases:S.acq.slice().sort((a,b)=>b.rev.peak-a.rev.peak)}
+  ];
+}
+builders.bd201 = function(){
+  const S = bdStats(), W = bdWeeks(S);
+  $('#bd-head').innerHTML=`<div class="bd-grid">
+    <div class="bd-card"><h4>Format</h4><p>13 sessions of 2.5 hours. MBA elective. Prerequisites: corporate finance and introductory strategy. Case discussion, one live data lab per week using this almanac.</p></div>
+    <div class="bd-card"><h4>Learning outcomes</h4><ul><li>Read a pipeline and a launch curve like an investor</li><li>Value a program with rNPV and defend the assumptions</li><li>Choose and structure a deal type for a given risk</li><li>Diligence an asset from public data</li><li>Judge portfolio and lifecycle strategy</li></ul></div>
+    <div class="bd-card"><h4>Assessment</h4><ul><li>Weekly lab notes 20%</li><li>Valuation exercise (week 6) 20%</li><li>Diligence memo (week 8) 20%</li><li>Capstone memo and defence 35%</li><li>Participation 5%</li></ul></div>
+    <div class="bd-card"><h4>How to use the almanac</h4><p>Each week names the tab to open. Students filter, screenshot and export the CSV from Approvals to build their own analysis.</p></div></div>`;
+  $('#bd-weeks').innerHTML = W.map((w,i)=>`<details class="wk"${i===0?' open':''}><summary><span class="wk-n">WEEK ${i+1}</span><span class="wk-t">${esc(w.t)}<span class="wk-s">${esc(w.s)}</span></span></summary><div class="wk-b">
+    <div class="wk-full"><h4>The session</h4><p>${w.body}</p><p style="margin-top:6px"><b>In the almanac:</b> ${w.use.join(' · ')}</p></div>
+    <div class="wk-ins"><h4>Insights from the data</h4><ul>${w.ins.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div><h4>Readings</h4><ul>${w.read.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div><h4>Discussion question</h4><p>${w.disc}</p><h4 style="margin-top:12px">Assignment</h4><p>${w.asg}</p></div>
+    ${w.cases?`<div class="wk-full"><h4>Case list: acquired-biotech approvals</h4><div class="table-wrap"><table><thead><tr><th>Drug</th><th>Filed by</th><th>Now part of</th><th>Area</th><th class="r">Approved</th><th class="r">Est. peak</th></tr></thead><tbody>${w.cases.map(d=>`<tr class="row" style="cursor:default"><td><b>${esc(d.brand)}</b></td><td>${esc(d.sponsor)}</td><td>${esc(d.company)}</td><td class="muted">${esc(d.ta)}</td><td class="r mono">${d.date.slice(0,4)}</td><td class="r mono">${fmtM(d.rev.peak)}</td></tr>`).join('')}</tbody></table></div></div>`:''}
+  </div></details>`).join('');
+  $('#bd-open').onclick=()=>$$('#bd-weeks details').forEach(d=>d.open=true);
+  $('#bd-close').onclick=()=>$$('#bd-weeks details').forEach(d=>d.open=false);
+  $('#bd-foot').textContent='Course design is a proposal. Reading citations were written from memory: check each one before distributing a syllabus. Insight figures are computed from this page\'s data and inherit its caveats (see Method).';
+};
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-goto]');if(!a)return;e.preventDefault();openTab(a.dataset.goto);window.scrollTo({top:0,behavior:'smooth'});});
 
 openTab((location.hash||'#funnel').slice(1));
 })();

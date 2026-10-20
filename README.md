@@ -20,6 +20,8 @@ Live page: https://kuod.github.io/ph1-to-fda/
 
 **Revenue y1–y10** — Modelled net sales by year since approval, stacked by company, area, drug type or approval year, with a low–high band, and the largest estimated earners.
 
+**BD201** — A proposed 13-week MBA elective on biopharma business development built on this almanac: weekly sessions, readings, discussion questions, assignments and insight boxes computed live from the data, ending with a deal-committee capstone on the acquired-biotech approvals. Reading citations were written from memory and should be checked before use.
+
 **Who & What** — Sponsor → therapeutic area → drug type alluvial for the approvals in view.
 
 ## How it is built

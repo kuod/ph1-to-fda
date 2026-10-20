@@ -78,6 +78,9 @@ td.muted{color:var(--ink-3);font-size:12px;}
 .pill{font-size:10px;padding:2px 7px;border-radius:2px;background:var(--ok-light);color:#2a4a2a;white-space:nowrap;border:1px solid #c8d8c8;}
 .pill.rust{background:var(--accent-light);color:var(--accent);border-color:#e8c8be;}
 .pill.gold{background:var(--gold-light);color:#8a6420;border-color:#e8d4a8;}
+tbody tr.row.xp{cursor:pointer;}
+tbody tr.row.xp td:first-child::before{content:'▸';display:inline-block;width:14px;color:var(--ink-3);font-size:10px;}
+tbody tr.row.xp.open td:first-child::before{content:'▾';}
 tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px solid var(--rule);}
 .dgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;}
 .dgrid h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin:0 0 6px;}
@@ -342,7 +345,7 @@ $('#tabs').addEventListener('click',e=>{const b=e.target.closest('.tab-btn');if(
 const builders = {}, renderers = {};
 
 /* ---------- FUNNEL ---------- */
-const F = {co:new Set(), ta:'all', y0:2009, y1:2018, color:'outcome', node:null};
+const F = {co:new Set(), ta:'all', y0:2009, y1:2018, color:'outcome', node:null, open:null, list:[]};
 function funnelPrograms(){return programs.filter(p=>(!F.co.size||F.co.has(p.company))&&(F.ta==='all'||p.ta===F.ta)&&p.y>=F.y0&&p.y<=F.y1);}
 function colorFn(ps){
   if(F.color==='outcome') return {key:p=>p.outcome, col:k=>OUT[k].c, label:k=>OUT[k].l, keys:['approved','halted','stalled','ongoing']};
@@ -424,11 +427,18 @@ function renderStarted(ps){
 }
 function listNode(id,ps,through){
   const el = $('#f-list');
+  if(id!==F.lastNode){F.open=null;F.lastNode=id;}
   if(!id){el.innerHTML='';return;}
   const list = (through[id]||[]).slice().sort((a,b)=>(b.outcome==='approved')-(a.outcome==='approved')||b.reached-a.reached).slice(0,250);
+  F.list = list;
   el.innerHTML = `<div class="note" style="margin:0 0 .5rem">${(through[id]||[]).length} programs through this stage${(through[id]||[]).length>250?' (first 250 shown)':''}</div><table><thead><tr><th>Program</th><th>Company</th><th>Area</th><th class="r">Ph1 start</th><th class="r">Highest phase</th><th>Outcome</th></tr></thead><tbody>`+
-    list.map(p=>`<tr class="row" style="cursor:default"><td>${esc(p.name)}</td><td>${esc(p.company)}</td><td class="muted">${esc(p.ta)}</td><td class="r mono">${p.y}</td><td class="r mono">${p.reached}</td><td><span class="pill ${p.outcome==='halted'?'rust':p.outcome==='ongoing'?'gold':''}">${OUT[p.outcome].l}</span></td></tr>`).join('')+'</tbody></table>';
+    list.map((p,i)=>`<tr class="row xp${F.open===i?' open':''}" data-i="${i}"><td>${esc(p.name)}</td><td>${esc(p.company)}</td><td class="muted">${esc(p.ta)}</td><td class="r mono">${p.y}</td><td class="r mono">${p.reached}</td><td><span class="pill ${p.outcome==='halted'?'rust':p.outcome==='ongoing'?'gold':''}">${OUT[p.outcome].l}</span></td></tr>`+(F.open===i?`<tr class="detail"><td colspan="6">${progDetail(p)}</td></tr>`:'')).join('')+'</tbody></table>';
 }
+function progDetail(p){
+  const ph=[1,2,3].map(n=>`<tr><td>Phase ${n}</td><td class="r mono">${p.st[n]||'–'}</td><td class="r mono">${p.ha[n]||'–'}</td></tr>`).join('');
+  return `<div class="dgrid"><div><h4>Program</h4><p><b>${esc(p.name)}</b> · ${esc(p.company)} · ${esc(p.ta)}<br>Phase 1 started ${p.y}. Highest phase reached: ${p.reached}. Outcome: ${OUT[p.outcome].l}.</p><h4>Conditions studied</h4><p>${(p.cd||[]).map(esc).join(' · ')||'–'}</p>${p.why&&p.why[0]?`<h4>Why it was halted</h4><p>${esc(p.why[0])}</p>`:''}${p.approved?`<p><a href="#approvals" data-drug="${esc(p.approved)}">See the approval →</a></p>`:''}</div><div><h4>Studies registered</h4><table style="max-width:320px"><thead><tr><th>Stage</th><th class="r">Started</th><th class="r">Halted</th></tr></thead><tbody>${ph}</tbody></table></div></div>`;
+}
+$('#f-list').addEventListener('click',e=>{if(e.target.closest('a'))return;const r=e.target.closest('tr.row');if(!r)return;const i=+r.dataset.i;F.open=F.open===i?null:i;listNode(F.node,null,{[F.node]:F.list});});
 builders.funnel = function(){
   const cos = d3.rollups(programs,v=>v.length,p=>p.company).sort((a,b)=>b[1]-a[1]).map(d=>d[0]);
   $('#f-co').innerHTML = cos.map(c=>`<span class="chip" data-c="${esc(c)}">${esc(c)}</span>`).join('');
@@ -509,10 +519,11 @@ function renderApprovals(){
   $('#a-table thead').innerHTML = '<tr>'+A_COLS.map(([k,l,c])=>`<th data-k="${k}" class="${c||''}">${l}${A.sort===k?(A.dir>0?' ▲':' ▼'):''}</th>`).join('')+'</tr>';
   $('#a-table tbody').innerHTML = rows.map(d=>{
     const h=aVal(d,'h'), o=A.open===d.id;
-    return `<tr class="row" data-id="${d.id}"><td><b>${esc(d.brand)}</b> <span class="muted" style="font-size:11px">${esc(d.ingredient)}</span>${d.orphan?' <span class="pill gold">orphan</span>':''}</td><td>${esc(d.company)}</td><td class="muted">${esc(d.ta)}</td><td class="muted hide-sm">${esc(d.modality)}</td><td class="mono">${d.exp?`<span class="pill gold">new indication</span> <span class="muted" style="font-size:11px">since ${d.first||'–'}</span>`:d.date}</td><td class="r mono">${nSupp(d)||'–'}</td>`+
+    return `<tr class="row xp${o?' open':''}" data-id="${d.id}"><td><b>${esc(d.brand)}</b> <span class="muted" style="font-size:11px">${esc(d.ingredient)}</span>${d.orphan?' <span class="pill gold">orphan</span>':''}</td><td>${esc(d.company)}</td><td class="muted">${esc(d.ta)}</td><td class="muted hide-sm">${esc(d.modality)}</td><td class="mono">${d.exp?`<span class="pill gold">new indication</span> <span class="muted" style="font-size:11px">since ${d.first||'–'}</span>`:d.date}</td><td class="r mono">${nSupp(d)||'–'}</td>`+
       ['p1','p2','p3'].map(k=>`<td class="r mono hide-sm">${d.exp?'':d.trials[k].n||'–'}</td>`).join('')+`<td class="r mono">${h?`<span class="pill rust">${h}</span>`:'–'}</td><td class="r mono">${d.exp?'':Math.round(d3.sum(d.rev.y)).toLocaleString()}</td></tr>`+(o?`<tr class="detail"><td colspan="${A_COLS.length}">${detail(d)}</td></tr>`:'');
   }).join('');
 }
+renderers.approvals = function(){renderApprovals();};
 builders.approvals = function(){
   fill($('#a-co'),sortAlpha(uniq(drugs.map(d=>d.company))),'All companies');
   fill($('#a-ta'),sortAlpha(uniq(drugs.map(d=>d.ta))),'All areas');
@@ -534,7 +545,7 @@ builders.approvals = function(){
 };
 
 /* ---------- REVENUE ---------- */
-const R = {by:'company',yr:'all',proj:'all'};
+const R = {by:'company',yr:'all',proj:'all',open:null};
 function renderRevenue(){
   const ds = drugs.filter(d=>R.yr==='all'||String(d.year)===R.yr);
   const key = d=>R.by==='year'?String(d.year):d[R.by];
@@ -563,8 +574,9 @@ function renderRevenue(){
   const top20 = ds.slice().sort((a,b)=>d3.sum(b.rev.y)-d3.sum(a.rev.y)).slice(0,20);
   $('#r-top tbody').innerHTML = top20.map(d=>{const mx=Math.max(...d.rev.hi.slice(0,1),d.rev.peak)*1.0,w=140,h=26;
     const p=d.rev.y.map((v,i)=>`${4+i*(w-8)/9},${h-3-(v/d.rev.peak)*(h-6)}`).join(' ');
-    return `<tr class="row" style="cursor:default"><td><b>${esc(d.brand)}</b> <span class="muted" style="font-size:11px">${esc(d.ingredient)}</span></td><td>${esc(d.company)}</td><td class="r mono">${d.date.slice(0,4)}</td><td class="r mono">${d.rev.peak.toLocaleString()}${d.rev.basis==='anchor'?'':'*'}</td><td class="r mono">${(d3.sum(d.rev.y)/1000).toFixed(1)}</td><td><svg width="${w}" height="${h}"><polyline points="${p}" fill="none" stroke="#b84a2e" stroke-width="1.6"/></svg></td></tr>`;}).join('');
+    return `<tr class="row xp${R.open===d.id?' open':''}" data-id="${d.id}"><td><b>${esc(d.brand)}</b> <span class="muted" style="font-size:11px">${esc(d.ingredient)}</span></td><td>${esc(d.company)}</td><td class="r mono">${d.date.slice(0,4)}</td><td class="r mono">${d.rev.peak.toLocaleString()}${d.rev.basis==='anchor'?'':'*'}</td><td class="r mono">${(d3.sum(d.rev.y)/1000).toFixed(1)}</td><td><svg width="${w}" height="${h}"><polyline points="${p}" fill="none" stroke="#b84a2e" stroke-width="1.6"/></svg></td></tr>`+(R.open===d.id?`<tr class="detail"><td colspan="6">${detail(d)}</td></tr>`:'');}).join('');
 }
+$('#r-top tbody').addEventListener('click',e=>{if(e.target.closest('a'))return;const r=e.target.closest('tr.row');if(!r)return;R.open=R.open===r.dataset.id?null:r.dataset.id;renderRevenue();});
 builders.revenue = function(){
   fill($('#r-yr'),uniq(drugs.map(d=>d.year)).sort().map(String),'All years');
   $$('#r-by button').forEach(b=>b.onclick=()=>{R.by=b.dataset.v;$$('#r-by button').forEach(x=>x.classList.toggle('on',x===b));renderRevenue();});
@@ -616,7 +628,12 @@ $$('.incl-toggle').forEach(c=>c.addEventListener('click',()=>{G.incl=!G.incl;pai
 paintToggle();
 
 /* ---------- PRODUCT PIPELINES ---------- */
-const P = {sel:null};
+const P = {sel:null,openCond:null};
+function condDetail(r){
+  const n=r.p1+r.p2+r.p3, other=Math.max(0,n-r.active-r.done-r.halted), seg=[['Active',r.active,'#c9943a'],['Completed',r.done,'#2f6f4f'],['Halted',r.halted,'#b84a2e'],['Other / unknown',other,'#a39a8c']];
+  const bar=seg.map(([l,v,c])=>v?`<span title="${l}: ${v}" style="display:inline-block;height:14px;width:${v/Math.max(n,1)*100}%;background:${c}"></span>`:'').join('');
+  return `<div style="max-width:640px"><h4 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8a8078;font-weight:400;margin:0 0 6px">${esc(r.g)}: ${n} studies by status</h4><div style="display:flex;border-radius:2px;overflow:hidden">${bar}</div><div class="legend">${seg.filter(x=>x[1]).map(([l,v,c])=>`<span><i style="background:${c}"></i>${l} ${v}</span>`).join('')}</div><p class="note" style="margin-top:8px">Phase mix: ${r.p1} Ph1, ${r.p2} Ph2, ${r.p3} Ph3. Studies started ${r.first<9999?r.first:'–'} to ${r.first<9999?r.last:'–'}. A study listing several conditions is counted under each.</p></div>`;
+}
 function renderProducts(){
   const list = products.slice().sort((a,b)=>b.d.length-a.d.length);
   const top = list.slice(0,25);
@@ -647,7 +664,7 @@ function productDetail(p){
   const act = d3.sum(rows,r=>r.active), hal = d3.sum(rows,r=>r.halted), ph3 = rows.filter(r=>r.p3).length;
   const table = `<div class="rates"><div class="rate"><span>Efficacy supplements</span><b>${p.d.length}</b><i>approved in the window</i></div><div class="rate"><span>Conditions studied</span><b>${rows.length}${rows.length===30?'+':''}</b><i>${ph3} with a Phase 3</i></div><div class="rate"><span>Studies</span><b>${p.pipe.n}</b><i>industry-sponsored, Ph1–3</i></div><div class="rate"><span>Active / halted</span><b>${act} / ${hal}</b><i>studies by condition, may overlap</i></div></div>
   <div class="table-wrap"><table><thead><tr><th>Condition</th><th class="r">Ph1</th><th class="r">Ph2</th><th class="r">Ph3</th><th class="r">Active</th><th class="r">Halted</th><th class="r">First–latest start</th></tr></thead><tbody>`+
-    rows.map(r=>`<tr class="row" style="cursor:default"><td>${esc(r.g)}</td>${cell(r.p1,'184,74,46')}${cell(r.p2,'184,74,46')}${cell(r.p3,'184,74,46')}<td class="r mono">${r.active||'–'}</td><td class="r mono">${r.halted?`<span class="pill rust">${r.halted}</span>`:'–'}</td><td class="r mono">${r.first<9999?r.first+'–'+r.last:'–'}</td></tr>`).join('')+'</tbody></table></div>';
+    rows.map((r,i)=>`<tr class="row xp${P.openCond===r.g?' open':''}" data-g="${esc(r.g)}"><td>${esc(r.g)}</td>${cell(r.p1,'184,74,46')}${cell(r.p2,'184,74,46')}${cell(r.p3,'184,74,46')}<td class="r mono">${r.active||'–'}</td><td class="r mono">${r.halted?`<span class="pill rust">${r.halted}</span>`:'–'}</td><td class="r mono">${r.first<9999?r.first+'–'+r.last:'–'}</td></tr>`+(P.openCond===r.g?`<tr class="detail"><td colspan="7">${condDetail(r)}</td></tr>`:'')).join('')+'</tbody></table></div>';
   return `<div class="view-title" style="font-size:1.6rem">${esc(p.brand)} <span class="muted" style="font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.05em;color:#8a8078">${esc(p.ingredient)} · ${esc(p.company)} · ${esc(p.ta)}</span></div><div class="note" style="margin:.2rem 0 .8rem">Each dot is an efficacy supplement approved by the FDA.${p.pr?` ${p.pr} were priority reviews.`:''}</div>${tl}<div style="margin-top:1rem">${table}</div>`;
 }
 builders.products = renderers.products = function(){
@@ -659,7 +676,8 @@ builders.products = renderers.products = function(){
   }
   renderProducts();
 };
-document.addEventListener('click',e=>{const a=e.target.closest('a[data-prod]');if(!a)return;e.preventDefault();P.sel=a.dataset.prod;built.products=false;openTab('products');$('#p-sel').value=P.sel;});
+$('#p-detail').addEventListener('click',e=>{const r=e.target.closest('tr.row[data-g]');if(!r)return;P.openCond=P.openCond===r.dataset.g?null:r.dataset.g;renderProducts();});
+document.addEventListener('click',e=>{const dl=e.target.closest('a[data-drug]');if(dl){e.preventDefault();A.open=dl.dataset.drug;A.q='';A.co=A.ta=A.mod=A.yr='all';A.orph='all';openTab('approvals');['#a-q','#a-co','#a-ta','#a-mod','#a-yr'].forEach(id=>{const el=$(id);if(el)el.value=id==='#a-q'?'':'all';});$$('#a-orph button').forEach(b=>b.classList.toggle('on',b.dataset.v==='all'));renderApprovals();setTimeout(()=>{const r=$('#a-table tr.detail');r&&r.scrollIntoView({block:'center'});},50);return;}const a=e.target.closest('a[data-prod]');if(!a)return;e.preventDefault();P.sel=a.dataset.prod;openTab('products');$('#p-sel').value=P.sel;renderProducts();});
 
 /* ---------- BUCKETS ---------- */
 const BK = [
@@ -669,7 +687,7 @@ const BK = [
   {k:'fran',l:'Franchise',d:'15 or more',c:'#b84a2e',t:n=>n>=15}
 ];
 const bucketOf = d=>BK.find(b=>b.t(nSupp(d)));
-const B = {y:'peak',scale:'log',ta:'all',co:'all',age:2,hidden:new Set(),pin:null};
+const B = {y:'peak',scale:'log',ta:'all',co:'all',age:2,hidden:new Set(),pin:null,openB:null};
 const yOf = (d,m)=>{
   const cum=d3.sum(d.rev.y);
   if(m==='peak') return d.rev.peak;
@@ -708,7 +726,7 @@ function renderBuckets(){
   $('#b-legend').innerHTML=BK.map(b=>`<span data-k="${b.k}" style="opacity:${B.hidden.has(b.k)?.35:1}"><i style="background:${b.c}"></i>${b.l} <span style="color:#8a8078">(${b.d}) · ${rows.filter(d=>bucketOf(d).k===b.k).length}</span></span>`).join('');
   const pin=drugs.find(d=>d.id===B.pin);
   $('#b-pin').innerHTML=pin?`<div class="rates"><div class="rate"><span>${esc(pin.company)}</span><b>${esc(pin.brand)}</b><i>${esc(pin.use.slice(0,110))}</i></div><div class="rate"><span>Approvals</span><b>${nSupp(pin)+1}</b><i>${esc(bucketOf(pin).l)}</i></div><div class="rate"><span>Peak (est.)</span><b>${fmt(pin.rev.peak)}</b><i>10-yr total ${fmt(d3.sum(pin.rev.y))}</i></div><div class="rate"><span>Open</span><b style="font-size:1rem"><a href="#products" data-prod="${esc(pin.id)}">Pipeline →</a></b><i>${products.some(p=>p.id===pin.id)?'conditions and timeline':'not among the busiest products'}</i></div></div>`:'';
-  const tb=BK.map(b=>{const r=rows.filter(d=>bucketOf(d).k===b.k),cum=d3.sum(r,d=>d3.sum(d.rev.y));return `<tr class="row" style="cursor:default"><td><i style="display:inline-block;width:10px;height:10px;background:${b.c};border-radius:2px;margin-right:8px"></i>${b.l}</td><td class="muted">${b.d}</td><td class="r mono">${r.length}</td><td class="r mono">${pct(r.length/Math.max(rows.length,1))}</td><td class="r mono">${r.length?fmt(d3.median(r,d=>d.rev.peak)):'–'}</td><td class="r mono">${fmt(cum)}</td><td class="r mono">${pct(cum/Math.max(d3.sum(rows,d=>d3.sum(d.rev.y)),1))}</td></tr>`;}).join('');
+  const tb=BK.map(b=>{const r=rows.filter(d=>bucketOf(d).k===b.k),cum=d3.sum(r,d=>d3.sum(d.rev.y));return `<tr class="row xp${B.openB===b.k?' open':''}" data-k="${b.k}"><td><i style="display:inline-block;width:10px;height:10px;background:${b.c};border-radius:2px;margin:0 8px 0 2px"></i>${b.l}</td><td class="muted">${b.d}</td><td class="r mono">${r.length}</td><td class="r mono">${pct(r.length/Math.max(rows.length,1))}</td><td class="r mono">${r.length?fmt(d3.median(r,d=>d.rev.peak)):'–'}</td><td class="r mono">${fmt(cum)}</td><td class="r mono">${pct(cum/Math.max(d3.sum(rows,d=>d3.sum(d.rev.y)),1))}</td></tr>`+(B.openB===b.k?`<tr class="detail"><td colspan="7"><div style="display:flex;flex-wrap:wrap;gap:6px">${r.slice().sort((x,y)=>y.rev.peak-x.rev.peak).slice(0,60).map(d=>`<span class="chip${d.id===B.pin?' on':''}" data-pin="${esc(d.id)}">${esc(d.brand)}</span>`).join('')}</div>${r.length>60?`<p class="note">Largest 60 of ${r.length} shown.</p>`:''}<p class="note">Click a name to pin it on the plot.</p></td></tr>`:'');}).join('');
   $('#b-table').innerHTML=`<table><thead><tr><th>Bucket</th><th>Later approvals</th><th class="r">Drugs</th><th class="r">Share</th><th class="r">Median peak</th><th class="r">10-yr total</th><th class="r">Share of sales</th></tr></thead><tbody>${tb}</tbody></table>`;
 }
 builders.buckets = renderers.buckets = function(){
@@ -720,6 +738,7 @@ builders.buckets = renderers.buckets = function(){
     $('#b-co').onchange=e=>{B.co=e.target.value;renderBuckets();};
     $$('#b-scale button').forEach(b=>b.onclick=()=>{B.scale=b.dataset.v;$$('#b-scale button').forEach(x=>x.classList.toggle('on',x===b));renderBuckets();});
     $$('#b-age button').forEach(b=>b.onclick=()=>{B.age=+b.dataset.v;$$('#b-age button').forEach(x=>x.classList.toggle('on',x===b));renderBuckets();});
+    $('#b-table').addEventListener('click',e=>{const c=e.target.closest('[data-pin]');if(c){B.pin=c.dataset.pin;renderBuckets();$('#b-plot').scrollIntoView({behavior:'smooth',block:'center'});return;}const r=e.target.closest('tr.row[data-k]');if(!r)return;B.openB=B.openB===r.dataset.k?null:r.dataset.k;renderBuckets();});
     $('#b-legend').addEventListener('click',e=>{const sp=e.target.closest('[data-k]');if(!sp)return;const k=sp.dataset.k;B.hidden.has(k)?B.hidden.delete(k):B.hidden.add(k);renderBuckets();});
   }
   renderBuckets();

@@ -147,7 +147,7 @@ def main():
         d["rev"] = revenue(a, peers[a["company"]])
         drugs.append(d)
     pr = [dict(company=p["company"], name=p["name"], reached=p["reached"], outcome=p["outcome"], ta=p["ta"], approved=p["approved"],
-               y=int(p["first"]["1"][:4]) if p["first"]["1"] else None, st=p["started"], ha=p["halted"]) for p in progs if p["cohort"]]
+               y=int(p["first"]["1"][:4]) if p["first"]["1"] else None, st=p["started"], ha=p["halted"], cd=p["conds"], why=p["why"][:1]) for p in progs if p["cohort"]]
     counts = collections.Counter(d["company"] for d in drugs)
     cards = [card(c, [d for d in drugs if d["company"] == c], progs) for c, n in counts.items() if n >= 6 and c in BIG]
     cards.sort(key=lambda c: -c["approvals"])

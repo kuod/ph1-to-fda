@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+__pycache__/
+.cache/
+# large raw crawls, regenerate with tools/01..06
+data/trials_approved_raw.json
+data/trials_sponsors_raw.json
+data/approvals_raw.json
+data/approvals_enriched.json

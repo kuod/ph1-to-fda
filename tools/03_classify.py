@@ -58,7 +58,7 @@ def main():
             id=re.sub(r"[^a-z0-9]+", "-", r["brand"].lower()).strip("-"),
             brand=re.sub(r"\s*\(.*?\)", "", r["brand"]).strip(),
             ingredient=r["ingredient"], date=r["date"], year=int(r["date"][:4]),
-            sponsor=sp, company=parent(sp), use=clean_use(r["use"]), ta=TA_OVERRIDE.get(bid) or ta_of(r), modality=modality(r),
+            sponsor=sp, company=parent(sp), use=clean_use(r["use"] if len(r["use"]) > 12 else r["ingredient"].capitalize()), ta=TA_OVERRIDE.get(bid) or ta_of(r), modality=modality(r),
             priority=r.get("priority", ""), orphan=bool(r.get("orphan")), app=r.get("app", ""),
         ))
     # CBER products (cell and gene therapy, vaccines): same record shape, area and modality set by hand, no review-priority or orphan data
@@ -68,6 +68,8 @@ def main():
             bid = re.sub(r"[^a-z0-9]+", "-", r["brand"].lower()).strip("-")
             if r["cat"] == "Vaccine":
                 ta, mod = "Infectious disease", "Vaccine"
+            elif r["cat"] == "Blood product":
+                ta, mod = CBER_TA.get(bid) or "Hematology", "Blood / plasma product"
             else:
                 ta = CBER_TA.get(bid) or ta_of(dict(use=r["use"], epc=[], ingredient=r["ingredient"], label_ind=r["use"]))
                 mod = "Gene therapy" if bid in CBER_GENE else "Cell therapy"

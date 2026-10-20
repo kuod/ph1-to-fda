@@ -19,7 +19,7 @@ TA_PEAK = {"Oncology": 700, "Immunology": 1200, "Metabolic & Endocrine": 600, "N
            "Infectious disease": 300, "Hematology": 350, "Respiratory": 450, "Gastroenterology": 350, "Dermatology": 250,
            "Ophthalmology": 400, "Renal & Urology": 300, "Women's health": 200, "Musculoskeletal": 250, "Psychiatry": 400,
            "Pain & Anesthesia": 150, "Diagnostic imaging": 40, "Other": 150}
-MOD_MULT = {"Cell therapy": 0.9, "Gene therapy": 1.1, "Vaccine": 1.3, "Antibody / ADC": 1.3, "Protein / biologic": 1.1, "Oligonucleotide": 0.9, "Peptide": 1.0, "Radiopharmaceutical": 0.7, "Small molecule": 1.0}
+MOD_MULT = {"Blood / plasma product": 0.8, "Cell therapy": 0.9, "Gene therapy": 1.1, "Vaccine": 1.3, "Antibody / ADC": 1.3, "Protein / biologic": 1.1, "Oligonucleotide": 0.9, "Peptide": 1.0, "Radiopharmaceutical": 0.7, "Small molecule": 1.0}
 # Editorial peak-sales anchors ($M/yr, approximate, from public commentary) for clear outliers; everything else is purely modelled.
 ANCHOR = {"ozempic": 18000, "mounjaro": 20000, "dupixent": 16000, "skyrizi": 18000, "biktarvy": 14000, "trikafta": 12000, "rinvoq": 8000,
           "ocrevus": 7000, "vyndaqel": 6000, "verzenio": 5500, "imfinzi": 6000, "kisqali": 4500, "enhertu": 6000, "erleada": 3500,
@@ -37,7 +37,7 @@ ANCHOR = {"ozempic": 18000, "mounjaro": 20000, "dupixent": 16000, "skyrizi": 180
 ANCHOR.update({"comirnaty": 37000, "spikevax": 18000, "shingrix": 3800, "prevnar-20": 6000, "arexvy": 1500, "abrysvo": 1000, "capvaxive": 600,
                "kymriah": 600, "yescarta": 1500, "carvykti": 2000, "breyanzi": 1200, "abecma": 500, "tecartus": 450, "zolgensma": 1400,
                "luxturna": 80, "elevidys": 900, "hemgenix": 200, "casgevy": 400, "vyjuvek": 350, "adstiladrin": 300, "jynneos": 600,
-               "heplisav-b": 300, "vaxelis": 400, "penbraya": 300, "nuvaxovid": 900, "mnexspike": 300, "amtagvi": 300, "roctavian": 50})
+               "heplisav-b": 300, "vaxelis": 400, "altuviiio": 1500, "haegarda": 600, "xembify": 400, "panzyga": 400, "jivi": 300, "esperoct": 300, "rebinyn": 150, "andexxa": 150, "kedrab": 150, "penbraya": 300, "nuvaxovid": 900, "mnexspike": 300, "amtagvi": 300, "roctavian": 50})
 ANCHOR = {k: v for k, v in ANCHOR.items() if v}
 SHAPE = {"comirnaty": [1.0, 0.55, 0.22, 0.14, 0.12, 0.1, 0.1, 0.1, 0.1, 0.1], "spikevax": [1.0, 0.4, 0.15, 0.12, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
          "paxlovid": [0.95, 0.9, 0.8, 0.7, 0.6, 0.55, 0.5, 0.45, 0.4, 0.35],

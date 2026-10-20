@@ -33,6 +33,10 @@ PARENTS = [
     (r"EMD SERONO|MERCK KGAA|MERCK KGA", "Merck KGaA"),
     (r"BEONE|BEIGENE", "BeOne Medicines"),
     (r"^MODERNA", "Moderna"),
+    (r"OCTAPHARMA", "Octapharma"),
+    (r"^CSL", "CSL Behring"),
+    (r"^GC\b|GC BIOPHARMA", "GC Biopharma"),
+    (r"^LFB", "LFB"),
     (r"BIONTECH", "BioNTech"),
     (r"IONIS|AKCEA", "Ionis"),
     (r"TEVA|ACTAVIS", "Teva"),
@@ -185,6 +189,11 @@ CBER_TA = {
     "adstiladrin": "Oncology", "kymriah": "Oncology", "tecartus": "Oncology", "breyanzi": "Oncology", "aucatzyl": "Oncology", "yescarta": "Oncology", "abecma": "Oncology", "carvykti": "Oncology", "amtagvi": "Oncology", "tecelra": "Oncology", "rethymic": "Immunology", "waskyra": "Immunology",
     "ryoncil": "Immunology", "lantidra": "Metabolic & Endocrine", "genglycos": "Metabolic & Endocrine",
     "symvess": "Cardiovascular", "papzimeos": "Respiratory",
+    # blood and plasma products
+    "rebinyn": "Hematology", "fibryga": "Hematology", "andexxa": "Hematology", "jivi": "Hematology", "esperoct": "Hematology",
+    "sevenfact": "Hematology", "ryplazim": "Hematology", "altuviiio": "Hematology", "balfaxar": "Hematology", "fesilty": "Hematology",
+    "haegarda": "Immunology", "panzyga": "Immunology", "cutaquig": "Immunology", "asceniv": "Immunology", "xembify": "Immunology",
+    "alyglo": "Immunology", "kedrab": "Infectious disease",
 }
 CBER_GENE = {"luxturna", "zolgensma", "itvisma", "elevidys", "skysona", "lenmeldy", "kebilidi", "otarmeni", "hemgenix", "roctavian", "beqvez",
              "zynteglo", "lyfgenia", "casgevy", "vyjuvek", "zevaskyn", "adstiladrin", "waskyra", "fayuvi", "genglycos", "papzimeos", "encelto"}

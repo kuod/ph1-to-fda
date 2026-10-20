@@ -11,6 +11,50 @@
   "letters": 3
  },
  {
+  "path": "/vaccines-blood-biologics/approved-blood-products/rebinyn",
+  "cat": "Blood product",
+  "brand": "Rebinyn",
+  "ingredient": "coagulation factor ix (recombinant), glycopegylated",
+  "date": "2017-05-31",
+  "sponsor": "Novo Nordisk Inc.",
+  "use": "Is a recombinant DNA-derived coagulation Factor IX concentrate indicated for use in adults and children with hemophilia B for: (1) On-demand treatment and control of bleeding episodes; (2) Perioperative management of bleeding.",
+  "stn": "125611",
+  "letters": 1
+ },
+ {
+  "path": "/vaccines-blood-biologics/approved-blood-products/fibryga",
+  "cat": "Blood product",
+  "brand": "Fibryga",
+  "ingredient": "fibrinogen (human)",
+  "date": "2017-06-07",
+  "sponsor": "OCTAPHARMA Pharmazeutika Produktionsges.m.b.H.",
+  "use": "FIBRYGA is a human fibrinogen concentrate indicated for:",
+  "stn": "",
+  "letters": 4
+ },
+ {
+  "path": "/vaccines-blood-biologics/approved-blood-products/haegarda",
+  "cat": "Blood product",
+  "brand": "Haegarda",
+  "ingredient": "c1 esterase inhibitor (human)",
+  "date": "2017-06-22",
+  "sponsor": "CSL Behring GmbH",
+  "use": "For the routine prophylaxis to prevent Hereditary Angioedema (HAE) attacks in adolescent and adult patients.",
+  "stn": "BL 125606",
+  "letters": 1
+ },
+ {
+  "path": "/vaccines-blood-biologics/approved-blood-products/kedrab",
+  "cat": "Blood product",
+  "brand": "Kedrab",
+  "ingredient": "rabies immune globulin (human)",
+  "date": "2017-08-23",
+  "sponsor": "Kamada Ltd.",
+  "use": "",
+  "stn": "125613",
+  "letters": 2
+ },
+ {
   "path": "/vaccines-blood-biologics/cellular-gene-therapy-products/kymriah",
   "cat": "Cell or gene therapy",
   "brand": "Kymriah",
@@ -66,6 +110,17 @@
   "letters": 2
  },
  {
+  "path": null,
+  "cat": "Blood product",
+  "brand": "Andexxa",
+  "ingredient": "coagulation factor xa (recombinant), inactivated-zhzo",
+  "date": "2018-05-03",
+  "sponsor": "Portola Pharmaceuticals, Inc.",
+  "use": "Reversal of anticoagulation with rivaroxaban or apixaban in life-threatening or uncontrolled bleeding",
+  "stn": "",
+  "letters": 0
+ },
+ {
   "path": "/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-md-anderson-cord-blood-bank",
   "cat": "Cell or gene therapy",
   "brand": "HPC, Cord Blood - MD Anderson Cord Blood Bank",
@@ -77,6 +132,39 @@
   "letters": 1
  },
  {
+  "path": "/vaccines-blood-biologics/approved-blood-products/panzyga",
+  "cat": "Blood product",
+  "brand": "Panzyga",
+  "ingredient": "immune globulin intravenous (human)-ifas",
+  "date": "2018-08-02",
+  "sponsor": "Octapharma Pharmazeutika Produktionsges.m.b.H",
+  "use": "Indication",
+  "stn": "125587",
+  "letters": 2
+ },
+ {
+  "path": "/vaccines-blood-biologics/jivi",
+  "cat": "Blood product",
+  "brand": "Jivi",
+  "ingredient": "antihemophilic factor (recombinant), pegylated-aucl",
+  "date": "2018-08-29",
+  "sponsor": "Bayer Healthcare, Inc",
+  "use": "",
+  "stn": "BL 125661",
+  "letters": 2
+ },
+ {
+  "path": "/vaccines-blood-biologics/cutaquig",
+  "cat": "Blood product",
+  "brand": "Cutaquig",
+  "ingredient": "immune globulin subcutaneous (human) -hipp, 16.5%",
+  "date": "2018-12-12",
+  "sponsor": "OCTAPHARMA Pharmazeutika Produktionsges.m.b.H.",
+  "use": "CUTAQUIG (Immune Globulin Subcutaneous (Human) - hipp) is a 16.5% immune globulin solution for subcutaneous infusion indicated for treatment of primary humoral immunodeficiency (PI) in adults and Pediatric patients 2 years of age and older.",
+  "stn": "",
+  "letters": 2
+ },
+ {
   "path": "/vaccines-blood-biologics/vaxelis",
   "cat": "Vaccine",
   "brand": "Vaxelis",
@@ -86,6 +174,28 @@
   "use": "VAXELIS is a vaccine indicated for active immunization to prevent diphtheria, tetanus, pertussis, poliomyelitis, hepatitis B, and invasive disease due to",
   "stn": "125563",
   "letters": 7
+ },
+ {
+  "path": "/vaccines-blood-biologics/esperoct",
+  "cat": "Blood product",
+  "brand": "Esperoct",
+  "ingredient": "antihemophilic factor (recombinant), glycopegylated-exei",
+  "date": "2019-02-19",
+  "sponsor": "Novo Nordisk, Inc.",
+  "use": "",
+  "stn": "BL 125671",
+  "letters": 2
+ },
+ {
+  "path": "/vaccines-blood-biologics/asceniv",
+  "cat": "Blood product",
+  "brand": "Asceniv",
+  "ingredient": "immune globulin intravenous, human-slra, 10% liquid",
+  "date": "2019-04-01",
+  "sponsor": "ADMA Biologics, Inc.",
+  "use": "For the treatment of primary humoral immunodeficiency (PI) in adults and adolescents (12 to 17 years of age).",
+  "stn": "125590",
+  "letters": 6
  },
  {
   "path": "/vaccines-blood-biologics/dengvaxia",
@@ -108,6 +218,17 @@
   "use": "",
   "stn": "125694",
   "letters": 9
+ },
+ {
+  "path": "/vaccines-blood-biologics/xembify",
+  "cat": "Blood product",
+  "brand": "Xembify",
+  "ingredient": "xembify",
+  "date": "2019-07-03",
+  "sponsor": "Grifols Therapeutics LLC",
+  "use": "Primary humoral immunodeficiency in patients 2 years and older",
+  "stn": "",
+  "letters": 2
  },
  {
   "path": "/vaccines-blood-biologics/jynneos",
@@ -141,6 +262,17 @@
   "use": "",
   "stn": "125692",
   "letters": 4
+ },
+ {
+  "path": "/vaccines-blood-biologics/sevenfact",
+  "cat": "Blood product",
+  "brand": "Sevenfact",
+  "ingredient": "coagulation factor viia (recombinant)-jncw",
+  "date": "2020-04-01",
+  "sponsor": "LFB S.A.",
+  "use": "",
+  "stn": "",
+  "letters": 3
  },
  {
   "path": "/vaccines-blood-biologics/menquadfi",
@@ -185,6 +317,17 @@
   "use": "Treatment of adult patients with relapsed or refractory multiple myeloma after two or more prior lines of therapy including an immunomodulatory agent, a proteasome inhibitor, and an anti-CD38 monoclonal antibody.",
   "stn": "BLA 125736",
   "letters": 5
+ },
+ {
+  "path": "/vaccines-blood-biologics/ryplazim",
+  "cat": "Blood product",
+  "brand": "Ryplazim",
+  "ingredient": "plasminogen, human-tvmh",
+  "date": "2021-06-04",
+  "sponsor": "Prometic Biotherapeutics Inc.",
+  "use": "",
+  "stn": "125659",
+  "letters": 2
  },
  {
   "path": "/vaccines-blood-biologics/vaccines/prevnar-20",
@@ -341,6 +484,17 @@
   "letters": 5
  },
  {
+  "path": "/vaccines-blood-biologics/altuviiio",
+  "cat": "Blood product",
+  "brand": "Altuviiio",
+  "ingredient": "efanesoctocog alfa (antihemophilic factor recombinant, fc-vwf-xten fusion protein)",
+  "date": "2023-02-22",
+  "sponsor": "Bioverativ Therapeutics Inc.",
+  "use": "ALTUVIIIO [antihemophilic factor (recombinant), Fc-VWF-XTEN fusion protein-ehtl] is a recombinant DNA-derived, Factor VIII concentrate indicated for use in adults and children with hemophilia A (congenital factor VIII deficiency) for:",
+  "stn": "125771",
+  "letters": 4
+ },
+ {
   "path": "/vaccines-blood-biologics/omisirge",
   "cat": "Cell or gene therapy",
   "brand": "Omisirge",
@@ -429,6 +583,17 @@
   "letters": 2
  },
  {
+  "path": "/vaccines-blood-biologics/balfaxar",
+  "cat": "Blood product",
+  "brand": "Balfaxar",
+  "ingredient": "prothrombin complex concentrate, human-lans",
+  "date": "2023-07-21",
+  "sponsor": "Octapharma Pharmazeutika Produktiosges.m.b.H.",
+  "use": "",
+  "stn": "125776",
+  "letters": 1
+ },
+ {
   "path": "/vaccines-blood-biologics/vaccines/penbraya",
   "cat": "Vaccine",
   "brand": "Penbraya",
@@ -471,6 +636,17 @@
   "use": "",
   "stn": "125788",
   "letters": 1
+ },
+ {
+  "path": "/vaccines-blood-biologics/approved-blood-products/alyglo",
+  "cat": "Blood product",
+  "brand": "Alyglo",
+  "ingredient": "immune globulin intravenous, human-stwk",
+  "date": "2023-12-15",
+  "sponsor": "GC Biopharma Corp.",
+  "use": "",
+  "stn": "125743",
+  "letters": 2
  },
  {
   "path": null,
@@ -690,6 +866,17 @@
   "sponsor": "Fondazione Telethon ETS",
   "use": "",
   "stn": "BLA 125846",
+  "letters": 1
+ },
+ {
+  "path": "/vaccines-blood-biologics/fesilty",
+  "cat": "Blood product",
+  "brand": "Fesilty",
+  "ingredient": "fibrinogen, human\u2013chmt",
+  "date": "2025-12-16",
+  "sponsor": "Grifols Therapeutics, Inc.",
+  "use": "",
+  "stn": "BLA 125833",
   "letters": 1
  },
  {

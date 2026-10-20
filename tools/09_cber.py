@@ -69,14 +69,26 @@ def page(path):
         except ValueError:
             pass
     ind = re.search(r"Indications?\s*\n(.+)", txt)
-    return dict(stn=field("STN"), proper=field("Proper Name"), trade=field("Tradename"), mfr=field("Manufacturer"),
+    return dict(stn=field("STN"), proper=field("Proper Name"), trade=field("Tradename"), mfr=re.sub(r"Indications?$", "", field("Manufacturer")).strip(),
                 use=(ind.group(1).strip() if ind else ""), first=min(dates).isoformat() if dates else None, n_letters=len(dates))
 
+
+# Blood and plasma products (therapeutic proteins and immune globulins). Brands sharing an old active (albumin, fibrin sealants, hemostats)
+# and diagnostics are left out. Dates match the earliest letter on the FDA page except Haegarda and Andexxa, whose pages are missing or
+# only show a later supplement.
+BLOOD = {"Rebinyn": "2017-05-31", "Fibryga": "2017-06-07", "Haegarda": "2017-06-22", "Kedrab": "2017-08-23", "Andexxa": "2018-05-03",
+         "Panzyga": "2018-08-02", "Jivi": "2018-08-29", "Cutaquig": "2018-12-12", "Esperoct": "2019-02-19", "Asceniv": "2019-04-01",
+         "Xembify": "2019-07-03", "Sevenfact": "2020-04-01", "Ryplazim": "2021-06-04", "Altuviiio": "2023-02-22", "Balfaxar": "2023-07-21",
+         "Alyglo": "2023-12-15", "Fesilty": "2025-12-16"}
+CURATED.update(BLOOD)
+SLUG = {"Haegarda": "haegarda", "Xembify": "xembify"}
 
 # Pages that do not parse cleanly: metadata typed in from the FDA pages.
 FALLBACK = {
     "Ixchiq": ("chikungunya vaccine, live", "Valneva Austria GmbH", "Prevention of disease caused by chikungunya virus in people 18 years and older", ""),
     "Amtagvi": ("lifileucel", "Iovance Biotherapeutics, Inc.", "Unresectable or metastatic melanoma previously treated with a PD-1 blocking antibody", ""),
+    "Andexxa": ("coagulation factor xa (recombinant), inactivated-zhzo", "Portola Pharmaceuticals, Inc.", "Reversal of anticoagulation with rivaroxaban or apixaban in life-threatening or uncontrolled bleeding", ""),
+    "Xembify": ("immune globulin subcutaneous (human), 20%", "Grifols Therapeutics LLC", "Primary humoral immunodeficiency in patients 2 years and older", ""),
     "Lenmeldy": ("atidarsagene autotemcel", "Orchard Therapeutics (Europe) Limited", "Metachromatic leukodystrophy (MLD) in children", "BL 125758"),
 }
 VACCINES = {"Shingrix", "Heplisav-B", "Vaxelis", "Dengvaxia", "Jynneos", "Ervebo", "Audenz", "MenQuadfi", "Prevnar 20", "Vaxneuvance", "Ticovac", "Comirnaty", "Prehevbrio", "Spikevax", "Priorix", "Arexvy", "Abrysvo", "Cyfendus", "Penbraya", "Ixchiq", "Mresvia", "Capvaxive", "Vimkunya", "Penmenvy", "Nuvaxovid", "Mnexspike"}
@@ -93,6 +105,18 @@ def main():
     print(len(cand), "candidate pages")
     with cf.ThreadPoolExecutor(6) as ex:
         res = list(ex.map(lambda h: page(h), cand))
+    for name in BLOOD:
+        for pre in ("/vaccines-blood-biologics/", "/vaccines-blood-biologics/approved-blood-products/", "/vaccines-blood-biologics/blood-blood-products/"):
+            h = pre + SLUG.get(name, name.lower())
+            try:
+                pg = page(h)
+            except Exception:
+                pg = None
+            if pg and pg["trade"]:
+                cand.setdefault(h, ("Blood product", name))
+                res.append(pg) if False else None
+                break
+    res = [page(h) for h in cand] if len(res) != len(cand) else res
     by = {}
     norm = lambda x: re.sub(r"[^a-z0-9]", "", x.lower())
     for (h, (cat, t)), p in zip(cand.items(), res):
@@ -119,6 +143,8 @@ def main():
                 p = dict(p, mfr=p["mfr"] or mf, use=p["use"] if len(p["use"]) > 5 else us, proper=p["proper"] or pr, stn=p["stn"] or stn)
             if p["first"] and abs((dt.date.fromisoformat(p["first"]) - dt.date.fromisoformat(d)).days) > 10 and dt.date.fromisoformat(p["first"]) < dt.date.fromisoformat(d):
                 print("date check:", name, "curated", d, "page earliest letter", p["first"])
+        if name in BLOOD:
+            cat = "Blood product"
         if not cat:
             cat = "Vaccine" if name in VACCINES else "Cell or gene therapy"
         rows.append(dict(path=h, cat=cat, brand=name, ingredient=(p["proper"].lower() if p else ""), date=d,

@@ -18,8 +18,8 @@ FROM, TO = "2008-01-01", "2018-12-31"
 
 SPONSORS = {
     "Pfizer": ["Pfizer", "Wyeth", "Seagen", "Array BioPharma", "Medivation", "Arena Pharmaceuticals", "Biohaven", "Global Blood Therapeutics"],
-    "Merck & Co.": ["Merck Sharp & Dohme", "Schering-Plough", "Organon", "Acceleron"],
-    "Novartis": ["Novartis", "Alcon", "Avexis", "Endocyte"],
+    "Merck & Co.": ["Merck Sharp & Dohme", "Schering-Plough", "Acceleron"],
+    "Novartis": ["Novartis", "Avexis", "Endocyte"],
     "Roche": ["Hoffmann-La Roche", "Genentech", "Chugai", "Spark Therapeutics"],
     "AstraZeneca": ["AstraZeneca", "MedImmune", "Alexion", "Acerta Pharma"],
     "GSK": ["GlaxoSmithKline", "Tesaro", "ViiV Healthcare"],
@@ -28,7 +28,7 @@ SPONSORS = {
     "Bristol Myers Squibb": ["Bristol-Myers Squibb", "Celgene", "Juno Therapeutics", "Mirati Therapeutics", "MyoKardia"],
     "Johnson & Johnson": ["Janssen", "Actelion", "Johnson & Johnson"],
     "AbbVie": ["AbbVie", "Allergan", "Pharmacyclics", "Cerevel", "ImmunoGen"],
-    "Amgen": ["Amgen", "Horizon Pharma", "ChemoCentryx"],
+    "Amgen": ["Amgen", "Horizon Pharma", "ChemoCentryx", "Five Prime Therapeutics"],
     "Takeda": ["Takeda", "Shire", "Millennium Pharmaceuticals", "Baxalta"],
     "Gilead Sciences": ["Gilead Sciences", "Kite, A Gilead Company", "Immunomedics"],
     "Bayer": ["Bayer"],
@@ -41,9 +41,8 @@ SPONSORS = {
     "Biogen": ["Biogen"],
     "Eisai": ["Eisai"],
     "UCB": ["UCB Biopharma", "Zogenix"],
-    "Otsuka": ["Otsuka Pharmaceutical", "Lundbeck"],
+    "Otsuka": ["Otsuka Pharmaceutical"],
     "Merck KGaA": ["EMD Serono", "Merck KGaA"],
-    "Servier": ["Servier", "Institut de Recherches Internationales Servier"],
 }
 
 

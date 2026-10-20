@@ -1,5 +1,5 @@
 """Shared helpers: cached HTTP GETs so the pipeline is re-runnable and polite."""
-import hashlib, json, os, time, requests
+import hashlib, json, os, re, time, requests
 
 CACHE = os.environ.get("EASY_AS_CACHE", os.path.join(os.path.dirname(__file__), "..", ".cache"))
 os.makedirs(CACHE, exist_ok=True)
@@ -54,10 +54,21 @@ _MKT = {}
 
 
 def marketed_before(word, cutoff="20161021"):
-    """True if an NDA/BLA for this active ingredient was approved before the window opened."""
+    """True if an NDA/BLA with this active ingredient (or brand) was approved before the window opened.
+    Ingredient search uses a stem wildcard so salt/ester names still match (isavuconazole ~ isavuconazonium)."""
+    word = re.sub(r"[^A-Za-z]", "", word)
+    if len(word) < 6:
+        return False
     if word not in _MKT:
-        d = get_json("https://api.fda.gov/drug/drugsfda.json", {"search": f'products.active_ingredients.name:"{word.upper()}"', "limit": 100})
-        dates = [s["submission_status_date"] for a in d.get("results", []) for s in a.get("submissions", [])
-                 if s["submission_type"] == "ORIG" and s["submission_status"] == "AP" and a["application_number"][:3] in ("NDA", "BLA")]
-        _MKT[word] = bool(dates) and min(dates) < cutoff
+        stem = word.upper()[: max(7, len(word) - 3)]
+        hit = False
+        for q in (f'products.active_ingredients.name:{stem}*', f'products.brand_name:"{word.upper()}"'):
+            try:
+                d = get_json("https://api.fda.gov/drug/drugsfda.json", {"search": q, "limit": 100})
+            except RuntimeError:
+                continue
+            dates = [s["submission_status_date"] for a in d.get("results", []) for s in a.get("submissions", [])
+                     if s["submission_type"] == "ORIG" and s["submission_status"] == "AP" and a["application_number"][:3] in ("NDA", "BLA")]
+            hit = hit or (bool(dates) and min(dates) < cutoff)
+        _MKT[word] = hit
     return _MKT[word]

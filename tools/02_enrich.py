@@ -33,7 +33,10 @@ def label(brand, ingredient=""):
     if ing:
         tries += [f'openfda.generic_name:"{ing}"', f'openfda.substance_name:"{ing.upper()}"']
     for q in tries:
-        d = get_json(LB, {"search": q, "limit": 1})
+        try:
+            d = get_json(LB, {"search": q, "limit": 1})
+        except RuntimeError:  # odd brand strings (e.g. "IDKIT:HP") are rejected by openFDA's query parser
+            continue
         if d.get("results") and d["results"][0].get("indications_and_usage"):
             r = d["results"][0]
             break
@@ -44,9 +47,10 @@ def label(brand, ingredient=""):
 def main():
     raw = json.load(open(os.path.join(D, "approvals_raw.json")))
     seen, rows = set(), []
+    NOT_NOVEL = {"nexlizet"}  # Type 1/4 combo of an already-counted NME (bempedoic acid) plus ezetimibe; not on CDER's list
     for r in sorted(raw, key=lambda r: r["date"]):
-        key = r["ingredient"].split(",")[0].lower().split(" ")[0] if r["src"] != "fda-novel-list" else r["ingredient"].lower()
-        if key in seen:
+        key = r["ingredient"].lower()  # same-day twin NDAs (e.g. UCLA and UCSF Ga-68 gozetotide) share the full ingredient string
+        if key in seen or clean_brand(r["brand"]).lower() in NOT_NOVEL:
             continue
         seen.add(key)
         rows.append(r)

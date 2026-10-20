@@ -24,7 +24,8 @@ def official(year):
         if len(c) < 5:
             continue
         m, d, y = c[3].split("/")
-        out.append(dict(brand=c[1], ingredient=c[2], date=dt.date(int(y), int(m), int(d)).isoformat(),
+        y = int(y) + 2000 if int(y) < 100 else int(y)  # FDA's 2022 table has Tzield as 11/18/0022
+        out.append(dict(brand=c[1], ingredient=c[2], date=dt.date(y, int(m), int(d)).isoformat(),
                         use=re.sub(r"\s*Drug Trials Snapshot.*$", "", c[4]).strip(), src="fda-novel-list"))
     return out
 

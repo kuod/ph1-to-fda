@@ -10,9 +10,13 @@ Live page: https://kuod.github.io/ph1-to-fda/
 
 **Funnel** — Alluvial of drug programs that entered Phase 1 in 2009–2018 at 26 large sponsors, flowing through Phase 2, Phase 3 and FDA approval, with halted, stalled and still-active branches. Colour by outcome, company or therapeutic area; filter by company, area and start year; click a column to list its programs. Below it, studies started vs halted per phase.
 
-**Baseball Cards** — Hit rate and Phase 1 / 2 / 3 pass rates for each of the 17 sponsors with six or more approvals, plus approvals per year, median years from first registered start to approval, orphan share and top estimated earner. Cards built on fewer than 50 programs are flagged.
+**Baseball Cards** — Hit rate and Phase 1 / 2 / 3 pass rates for each of the 16 sponsors with six or more approvals, plus approvals per year, median years from first registered start to approval, orphan share and top estimated earner. Cards built on fewer than 50 programs are flagged.
 
-**Approvals** — Searchable, sortable table of all approvals. Each row expands to a development timeline, studies started and halted per phase (with the stated reasons and links to ClinicalTrials.gov) and the modelled sales curve. CSV download.
+**Approvals** — Searchable, sortable table of all approvals. Each row expands to a development timeline, studies started and halted per phase (with the stated reasons and links to ClinicalTrials.gov) and the modelled sales curve. CSV download. A toggle adds drugs first approved earlier that won a new indication (efficacy supplement) in the window.
+
+**Product Pipelines** — Ranks products by efficacy supplements approved in the window; pick one for an approval timeline and a table of the conditions its Phase 1–3 studies cover, with active and halted counts.
+
+**Buckets** — Interactive scatter of first-time approvals by approvals since launch (one and done, one then a few, one then many, franchise) against modelled sales. Switch the y metric, log/linear, filter by area or company, pin a drug.
 
 **Revenue y1–y10** — Modelled net sales by year since approval, stacked by company, area, drug type or approval year, with a low–high band, and the largest estimated earners.
 
@@ -31,10 +35,11 @@ No build step for the site: `index.html` plus `data.js` and two vendored librari
 | 5 | `05_trials_sponsors.py` | All Phase 1–3 industry studies 2008–2018 for 26 large sponsors |
 | 6 | `06_programs.py` | Group studies into programs; outcome per program |
 | 7 | `07_build.py` | Revenue model, company cards, `data.js` |
+| 8 | `08_expansions.py` | Efficacy supplements per product, earlier-approved drugs with new indications, per-condition pipelines for the busiest products (run before 07) |
 
 ```sh
 pip install -r requirements.txt
-for s in tools/0[1-7]_*.py; do python3 "$s"; done   # re-fetches everything; responses are cached in .cache/
+for s in 01 02 03 04 05 06 08 07; do python3 tools/${s}_*.py; done   # re-fetches everything; responses are cached in .cache/
 python3 -m http.server                               # then open http://localhost:8000
 node tools/check-scripts.js && node tools/check-data.js
 ```
@@ -44,7 +49,7 @@ Large raw crawls (`data/trials_*_raw.json`) are not committed; the pipeline rege
 ## Read this before quoting a number
 
 - **Revenue is modelled, not reported.** Central peak sales come from therapeutic-area medians with modifiers for orphan status, drug type, review priority and sponsor scale, with editorial peaks for about seventy well-known drugs. Years 1–10 follow an S-curve. Bands are 0.35×–2.6×.
-- **Funnel rates are descriptive.** A program is identified from ClinicalTrials.gov intervention records, so how many failures a company shows depends on how it labels studies. Thin samples lean toward winners, and renamed assets can look like Phase 1 failures. Company comparisons are indicative only. Details are on the page's Method tab.
+- **Funnel rates are descriptive and probably flattering.** Pooled, they read 41% / 49% / 66% for the three phases and 13% overall against rough industry benchmarks of 52% / 29% / 58% and 8%, because failures that cannot be identified go uncounted. A program is identified from ClinicalTrials.gov intervention records, so how many failures a company shows depends on how it labels studies. Thin samples lean toward winners, and renamed assets can look like Phase 1 failures. Company comparisons are indicative only. Details are on the page's Method tab.
 - **Scope.** CDER novel approvals only; CBER products (vaccines, gene and cell therapies) are excluded. Phase 1 is often unregistered, so some approved drugs show none.
 
 ## Sources

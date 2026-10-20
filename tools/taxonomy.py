@@ -4,20 +4,20 @@ import re
 # (regex on openFDA sponsor_name, parent as of Oct 2026). First match wins.
 PARENTS = [
     (r"PFIZER|WYETH|SEAGEN|SEATTLE GEN|ARRAY BIO|MEDIVATION|ARENA PHARM|BIOHAVEN|GLOBAL BLOOD|HOSPIRA", "Pfizer"),
-    (r"MERCK SHARP|^MSD|MSD MERCK|SCHERING|ORGANON|^MERCK AND CO|MERCK CO|ACCELERON|PROMETHEUS", "Merck & Co."),
+    (r"MERCK SHARP|^MSD\b|MSD MERCK|SCHERING|^MERCK AND CO|MERCK CO\b|ACCELERON|PROMETHEUS", "Merck & Co."),
     (r"NOVARTIS|^AAA\b|ADVANCED ACCELERATOR|AVEXIS|ENDOCYTE|CHINOOK|TOURMALINE", "Novartis"),
     (r"GENENTECH|HOFFMANN|ROCHE|CHUGAI|SPARK THERAP|FOUNDATION MEDICINE|89BIO", "Roche"),
     (r"ASTRAZENECA|ALEXION|MEDIMMUNE|PORTOLA|ACERTA|ZS PHARMA|AMPLIMMUNE|FUSION PHARM", "AstraZeneca"),
     (r"GLAXOSMITHKLINE|^GSK|TESARO|VIIV|BELLUS", "GSK"),
     (r"SANOFI|GENZYME|ABLYNX|PRINCIPIA|BIOVERATIV|KYMAB|PROVENTION|AVENTIS", "Sanofi"),
-    (r"ELI LILLY|LILLY|LOXO|DICE|MORPHIC|POSEIDA|SIGILON|VERVE", "Eli Lilly"),
-    (r"BRISTOL|CELGENE|JUNO|MIRATI|KARUNA|TURNING POINT|RAYZEBIO|MYOKARDIA|FIVE PRIME|FOREBIO|CELLULAR BIO|ORIC|BMS", "Bristol Myers Squibb"),
-    (r"JANSSEN|JOHNSON|ACTELION|MOMENTA|INTRA.?CELLULAR|ABIOMED|ARAGON|XENCOR|CILAG", "Johnson & Johnson"),
-    (r"ABBVIE|ALLERGAN|PHARMACYCLICS|CEREVEL|IMMUNOGEN|STEMCENTRX|AERIE|ELEVEN BIO", "AbbVie"),
-    (r"AMGEN|HORIZON|CHEMOCENTRYX|ONYX|KAI PHARM", "Amgen"),
-    (r"TAKEDA|SHIRE|MILLENNIUM|BAXALTA|NIMBUS|MARATHON|TIGENIX|ARIAD", "Takeda"),
+    (r"ELI LILLY|\bLILLY\b|LOXO|\bDICE\b|MORPHIC|POSEIDA|SIGILON|\bVERVE\b", "Eli Lilly"),
+    (r"BRISTOL|CELGENE|\bJUNO\b|MIRATI|KARUNA|TURNING POINT|RAYZEBIO|MYOKARDIA|\bBMS\b", "Bristol Myers Squibb"),
+    (r"JANSSEN|JOHNSON|ACTELION|MOMENTA|INTRA.?CELLULAR|ABIOMED|ARAGON|CILAG", "Johnson & Johnson"),
+    (r"ABBVIE|ALLERGAN|PHARMACYCLICS|CEREVEL|IMMUNOGEN|STEMCENTRX", "AbbVie"),
+    (r"AMGEN|HORIZON THERAP|HORIZON PHARMA|CHEMOCENTRYX|ONYX|KAI PHARM|FIVE PRIME", "Amgen"),
+    (r"TAKEDA|SHIRE|MILLENNIUM|BAXALTA|NIMBUS|TIGENIX|ARIAD", "Takeda"),
     (r"GILEAD|KITE|IMMUNOMEDICS|FORTY SEVEN|CYMABAY|TIZONA", "Gilead Sciences"),
-    (r"NOVO", "Novo Nordisk"),
+    (r"NOVO NORDISK|^NOVO\b", "Novo Nordisk"),
     (r"BAYER|ASKBIO", "Bayer"),
     (r"BOEHRINGER", "Boehringer Ingelheim"),
     (r"REGENERON", "Regeneron"),
@@ -26,28 +26,31 @@ PARENTS = [
     (r"DAIICHI", "Daiichi Sankyo"),
     (r"BIOGEN|REATA|HI BIO", "Biogen"),
     (r"EISAI", "Eisai"),
-    (r"OTSUKA|LUNDBECK|AVANIR|ASTEX|VISTAGEN", "Otsuka"),
-    (r"UCB|ZOGENIX|RA PHARM", "UCB"),
-    (r"SUMITOMO|SUNOVION|MYOVANT|URO?VANT|DAINIPPON|SUMITOMO DAI", "Sumitomo Pharma"),
-    (r"KYOWA|ARDELYX|ORCHARD", "Kyowa Kirin"),
+    (r"OTSUKA|AVANIR|ASTEX", "Otsuka"),
+    (r"\bUCB\b|ZOGENIX|\bRA PHARM", "UCB"),
+    (r"SUMITOMO|SUNOVION|MYOVANT|URO?VANT|DAINIPPON", "Sumitomo Pharma"),
+    (r"KYOWA|ORCHARD THERAP", "Kyowa Kirin"),
     (r"EMD SERONO|MERCK KGAA|MERCK KGA", "Merck KGaA"),
     (r"BEONE|BEIGENE", "BeOne Medicines"),
     (r"IONIS|AKCEA", "Ionis"),
     (r"TEVA|ACTAVIS", "Teva"),
-    (r"SERVIER|AGIOS", "Servier"),
-    (r"ALCON|NOVARTIS ALCON", "Alcon"),
-    (r"LEO PHARMA|CELLTRION", "LEO Pharma"),
+    (r"^SERVIER", "Servier"),
+    (r"ALCON|AERIE", "Alcon"),
+    (r"LEO PHARMA", "LEO Pharma"),
     (r"VIATRIS|MYLAN", "Viatris"),
-    (r"BAUSCH|VALEANT|SALIX|BAUSCH HLTH", "Bausch Health"),
-    (r"DR REDDY|SUN PHARMA|CIPLA|LUPIN", "Indian generics"),
+    (r"BAUSCH|VALEANT|SALIX", "Bausch Health"),
 ]
 SHORT = {"Bristol Myers Squibb": "BMS", "Johnson & Johnson": "J&J"}
 
 
+GENERIC = r"\b(INC|LLC|CORP|CORPORATION|LTD|LIMITED|LP|CO|COMPANY|SA|SPA|AB|AG|AS|A/S|GMBH|BV|NV|THERAPS?|THERAPEUTICS?|PHARMS?|PHARMACEUTICALS?|PHARMA|BIOPHARMA|BIOTECH|BIOSCIENCES?|HLTHCARE|HEALTHCARE|HLTH|LABS?|LABORATORIES|USA|US|AMERICA|MEDICINES?|FARMACEUTICI|TX|IRELAND|MALTA|LUXEMBOURG|UK|DIV|DIVISION)\b"
+
+
 def title(s):
-    s = re.sub(r"\b(INC|LLC|CORP|LTD|LP|CO|THERAPS?|THERAP|PHARMS?|PHARMACEUTICALS?|HLTHCARE|USA|US|AMERICA)\b\.?", "", s.upper())
-    s = re.sub(r"\s+", " ", s).strip(" ,.")
-    return s.title().replace("Pharm", "Pharma") if s else "Unknown"
+    s = re.sub(r"[,.]", " ", s.upper())
+    s = re.sub(GENERIC, " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s.title() if s else "Unknown"
 
 
 def parent(sponsor):
@@ -102,6 +105,68 @@ TA_OVERRIDE = {
     "brineura": "Neurology", "polivy": "Oncology", "padcev": "Oncology", "bylvay": "Gastroenterology", "lamzede": "Metabolic & Endocrine",
     "skyclarys": "Neurology", "litfulo": "Dermatology", "zelsuvmi": "Dermatology", "miplyffa": "Neurology", "iomervu": "Diagnostic imaging",
     "tryngolza": "Metabolic & Endocrine", "nuzolvence": "Infectious disease", "danyelza": "Oncology", "lutathera": "Oncology",
-    "givlaari": "Metabolic & Endocrine",
+    "givlaari": "Metabolic & Endocrine",     "xenpozyme": "Metabolic & Endocrine", "xdemvy": "Ophthalmology", "xolremdi": "Immunology", "voquezna": "Gastroenterology",
+    "inqovi": "Oncology", "lumvoa": "Ophthalmology", "scenesse": "Dermatology", "lisraya": "Immunology", "seysara": "Dermatology",
+    "symproic": "Gastroenterology", "lucemyra": "Psychiatry", "exem-foam-kit": "Diagnostic imaging", "brexafemme": "Infectious disease",
+    "vivjoa": "Infectious disease", "byfavo": "Pain & Anesthesia", "imfinzi": "Oncology", "pluvicto": "Oncology",
+    "crenessity": "Metabolic & Endocrine", "defencath": "Infectious disease", "zaynich": "Infectious disease", "utebzi": "Infectious disease",
+    "jesduvroq": "Hematology", "xenoview": "Diagnostic imaging", "attruby": "Cardiovascular",
+    "tzield": "Metabolic & Endocrine", "gallium-ga-68-gozetotide": "Diagnostic imaging",
 }
 SPONSOR_OVERRIDE = {"pepaxto": "Oncopeptides", "hovilpri": "AiCuris"}
+
+# Condition strings from ClinicalTrials.gov are messy; fold the common ones into disease groups for the product-pipeline view.
+COND_GROUPS = [
+    ("Non-small cell lung cancer", r"non.?small|nsclc|lung adenocarcinoma|lung squamous"),
+    ("Small cell lung cancer", r"small.?cell lung|sclc"),
+    ("Lung cancer (other)", r"lung|bronch|thoracic"),
+    ("Melanoma", r"melanoma"),
+    ("Breast cancer", r"breast|her2.positive"),
+    ("Prostate cancer", r"prostat"),
+    ("Colorectal cancer", r"colorectal|colon|rectal"),
+    ("Gastric / oesophageal cancer", r"gastric|stomach|esophag|oesophag|gastro.?oesophageal|gej"),
+    ("Liver cancer", r"hepatocellular|liver cancer|\bhcc\b|biliary|cholangio"),
+    ("Pancreatic cancer", r"pancrea"),
+    ("Kidney cancer", r"renal cell|kidney cancer|\brcc\b"),
+    ("Bladder / urothelial cancer", r"bladder|urothel"),
+    ("Head and neck cancer", r"head and neck|hnscc|nasopharyn|oral cavity|laryn"),
+    ("Cervical / endometrial / ovarian cancer", r"cervi|endometri|ovarian|fallopian|uterine|vulvar|gynecolog"),
+    ("Lymphoma", r"lymphoma|hodgkin|\bdlbcl\b|mantle|follicular"),
+    ("Multiple myeloma", r"myeloma"),
+    ("Leukaemia", r"leuk|\bcll\b|\baml\b|\ball\b|myelodysplas|myelofibrosis|myeloproliferative"),
+    ("Brain / CNS tumours", r"glioma|glioblastoma|brain tumou?r|meningioma|neuroblastoma"),
+    ("Other solid tumours", r"cancer|carcinoma|tumou?r|neoplasm|sarcoma|malignan|mesothelioma|thymic|skin cancer|merkel|basal cell|cutaneous squamous"),
+    ("Rheumatoid arthritis", r"rheumatoid"),
+    ("Psoriasis / psoriatic arthritis", r"psoria"),
+    ("Spondyloarthritis", r"spondyl"),
+    ("Atopic dermatitis / eczema", r"atopic|eczema"),
+    ("Asthma", r"asthma"),
+    ("COPD", r"copd|chronic obstructive"),
+    ("Crohn's / ulcerative colitis", r"crohn|ulcerative colitis|inflammatory bowel|\bibd\b"),
+    ("Lupus", r"lupus"),
+    ("Type 2 diabetes", r"type 2 diabetes|type ii diabetes|t2dm|diabetes mellitus, type 2"),
+    ("Type 1 diabetes", r"type 1 diabetes|type i diabetes|t1dm"),
+    ("Obesity / weight", r"obes|overweight|weight"),
+    ("Heart failure", r"heart failure"),
+    ("Hypertension / cardiovascular risk", r"hypertens|cardiovascular|myocardial|atrial|stroke|coronary"),
+    ("Chronic kidney disease", r"kidney disease|renal insufficiency|nephro|\bckd\b"),
+    ("Multiple sclerosis", r"multiple sclerosis"),
+    ("Migraine", r"migraine|headache"),
+    ("Alzheimer's / dementia", r"alzheimer|dementia"),
+    ("Epilepsy / seizures", r"epilep|seizure"),
+    ("Depression / anxiety", r"depress|anxiety"),
+    ("Schizophrenia / bipolar", r"schizo|bipolar"),
+    ("HIV", r"\bhiv\b|human immunodeficiency"),
+    ("Hepatitis", r"hepatitis"),
+    ("COVID-19", r"covid|sars-cov"),
+    ("Cystic fibrosis", r"cystic fibrosis"),
+    ("Healthy volunteers", r"healthy|volunteer"),
+]
+
+
+def condition_group(c):
+    c = (c or "").strip()
+    for name, rx in COND_GROUPS:
+        if re.search(rx, c, re.I):
+            return name
+    return (c[:40] + "…" if len(c) > 40 else c).title() or "Unspecified"

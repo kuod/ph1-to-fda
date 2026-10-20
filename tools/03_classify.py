@@ -1,7 +1,7 @@
 """Parent company, therapeutic area, modality, and cleaned-up fields for every approval."""
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from taxonomy import parent, TA, MODALITY, TA_OVERRIDE, SPONSOR_OVERRIDE
+from taxonomy import parent, TA, MODALITY, TA_OVERRIDE, SPONSOR_OVERRIDE, PARENTS
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 DIAG = re.compile(r"\b(F[ -]?18|Ga[ -]?68|Cu[ -]?64|Tc[ -]?99m?|Zr[ -]?89|Lu[ -]?177|gallium|fluorine|technetium|flotufolastat|piflufolastat|fluciclovine)\b|diagnos|imaging|PET", re.I)
@@ -61,6 +61,12 @@ def main():
             sponsor=sp, company=parent(sp), use=clean_use(r["use"]), ta=TA_OVERRIDE.get(bid) or ta_of(r), modality=modality(r),
             priority=r.get("priority", ""), orphan=bool(r.get("orphan")), app=r.get("app", ""),
         ))
+    # fold variants of one unmapped sponsor ("Ascendis" / "Ascendis Bone") into the shortest name
+    fixed = {p for _, p in PARENTS}
+    names = sorted({o["company"] for o in out if o["company"] not in fixed}, key=len)
+    fold = {n: next((m for m in names if m != n and n.startswith(m + " ")), n) for n in names}
+    for o in out:
+        o["company"] = fold.get(o["company"], o["company"])
     json.dump(out, open(os.path.join(D, "approvals_clean.json"), "w"), indent=1)
     import collections
     print(collections.Counter(o["ta"] for o in out).most_common())

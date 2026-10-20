@@ -13,7 +13,7 @@ TODAY = dt.date(2026, 10, 20)
 HALT = {"TERMINATED", "WITHDRAWN", "SUSPENDED"}
 BIG = {"Pfizer", "Merck & Co.", "Novartis", "Roche", "AstraZeneca", "GSK", "Sanofi", "Eli Lilly", "Bristol Myers Squibb", "Johnson & Johnson",
        "AbbVie", "Amgen", "Takeda", "Gilead Sciences", "Bayer", "Novo Nordisk", "Regeneron", "Boehringer Ingelheim", "Vertex", "Astellas",
-       "Daiichi Sankyo", "Biogen", "Eisai", "UCB", "Otsuka", "Merck KGaA", "Servier"}
+       "Daiichi Sankyo", "Biogen", "Eisai", "UCB", "Otsuka", "Merck KGaA"}
 
 TA_PEAK = {"Oncology": 700, "Immunology": 1200, "Metabolic & Endocrine": 600, "Neurology": 500, "Cardiovascular": 700,
            "Infectious disease": 300, "Hematology": 350, "Respiratory": 450, "Gastroenterology": 350, "Dermatology": 250,
@@ -151,10 +151,27 @@ def main():
     counts = collections.Counter(d["company"] for d in drugs)
     cards = [card(c, [d for d in drugs if d["company"] == c], progs) for c, n in counts.items() if n >= 6 and c in BIG]
     cards.sort(key=lambda c: -c["approvals"])
-    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr))
+    # approvals won in the window by drugs first approved earlier (the toggle), and the products with many approvals
+    ex = json.load(open(os.path.join(D, "expansions.json")))
+    by_novel = {e["novel"]: e for e in ex if e["novel"]}
+    for d in drugs:
+        e = by_novel.get(d["id"])
+        d["supps"] = [x["d"][:7] for x in e["eff"]] if e else []
+    yr = lambda e: [int(x["d"][:4]) for x in e["eff"]]
+    expansions = [dict(id=e["id"], brand=e["brand"], ingredient=e["ingredient"].split(",")[0][:40], company=e["company"], ta=e["ta"], modality=e["modality"],
+                       first=e["orig"][:4] if e["orig"] else None, use=e["use"], d=[x["d"][:7] for x in e["eff"]],
+                       prod=("pipeline" in e)) for e in ex if e["earlier"]]
+    products = [dict(id=e["novel"] or e["id"], brand=e["brand"], ingredient=e["ingredient"].split(",")[0][:40], company=e["company"], ta=e["ta"],
+                     first=e["orig"][:4] if e["orig"] else None, novel=bool(e["novel"]), d=[x["d"][:7] for x in e["eff"]],
+                     pr=sum(1 for x in e["eff"] if x["pr"] == "Priority"), orphan=sum(1 for x in e["eff"] if x["o"]), pipe=e["pipeline"])
+                for e in ex if "pipeline" in e]
+    for e in expansions:
+        if e["prod"]:
+            e["id"] = e["id"]
+    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr), expansions=len(expansions))
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:
-        f.write("window.DATA=" + json.dumps(dict(meta=meta, drugs=drugs, programs=pr, cards=cards), separators=(",", ":")) + ";\n")
+        f.write("window.DATA=" + json.dumps(dict(meta=meta, drugs=drugs, programs=pr, cards=cards, expansions=expansions, products=products), separators=(",", ":")) + ";\n")
     print(f"{len(drugs)} drugs, {len(pr)} cohort programs, {len(cards)} company cards; data.js {os.path.getsize(OUT)/1e6:.2f} MB")
     for y in range(2017, 2027):
         tot = 0

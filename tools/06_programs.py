@@ -22,6 +22,8 @@ SKIP_PREFIX = {"PHASE", "COVID", "SARS", "NCT", "HIV", "II", "III", "IV", "HPV",
 NOISE = re.compile(r"\b(placebo|matching|standard|care|therapy|treatment|injection|tablets?|capsules?|oral|solution|infusion|subcutaneous|intravenous|sc|iv|im|bid|qd|qw|q\dw|high|low|dose|doses|mg|mcg|ug|ml|vs|and|plus|control|comparator|arm|group|part|cohort|formulation|fasted|fed|single|multiple|ascending|reference|test|period|sequence)\b|[\d.]+\s*(mg|mcg|ug|g|ml|iu|%|kg)?", re.I)
 ACTIVE = {"RECRUITING", "NOT_YET_RECRUITING", "ACTIVE_NOT_RECRUITING", "ENROLLING_BY_INVITATION", "AVAILABLE"}
 HALT = {"TERMINATED", "WITHDRAWN", "SUSPENDED"}
+# CBER-regulated products (vaccines, cell/gene therapy, blood products) never appear on CDER's list, so counting them would only add false failures
+CBER = re.compile(r"vaccin|toxoid|conjugate|virus.like|mrna|\baav|adenovir|lentivir|\bad26\b|leucel|\bcar[- ]?t|-cel\b|cabtagene|cell therapy|gene therapy|immunoglobulin|\bivig\b|antihemophilic|factor (viii|ix|x)\b|coagulation factor|plasma|albumin|allergen|\bbcg\b|\bmenveo|denvax", re.I)
 OK_TYPES = {"DRUG", "BIOLOGICAL", "GENETIC", "COMBINATION_PRODUCT"}
 COHORT_FROM, COHORT_TO = 2009, 2018
 STEM = re.compile(r"(mab|nib|stat|vir|gliptin|gliflozin|tide|ase|cept|parib|ciclib|lisib|tinib|rsen|siran|dipine|sartan|prazole|mycin|statin|oxetine|zomib|lutamide|gliptin|limus|setron|pitant|gepant|degib|metinib|rafenib)$")
@@ -223,13 +225,18 @@ def main():
     # Drugs already marketed before the window would otherwise read as failures: drop programs whose INN has an older FDA approval.
     marketed = marketed_before
 
-    n_pre = 0
+    n_pre = n_cber = 0
     for p, pr in zip(out, programs):
-        if not p["approved"] and p["reached"] >= 1:
-            words = [t for t in pr["toks"] if not re.match(r"^[A-Z]{1,6}\d", t) and " " not in t and len(t) >= 6]
-            if any(marketed(w) for w in words):
-                p["cohort"], p["outcome"], n_pre = False, "premarketed", n_pre + 1
-    print(n_pre, "programs dropped: INN already FDA-approved before Oct 2016")
+        if p["approved"]:
+            continue
+        names = " ".join([i["n"] + " " + " ".join(i["o"]) for s in pr["studies"] for i in s["iv"]])
+        if CBER.search(names + " " + " ".join(pr["toks"])):
+            p["cohort"], p["outcome"], n_cber = False, "cber", n_cber + 1
+            continue
+        words = {w for t in pr["toks"] if not re.match(r"^[A-Z]{1,6}\d", t) for w in t.split() if len(w) >= 6}
+        if any(marketed(w) for w in words):
+            p["cohort"], p["outcome"], n_pre = False, "premarketed", n_pre + 1
+    print(n_pre, "programs dropped: ingredient or brand already FDA-approved before Oct 2016;", n_cber, "dropped as CBER products")
     # an approval matched under several crawled sponsors (licensing partners) stays with the company holding the FDA application
     home = {a["id"]: a["company"] for a in json.load(open(os.path.join(D, "approvals_clean.json")))}
     best = {}

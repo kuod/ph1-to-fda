@@ -12,7 +12,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761046"
+  "app": "BLA761046",
+  "center": "CDER"
  },
  {
   "id": "eucrisa",
@@ -27,7 +28,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA207695"
+  "app": "NDA207695",
+  "center": "CDER"
  },
  {
   "id": "rubraca",
@@ -42,7 +44,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209115"
+  "app": "NDA209115",
+  "center": "CDER"
  },
  {
   "id": "spinraza",
@@ -57,7 +60,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209531"
+  "app": "NDA209531",
+  "center": "CDER"
  },
  {
   "id": "trulance",
@@ -72,7 +76,8 @@
   "modality": "Peptide",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA208745"
+  "app": "NDA208745",
+  "center": "CDER"
  },
  {
   "id": "parsabiv",
@@ -87,7 +92,8 @@
   "modality": "Peptide",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA208325"
+  "app": "NDA208325",
+  "center": "CDER"
  },
  {
   "id": "emflaza",
@@ -102,7 +108,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208685"
+  "app": "NDA208685",
+  "center": "CDER"
  },
  {
   "id": "siliq",
@@ -117,7 +124,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761032"
+  "app": "BLA761032",
+  "center": "CDER"
  },
  {
   "id": "xermelo",
@@ -132,7 +140,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208794"
+  "app": "NDA208794",
+  "center": "CDER"
  },
  {
   "id": "kisqali",
@@ -147,7 +156,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209092"
+  "app": "NDA209092",
+  "center": "CDER"
  },
  {
   "id": "xadago",
@@ -162,7 +172,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA207145"
+  "app": "NDA207145",
+  "center": "CDER"
  },
  {
   "id": "symproic",
@@ -177,7 +188,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA208854"
+  "app": "NDA208854",
+  "center": "CDER"
  },
  {
   "id": "bavencio",
@@ -192,7 +204,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761049"
+  "app": "BLA761049",
+  "center": "CDER"
  },
  {
   "id": "zejula",
@@ -207,7 +220,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208447"
+  "app": "NDA208447",
+  "center": "CDER"
  },
  {
   "id": "ocrevus",
@@ -222,7 +236,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761053"
+  "app": "BLA761053",
+  "center": "CDER"
  },
  {
   "id": "dupixent",
@@ -237,7 +252,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761055"
+  "app": "BLA761055",
+  "center": "CDER"
  },
  {
   "id": "austedo",
@@ -252,7 +268,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA208082"
+  "app": "NDA208082",
+  "center": "CDER"
  },
  {
   "id": "ingrezza",
@@ -267,7 +284,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209241"
+  "app": "NDA209241",
+  "center": "CDER"
  },
  {
   "id": "brineura",
@@ -282,7 +300,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761052"
+  "app": "BLA761052",
+  "center": "CDER"
  },
  {
   "id": "tymlos",
@@ -297,7 +316,8 @@
   "modality": "Peptide",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA208743"
+  "app": "NDA208743",
+  "center": "CDER"
  },
  {
   "id": "alunbrig",
@@ -312,7 +332,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208772"
+  "app": "NDA208772",
+  "center": "CDER"
  },
  {
   "id": "imfinzi",
@@ -327,7 +348,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761069"
+  "app": "BLA761069",
+  "center": "CDER"
  },
  {
   "id": "radicava",
@@ -342,7 +364,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA209176"
+  "app": "NDA209176",
+  "center": "CDER"
  },
  {
   "id": "kevzara",
@@ -357,7 +380,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761037"
+  "app": "BLA761037",
+  "center": "CDER"
  },
  {
   "id": "baxdela",
@@ -372,7 +396,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA208611"
+  "app": "NDA208611",
+  "center": "CDER"
  },
  {
   "id": "bevyxxa",
@@ -387,7 +412,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA208383"
+  "app": "NDA208383",
+  "center": "CDER"
  },
  {
   "id": "tremfya",
@@ -402,7 +428,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761061"
+  "app": "BLA761061",
+  "center": "CDER"
  },
  {
   "id": "nerlynx",
@@ -417,7 +444,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA208051"
+  "app": "NDA208051",
+  "center": "CDER"
  },
  {
   "id": "vosevi",
@@ -432,7 +460,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209195"
+  "app": "NDA209195",
+  "center": "CDER"
  },
  {
   "id": "idhifa",
@@ -447,7 +476,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209606"
+  "app": "NDA209606",
+  "center": "CDER"
  },
  {
   "id": "mavyret",
@@ -462,7 +492,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209394"
+  "app": "NDA209394",
+  "center": "CDER"
  },
  {
   "id": "besponsa",
@@ -477,7 +508,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761040"
+  "app": "BLA761040",
+  "center": "CDER"
  },
  {
   "id": "benznidazole",
@@ -492,7 +524,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209570"
+  "app": "NDA209570",
+  "center": "CDER"
  },
  {
   "id": "vabomere",
@@ -507,7 +540,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209776"
+  "app": "NDA209776",
+  "center": "CDER"
  },
  {
   "id": "aliqopa",
@@ -522,7 +556,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209936"
+  "app": "NDA209936",
+  "center": "CDER"
  },
  {
   "id": "solosec",
@@ -537,7 +572,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209363"
+  "app": "NDA209363",
+  "center": "CDER"
  },
  {
   "id": "verzenio",
@@ -552,7 +588,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA208716"
+  "app": "NDA208716",
+  "center": "CDER"
  },
  {
   "id": "calquence",
@@ -567,7 +604,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210259"
+  "app": "NDA210259",
+  "center": "CDER"
  },
  {
   "id": "vyzulta",
@@ -582,7 +620,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA207795"
+  "app": "NDA207795",
+  "center": "CDER"
  },
  {
   "id": "prevymis",
@@ -597,7 +636,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209940"
+  "app": "NDA209940",
+  "center": "CDER"
  },
  {
   "id": "fasenra",
@@ -612,7 +652,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761070"
+  "app": "BLA761070",
+  "center": "CDER"
  },
  {
   "id": "mepsevii",
@@ -627,7 +668,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761047"
+  "app": "BLA761047",
+  "center": "CDER"
  },
  {
   "id": "hemlibra",
@@ -642,7 +684,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761083"
+  "app": "BLA761083",
+  "center": "CDER"
  },
  {
   "id": "ozempic",
@@ -657,7 +700,8 @@
   "modality": "Peptide",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA209637"
+  "app": "NDA209637",
+  "center": "CDER"
  },
  {
   "id": "xepi",
@@ -672,7 +716,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA208945"
+  "app": "NDA208945",
+  "center": "CDER"
  },
  {
   "id": "rhopressa",
@@ -687,7 +732,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA208254"
+  "app": "NDA208254",
+  "center": "CDER"
  },
  {
   "id": "steglatro",
@@ -702,7 +748,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA209803"
+  "app": "NDA209803",
+  "center": "CDER"
  },
  {
   "id": "macrilen",
@@ -717,7 +764,8 @@
   "modality": "Peptide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA205598"
+  "app": "NDA205598",
+  "center": "CDER"
  },
  {
   "id": "giapreza",
@@ -732,7 +780,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209360"
+  "app": "NDA209360",
+  "center": "CDER"
  },
  {
   "id": "lutathera",
@@ -747,7 +796,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208700"
+  "app": "NDA208700",
+  "center": "CDER"
  },
  {
   "id": "biktarvy",
@@ -762,7 +812,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210251"
+  "app": "NDA210251",
+  "center": "CDER"
  },
  {
   "id": "symdeko-copackaged",
@@ -777,7 +828,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210491"
+  "app": "NDA210491",
+  "center": "CDER"
  },
  {
   "id": "erleada",
@@ -792,7 +844,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA210951"
+  "app": "NDA210951",
+  "center": "CDER"
  },
  {
   "id": "trogarzo",
@@ -807,7 +860,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761065"
+  "app": "BLA761065",
+  "center": "CDER"
  },
  {
   "id": "ilumya",
@@ -822,7 +876,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761067"
+  "app": "BLA761067",
+  "center": "CDER"
  },
  {
   "id": "tavalisse",
@@ -837,7 +892,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA209299"
+  "app": "NDA209299",
+  "center": "CDER"
  },
  {
   "id": "crysvita",
@@ -852,7 +908,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761068"
+  "app": "BLA761068",
+  "center": "CDER"
  },
  {
   "id": "akynzeo",
@@ -867,7 +924,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA210493"
+  "app": "NDA210493",
+  "center": "CDER"
  },
  {
   "id": "lucemyra",
@@ -882,7 +940,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209229"
+  "app": "NDA209229",
+  "center": "CDER"
  },
  {
   "id": "aimovig",
@@ -897,7 +956,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761077"
+  "app": "BLA761077",
+  "center": "CDER"
  },
  {
   "id": "lokelma",
@@ -912,7 +972,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA207078"
+  "app": "NDA207078",
+  "center": "CDER"
  },
  {
   "id": "doptelet",
@@ -927,7 +988,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210238"
+  "app": "NDA210238",
+  "center": "CDER"
  },
  {
   "id": "palynziq",
@@ -942,7 +1004,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761079"
+  "app": "BLA761079",
+  "center": "CDER"
  },
  {
   "id": "olumiant",
@@ -957,7 +1020,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA207924"
+  "app": "NDA207924",
+  "center": "CDER"
  },
  {
   "id": "moxidectin",
@@ -972,7 +1036,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210867"
+  "app": "NDA210867",
+  "center": "CDER"
  },
  {
   "id": "zemdri",
@@ -987,7 +1052,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA210303"
+  "app": "NDA210303",
+  "center": "CDER"
  },
  {
   "id": "epidiolex",
@@ -1002,7 +1068,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210365"
+  "app": "NDA210365",
+  "center": "CDER"
  },
  {
   "id": "mektovi",
@@ -1017,7 +1084,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA210498"
+  "app": "NDA210498",
+  "center": "CDER"
  },
  {
   "id": "braftovi",
@@ -1032,7 +1100,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA210496"
+  "app": "NDA210496",
+  "center": "CDER"
  },
  {
   "id": "tpoxx",
@@ -1047,7 +1116,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208627"
+  "app": "NDA208627",
+  "center": "CDER"
  },
  {
   "id": "krintafel",
@@ -1062,7 +1132,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210795"
+  "app": "NDA210795",
+  "center": "CDER"
  },
  {
   "id": "tibsovo",
@@ -1077,7 +1148,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211192"
+  "app": "NDA211192",
+  "center": "CDER"
  },
  {
   "id": "orilissa",
@@ -1092,7 +1164,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA210450"
+  "app": "NDA210450",
+  "center": "CDER"
  },
  {
   "id": "omegaven",
@@ -1107,7 +1180,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210589"
+  "app": "NDA210589",
+  "center": "CDER"
  },
  {
   "id": "mulpleta",
@@ -1122,7 +1196,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA210923"
+  "app": "NDA210923",
+  "center": "CDER"
  },
  {
   "id": "poteligeo",
@@ -1137,7 +1212,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761051"
+  "app": "BLA761051",
+  "center": "CDER"
  },
  {
   "id": "onpattro",
@@ -1152,7 +1228,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210922"
+  "app": "NDA210922",
+  "center": "CDER"
  },
  {
   "id": "annovera",
@@ -1167,7 +1244,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA209627"
+  "app": "NDA209627",
+  "center": "CDER"
  },
  {
   "id": "galafold",
@@ -1182,7 +1260,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208623"
+  "app": "NDA208623",
+  "center": "CDER"
  },
  {
   "id": "diacomit",
@@ -1197,7 +1276,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA207223"
+  "app": "NDA207223",
+  "center": "CDER"
  },
  {
   "id": "oxervate",
@@ -1212,7 +1292,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761094"
+  "app": "BLA761094",
+  "center": "CDER"
  },
  {
   "id": "takhzyro",
@@ -1227,7 +1308,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761090"
+  "app": "BLA761090",
+  "center": "CDER"
  },
  {
   "id": "xerava",
@@ -1242,7 +1324,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA211109"
+  "app": "NDA211109",
+  "center": "CDER"
  },
  {
   "id": "pifeltro",
@@ -1257,7 +1340,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA210806"
+  "app": "NDA210806",
+  "center": "CDER"
  },
  {
   "id": "lumoxiti",
@@ -1272,7 +1356,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761104"
+  "app": "BLA761104",
+  "center": "CDER"
  },
  {
   "id": "ajovy",
@@ -1287,7 +1372,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761089"
+  "app": "BLA761089",
+  "center": "CDER"
  },
  {
   "id": "copiktra",
@@ -1302,7 +1388,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211155"
+  "app": "NDA211155",
+  "center": "CDER"
  },
  {
   "id": "vizimpro",
@@ -1317,7 +1404,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211288"
+  "app": "NDA211288",
+  "center": "CDER"
  },
  {
   "id": "emgality",
@@ -1332,7 +1420,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761063"
+  "app": "BLA761063",
+  "center": "CDER"
  },
  {
   "id": "libtayo",
@@ -1347,7 +1436,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761097"
+  "app": "BLA761097",
+  "center": "CDER"
  },
  {
   "id": "seysara",
@@ -1362,7 +1452,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA209521"
+  "app": "NDA209521",
+  "center": "CDER"
  },
  {
   "id": "nuzyra",
@@ -1377,7 +1468,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209817"
+  "app": "NDA209817",
+  "center": "CDER"
  },
  {
   "id": "tegsedi",
@@ -1392,7 +1484,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211172"
+  "app": "NDA211172",
+  "center": "CDER"
  },
  {
   "id": "revcovi",
@@ -1407,7 +1500,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761092"
+  "app": "BLA761092",
+  "center": "CDER"
  },
  {
   "id": "talzenna",
@@ -1422,7 +1516,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA211651"
+  "app": "NDA211651",
+  "center": "CDER"
  },
  {
   "id": "xofluza",
@@ -1437,7 +1532,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA210854"
+  "app": "NDA210854",
+  "center": "CDER"
  },
  {
   "id": "lorbrena",
@@ -1452,7 +1548,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210868"
+  "app": "NDA210868",
+  "center": "CDER"
  },
  {
   "id": "yupelri",
@@ -1467,7 +1564,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA210598"
+  "app": "NDA210598",
+  "center": "CDER"
  },
  {
   "id": "aemcolo",
@@ -1482,7 +1580,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA210910"
+  "app": "NDA210910",
+  "center": "CDER"
  },
  {
   "id": "gamifant",
@@ -1497,7 +1596,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761107"
+  "app": "BLA761107",
+  "center": "CDER"
  },
  {
   "id": "daurismo",
@@ -1512,7 +1612,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210656"
+  "app": "NDA210656",
+  "center": "CDER"
  },
  {
   "id": "vitrakvi",
@@ -1527,7 +1628,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210861"
+  "app": "NDA210861",
+  "center": "CDER"
  },
  {
   "id": "firdapse",
@@ -1542,7 +1644,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208078"
+  "app": "NDA208078",
+  "center": "CDER"
  },
  {
   "id": "xospata",
@@ -1557,7 +1660,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211349"
+  "app": "NDA211349",
+  "center": "CDER"
  },
  {
   "id": "motegrity",
@@ -1572,7 +1676,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA210166"
+  "app": "NDA210166",
+  "center": "CDER"
  },
  {
   "id": "asparlas",
@@ -1587,7 +1692,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761102"
+  "app": "BLA761102",
+  "center": "CDER"
  },
  {
   "id": "ultomiris",
@@ -1602,7 +1708,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761108"
+  "app": "BLA761108",
+  "center": "CDER"
  },
  {
   "id": "elzonris",
@@ -1617,7 +1724,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761116"
+  "app": "BLA761116",
+  "center": "CDER"
  },
  {
   "id": "jeuveau",
@@ -1632,7 +1740,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761085"
+  "app": "BLA761085",
+  "center": "CDER"
  },
  {
   "id": "cablivi",
@@ -1647,7 +1756,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761112"
+  "app": "BLA761112",
+  "center": "CDER"
  },
  {
   "id": "egaten",
@@ -1662,7 +1772,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208711"
+  "app": "NDA208711",
+  "center": "CDER"
  },
  {
   "id": "zulresso",
@@ -1677,7 +1788,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA211371"
+  "app": "NDA211371",
+  "center": "CDER"
  },
  {
   "id": "sunosi",
@@ -1692,7 +1804,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA211230"
+  "app": "NDA211230",
+  "center": "CDER"
  },
  {
   "id": "mayzent",
@@ -1707,7 +1820,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209884"
+  "app": "NDA209884",
+  "center": "CDER"
  },
  {
   "id": "evenity",
@@ -1722,7 +1836,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761062"
+  "app": "BLA761062",
+  "center": "CDER"
  },
  {
   "id": "balversa",
@@ -1737,7 +1852,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA212018"
+  "app": "NDA212018",
+  "center": "CDER"
  },
  {
   "id": "skyrizi",
@@ -1752,7 +1868,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761105"
+  "app": "BLA761105",
+  "center": "CDER"
  },
  {
   "id": "vyndaqel",
@@ -1767,7 +1884,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211996"
+  "app": "NDA211996",
+  "center": "CDER"
  },
  {
   "id": "piqray",
@@ -1782,7 +1900,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA212526"
+  "app": "NDA212526",
+  "center": "CDER"
  },
  {
   "id": "polivy",
@@ -1797,7 +1916,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761121"
+  "app": "BLA761121",
+  "center": "CDER"
  },
  {
   "id": "vyleesi-autoinjector",
@@ -1812,7 +1932,8 @@
   "modality": "Peptide",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA210557"
+  "app": "NDA210557",
+  "center": "CDER"
  },
  {
   "id": "xpovio",
@@ -1827,7 +1948,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212306"
+  "app": "NDA212306",
+  "center": "CDER"
  },
  {
   "id": "recarbrio",
@@ -1842,7 +1964,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA212819"
+  "app": "NDA212819",
+  "center": "CDER"
  },
  {
   "id": "accrufer",
@@ -1857,7 +1980,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212320"
+  "app": "NDA212320",
+  "center": "CDER"
  },
  {
   "id": "nubeqa",
@@ -1872,7 +1996,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA212099"
+  "app": "NDA212099",
+  "center": "CDER"
  },
  {
   "id": "turalio",
@@ -1887,7 +2012,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211810"
+  "app": "NDA211810",
+  "center": "CDER"
  },
  {
   "id": "pretomanid",
@@ -1902,7 +2028,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212862"
+  "app": "NDA212862",
+  "center": "CDER"
  },
  {
   "id": "wakix",
@@ -1917,7 +2044,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211150"
+  "app": "NDA211150",
+  "center": "CDER"
  },
  {
   "id": "rozlytrek",
@@ -1932,7 +2060,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212725"
+  "app": "NDA212725",
+  "center": "CDER"
  },
  {
   "id": "inrebic",
@@ -1947,7 +2076,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212327"
+  "app": "NDA212327",
+  "center": "CDER"
  },
  {
   "id": "rinvoq",
@@ -1962,7 +2092,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211675"
+  "app": "NDA211675",
+  "center": "CDER"
  },
  {
   "id": "xenleta",
@@ -1977,7 +2108,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA211672"
+  "app": "NDA211672",
+  "center": "CDER"
  },
  {
   "id": "gallium-ga-68-edotreotide",
@@ -1992,7 +2124,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA210828"
+  "app": "NDA210828",
+  "center": "CDER"
  },
  {
   "id": "nourianz",
@@ -2007,7 +2140,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA022075"
+  "app": "NDA022075",
+  "center": "CDER"
  },
  {
   "id": "ibsrela",
@@ -2022,7 +2156,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA211801"
+  "app": "NDA211801",
+  "center": "CDER"
  },
  {
   "id": "aklief",
@@ -2037,7 +2172,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA211527"
+  "app": "NDA211527",
+  "center": "CDER"
  },
  {
   "id": "beovu",
@@ -2052,7 +2188,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761125"
+  "app": "BLA761125",
+  "center": "CDER"
  },
  {
   "id": "scenesse",
@@ -2067,7 +2204,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA210797"
+  "app": "NDA210797",
+  "center": "CDER"
  },
  {
   "id": "fluorodopa-f18",
@@ -2082,7 +2220,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA200655"
+  "app": "NDA200655",
+  "center": "CDER"
  },
  {
   "id": "reyvow",
@@ -2097,7 +2236,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA211280"
+  "app": "NDA211280",
+  "center": "CDER"
  },
  {
   "id": "trikafta-copackaged",
@@ -2112,7 +2252,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212273"
+  "app": "NDA212273",
+  "center": "CDER"
  },
  {
   "id": "exem-foam-kit",
@@ -2127,7 +2268,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212279"
+  "app": "NDA212279",
+  "center": "CDER"
  },
  {
   "id": "reblozyl",
@@ -2142,7 +2284,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761136"
+  "app": "BLA761136",
+  "center": "CDER"
  },
  {
   "id": "fetroja",
@@ -2157,7 +2300,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA209445"
+  "app": "NDA209445",
+  "center": "CDER"
  },
  {
   "id": "brukinsa",
@@ -2172,7 +2316,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213217"
+  "app": "NDA213217",
+  "center": "CDER"
  },
  {
   "id": "adakveo",
@@ -2187,7 +2332,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761128"
+  "app": "BLA761128",
+  "center": "CDER"
  },
  {
   "id": "givlaari",
@@ -2202,7 +2348,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212194"
+  "app": "NDA212194",
+  "center": "CDER"
  },
  {
   "id": "xcopri",
@@ -2217,7 +2364,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212839"
+  "app": "NDA212839",
+  "center": "CDER"
  },
  {
   "id": "oxbryta",
@@ -2232,7 +2380,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213137"
+  "app": "NDA213137",
+  "center": "CDER"
  },
  {
   "id": "vyondys-53",
@@ -2247,7 +2396,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211970"
+  "app": "NDA211970",
+  "center": "CDER"
  },
  {
   "id": "padcev",
@@ -2262,7 +2412,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761137"
+  "app": "BLA761137",
+  "center": "CDER"
  },
  {
   "id": "caplyta",
@@ -2277,7 +2428,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA209500"
+  "app": "NDA209500",
+  "center": "CDER"
  },
  {
   "id": "tissueblue",
@@ -2292,7 +2444,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA209569"
+  "app": "NDA209569",
+  "center": "CDER"
  },
  {
   "id": "dayvigo",
@@ -2307,7 +2460,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212028"
+  "app": "NDA212028",
+  "center": "CDER"
  },
  {
   "id": "enhertu",
@@ -2322,7 +2476,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761139"
+  "app": "BLA761139",
+  "center": "CDER"
  },
  {
   "id": "ubrelvy",
@@ -2337,7 +2492,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA211765"
+  "app": "NDA211765",
+  "center": "CDER"
  },
  {
   "id": "ayvakit",
@@ -2352,7 +2508,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212608"
+  "app": "NDA212608",
+  "center": "CDER"
  },
  {
   "id": "tepezza",
@@ -2367,7 +2524,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761143"
+  "app": "BLA761143",
+  "center": "CDER"
  },
  {
   "id": "tazverik",
@@ -2382,7 +2540,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211723"
+  "app": "NDA211723",
+  "center": "CDER"
  },
  {
   "id": "pizensy",
@@ -2397,7 +2556,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA211281"
+  "app": "NDA211281",
+  "center": "CDER"
  },
  {
   "id": "nexletol",
@@ -2412,7 +2572,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA211616"
+  "app": "NDA211616",
+  "center": "CDER"
  },
  {
   "id": "vyepti",
@@ -2427,7 +2588,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761119"
+  "app": "BLA761119",
+  "center": "CDER"
  },
  {
   "id": "barhemsys",
@@ -2442,7 +2604,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA209510"
+  "app": "NDA209510",
+  "center": "CDER"
  },
  {
   "id": "nurtec-odt",
@@ -2457,7 +2620,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA212728"
+  "app": "NDA212728",
+  "center": "CDER"
  },
  {
   "id": "sarclisa",
@@ -2472,7 +2636,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761113"
+  "app": "BLA761113",
+  "center": "CDER"
  },
  {
   "id": "isturisa",
@@ -2487,7 +2652,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA212801"
+  "app": "NDA212801",
+  "center": "CDER"
  },
  {
   "id": "zeposia",
@@ -2502,7 +2668,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA209899"
+  "app": "NDA209899",
+  "center": "CDER"
  },
  {
   "id": "koselugo",
@@ -2517,7 +2684,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213756"
+  "app": "NDA213756",
+  "center": "CDER"
  },
  {
   "id": "pemazyre",
@@ -2532,7 +2700,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213736"
+  "app": "NDA213736",
+  "center": "CDER"
  },
  {
   "id": "tukysa",
@@ -2547,7 +2716,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213411"
+  "app": "NDA213411",
+  "center": "CDER"
  },
  {
   "id": "trodelvy",
@@ -2562,7 +2732,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761115"
+  "app": "BLA761115",
+  "center": "CDER"
  },
  {
   "id": "ongentys",
@@ -2577,7 +2748,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212489"
+  "app": "NDA212489",
+  "center": "CDER"
  },
  {
   "id": "tabrecta",
@@ -2592,7 +2764,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213591"
+  "app": "NDA213591",
+  "center": "CDER"
  },
  {
   "id": "retevmo",
@@ -2607,7 +2780,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213246"
+  "app": "NDA213246",
+  "center": "CDER"
  },
  {
   "id": "qinlock",
@@ -2622,7 +2796,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213973"
+  "app": "NDA213973",
+  "center": "CDER"
  },
  {
   "id": "cerianna",
@@ -2637,7 +2812,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212155"
+  "app": "NDA212155",
+  "center": "CDER"
  },
  {
   "id": "artesunate",
@@ -2652,7 +2828,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213036"
+  "app": "NDA213036",
+  "center": "CDER"
  },
  {
   "id": "tauvid",
@@ -2667,7 +2844,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA212123"
+  "app": "NDA212123",
+  "center": "CDER"
  },
  {
   "id": "uplizna",
@@ -2682,7 +2860,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761142"
+  "app": "BLA761142",
+  "center": "CDER"
  },
  {
   "id": "zepzelca",
@@ -2697,7 +2876,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213702"
+  "app": "NDA213702",
+  "center": "CDER"
  },
  {
   "id": "dojolvi",
@@ -2712,7 +2892,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA213687"
+  "app": "NDA213687",
+  "center": "CDER"
  },
  {
   "id": "rukobia",
@@ -2727,7 +2908,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA212950"
+  "app": "NDA212950",
+  "center": "CDER"
  },
  {
   "id": "byfavo",
@@ -2742,7 +2924,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212295"
+  "app": "NDA212295",
+  "center": "CDER"
  },
  {
   "id": "inqovi",
@@ -2757,7 +2940,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212576"
+  "app": "NDA212576",
+  "center": "CDER"
  },
  {
   "id": "xeglyze",
@@ -2772,7 +2956,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA206966"
+  "app": "NDA206966",
+  "center": "CDER"
  },
  {
   "id": "monjuvi",
@@ -2787,7 +2972,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761163"
+  "app": "BLA761163",
+  "center": "CDER"
  },
  {
   "id": "lampit",
@@ -2802,7 +2988,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213464"
+  "app": "NDA213464",
+  "center": "CDER"
  },
  {
   "id": "evrysdi",
@@ -2817,7 +3004,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213535"
+  "app": "NDA213535",
+  "center": "CDER"
  },
  {
   "id": "olinvyk",
@@ -2832,7 +3020,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA210730"
+  "app": "NDA210730",
+  "center": "CDER"
  },
  {
   "id": "viltepso",
@@ -2847,7 +3036,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA212154"
+  "app": "NDA212154",
+  "center": "CDER"
  },
  {
   "id": "enspryng",
@@ -2862,7 +3052,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761149"
+  "app": "BLA761149",
+  "center": "CDER"
  },
  {
   "id": "winlevi",
@@ -2877,7 +3068,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA213433"
+  "app": "NDA213433",
+  "center": "CDER"
  },
  {
   "id": "sogroya",
@@ -2892,7 +3084,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761156"
+  "app": "BLA761156",
+  "center": "CDER"
  },
  {
   "id": "detectnet",
@@ -2907,7 +3100,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213227"
+  "app": "NDA213227",
+  "center": "CDER"
  },
  {
   "id": "gavreto",
@@ -2922,7 +3116,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213721"
+  "app": "NDA213721",
+  "center": "CDER"
  },
  {
   "id": "inmazeb",
@@ -2937,7 +3132,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761169"
+  "app": "BLA761169",
+  "center": "CDER"
  },
  {
   "id": "veklury",
@@ -2952,7 +3148,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214787"
+  "app": "NDA214787",
+  "center": "CDER"
  },
  {
   "id": "zokinvy",
@@ -2967,7 +3164,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213969"
+  "app": "NDA213969",
+  "center": "CDER"
  },
  {
   "id": "oxlumo",
@@ -2982,7 +3180,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214103"
+  "app": "NDA214103",
+  "center": "CDER"
  },
  {
   "id": "imcivree",
@@ -2997,7 +3196,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213793"
+  "app": "NDA213793",
+  "center": "CDER"
  },
  {
   "id": "danyelza",
@@ -3012,7 +3212,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761171"
+  "app": "BLA761171",
+  "center": "CDER"
  },
  {
   "id": "gallium-ga-68-gozetotide",
@@ -3027,7 +3228,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212642"
+  "app": "NDA212642",
+  "center": "CDER"
  },
  {
   "id": "orladeyo",
@@ -3042,7 +3244,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA214094"
+  "app": "NDA214094",
+  "center": "CDER"
  },
  {
   "id": "klisyri",
@@ -3057,7 +3260,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA213189"
+  "app": "NDA213189",
+  "center": "CDER"
  },
  {
   "id": "margenza",
@@ -3072,7 +3276,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761150"
+  "app": "BLA761150",
+  "center": "CDER"
  },
  {
   "id": "orgovyx",
@@ -3087,7 +3292,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214621"
+  "app": "NDA214621",
+  "center": "CDER"
  },
  {
   "id": "ebanga",
@@ -3102,7 +3308,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761172"
+  "app": "BLA761172",
+  "center": "CDER"
  },
  {
   "id": "gemtesa",
@@ -3117,7 +3324,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA213006"
+  "app": "NDA213006",
+  "center": "CDER"
  },
  {
   "id": "verquvo",
@@ -3132,7 +3340,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214377"
+  "app": "NDA214377",
+  "center": "CDER"
  },
  {
   "id": "cabenuva",
@@ -3147,7 +3356,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA212888"
+  "app": "NDA212888",
+  "center": "CDER"
  },
  {
   "id": "lupkynis",
@@ -3162,7 +3372,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA213716"
+  "app": "NDA213716",
+  "center": "CDER"
  },
  {
   "id": "tepmetko",
@@ -3177,7 +3388,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214096"
+  "app": "NDA214096",
+  "center": "CDER"
  },
  {
   "id": "ukoniq",
@@ -3192,7 +3404,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213176"
+  "app": "NDA213176",
+  "center": "CDER"
  },
  {
   "id": "evkeeza",
@@ -3207,7 +3420,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761181"
+  "app": "BLA761181",
+  "center": "CDER"
  },
  {
   "id": "cosela",
@@ -3222,7 +3436,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214200"
+  "app": "NDA214200",
+  "center": "CDER"
  },
  {
   "id": "amondys-45",
@@ -3237,7 +3452,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA213026"
+  "app": "NDA213026",
+  "center": "CDER"
  },
  {
   "id": "pepaxto",
@@ -3252,7 +3468,8 @@
   "modality": "Small molecule",
   "priority": "",
   "orphan": false,
-  "app": ""
+  "app": "",
+  "center": "CDER"
  },
  {
   "id": "nulibry",
@@ -3267,7 +3484,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214018"
+  "app": "NDA214018",
+  "center": "CDER"
  },
  {
   "id": "azstarys",
@@ -3282,7 +3500,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212994"
+  "app": "NDA212994",
+  "center": "CDER"
  },
  {
   "id": "fotivda",
@@ -3297,7 +3516,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA212904"
+  "app": "NDA212904",
+  "center": "CDER"
  },
  {
   "id": "ponvory",
@@ -3312,7 +3532,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA213498"
+  "app": "NDA213498",
+  "center": "CDER"
  },
  {
   "id": "zegalogue",
@@ -3327,7 +3548,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA214231"
+  "app": "NDA214231",
+  "center": "CDER"
  },
  {
   "id": "qelbree",
@@ -3342,7 +3564,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA211964"
+  "app": "NDA211964",
+  "center": "CDER"
  },
  {
   "id": "nextstellis",
@@ -3357,7 +3580,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA214154"
+  "app": "NDA214154",
+  "center": "CDER"
  },
  {
   "id": "jemperli",
@@ -3372,7 +3596,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761174"
+  "app": "BLA761174",
+  "center": "CDER"
  },
  {
   "id": "zynlonta",
@@ -3387,7 +3612,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761196"
+  "app": "BLA761196",
+  "center": "CDER"
  },
  {
   "id": "empaveli",
@@ -3402,7 +3628,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215014"
+  "app": "NDA215014",
+  "center": "CDER"
  },
  {
   "id": "rybrevant",
@@ -3417,7 +3644,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761210"
+  "app": "BLA761210",
+  "center": "CDER"
  },
  {
   "id": "pylarify",
@@ -3432,7 +3660,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214793"
+  "app": "NDA214793",
+  "center": "CDER"
  },
  {
   "id": "lybalvi",
@@ -3447,7 +3676,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA213378"
+  "app": "NDA213378",
+  "center": "CDER"
  },
  {
   "id": "truseltiq",
@@ -3462,7 +3692,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214622"
+  "app": "NDA214622",
+  "center": "CDER"
  },
  {
   "id": "lumakras",
@@ -3477,7 +3708,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214665"
+  "app": "NDA214665",
+  "center": "CDER"
  },
  {
   "id": "brexafemme",
@@ -3492,7 +3724,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214900"
+  "app": "NDA214900",
+  "center": "CDER"
  },
  {
   "id": "aduhelm",
@@ -3507,7 +3740,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761178"
+  "app": "BLA761178",
+  "center": "CDER"
  },
  {
   "id": "rylaze",
@@ -3522,7 +3756,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761179"
+  "app": "BLA761179",
+  "center": "CDER"
  },
  {
   "id": "kerendia",
@@ -3537,7 +3772,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA215341"
+  "app": "NDA215341",
+  "center": "CDER"
  },
  {
   "id": "rezurock",
@@ -3552,7 +3788,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214783"
+  "app": "NDA214783",
+  "center": "CDER"
  },
  {
   "id": "fexinidazole",
@@ -3567,7 +3804,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214429"
+  "app": "NDA214429",
+  "center": "CDER"
  },
  {
   "id": "bylvay",
@@ -3582,7 +3820,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215498"
+  "app": "NDA215498",
+  "center": "CDER"
  },
  {
   "id": "saphnelo",
@@ -3597,7 +3836,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761123"
+  "app": "BLA761123",
+  "center": "CDER"
  },
  {
   "id": "nexviazyme",
@@ -3612,7 +3852,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761194"
+  "app": "BLA761194",
+  "center": "CDER"
  },
  {
   "id": "welireg",
@@ -3627,7 +3868,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215383"
+  "app": "NDA215383",
+  "center": "CDER"
  },
  {
   "id": "korsuva",
@@ -3642,7 +3884,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214916"
+  "app": "NDA214916",
+  "center": "CDER"
  },
  {
   "id": "skytrofa",
@@ -3657,7 +3900,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761177"
+  "app": "BLA761177",
+  "center": "CDER"
  },
  {
   "id": "exkivity",
@@ -3672,7 +3916,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215310"
+  "app": "NDA215310",
+  "center": "CDER"
  },
  {
   "id": "tivdak",
@@ -3687,7 +3932,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761208"
+  "app": "BLA761208",
+  "center": "CDER"
  },
  {
   "id": "qulipta",
@@ -3702,7 +3948,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA215206"
+  "app": "NDA215206",
+  "center": "CDER"
  },
  {
   "id": "livmarli",
@@ -3717,7 +3964,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214662"
+  "app": "NDA214662",
+  "center": "CDER"
  },
  {
   "id": "tavneos",
@@ -3732,7 +3980,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA214487"
+  "app": "NDA214487",
+  "center": "CDER"
  },
  {
   "id": "scemblix",
@@ -3747,7 +3996,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215358"
+  "app": "NDA215358",
+  "center": "CDER"
  },
  {
   "id": "besremi",
@@ -3762,7 +4012,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761166"
+  "app": "BLA761166",
+  "center": "CDER"
  },
  {
   "id": "voxzogo",
@@ -3777,7 +4028,8 @@
   "modality": "Peptide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA214938"
+  "app": "NDA214938",
+  "center": "CDER"
  },
  {
   "id": "livtencity",
@@ -3792,7 +4044,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215596"
+  "app": "NDA215596",
+  "center": "CDER"
  },
  {
   "id": "cytalux",
@@ -3807,7 +4060,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214907"
+  "app": "NDA214907",
+  "center": "CDER"
  },
  {
   "id": "vyvgart",
@@ -3822,7 +4076,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761195"
+  "app": "BLA761195",
+  "center": "CDER"
  },
  {
   "id": "tezspire",
@@ -3837,7 +4092,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761224"
+  "app": "BLA761224",
+  "center": "CDER"
  },
  {
   "id": "leqvio",
@@ -3852,7 +4108,8 @@
   "modality": "Oligonucleotide",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA214012"
+  "app": "NDA214012",
+  "center": "CDER"
  },
  {
   "id": "adbry",
@@ -3867,7 +4124,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761180"
+  "app": "BLA761180",
+  "center": "CDER"
  },
  {
   "id": "quviviq",
@@ -3882,7 +4140,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA214985"
+  "app": "NDA214985",
+  "center": "CDER"
  },
  {
   "id": "cibinqo",
@@ -3897,7 +4156,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA213871"
+  "app": "NDA213871",
+  "center": "CDER"
  },
  {
   "id": "kimmtrak",
@@ -3912,7 +4172,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761228"
+  "app": "BLA761228",
+  "center": "CDER"
  },
  {
   "id": "vabysmo",
@@ -3927,7 +4188,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761235"
+  "app": "BLA761235",
+  "center": "CDER"
  },
  {
   "id": "enjaymo",
@@ -3942,7 +4204,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761164"
+  "app": "BLA761164",
+  "center": "CDER"
  },
  {
   "id": "pyrukynd",
@@ -3957,7 +4220,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA216196"
+  "app": "NDA216196",
+  "center": "CDER"
  },
  {
   "id": "vonjo",
@@ -3972,7 +4236,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA208712"
+  "app": "NDA208712",
+  "center": "CDER"
  },
  {
   "id": "opdualag",
@@ -3987,7 +4252,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761234"
+  "app": "BLA761234",
+  "center": "CDER"
  },
  {
   "id": "ztalmy",
@@ -4002,7 +4268,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215904"
+  "app": "NDA215904",
+  "center": "CDER"
  },
  {
   "id": "pluvicto",
@@ -4017,7 +4284,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA215833"
+  "app": "NDA215833",
+  "center": "CDER"
  },
  {
   "id": "vivjoa",
@@ -4032,7 +4300,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA215888"
+  "app": "NDA215888",
+  "center": "CDER"
  },
  {
   "id": "camzyos",
@@ -4047,7 +4316,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA214998"
+  "app": "NDA214998",
+  "center": "CDER"
  },
  {
   "id": "voquezna",
@@ -4062,7 +4332,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA215152"
+  "app": "NDA215152",
+  "center": "CDER"
  },
  {
   "id": "mounjaro",
@@ -4077,7 +4348,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA215866"
+  "app": "NDA215866",
+  "center": "CDER"
  },
  {
   "id": "vtama",
@@ -4092,7 +4364,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA215272"
+  "app": "NDA215272",
+  "center": "CDER"
  },
  {
   "id": "amvuttra",
@@ -4107,7 +4380,8 @@
   "modality": "Oligonucleotide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA215515"
+  "app": "NDA215515",
+  "center": "CDER"
  },
  {
   "id": "xenpozyme",
@@ -4122,7 +4396,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761261"
+  "app": "BLA761261",
+  "center": "CDER"
  },
  {
   "id": "spevigo",
@@ -4137,7 +4412,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761244"
+  "app": "BLA761244",
+  "center": "CDER"
  },
  {
   "id": "daxxify",
@@ -4152,7 +4428,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761127"
+  "app": "BLA761127",
+  "center": "CDER"
  },
  {
   "id": "rolvedon",
@@ -4167,7 +4444,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761148"
+  "app": "BLA761148",
+  "center": "CDER"
  },
  {
   "id": "sotyktu",
@@ -4182,7 +4460,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA214958"
+  "app": "NDA214958",
+  "center": "CDER"
  },
  {
   "id": "terlivaz",
@@ -4197,7 +4476,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA022231"
+  "app": "NDA022231",
+  "center": "CDER"
  },
  {
   "id": "elucirem",
@@ -4212,7 +4492,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA216986"
+  "app": "NDA216986",
+  "center": "CDER"
  },
  {
   "id": "omlonti",
@@ -4227,7 +4508,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA215092"
+  "app": "NDA215092",
+  "center": "CDER"
  },
  {
   "id": "relyvrio",
@@ -4242,7 +4524,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA216660"
+  "app": "NDA216660",
+  "center": "CDER"
  },
  {
   "id": "lytgobi",
@@ -4257,7 +4540,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214801"
+  "app": "NDA214801",
+  "center": "CDER"
  },
  {
   "id": "imjudo",
@@ -4272,7 +4556,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761270"
+  "app": "BLA761270",
+  "center": "CDER"
  },
  {
   "id": "tecvayli",
@@ -4287,7 +4572,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761291"
+  "app": "BLA761291",
+  "center": "CDER"
  },
  {
   "id": "elahere",
@@ -4302,7 +4588,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761310"
+  "app": "BLA761310",
+  "center": "CDER"
  },
  {
   "id": "tzield",
@@ -4317,7 +4604,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761183"
+  "app": "BLA761183",
+  "center": "CDER"
  },
  {
   "id": "rezlidhia",
@@ -4332,7 +4620,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA215814"
+  "app": "NDA215814",
+  "center": "CDER"
  },
  {
   "id": "krazati",
@@ -4347,7 +4636,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA216340"
+  "app": "NDA216340",
+  "center": "CDER"
  },
  {
   "id": "lunsumio",
@@ -4362,7 +4652,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761263"
+  "app": "BLA761263",
+  "center": "CDER"
  },
  {
   "id": "sunlenca",
@@ -4377,7 +4668,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA215973"
+  "app": "NDA215973",
+  "center": "CDER"
  },
  {
   "id": "xenoview",
@@ -4392,7 +4684,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA214375"
+  "app": "NDA214375",
+  "center": "CDER"
  },
  {
   "id": "nexobrid",
@@ -4407,7 +4700,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761192"
+  "app": "BLA761192",
+  "center": "CDER"
  },
  {
   "id": "briumvi",
@@ -4422,7 +4716,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761238"
+  "app": "BLA761238",
+  "center": "CDER"
  },
  {
   "id": "leqembi",
@@ -4437,7 +4732,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761269"
+  "app": "BLA761269",
+  "center": "CDER"
  },
  {
   "id": "brenzavvy",
@@ -4452,7 +4748,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA214373"
+  "app": "NDA214373",
+  "center": "CDER"
  },
  {
   "id": "jaypirca",
@@ -4467,7 +4764,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA216059"
+  "app": "NDA216059",
+  "center": "CDER"
  },
  {
   "id": "orserdu",
@@ -4482,7 +4780,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA217639"
+  "app": "NDA217639",
+  "center": "CDER"
  },
  {
   "id": "jesduvroq",
@@ -4497,7 +4796,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216951"
+  "app": "NDA216951",
+  "center": "CDER"
  },
  {
   "id": "lamzede",
@@ -4512,7 +4812,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761278"
+  "app": "BLA761278",
+  "center": "CDER"
  },
  {
   "id": "filspari",
@@ -4527,7 +4828,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA216403"
+  "app": "NDA216403",
+  "center": "CDER"
  },
  {
   "id": "skyclarys",
@@ -4542,7 +4844,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA216718"
+  "app": "NDA216718",
+  "center": "CDER"
  },
  {
   "id": "zavzpret",
@@ -4557,7 +4860,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216386"
+  "app": "NDA216386",
+  "center": "CDER"
  },
  {
   "id": "daybue",
@@ -4572,7 +4876,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA217026"
+  "app": "NDA217026",
+  "center": "CDER"
  },
  {
   "id": "zynyz",
@@ -4587,7 +4892,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761334"
+  "app": "BLA761334",
+  "center": "CDER"
  },
  {
   "id": "rezzayo",
@@ -4602,7 +4908,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA217417"
+  "app": "NDA217417",
+  "center": "CDER"
  },
  {
   "id": "joenja",
@@ -4617,7 +4924,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA217759"
+  "app": "NDA217759",
+  "center": "CDER"
  },
  {
   "id": "qalsody",
@@ -4632,7 +4940,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215887"
+  "app": "NDA215887",
+  "center": "CDER"
  },
  {
   "id": "elfabrio",
@@ -4647,7 +4956,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761161"
+  "app": "BLA761161",
+  "center": "CDER"
  },
  {
   "id": "veozah",
@@ -4662,7 +4972,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA216578"
+  "app": "NDA216578",
+  "center": "CDER"
  },
  {
   "id": "miebo",
@@ -4677,7 +4988,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216675"
+  "app": "NDA216675",
+  "center": "CDER"
  },
  {
   "id": "epkinly",
@@ -4692,7 +5004,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761324"
+  "app": "BLA761324",
+  "center": "CDER"
  },
  {
   "id": "xacduro",
@@ -4707,7 +5020,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA216974"
+  "app": "NDA216974",
+  "center": "CDER"
  },
  {
   "id": "paxlovid",
@@ -4722,7 +5036,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA217188"
+  "app": "NDA217188",
+  "center": "CDER"
  },
  {
   "id": "posluma",
@@ -4737,7 +5052,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216023"
+  "app": "NDA216023",
+  "center": "CDER"
  },
  {
   "id": "inpefa",
@@ -4752,7 +5068,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216203"
+  "app": "NDA216203",
+  "center": "CDER"
  },
  {
   "id": "columvi",
@@ -4767,7 +5084,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761309"
+  "app": "BLA761309",
+  "center": "CDER"
  },
  {
   "id": "litfulo",
@@ -4782,7 +5100,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA215830"
+  "app": "NDA215830",
+  "center": "CDER"
  },
  {
   "id": "rystiggo",
@@ -4797,7 +5116,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761286"
+  "app": "BLA761286",
+  "center": "CDER"
  },
  {
   "id": "ngenla",
@@ -4812,7 +5132,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761184"
+  "app": "BLA761184",
+  "center": "CDER"
  },
  {
   "id": "beyfortus",
@@ -4827,7 +5148,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761328"
+  "app": "BLA761328",
+  "center": "CDER"
  },
  {
   "id": "vanflyta",
@@ -4842,7 +5164,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA216993"
+  "app": "NDA216993",
+  "center": "CDER"
  },
  {
   "id": "xdemvy",
@@ -4857,7 +5180,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA217603"
+  "app": "NDA217603",
+  "center": "CDER"
  },
  {
   "id": "zurzuvae",
@@ -4872,7 +5196,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA217369"
+  "app": "NDA217369",
+  "center": "CDER"
  },
  {
   "id": "izervay",
@@ -4887,7 +5212,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA217225"
+  "app": "NDA217225",
+  "center": "CDER"
  },
  {
   "id": "talvey",
@@ -4902,7 +5228,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761342"
+  "app": "BLA761342",
+  "center": "CDER"
  },
  {
   "id": "elrexfio",
@@ -4917,7 +5244,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761345"
+  "app": "BLA761345",
+  "center": "CDER"
  },
  {
   "id": "sohonos",
@@ -4932,7 +5260,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215559"
+  "app": "NDA215559",
+  "center": "CDER"
  },
  {
   "id": "veopoz",
@@ -4947,7 +5276,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761339"
+  "app": "BLA761339",
+  "center": "CDER"
  },
  {
   "id": "aphexda",
@@ -4962,7 +5292,8 @@
   "modality": "Peptide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA217159"
+  "app": "NDA217159",
+  "center": "CDER"
  },
  {
   "id": "ojjaara",
@@ -4977,7 +5308,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA216873"
+  "app": "NDA216873",
+  "center": "CDER"
  },
  {
   "id": "exxua",
@@ -4992,7 +5324,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA021164"
+  "app": "NDA021164",
+  "center": "CDER"
  },
  {
   "id": "pombiliti",
@@ -5007,7 +5340,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761204"
+  "app": "BLA761204",
+  "center": "CDER"
  },
  {
   "id": "rivfloza",
@@ -5022,7 +5356,8 @@
   "modality": "Oligonucleotide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA215842"
+  "app": "NDA215842",
+  "center": "CDER"
  },
  {
   "id": "velsipity",
@@ -5037,7 +5372,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216956"
+  "app": "NDA216956",
+  "center": "CDER"
  },
  {
   "id": "zilbrysq",
@@ -5052,7 +5388,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA216834"
+  "app": "NDA216834",
+  "center": "CDER"
  },
  {
   "id": "bimzelx",
@@ -5067,7 +5404,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761151"
+  "app": "BLA761151",
+  "center": "CDER"
  },
  {
   "id": "agamree",
@@ -5082,7 +5420,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA215239"
+  "app": "NDA215239",
+  "center": "CDER"
  },
  {
   "id": "omvoh",
@@ -5097,7 +5436,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761279"
+  "app": "BLA761279",
+  "center": "CDER"
  },
  {
   "id": "loqtorzi",
@@ -5112,7 +5452,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761240"
+  "app": "BLA761240",
+  "center": "CDER"
  },
  {
   "id": "fruzaqla",
@@ -5127,7 +5468,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA217564"
+  "app": "NDA217564",
+  "center": "CDER"
  },
  {
   "id": "defencath",
@@ -5142,7 +5484,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214520"
+  "app": "NDA214520",
+  "center": "CDER"
  },
  {
   "id": "augtyro",
@@ -5157,7 +5500,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218213"
+  "app": "NDA218213",
+  "center": "CDER"
  },
  {
   "id": "ryzneuta",
@@ -5172,7 +5516,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761134"
+  "app": "BLA761134",
+  "center": "CDER"
  },
  {
   "id": "truqap",
@@ -5187,7 +5532,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA218197"
+  "app": "NDA218197",
+  "center": "CDER"
  },
  {
   "id": "ogsiveo",
@@ -5202,7 +5548,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA217677"
+  "app": "NDA217677",
+  "center": "CDER"
  },
  {
   "id": "fabhalta",
@@ -5217,7 +5564,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218276"
+  "app": "NDA218276",
+  "center": "CDER"
  },
  {
   "id": "filsuvez",
@@ -5232,7 +5580,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215064"
+  "app": "NDA215064",
+  "center": "CDER"
  },
  {
   "id": "wainua",
@@ -5247,7 +5596,8 @@
   "modality": "Oligonucleotide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA217388"
+  "app": "NDA217388",
+  "center": "CDER"
  },
  {
   "id": "zelsuvmi",
@@ -5262,7 +5612,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA217424"
+  "app": "NDA217424",
+  "center": "CDER"
  },
  {
   "id": "exblifep",
@@ -5277,7 +5628,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA216165"
+  "app": "NDA216165",
+  "center": "CDER"
  },
  {
   "id": "letybo",
@@ -5292,7 +5644,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761225"
+  "app": "BLA761225",
+  "center": "CDER"
  },
  {
   "id": "tevimbra",
@@ -5307,7 +5660,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761232"
+  "app": "BLA761232",
+  "center": "CDER"
  },
  {
   "id": "rezdiffra",
@@ -5322,7 +5676,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA217785"
+  "app": "NDA217785",
+  "center": "CDER"
  },
  {
   "id": "tryvio",
@@ -5337,7 +5692,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA217686"
+  "app": "NDA217686",
+  "center": "CDER"
  },
  {
   "id": "duvyzat",
@@ -5352,7 +5708,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA217865"
+  "app": "NDA217865",
+  "center": "CDER"
  },
  {
   "id": "winrevair",
@@ -5367,7 +5724,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761363"
+  "app": "BLA761363",
+  "center": "CDER"
  },
  {
   "id": "vafseo",
@@ -5382,7 +5740,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA215192"
+  "app": "NDA215192",
+  "center": "CDER"
  },
  {
   "id": "voydeya",
@@ -5397,7 +5756,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA218037"
+  "app": "NDA218037",
+  "center": "CDER"
  },
  {
   "id": "zevtera",
@@ -5412,7 +5772,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA218275"
+  "app": "NDA218275",
+  "center": "CDER"
  },
  {
   "id": "lumisight",
@@ -5427,7 +5788,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA214511"
+  "app": "NDA214511",
+  "center": "CDER"
  },
  {
   "id": "anktiva",
@@ -5442,7 +5804,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761336"
+  "app": "BLA761336",
+  "center": "CDER"
  },
  {
   "id": "ojemda",
@@ -5457,7 +5820,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218033"
+  "app": "NDA218033",
+  "center": "CDER"
  },
  {
   "id": "xolremdi",
@@ -5472,7 +5836,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218709"
+  "app": "NDA218709",
+  "center": "CDER"
  },
  {
   "id": "imdelltra",
@@ -5487,7 +5852,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761344"
+  "app": "BLA761344",
+  "center": "CDER"
  },
  {
   "id": "rytelo",
@@ -5502,7 +5868,8 @@
   "modality": "Oligonucleotide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA217779"
+  "app": "NDA217779",
+  "center": "CDER"
  },
  {
   "id": "iqirvo",
@@ -5517,7 +5884,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218860"
+  "app": "NDA218860",
+  "center": "CDER"
  },
  {
   "id": "sofdra",
@@ -5532,7 +5900,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA217347"
+  "app": "NDA217347",
+  "center": "CDER"
  },
  {
   "id": "piasky",
@@ -5547,7 +5916,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761388"
+  "app": "BLA761388",
+  "center": "CDER"
  },
  {
   "id": "ohtuvayre",
@@ -5562,7 +5932,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA217389"
+  "app": "NDA217389",
+  "center": "CDER"
  },
  {
   "id": "kisunla",
@@ -5577,7 +5948,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761248"
+  "app": "BLA761248",
+  "center": "CDER"
  },
  {
   "id": "leqselvi",
@@ -5592,7 +5964,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA217900"
+  "app": "NDA217900",
+  "center": "CDER"
  },
  {
   "id": "voranigo",
@@ -5607,7 +5980,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218784"
+  "app": "NDA218784",
+  "center": "CDER"
  },
  {
   "id": "yorvipath",
@@ -5622,7 +5996,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA216490"
+  "app": "NDA216490",
+  "center": "CDER"
  },
  {
   "id": "nemluvio",
@@ -5637,7 +6012,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761390"
+  "app": "BLA761390",
+  "center": "CDER"
  },
  {
   "id": "niktimvo",
@@ -5652,7 +6028,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761411"
+  "app": "BLA761411",
+  "center": "CDER"
  },
  {
   "id": "livdelzi",
@@ -5667,7 +6044,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA217899"
+  "app": "NDA217899",
+  "center": "CDER"
  },
  {
   "id": "lazcluze",
@@ -5682,7 +6060,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219008"
+  "app": "NDA219008",
+  "center": "CDER"
  },
  {
   "id": "ebglyss",
@@ -5697,7 +6076,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761306"
+  "app": "BLA761306",
+  "center": "CDER"
  },
  {
   "id": "miplyffa",
@@ -5712,7 +6092,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA214927"
+  "app": "NDA214927",
+  "center": "CDER"
  },
  {
   "id": "aqneursa",
@@ -5727,7 +6108,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA219132"
+  "app": "NDA219132",
+  "center": "CDER"
  },
  {
   "id": "cobenfy",
@@ -5742,7 +6124,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216158"
+  "app": "NDA216158",
+  "center": "CDER"
  },
  {
   "id": "flyrcado",
@@ -5757,7 +6140,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA215168"
+  "app": "NDA215168",
+  "center": "CDER"
  },
  {
   "id": "itovebi",
@@ -5772,7 +6156,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219249"
+  "app": "NDA219249",
+  "center": "CDER"
  },
  {
   "id": "hympavzi",
@@ -5787,7 +6172,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761369"
+  "app": "BLA761369",
+  "center": "CDER"
  },
  {
   "id": "vyloy",
@@ -5802,7 +6188,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761365"
+  "app": "BLA761365",
+  "center": "CDER"
  },
  {
   "id": "orlynvah",
@@ -5817,7 +6204,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA213972"
+  "app": "NDA213972",
+  "center": "CDER"
  },
  {
   "id": "revuforj",
@@ -5832,7 +6220,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218944"
+  "app": "NDA218944",
+  "center": "CDER"
  },
  {
   "id": "ziihera",
@@ -5847,7 +6236,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761416"
+  "app": "BLA761416",
+  "center": "CDER"
  },
  {
   "id": "rapiblyk",
@@ -5862,7 +6252,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA217202"
+  "app": "NDA217202",
+  "center": "CDER"
  },
  {
   "id": "attruby",
@@ -5877,7 +6268,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA216540"
+  "app": "NDA216540",
+  "center": "CDER"
  },
  {
   "id": "iomervu",
@@ -5892,7 +6284,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216016"
+  "app": "NDA216016",
+  "center": "CDER"
  },
  {
   "id": "bizengri",
@@ -5907,7 +6300,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761352"
+  "app": "BLA761352",
+  "center": "CDER"
  },
  {
   "id": "crenessity",
@@ -5922,7 +6316,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218808"
+  "app": "NDA218808",
+  "center": "CDER"
  },
  {
   "id": "unloxcyt",
@@ -5937,7 +6332,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761297"
+  "app": "BLA761297",
+  "center": "CDER"
  },
  {
   "id": "ensacove",
@@ -5952,7 +6348,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA218171"
+  "app": "NDA218171",
+  "center": "CDER"
  },
  {
   "id": "tryngolza",
@@ -5967,7 +6364,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218614"
+  "app": "NDA218614",
+  "center": "CDER"
  },
  {
   "id": "alhemo",
@@ -5982,7 +6380,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761315"
+  "app": "BLA761315",
+  "center": "CDER"
  },
  {
   "id": "alyftrek",
@@ -5997,7 +6396,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218730"
+  "app": "NDA218730",
+  "center": "CDER"
  },
  {
   "id": "datroway",
@@ -6012,7 +6412,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761394"
+  "app": "BLA761394",
+  "center": "CDER"
  },
  {
   "id": "grafapex",
@@ -6027,7 +6428,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA214759"
+  "app": "NDA214759",
+  "center": "CDER"
  },
  {
   "id": "journavx",
@@ -6042,7 +6444,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219209"
+  "app": "NDA219209",
+  "center": "CDER"
  },
  {
   "id": "gomekli",
@@ -6057,7 +6460,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA219379"
+  "app": "NDA219379",
+  "center": "CDER"
  },
  {
   "id": "romvimza",
@@ -6072,7 +6476,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219304"
+  "app": "NDA219304",
+  "center": "CDER"
  },
  {
   "id": "blujepa",
@@ -6087,7 +6492,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA218230"
+  "app": "NDA218230",
+  "center": "CDER"
  },
  {
   "id": "qfitlia",
@@ -6102,7 +6508,8 @@
   "modality": "Oligonucleotide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219019"
+  "app": "NDA219019",
+  "center": "CDER"
  },
  {
   "id": "vanrafia",
@@ -6117,7 +6524,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA219208"
+  "app": "NDA219208",
+  "center": "CDER"
  },
  {
   "id": "penpulimab-kcqx",
@@ -6132,7 +6540,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761258"
+  "app": "BLA761258",
+  "center": "CDER"
  },
  {
   "id": "imaavy",
@@ -6147,7 +6556,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761430"
+  "app": "BLA761430",
+  "center": "CDER"
  },
  {
   "id": "avmapki-fakzynja-co-pack",
@@ -6162,7 +6572,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA219616"
+  "app": "NDA219616",
+  "center": "CDER"
  },
  {
   "id": "emrelis",
@@ -6177,7 +6588,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761384"
+  "app": "BLA761384",
+  "center": "CDER"
  },
  {
   "id": "tryptyr",
@@ -6192,7 +6604,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA217370"
+  "app": "NDA217370",
+  "center": "CDER"
  },
  {
   "id": "enflonsia",
@@ -6207,7 +6620,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761432"
+  "app": "BLA761432",
+  "center": "CDER"
  },
  {
   "id": "ibtrozi",
@@ -6222,7 +6636,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA219713"
+  "app": "NDA219713",
+  "center": "CDER"
  },
  {
   "id": "andembry",
@@ -6237,7 +6652,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761367"
+  "app": "BLA761367",
+  "center": "CDER"
  },
  {
   "id": "zegfrovy",
@@ -6252,7 +6668,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219839"
+  "app": "NDA219839",
+  "center": "CDER"
  },
  {
   "id": "lynozyfic",
@@ -6267,7 +6684,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761400"
+  "app": "BLA761400",
+  "center": "CDER"
  },
  {
   "id": "ekterly",
@@ -6282,7 +6700,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219301"
+  "app": "NDA219301",
+  "center": "CDER"
  },
  {
   "id": "anzupgo",
@@ -6297,7 +6716,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA219155"
+  "app": "NDA219155",
+  "center": "CDER"
  },
  {
   "id": "sephience",
@@ -6312,7 +6732,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219666"
+  "app": "NDA219666",
+  "center": "CDER"
  },
  {
   "id": "vizz",
@@ -6327,7 +6748,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA218585"
+  "app": "NDA218585",
+  "center": "CDER"
  },
  {
   "id": "modeyso",
@@ -6342,7 +6764,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA219876"
+  "app": "NDA219876",
+  "center": "CDER"
  },
  {
   "id": "hernexeos",
@@ -6357,7 +6780,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219042"
+  "app": "NDA219042",
+  "center": "CDER"
  },
  {
   "id": "brinsupri",
@@ -6372,7 +6796,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA217673"
+  "app": "NDA217673",
+  "center": "CDER"
  },
  {
   "id": "dawnzera",
@@ -6387,7 +6812,8 @@
   "modality": "Oligonucleotide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219407"
+  "app": "NDA219407",
+  "center": "CDER"
  },
  {
   "id": "wayrilz",
@@ -6402,7 +6828,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219685"
+  "app": "NDA219685",
+  "center": "CDER"
  },
  {
   "id": "forzinity",
@@ -6417,7 +6844,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA215244"
+  "app": "NDA215244",
+  "center": "CDER"
  },
  {
   "id": "keytruda-qlex",
@@ -6432,7 +6860,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761467"
+  "app": "BLA761467",
+  "center": "CDER"
  },
  {
   "id": "palsonify",
@@ -6447,7 +6876,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219070"
+  "app": "NDA219070",
+  "center": "CDER"
  },
  {
   "id": "inluriyo",
@@ -6462,7 +6892,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA218881"
+  "app": "NDA218881",
+  "center": "CDER"
  },
  {
   "id": "rhapsido",
@@ -6477,7 +6908,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA218436"
+  "app": "NDA218436",
+  "center": "CDER"
  },
  {
   "id": "jascayd",
@@ -6492,7 +6924,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218764"
+  "app": "NDA218764",
+  "center": "CDER"
  },
  {
   "id": "lynkuet",
@@ -6507,7 +6940,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA219469"
+  "app": "NDA219469",
+  "center": "CDER"
  },
  {
   "id": "kygevvi",
@@ -6522,7 +6956,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA219792"
+  "app": "NDA219792",
+  "center": "CDER"
  },
  {
   "id": "komzifti",
@@ -6537,7 +6972,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220305"
+  "app": "NDA220305",
+  "center": "CDER"
  },
  {
   "id": "redemplo",
@@ -6552,7 +6988,8 @@
   "modality": "Oligonucleotide",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219947"
+  "app": "NDA219947",
+  "center": "CDER"
  },
  {
   "id": "hyrnuo",
@@ -6567,7 +7004,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA219972"
+  "app": "NDA219972",
+  "center": "CDER"
  },
  {
   "id": "voyxact",
@@ -6582,7 +7020,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761434"
+  "app": "BLA761434",
+  "center": "CDER"
  },
  {
   "id": "cardamyst",
@@ -6597,7 +7036,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA218571"
+  "app": "NDA218571",
+  "center": "CDER"
  },
  {
   "id": "nuzolvence",
@@ -6612,7 +7052,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219491"
+  "app": "NDA219491",
+  "center": "CDER"
  },
  {
   "id": "lerochol",
@@ -6627,7 +7068,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761427"
+  "app": "BLA761427",
+  "center": "CDER"
  },
  {
   "id": "exdensur",
@@ -6642,7 +7084,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761458"
+  "app": "BLA761458",
+  "center": "CDER"
  },
  {
   "id": "myqorzo",
@@ -6657,7 +7100,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219083"
+  "app": "NDA219083",
+  "center": "CDER"
  },
  {
   "id": "yartemlea",
@@ -6672,7 +7116,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761152"
+  "app": "BLA761152",
+  "center": "CDER"
  },
  {
   "id": "nereus",
@@ -6687,7 +7132,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220152"
+  "app": "NDA220152",
+  "center": "CDER"
  },
  {
   "id": "zycubo",
@@ -6702,7 +7148,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA211241"
+  "app": "NDA211241",
+  "center": "CDER"
  },
  {
   "id": "adquey",
@@ -6717,7 +7164,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA219474"
+  "app": "NDA219474",
+  "center": "CDER"
  },
  {
   "id": "bysanti",
@@ -6732,7 +7180,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220358"
+  "app": "NDA220358",
+  "center": "CDER"
  },
  {
   "id": "loargys",
@@ -6747,7 +7196,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761211"
+  "app": "BLA761211",
+  "center": "CDER"
  },
  {
   "id": "yuviwel",
@@ -6762,7 +7212,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA219164"
+  "app": "NDA219164",
+  "center": "CDER"
  },
  {
   "id": "icotyde",
@@ -6777,7 +7228,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA220149"
+  "app": "NDA220149",
+  "center": "CDER"
  },
  {
   "id": "lynavoy",
@@ -6792,7 +7244,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA220295"
+  "app": "NDA220295",
+  "center": "CDER"
  },
  {
   "id": "avlayah",
@@ -6807,7 +7260,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761485"
+  "app": "BLA761485",
+  "center": "CDER"
  },
  {
   "id": "lifyorli",
@@ -6822,7 +7276,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220641"
+  "app": "NDA220641",
+  "center": "CDER"
  },
  {
   "id": "awiqli",
@@ -6837,7 +7292,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": true,
-  "app": "BLA761326"
+  "app": "BLA761326",
+  "center": "CDER"
  },
  {
   "id": "foundayo",
@@ -6852,7 +7308,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220934"
+  "app": "NDA220934",
+  "center": "CDER"
  },
  {
   "id": "idvynso",
@@ -6867,7 +7324,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA216964"
+  "app": "NDA216964",
+  "center": "CDER"
  },
  {
   "id": "veppanu",
@@ -6882,7 +7340,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA219835"
+  "app": "NDA219835",
+  "center": "CDER"
  },
  {
   "id": "beqalzi",
@@ -6897,7 +7356,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220711"
+  "app": "NDA220711",
+  "center": "CDER"
  },
  {
   "id": "baxfendy",
@@ -6912,7 +7372,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219878"
+  "app": "NDA219878",
+  "center": "CDER"
  },
  {
   "id": "hepcludex",
@@ -6927,7 +7388,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761468"
+  "app": "BLA761468",
+  "center": "CDER"
  },
  {
   "id": "decnupaz",
@@ -6942,7 +7404,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761460"
+  "app": "BLA761460",
+  "center": "CDER"
  },
  {
   "id": "cypsedo",
@@ -6957,7 +7420,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220482"
+  "app": "NDA220482",
+  "center": "CDER"
  },
  {
   "id": "xocova",
@@ -6972,7 +7436,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220442"
+  "app": "NDA220442",
+  "center": "CDER"
  },
  {
   "id": "zaynich",
@@ -6987,7 +7452,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA220787"
+  "app": "NDA220787",
+  "center": "CDER"
  },
  {
   "id": "ambelvist",
@@ -7002,7 +7468,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA219627"
+  "app": "NDA219627",
+  "center": "CDER"
  },
  {
   "id": "utebzi",
@@ -7017,7 +7484,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA215960"
+  "app": "NDA215960",
+  "center": "CDER"
  },
  {
   "id": "lumvoa",
@@ -7032,7 +7500,8 @@
   "modality": "Protein / biologic",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761530"
+  "app": "BLA761530",
+  "center": "CDER"
  },
  {
   "id": "trutakna",
@@ -7047,7 +7516,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": false,
-  "app": "BLA761486"
+  "app": "BLA761486",
+  "center": "CDER"
  },
  {
   "id": "revtorpyk",
@@ -7062,7 +7532,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA219908"
+  "app": "NDA219908",
+  "center": "CDER"
  },
  {
   "id": "lipfendra",
@@ -7077,7 +7548,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA220848"
+  "app": "NDA220848",
+  "center": "CDER"
  },
  {
   "id": "jideytro",
@@ -7092,7 +7564,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": true,
-  "app": "NDA220185"
+  "app": "NDA220185",
+  "center": "CDER"
  },
  {
   "id": "simtriyo",
@@ -7107,7 +7580,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": false,
-  "app": "NDA218145"
+  "app": "NDA218145",
+  "center": "CDER"
  },
  {
   "id": "lytenava",
@@ -7122,7 +7596,8 @@
   "modality": "Antibody / ADC",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761320"
+  "app": "BLA761320",
+  "center": "CDER"
  },
  {
   "id": "orzeyful",
@@ -7137,7 +7612,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220860"
+  "app": "NDA220860",
+  "center": "CDER"
  },
  {
   "id": "zenbexus",
@@ -7152,7 +7628,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA221075"
+  "app": "NDA221075",
+  "center": "CDER"
  },
  {
   "id": "tauklarify",
@@ -7167,7 +7644,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220496"
+  "app": "NDA220496",
+  "center": "CDER"
  },
  {
   "id": "pasatru",
@@ -7182,7 +7660,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761508"
+  "app": "BLA761508",
+  "center": "CDER"
  },
  {
   "id": "rasonque",
@@ -7197,7 +7676,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220910"
+  "app": "NDA220910",
+  "center": "CDER"
  },
  {
   "id": "lisraya",
@@ -7212,7 +7692,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220106"
+  "app": "NDA220106",
+  "center": "CDER"
  },
  {
   "id": "mimrylo",
@@ -7227,7 +7708,8 @@
   "modality": "Peptide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220605"
+  "app": "NDA220605",
+  "center": "CDER"
  },
  {
   "id": "zanvastro",
@@ -7242,7 +7724,8 @@
   "modality": "Oligonucleotide",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220210"
+  "app": "NDA220210",
+  "center": "CDER"
  },
  {
   "id": "etcamah",
@@ -7257,7 +7740,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220359"
+  "app": "NDA220359",
+  "center": "CDER"
  },
  {
   "id": "pixclara",
@@ -7272,7 +7756,8 @@
   "modality": "Radiopharmaceutical",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA218592"
+  "app": "NDA218592",
+  "center": "CDER"
  },
  {
   "id": "isembyld",
@@ -7287,7 +7772,8 @@
   "modality": "Antibody / ADC",
   "priority": "Priority",
   "orphan": true,
-  "app": "BLA761463"
+  "app": "BLA761463",
+  "center": "CDER"
  },
  {
   "id": "lyrfigtu",
@@ -7302,7 +7788,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220425"
+  "app": "NDA220425",
+  "center": "CDER"
  },
  {
   "id": "onswik",
@@ -7317,7 +7804,8 @@
   "modality": "Protein / biologic",
   "priority": "Standard",
   "orphan": false,
-  "app": "BLA761408"
+  "app": "BLA761408",
+  "center": "CDER"
  },
  {
   "id": "atebrioz",
@@ -7332,7 +7820,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA221198"
+  "app": "NDA221198",
+  "center": "CDER"
  },
  {
   "id": "juvmo",
@@ -7347,7 +7836,8 @@
   "modality": "Small molecule",
   "priority": "Standard",
   "orphan": false,
-  "app": "NDA220415"
+  "app": "NDA220415",
+  "center": "CDER"
  },
  {
   "id": "emcitate",
@@ -7362,7 +7852,8 @@
   "modality": "Small molecule",
   "priority": "Priority",
   "orphan": true,
-  "app": "NDA220963"
+  "app": "NDA220963",
+  "center": "CDER"
  },
  {
   "id": "hovilpri",
@@ -7377,6 +7868,1079 @@
   "modality": "Small molecule",
   "priority": "",
   "orphan": false,
-  "app": ""
+  "app": "",
+  "center": "CDER"
+ },
+ {
+  "id": "maci",
+  "brand": "Maci",
+  "ingredient": "autologous cultured chondrocytes on porcine collagen membrane",
+  "date": "2016-12-13",
+  "year": 2016,
+  "sponsor": "Vericel Corporation",
+  "company": "Vericel",
+  "use": "MACI is an autologous cellularized scaffold product indicated for the repair of symptomatic, single or multiple full-thickness cartilage defects of the knee with or without bone involvement in adults.",
+  "ta": "Musculoskeletal",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125603",
+  "center": "CBER"
+ },
+ {
+  "id": "kymriah",
+  "brand": "Kymriah",
+  "ingredient": "tisagenlecleucel",
+  "date": "2017-08-30",
+  "year": 2017,
+  "sponsor": "Novartis Pharmaceuticals Corporation",
+  "company": "Novartis",
+  "use": "KYMRIAH is a CD19-directed genetically modified autologous T-cell immunotherapy indicated for the treatment of:",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125646",
+  "center": "CBER"
+ },
+ {
+  "id": "yescarta",
+  "brand": "Yescarta",
+  "ingredient": "axicabtagene ciloleucel",
+  "date": "2017-10-18",
+  "year": 2017,
+  "sponsor": "Kite Pharma Inc.",
+  "company": "Gilead Sciences",
+  "use": "For the treatment of adult patients with large B-cell lymphoma that is refractory to first-line chemoimmunotherapy or that relapses within 12 months of first-line chemoimmunotherapy; adult patients with relapsed or refractory large B-cell l",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125643",
+  "center": "CBER"
+ },
+ {
+  "id": "shingrix",
+  "brand": "Shingrix",
+  "ingredient": "zoster vaccine recombinant, adjuvanted",
+  "date": "2017-10-20",
+  "year": 2017,
+  "sponsor": "GlaxoSmithKline Biologicals, S.A.",
+  "company": "GSK",
+  "use": "SHINGRIX is a vaccine indicated for prevention of herpes zoster (HZ) (shingles):",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125614",
+  "center": "CBER"
+ },
+ {
+  "id": "heplisav-b",
+  "brand": "Heplisav-B",
+  "ingredient": "hepatitis b vaccine (recombinant), adjuvanted",
+  "date": "2017-11-09",
+  "year": 2017,
+  "sponsor": "Dynavax Technologies Corporation",
+  "company": "Dynavax Technologies",
+  "use": "HEPLISAV-B is indicated for prevention of infection caused by all known subtypes of hepatitis B virus.",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125428",
+  "center": "CBER"
+ },
+ {
+  "id": "luxturna",
+  "brand": "Luxturna",
+  "ingredient": "voretigene neparvovec-rzyl",
+  "date": "2017-12-19",
+  "year": 2017,
+  "sponsor": "Spark Therapeutics, Inc.",
+  "company": "Roche",
+  "use": "For the treatment of patients with confirmed biallelic",
+  "ta": "Ophthalmology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125610",
+  "center": "CBER"
+ },
+ {
+  "id": "hpc-cord-blood-md-anderson-cord-blood-bank",
+  "brand": "HPC, Cord Blood - MD Anderson Cord Blood Bank",
+  "ingredient": "hpc, cord blood",
+  "date": "2018-06-21",
+  "year": 2018,
+  "sponsor": "MD Anderson Cord Blood Bank",
+  "company": "Md Anderson Cord Blood Bank",
+  "use": "For use in unrelated donor hematopoietic progenitor cell transplantation procedures in conjunction with an appropriate preparative regimen for hematopoietic and immunologic reconstitution in patients with disorders affecting the hematopoiet",
+  "ta": "Hematology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125657",
+  "center": "CBER"
+ },
+ {
+  "id": "vaxelis",
+  "brand": "Vaxelis",
+  "ingredient": "diphtheria and tetanus toxoids and acellular pertussis, inactivated poliovirus, haemophilus b conjugate and hepatitis b vaccine",
+  "date": "2018-12-21",
+  "year": 2018,
+  "sponsor": "MSP Vaccine Company",
+  "company": "Msp Vaccine",
+  "use": "VAXELIS is a vaccine indicated for active immunization to prevent diphtheria, tetanus, pertussis, poliomyelitis, hepatitis B, and invasive disease due to",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125563",
+  "center": "CBER"
+ },
+ {
+  "id": "dengvaxia",
+  "brand": "Dengvaxia",
+  "ingredient": "dengue tetravalent vaccine, live",
+  "date": "2019-05-01",
+  "year": 2019,
+  "sponsor": "Sanofi Pasteur, Inc.",
+  "company": "Sanofi",
+  "use": "For the prevention of dengue disease caused by dengue virus serotypes 1, 2, 3 and 4. DENGVAXIA is approved for use in individuals 6 through 16 years of age with laboratory-confirmed previous dengue infection and living in endemic areas.",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125682",
+  "center": "CBER"
+ },
+ {
+  "id": "zolgensma",
+  "brand": "Zolgensma",
+  "ingredient": "onasemnogene abeparvovec-xioi",
+  "date": "2019-05-24",
+  "year": 2019,
+  "sponsor": "Novartis Gene Therapies, Inc.",
+  "company": "Novartis",
+  "use": "",
+  "ta": "Neurology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125694",
+  "center": "CBER"
+ },
+ {
+  "id": "jynneos",
+  "brand": "Jynneos",
+  "ingredient": "smallpox and mpox vaccine, live, non-replicating",
+  "date": "2019-09-24",
+  "year": 2019,
+  "sponsor": "Bavarian Nordic A/S",
+  "company": "Bavarian Nordic",
+  "use": "For prevention of smallpox and mpox disease in adults 18 years of age and older determined to be at high risk for smallpox or monkeypox infection.",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125678",
+  "center": "CBER"
+ },
+ {
+  "id": "ervebo",
+  "brand": "Ervebo",
+  "ingredient": "ebola zaire vaccine, live",
+  "date": "2019-12-19",
+  "year": 2019,
+  "sponsor": "Merck Sharp & Dohme LLC",
+  "company": "Merck & Co.",
+  "use": "ERVEBO is a vaccine indicated for the prevention of disease caused by Zaire ebolavirus in individuals 12 months of age and older.",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125690",
+  "center": "CBER"
+ },
+ {
+  "id": "audenz",
+  "brand": "Audenz",
+  "ingredient": "influenza a (h5n1) monovalent vaccine, adjuvanted",
+  "date": "2020-01-31",
+  "year": 2020,
+  "sponsor": "Seqirus, Inc.",
+  "company": "Seqirus",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125692",
+  "center": "CBER"
+ },
+ {
+  "id": "menquadfi",
+  "brand": "MenQuadfi",
+  "ingredient": "meningococcal (groups a, c, y, w) conjugate vaccine",
+  "date": "2020-04-23",
+  "year": 2020,
+  "sponsor": "Sanofi Pasteur, Inc.",
+  "company": "Sanofi",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125701",
+  "center": "CBER"
+ },
+ {
+  "id": "tecartus",
+  "brand": "Tecartus",
+  "ingredient": "brexucabtagene autoleucel",
+  "date": "2020-07-24",
+  "year": 2020,
+  "sponsor": "Kite Pharmaceuticals, Inc.",
+  "company": "Gilead Sciences",
+  "use": "TECARTUS is indicated for the treatment of:",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125703",
+  "center": "CBER"
+ },
+ {
+  "id": "breyanzi",
+  "brand": "Breyanzi",
+  "ingredient": "lisocabtagene maraleucel",
+  "date": "2021-02-05",
+  "year": 2021,
+  "sponsor": "Juno Therapeutics, Inc., a Bristol-Myers Squibb Company",
+  "company": "Bristol Myers Squibb",
+  "use": "",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125714",
+  "center": "CBER"
+ },
+ {
+  "id": "abecma",
+  "brand": "Abecma",
+  "ingredient": "idecabtagene vicleucel",
+  "date": "2021-03-26",
+  "year": 2021,
+  "sponsor": "Celgene Corporation, a Bristol-Myers Squibb Company",
+  "company": "Bristol Myers Squibb",
+  "use": "Treatment of adult patients with relapsed or refractory multiple myeloma after two or more prior lines of therapy including an immunomodulatory agent, a proteasome inhibitor, and an anti-CD38 monoclonal antibody.",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125736",
+  "center": "CBER"
+ },
+ {
+  "id": "prevnar-20",
+  "brand": "Prevnar 20",
+  "ingredient": "pneumococcal 20-valent conjugate vaccine",
+  "date": "2021-06-10",
+  "year": 2021,
+  "sponsor": "Wyeth Pharmaceuticals LLC",
+  "company": "Pfizer",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125731",
+  "center": "CBER"
+ },
+ {
+  "id": "stratagraft",
+  "brand": "Stratagraft",
+  "ingredient": "allogeneic cultured keratinocytes and dermal fibroblasts in murine collagen-dsat",
+  "date": "2021-06-15",
+  "year": 2021,
+  "sponsor": "Stratatech Corporation",
+  "company": "Stratatech",
+  "use": "To promote durable wound closure & regenerative healing in the treatment of adult patients with debrided thermal burns that contain intact dermal elements, and for which surgical intervention is clinically indicated.",
+  "ta": "Dermatology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125730",
+  "center": "CBER"
+ },
+ {
+  "id": "vaxneuvance",
+  "brand": "Vaxneuvance",
+  "ingredient": "pneumococcal 15-valent conjugate vaccine",
+  "date": "2021-07-16",
+  "year": 2021,
+  "sponsor": "Merck Sharp & Dohme LLC",
+  "company": "Merck & Co.",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125741",
+  "center": "CBER"
+ },
+ {
+  "id": "ticovac",
+  "brand": "Ticovac",
+  "ingredient": "tick-borne encephalitis vaccine",
+  "date": "2021-08-13",
+  "year": 2021,
+  "sponsor": "Pfizer Ireland Pharmaceuticals",
+  "company": "Pfizer",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125740",
+  "center": "CBER"
+ },
+ {
+  "id": "comirnaty",
+  "brand": "Comirnaty",
+  "ingredient": "covid-19 vaccine, mrna",
+  "date": "2021-08-23",
+  "year": 2021,
+  "sponsor": "BioNTech Manufacturing GmbH",
+  "company": "BioNTech",
+  "use": "COMIRNATY is a vaccine indicated for active immunization to prevent coronavirus disease 2019 (COVID 19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125742",
+  "center": "CBER"
+ },
+ {
+  "id": "rethymic",
+  "brand": "Rethymic",
+  "ingredient": "allogeneic processed thymus tissue\u2013agdc",
+  "date": "2021-10-08",
+  "year": 2021,
+  "sponsor": "Enzyvant Therapeutics GmbH",
+  "company": "Enzyvant",
+  "use": "",
+  "ta": "Immunology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125685",
+  "center": "CBER"
+ },
+ {
+  "id": "prehevbrio",
+  "brand": "Prehevbrio",
+  "ingredient": "hepatitis b vaccine (recombinant)",
+  "date": "2021-11-30",
+  "year": 2021,
+  "sponsor": "VBI Vaccines (Delaware) Inc.",
+  "company": "Vbi Vaccines (Delaware)",
+  "use": "For prevention of infection caused by all known subtypes of the hepatitis B virus in adults 18 years and older.",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125737",
+  "center": "CBER"
+ },
+ {
+  "id": "spikevax",
+  "brand": "Spikevax",
+  "ingredient": "covid-19 vaccine, mrna",
+  "date": "2022-01-31",
+  "year": 2022,
+  "sponsor": "Moderna Tx, Inc",
+  "company": "Moderna",
+  "use": "For active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125752",
+  "center": "CBER"
+ },
+ {
+  "id": "carvykti",
+  "brand": "Carvykti",
+  "ingredient": "ciltacabtagene autoleucel",
+  "date": "2022-02-28",
+  "year": 2022,
+  "sponsor": "Janssen Biotech, Inc.",
+  "company": "Johnson & Johnson",
+  "use": "Treatment of adult patients with relapsed or refractory multiple myeloma who have received at least 1 prior line of therapy, including a proteasome inhibitor and an immunomodulatory agent, and are refractory to lenalidomide.",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125746",
+  "center": "CBER"
+ },
+ {
+  "id": "priorix",
+  "brand": "Priorix",
+  "ingredient": "measles, mumps and rubella vaccine, live",
+  "date": "2022-06-03",
+  "year": 2022,
+  "sponsor": "GlaxoSmithKline Biologicals SA",
+  "company": "GSK",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125748",
+  "center": "CBER"
+ },
+ {
+  "id": "zynteglo",
+  "brand": "Zynteglo",
+  "ingredient": "betibeglogene autotemcel",
+  "date": "2022-08-17",
+  "year": 2022,
+  "sponsor": "bluebird bio Inc.",
+  "company": "Bluebird Bio",
+  "use": "",
+  "ta": "Hematology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125717",
+  "center": "CBER"
+ },
+ {
+  "id": "skysona",
+  "brand": "Skysona",
+  "ingredient": "elivaldogene autotemcel",
+  "date": "2022-09-16",
+  "year": 2022,
+  "sponsor": "bluebird bio, Inc.",
+  "company": "Bluebird Bio",
+  "use": "SKYSONA is indicated to slow the progression of neurologic dysfunction in boys 4- 17 years of age with early, active cerebral adrenoleukodystrophy (CALD) without an available human leukocyte antigen (HLA)-matched donor for allogeneic hemato",
+  "ta": "Neurology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125755",
+  "center": "CBER"
+ },
+ {
+  "id": "hemgenix",
+  "brand": "Hemgenix",
+  "ingredient": "etranacogene dezaparvovec-drlb",
+  "date": "2022-11-22",
+  "year": 2022,
+  "sponsor": "CSL Behring LLC",
+  "company": "Csl Behring",
+  "use": "",
+  "ta": "Hematology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125772",
+  "center": "CBER"
+ },
+ {
+  "id": "adstiladrin",
+  "brand": "Adstiladrin",
+  "ingredient": "nadofaragene firadenovec-vncg",
+  "date": "2022-12-16",
+  "year": 2022,
+  "sponsor": "Ferring Pharmaceuticals A/S",
+  "company": "Ferring",
+  "use": "",
+  "ta": "Oncology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125700",
+  "center": "CBER"
+ },
+ {
+  "id": "omisirge",
+  "brand": "Omisirge",
+  "ingredient": "omidubicel-onlv",
+  "date": "2023-04-17",
+  "year": 2023,
+  "sponsor": "Gamida Cell Ltd.",
+  "company": "Gamida Cell",
+  "use": "",
+  "ta": "Hematology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125738",
+  "center": "CBER"
+ },
+ {
+  "id": "vyjuvek",
+  "brand": "Vyjuvek",
+  "ingredient": "beremagene geperpavec-svdt",
+  "date": "2023-05-19",
+  "year": 2023,
+  "sponsor": "Krystal Biotech, Inc.",
+  "company": "Krystal",
+  "use": "",
+  "ta": "Dermatology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125774",
+  "center": "CBER"
+ },
+ {
+  "id": "arexvy",
+  "brand": "Arexvy",
+  "ingredient": "respiratory syncytial virus vaccine, adjuvanted",
+  "date": "2023-05-23",
+  "year": 2023,
+  "sponsor": "GlaxoSmithKline Biologicals SA",
+  "company": "GSK",
+  "use": "AREXVY is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in:",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125775",
+  "center": "CBER"
+ },
+ {
+  "id": "abrysvo",
+  "brand": "Abrysvo",
+  "ingredient": "respiratory syncytial virus vaccine",
+  "date": "2023-05-31",
+  "year": 2023,
+  "sponsor": "Pfizer Inc.",
+  "company": "Pfizer",
+  "use": "ABRYSVO is indicated for:",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125769",
+  "center": "CBER"
+ },
+ {
+  "id": "elevidys",
+  "brand": "Elevidys",
+  "ingredient": "delandistrogene moxeparvovec-rokl",
+  "date": "2023-06-22",
+  "year": 2023,
+  "sponsor": "Sarepta Therapeutics, Inc.",
+  "company": "Sarepta",
+  "use": "",
+  "ta": "Neurology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125781",
+  "center": "CBER"
+ },
+ {
+  "id": "lantidra",
+  "brand": "Lantidra",
+  "ingredient": "donislecel-jujn",
+  "date": "2023-06-28",
+  "year": 2023,
+  "sponsor": "CellTrans Inc.",
+  "company": "Celltrans",
+  "use": "",
+  "ta": "Metabolic & Endocrine",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125734",
+  "center": "CBER"
+ },
+ {
+  "id": "roctavian",
+  "brand": "Roctavian",
+  "ingredient": "valoctocogene roxaparvovec-rvox",
+  "date": "2023-06-29",
+  "year": 2023,
+  "sponsor": "BioMarin Pharmaceutical Inc.",
+  "company": "Biomarin",
+  "use": "Indicated for the treatment of adults with severe hemophilia A (congenital factor VIII deficiency with factor VIII activity <1 IU/dL) without pre-existing antibodies to adeno-associated virus serotype 5 detected by an FDA-approved test.",
+  "ta": "Hematology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125720",
+  "center": "CBER"
+ },
+ {
+  "id": "cyfendus",
+  "brand": "Cyfendus",
+  "ingredient": "anthrax vaccine adsorbed, adjuvanted",
+  "date": "2023-07-20",
+  "year": 2023,
+  "sponsor": "Emergent BioDefense Operations Lansing LLC.",
+  "company": "Emergent Biodefense Operations Lansing",
+  "use": "CYFENDUS (Anthrax Vaccine Adsorbed, Adjuvanted) is a vaccine indicated for post-exposure prophylaxis of disease following suspected or confirmed exposure to Bacillus anthracis in persons 18 through 65 years of age when administered in conju",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125761",
+  "center": "CBER"
+ },
+ {
+  "id": "penbraya",
+  "brand": "Penbraya",
+  "ingredient": "meningococcal groups a, b, c, w, and y vaccine",
+  "date": "2023-10-20",
+  "year": 2023,
+  "sponsor": "Pfizer Ireland Pharmaceuticals",
+  "company": "Pfizer",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125770",
+  "center": "CBER"
+ },
+ {
+  "id": "ixchiq",
+  "brand": "Ixchiq",
+  "ingredient": "chikungunya vaccine, live",
+  "date": "2023-11-09",
+  "year": 2023,
+  "sponsor": "Valneva Austria GmbH",
+  "company": "Valneva Austria",
+  "use": "Prevention of disease caused by chikungunya virus in people 18 years and older",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "",
+  "center": "CBER"
+ },
+ {
+  "id": "casgevy",
+  "brand": "Casgevy",
+  "ingredient": "exagamglogene autotemcel",
+  "date": "2023-12-08",
+  "year": 2023,
+  "sponsor": "Vertex Pharmaceuticals Incorporated",
+  "company": "Vertex",
+  "use": "STN 125787 - For the treatment of patients aged 2 years and older with:",
+  "ta": "Hematology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125787",
+  "center": "CBER"
+ },
+ {
+  "id": "lyfgenia",
+  "brand": "Lyfgenia",
+  "ingredient": "lovotibeglogene autotemcel (lovo-cel)",
+  "date": "2023-12-08",
+  "year": 2023,
+  "sponsor": "bluebird bio, Inc.",
+  "company": "Bluebird Bio",
+  "use": "",
+  "ta": "Hematology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125788",
+  "center": "CBER"
+ },
+ {
+  "id": "amtagvi",
+  "brand": "Amtagvi",
+  "ingredient": "lifileucel",
+  "date": "2024-02-16",
+  "year": 2024,
+  "sponsor": "Iovance Biotherapeutics, Inc.",
+  "company": "Iovance Biotherapeutics",
+  "use": "Unresectable or metastatic melanoma previously treated with a PD-1 blocking antibody",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "",
+  "center": "CBER"
+ },
+ {
+  "id": "lenmeldy",
+  "brand": "Lenmeldy",
+  "ingredient": "atidarsagene autotemcel",
+  "date": "2024-03-18",
+  "year": 2024,
+  "sponsor": "Orchard Therapeutics (Europe) Limited",
+  "company": "Kyowa Kirin",
+  "use": "Indicated for the treatment of children with pre-symptomatic late infantile (PSLI), pre-symptomatic early juvenile (PSEJ) or early symptomatic early juvenile (ESEJ) metachromatic leukodystrophy (MLD)",
+  "ta": "Neurology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125758",
+  "center": "CBER"
+ },
+ {
+  "id": "beqvez",
+  "brand": "Beqvez",
+  "ingredient": "fidanacogene elaparvovec-dzkt",
+  "date": "2024-04-25",
+  "year": 2024,
+  "sponsor": "Pfizer, Inc.",
+  "company": "Pfizer",
+  "use": "",
+  "ta": "Hematology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125786",
+  "center": "CBER"
+ },
+ {
+  "id": "mresvia",
+  "brand": "Mresvia",
+  "ingredient": "respiratory syncytial virus vaccine",
+  "date": "2024-06-14",
+  "year": 2024,
+  "sponsor": "ModernaTX, Inc.",
+  "company": "Moderna",
+  "use": "MRESVIA is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125796",
+  "center": "CBER"
+ },
+ {
+  "id": "capvaxive",
+  "brand": "Capvaxive",
+  "ingredient": "pneumoccocal 21-valent conjugate vaccine",
+  "date": "2024-06-17",
+  "year": 2024,
+  "sponsor": "Merck Sharp & Dohme, LLC",
+  "company": "Merck & Co.",
+  "use": "CAPVAXIVE is indicated for:",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125814",
+  "center": "CBER"
+ },
+ {
+  "id": "tecelra",
+  "brand": "Tecelra",
+  "ingredient": "afamitresgene autoleucel",
+  "date": "2024-08-01",
+  "year": 2024,
+  "sponsor": "Adaptimmune LLC",
+  "company": "Adaptimmune",
+  "use": "",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125789",
+  "center": "CBER"
+ },
+ {
+  "id": "aucatzyl",
+  "brand": "Aucatzyl",
+  "ingredient": "obecabtagene autoleucel",
+  "date": "2024-11-08",
+  "year": 2024,
+  "sponsor": "Autolus Limited",
+  "company": "Autolus",
+  "use": "",
+  "ta": "Oncology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125813",
+  "center": "CBER"
+ },
+ {
+  "id": "kebilidi",
+  "brand": "Kebilidi",
+  "ingredient": "eladocagene exuparvovec-tneq",
+  "date": "2024-11-13",
+  "year": 2024,
+  "sponsor": "PTC Therapeutics",
+  "company": "Ptc",
+  "use": "",
+  "ta": "Neurology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125722",
+  "center": "CBER"
+ },
+ {
+  "id": "regenecyte",
+  "brand": "Regenecyte",
+  "ingredient": "hpc, cord blood",
+  "date": "2024-11-20",
+  "year": 2024,
+  "sponsor": "StemCyte, Inc.",
+  "company": "Stemcyte",
+  "use": "",
+  "ta": "Hematology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125764",
+  "center": "CBER"
+ },
+ {
+  "id": "ryoncil",
+  "brand": "Ryoncil",
+  "ingredient": "remestemcel-l-rknd",
+  "date": "2024-12-18",
+  "year": 2024,
+  "sponsor": "Mesoblast, Inc.",
+  "company": "Mesoblast",
+  "use": "",
+  "ta": "Immunology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125706",
+  "center": "CBER"
+ },
+ {
+  "id": "symvess",
+  "brand": "Symvess",
+  "ingredient": "acellular tissue engineered vessel-tyod",
+  "date": "2024-12-19",
+  "year": 2024,
+  "sponsor": "Humacyte Global, Inc.",
+  "company": "Humacyte Global",
+  "use": "",
+  "ta": "Cardiovascular",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125812",
+  "center": "CBER"
+ },
+ {
+  "id": "vimkunya",
+  "brand": "Vimkunya",
+  "ingredient": "chikungunya vaccine, recombinant",
+  "date": "2025-02-14",
+  "year": 2025,
+  "sponsor": "Bavarian Nordic A/S",
+  "company": "Bavarian Nordic",
+  "use": "VIMKUNYA is a vaccine indicated for the prevention of disease caused by chikungunya virus in individuals 12 years of age and older.",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125820",
+  "center": "CBER"
+ },
+ {
+  "id": "penmenvy",
+  "brand": "Penmenvy",
+  "ingredient": "meningococcal groups a, b, c, w, and y vaccine",
+  "date": "2025-02-14",
+  "year": 2025,
+  "sponsor": "GlaxoSmithKline Biologicals",
+  "company": "GSK",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125819",
+  "center": "CBER"
+ },
+ {
+  "id": "encelto",
+  "brand": "Encelto",
+  "ingredient": "revakinagene taroretcel-lwey",
+  "date": "2025-03-05",
+  "year": 2025,
+  "sponsor": "Neurotech Pharmaceuticals, Inc.",
+  "company": "Neurotech",
+  "use": "",
+  "ta": "Ophthalmology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125798",
+  "center": "CBER"
+ },
+ {
+  "id": "zevaskyn",
+  "brand": "Zevaskyn",
+  "ingredient": "prademagene zamikeracel",
+  "date": "2025-04-28",
+  "year": 2025,
+  "sponsor": "Abeona Therapeutics, Inc.",
+  "company": "Abeona",
+  "use": "",
+  "ta": "Dermatology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125807",
+  "center": "CBER"
+ },
+ {
+  "id": "nuvaxovid",
+  "brand": "Nuvaxovid",
+  "ingredient": "covid-19 vaccine, adjuvanted",
+  "date": "2025-05-16",
+  "year": 2025,
+  "sponsor": "Sanofi Vaccines US, Inc",
+  "company": "Sanofi",
+  "use": "NUVAXOVID is a vaccine indicated for active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125817",
+  "center": "CBER"
+ },
+ {
+  "id": "mnexspike",
+  "brand": "Mnexspike",
+  "ingredient": "covid-19 vaccine, mrna",
+  "date": "2025-05-30",
+  "year": 2025,
+  "sponsor": "ModernaTX, Inc.",
+  "company": "Moderna",
+  "use": "",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125835",
+  "center": "CBER"
+ },
+ {
+  "id": "papzimeos",
+  "brand": "Papzimeos",
+  "ingredient": "zopapogene imadenovec-drba",
+  "date": "2025-08-14",
+  "year": 2025,
+  "sponsor": "Precigen, Inc.",
+  "company": "Precigen",
+  "use": "",
+  "ta": "Respiratory",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125832",
+  "center": "CBER"
+ },
+ {
+  "id": "itvisma",
+  "brand": "Itvisma",
+  "ingredient": "onasemnogene abeparvovec-brve",
+  "date": "2025-11-24",
+  "year": 2025,
+  "sponsor": "Novartis Gene Therapies, Inc.",
+  "company": "Novartis",
+  "use": "",
+  "ta": "Neurology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125856",
+  "center": "CBER"
+ },
+ {
+  "id": "waskyra",
+  "brand": "Waskyra",
+  "ingredient": "etuvetidigene autotemcel",
+  "date": "2025-12-09",
+  "year": 2025,
+  "sponsor": "Fondazione Telethon ETS",
+  "company": "Fondazione Telethon Ets",
+  "use": "",
+  "ta": "Immunology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125846",
+  "center": "CBER"
+ },
+ {
+  "id": "otarmeni",
+  "brand": "Otarmeni",
+  "ingredient": "lunsotogene parvec-cwha",
+  "date": "2026-04-23",
+  "year": 2026,
+  "sponsor": "Regeneron Pharmaceuticals, Inc.",
+  "company": "Regeneron",
+  "use": "",
+  "ta": "Neurology",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125874",
+  "center": "CBER"
+ },
+ {
+  "id": "tregzi",
+  "brand": "Tregzi",
+  "ingredient": "allogeneic regulatory t cell immunotherapy with hspc and t cells-vldq",
+  "date": "2026-07-01",
+  "year": 2026,
+  "sponsor": "Orca Biosystems Inc",
+  "company": "Orca Biosystems",
+  "use": "",
+  "ta": "Hematology",
+  "modality": "Cell therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125868",
+  "center": "CBER"
+ },
+ {
+  "id": "genglycos",
+  "brand": "Genglycos",
+  "ingredient": "pariglasgene brecaparvovec-opnr",
+  "date": "2026-08-19",
+  "year": 2026,
+  "sponsor": "Ultragenyx Pharmaceutical Inc.",
+  "company": "Ultragenyx",
+  "use": "Indicated to reduce daily cornstarch intake as an adjunct to nutritional management in adult and pediatric patients 8 years of age and older with glycogen storage disease type Ia (GSDIa). This indication is approved under accelerated approv",
+  "ta": "Metabolic & Endocrine",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125858",
+  "center": "CBER"
+ },
+ {
+  "id": "fayuvi",
+  "brand": "Fayuvi",
+  "ingredient": "",
+  "date": "2026-09-17",
+  "year": 2026,
+  "sponsor": "",
+  "company": "Unknown",
+  "use": ":",
+  "ta": "Other",
+  "modality": "Gene therapy",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125845",
+  "center": "CBER"
  }
 ]

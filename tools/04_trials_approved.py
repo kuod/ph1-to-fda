@@ -99,7 +99,7 @@ def one(a):
                 got[sl["id"]] = sl
                 sts.append(sl)
     a = dict(a)
-    a["tokens"], a["codes"], a["studies"], a["formulation"] = toks, sorted(codes)[:6], sts, formulation
+    a["tokens"], a["codes"], a["studies"], a["formulation"] = toks, sorted(codes)[:6], sts, formulation or a.get("center") == "CBER"
     return a
 
 

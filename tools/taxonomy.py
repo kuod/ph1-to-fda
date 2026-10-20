@@ -32,6 +32,8 @@ PARENTS = [
     (r"KYOWA|ORCHARD THERAP", "Kyowa Kirin"),
     (r"EMD SERONO|MERCK KGAA|MERCK KGA", "Merck KGaA"),
     (r"BEONE|BEIGENE", "BeOne Medicines"),
+    (r"^MODERNA", "Moderna"),
+    (r"BIONTECH", "BioNTech"),
     (r"IONIS|AKCEA", "Ionis"),
     (r"TEVA|ACTAVIS", "Teva"),
     (r"^SERVIER", "Servier"),
@@ -124,14 +126,14 @@ COND_GROUPS = [
     ("Breast cancer", r"breast|her2.positive"),
     ("Prostate cancer", r"prostat"),
     ("Colorectal cancer", r"colorectal|colon|rectal"),
-    ("Gastric / oesophageal cancer", r"gastric|stomach|esophag|oesophag|gastro.?oesophageal|gej"),
+    ("Gastric / oesophageal cancer", r"(gastric|stomach|oesophag\w*|esophag\w*|gastro.?oesophageal|gej)\W+(\w+\W+){0,3}(cancer|carcinoma|adenocarcinoma|tumou?r|neoplasm)|gastric cancer|\bgej\b"),
     ("Liver cancer", r"hepatocellular|liver cancer|\bhcc\b|biliary|cholangio"),
     ("Pancreatic cancer", r"pancrea"),
     ("Kidney cancer", r"renal cell|kidney cancer|\brcc\b"),
     ("Bladder / urothelial cancer", r"bladder|urothel"),
     ("Head and neck cancer", r"head and neck|hnscc|nasopharyn|oral cavity|laryn"),
     ("Cervical / endometrial / ovarian cancer", r"cervi|endometri|ovarian|fallopian|uterine|vulvar|gynecolog"),
-    ("Lymphoma", r"lymphoma|hodgkin|\bdlbcl\b|mantle|follicular"),
+    ("Lymphoma", r"lymphoma|hodgkin|\bdlbcl\b"),
     ("Multiple myeloma", r"myeloma"),
     ("Leukaemia", r"leuk|\bcll\b|\baml\b|\ball\b|myelodysplas|myelofibrosis|myeloproliferative"),
     ("Brain / CNS tumours", r"glioma|glioblastoma|brain tumou?r|meningioma|neuroblastoma"),
@@ -170,3 +172,19 @@ def condition_group(c):
         if re.search(rx, c, re.I):
             return name
     return (c[:40] + "…" if len(c) > 40 else c).title() or "Unspecified"
+
+
+# CBER products: area by hand (indications are short and specific); modality by product class.
+CBER_TA = {
+    "luxturna": "Ophthalmology", "encelto": "Ophthalmology", "zolgensma": "Neurology", "itvisma": "Neurology", "elevidys": "Neurology",
+    "skysona": "Neurology", "lenmeldy": "Neurology", "kebilidi": "Neurology", "otarmeni": "Neurology",
+    "hemgenix": "Hematology", "roctavian": "Hematology", "beqvez": "Hematology", "zynteglo": "Hematology", "lyfgenia": "Hematology",
+    "casgevy": "Hematology", "omisirge": "Hematology", "regenecyte": "Hematology", "tregzi": "Hematology",
+    "hpc-cord-blood-md-anderson-cord-blood-bank": "Hematology",
+    "vyjuvek": "Dermatology", "zevaskyn": "Dermatology", "stratagraft": "Dermatology", "maci": "Musculoskeletal",
+    "adstiladrin": "Oncology", "kymriah": "Oncology", "tecartus": "Oncology", "breyanzi": "Oncology", "aucatzyl": "Oncology", "yescarta": "Oncology", "abecma": "Oncology", "carvykti": "Oncology", "amtagvi": "Oncology", "tecelra": "Oncology", "rethymic": "Immunology", "waskyra": "Immunology",
+    "ryoncil": "Immunology", "lantidra": "Metabolic & Endocrine", "genglycos": "Metabolic & Endocrine",
+    "symvess": "Cardiovascular", "papzimeos": "Respiratory",
+}
+CBER_GENE = {"luxturna", "zolgensma", "itvisma", "elevidys", "skysona", "lenmeldy", "kebilidi", "otarmeni", "hemgenix", "roctavian", "beqvez",
+             "zynteglo", "lyfgenia", "casgevy", "vyjuvek", "zevaskyn", "adstiladrin", "waskyra", "fayuvi", "genglycos", "papzimeos", "encelto"}

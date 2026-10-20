@@ -15,7 +15,7 @@ def get_json(url, params=None, retries=5, pause=0.0):
     for i in range(retries):
         try:
             r = requests.get(url, params=params, headers=UA, timeout=90)
-        except requests.exceptions.ConnectionError:
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout):
             time.sleep(3 * (i + 1))
             continue
         if r.status_code == 404:

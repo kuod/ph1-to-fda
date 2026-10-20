@@ -8,7 +8,7 @@ grouped by condition, which shows the pipeline hanging off one product.
 import collections, concurrent.futures as cf, datetime as dt, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from common import get_json
-from taxonomy import parent, TA_OVERRIDE, condition_group
+from taxonomy import parent, TA_OVERRIDE, condition_group, COND_GROUPS
 import importlib.util
 
 
@@ -52,9 +52,32 @@ def summarise(a):
                   o=any(x.get("code") == "Orphan" for x in s.get("submission_property_type", []))) for s in sorted(eff, key=lambda s: s["submission_status_date"])])
 
 
-def conditions_matrix(studies):
-    """Studies -> one row per condition group with counts by phase and status."""
-    rows = collections.defaultdict(lambda: dict(p1=0, p2=0, p3=0, active=0, done=0, halted=0, last=0, first=9999))
+def full_label(brand, ingredient):
+    """Newest label's complete Indications and Usage text (enrich.label truncates to 600 characters)."""
+    b = re.sub(r"\s*\(.*?\)", "", brand).upper()
+    for q in (f'openfda.brand_name:"{b}"', f'openfda.generic_name:"{re.split(r"[ ,]", ingredient.lower())[0]}"'):
+        try:
+            d = get_json("https://api.fda.gov/drug/label.json", {"search": q, "limit": 5})
+        except RuntimeError:
+            continue
+        res = [r for r in d.get("results", []) if r.get("indications_and_usage")]
+        if res:
+            return " ".join(max(res, key=lambda r: r.get("effective_time", ""))["indications_and_usage"])[:30000]
+    return ""
+
+
+def in_label(group, label):
+    """Does the product's current label mention this condition? (keyword match: approximate)"""
+    rx = dict(COND_GROUPS).get(group)
+    if rx:
+        return bool(re.search(rx, label, re.I))
+    words = [w for w in re.findall(r"[a-z]{5,}", group.lower()) if w not in ("cancer", "disease", "syndrome", "patients", "disorder")]
+    return bool(words) and any(w in label.lower() for w in words)
+
+
+def conditions_matrix(studies, label=""):
+    """Studies -> one row per condition group with counts by phase and status, a label flag and the halted studies."""
+    rows = collections.defaultdict(lambda: dict(p1=0, p2=0, p3=0, active=0, done=0, halted=0, last=0, first=9999, h=[]))
     for s in studies:
         lv = 3 if "PHASE3" in s["phases"] else 2 if "PHASE2" in s["phases"] else 1
         y = int(s["start"][:4]) if s["start"][:4].isdigit() else None
@@ -63,11 +86,14 @@ def conditions_matrix(studies):
             r[f"p{lv}"] += 1
             st = s["status"]
             r["active"] += st in trials_active
-            r["halted"] += st in ("TERMINATED", "WITHDRAWN", "SUSPENDED")
+            if st in ("TERMINATED", "WITHDRAWN", "SUSPENDED"):
+                r["halted"] += 1
+                hy = int(s["end"][:4]) if s["end"][:4].isdigit() and int(s["end"][:4]) <= 2026 else y
+                r["h"].append(dict(id=s["id"], ph=lv, y=hy, st=st.title(), why=(s["why"] or "")[:160]))
             r["done"] += st == "COMPLETED"
             if y:
                 r["last"], r["first"] = max(r["last"], y), min(r["first"], y)
-    out = [dict(g=g, **r) for g, r in rows.items()]
+    out = [dict(g=g, lab=in_label(g, label), **dict(r, h=sorted(r["h"], key=lambda x: (not x["why"], -x["y"] if x["y"] else 0))[:8])) for g, r in rows.items()]
     out.sort(key=lambda r: -(r["p1"] + r["p2"] + r["p3"]))
     return out[:30]
 
@@ -76,6 +102,7 @@ trials_active = {"RECRUITING", "NOT_YET_RECRUITING", "ACTIVE_NOT_RECRUITING", "E
 
 
 def pipeline(p):
+    p["label"] = full_label(p["brand"], p["ingredient"]) or p.get("label", "")
     rt, _, brand = trials.roots(p["ingredient"], p["brand"])
     toks = rt + [brand.lower()]
     got = {}
@@ -84,7 +111,13 @@ def pipeline(p):
             sl = trials.slim(s)
             got[sl["id"]] = sl
     sts = [s for s in got.values() if s["cls"] == "INDUSTRY" and trials.mentions(s, toks)]
-    return dict(n=len(sts), conds=conditions_matrix(sts))
+    halts = collections.Counter()
+    for s in sts:
+        if s["status"] in ("TERMINATED", "WITHDRAWN", "SUSPENDED"):
+            y = s["end"][:4] if s["end"][:4].isdigit() and int(s["end"][:4]) <= 2026 else s["start"][:4]
+            if y.isdigit():
+                halts[y] += 1
+    return dict(n=len(sts), conds=conditions_matrix(sts, p.get("label", "")), hy=dict(sorted(halts.items())))
 
 
 def main():
@@ -104,12 +137,12 @@ def main():
         lb = enrich.label(a["brand"], a["ingredient"])
         r = dict(brand=a["brand"], ingredient=a["ingredient"], use=classify.clean_use(lb["ind"]), epc=lb["epc"], label_ind=lb["ind"], app=a["app"])
         bid = re.sub(r"[^a-z0-9]+", "-", a["brand"].lower()).strip("-")
-        return TA_OVERRIDE.get(bid) or classify.ta_of(r), classify.modality(r), r["use"]
+        return TA_OVERRIDE.get(bid) or classify.ta_of(r), classify.modality(r), r["use"], lb["ind"]
 
     with cf.ThreadPoolExecutor(6) as ex:
         labs = list(ex.map(label_of, rows))
-    for a, (ta, mod, use) in zip(rows, labs):
-        a.update(ta=ta, modality=mod, use=use[:200], company=parent(a["sponsor"]), id=re.sub(r"[^a-z0-9]+", "-", a["brand"].lower()).strip("-") + "-" + a["app"].lower())
+    for a, (ta, mod, use, lab) in zip(rows, labs):
+        a.update(ta=ta, modality=mod, use=use[:200], label=lab[:8000], company=parent(a["sponsor"]), id=re.sub(r"[^a-z0-9]+", "-", a["brand"].lower()).strip("-") + "-" + a["app"].lower())
     rows.sort(key=lambda a: -len(a["eff"]))
     top = [a for a in rows if len(a["eff"]) >= 3][:TOP]
     with cf.ThreadPoolExecutor(4) as ex:

@@ -1,7 +1,7 @@
 """Parent company, therapeutic area, modality, and cleaned-up fields for every approval."""
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from taxonomy import parent, TA, MODALITY, TA_OVERRIDE, SPONSOR_OVERRIDE, PARENTS
+from taxonomy import parent, TA, MODALITY, TA_OVERRIDE, SPONSOR_OVERRIDE, PARENTS, CBER_TA, CBER_GENE
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 DIAG = re.compile(r"\b(F[ -]?18|Ga[ -]?68|Cu[ -]?64|Tc[ -]?99m?|Zr[ -]?89|Lu[ -]?177|gallium|fluorine|technetium|flotufolastat|piflufolastat|fluciclovine)\b|diagnos|imaging|PET", re.I)
@@ -61,6 +61,21 @@ def main():
             sponsor=sp, company=parent(sp), use=clean_use(r["use"]), ta=TA_OVERRIDE.get(bid) or ta_of(r), modality=modality(r),
             priority=r.get("priority", ""), orphan=bool(r.get("orphan")), app=r.get("app", ""),
         ))
+    # CBER products (cell and gene therapy, vaccines): same record shape, area and modality set by hand, no review-priority or orphan data
+    cb = os.path.join(D, "cber_raw.json")
+    if os.path.exists(cb):
+        for r in json.load(open(cb)):
+            bid = re.sub(r"[^a-z0-9]+", "-", r["brand"].lower()).strip("-")
+            if r["cat"] == "Vaccine":
+                ta, mod = "Infectious disease", "Vaccine"
+            else:
+                ta = CBER_TA.get(bid) or ta_of(dict(use=r["use"], epc=[], ingredient=r["ingredient"], label_ind=r["use"]))
+                mod = "Gene therapy" if bid in CBER_GENE else "Cell therapy"
+            out.append(dict(id=bid, brand=r["brand"], ingredient=r["ingredient"], date=r["date"], year=int(r["date"][:4]), sponsor=r["sponsor"],
+                            company=parent(r["sponsor"]), use=clean_use(r["use"]), ta=ta, modality=mod, priority="", orphan=False,
+                            app=("BLA " + re.sub(r"\D", "", r["stn"])[:6]) if r["stn"] else "", center="CBER"))
+    for o in out:
+        o.setdefault("center", "CDER")
     # fold variants of one unmapped sponsor ("Ascendis" / "Ascendis Bone") into the shortest name
     fixed = {p for _, p in PARENTS}
     names = sorted({o["company"] for o in out if o["company"] not in fixed}, key=len)

@@ -3,7 +3,7 @@ import hashlib, json, os, time, requests
 
 CACHE = os.environ.get("EASY_AS_CACHE", os.path.join(os.path.dirname(__file__), "..", ".cache"))
 os.makedirs(CACHE, exist_ok=True)
-UA = {"User-Agent": "easy-as-research/1.0 (github.com/kuod/easy-as)"}
+UA = {"User-Agent": "ph1-to-fda-research/1.0 (github.com/kuod/ph1-to-fda)"}
 
 
 def get_json(url, params=None, retries=5, pause=0.0):

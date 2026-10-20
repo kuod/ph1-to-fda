@@ -106,6 +106,7 @@ details.wk[open] summary{border-bottom:1px solid var(--rule);}
 .wk-t{font-family:'DM Serif Display',serif;font-size:1.25rem;line-height:1.2;}
 .wk-s{font-size:12.5px;color:var(--ink-3);display:block;margin-top:2px;font-family:'Instrument Sans',sans-serif;}
 .wk-b{padding:16px 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;}
+.wk-b>*{min-width:0;}
 .wk-b h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin:0 0 6px;}
 .wk-b p,.wk-b li{font-size:13px;line-height:1.6;color:var(--ink-2);}
 .wk-b ul{padding-left:1.1rem;}
@@ -163,7 +164,8 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
 .btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:2px;cursor:pointer;}
 .btn.ghost{background:transparent;color:var(--ink);}
 @media(max-width:760px){
-  .wk-b{grid-template-columns:1fr;}
+  .wk-b{grid-template-columns:minmax(0,1fr);}
+  .wk-b>*{min-width:0;}
   .masthead,.tab-bar{padding-left:1.25rem;padding-right:1.25rem;}
   .tab-bar{padding:0;}
   .shell{padding:1.5rem 1rem 3rem;}
@@ -313,7 +315,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
 <section class="tab-panel" id="tab-method"><div class="shell method">
   <div class="view-head"><div class="view-title">Method and caveats</div></div>
   <h3>What counts as a first-time approval</h3>
-  <p>Drugs on FDA CDER's annual <em>Novel Drug Approvals</em> list (new molecular entities and new therapeutic biologics) from 21 October 2016 to 20 October 2026. 2021–2026 come straight from FDA's published tables. FDA has retired the 2016–2020 pages, so those years are rebuilt from Drugs@FDA through openFDA as original NDA/BLA approvals classed Type 1; annual counts land within one or two of CDER's published totals (2017 and 2020 are each one short for the CDER list), after de-duplicating same-day twin applications. CBER's first-time approvals are added alongside: cell and gene therapies, vaccines, and blood and plasma products (recombinant clotting factors, immune globulins and similar proteins), taken from CBER's product pages. CBER pages keep only recent approval letters, so first-approval dates for these were set by hand from FDA announcements and the pages supply the BLA number, manufacturer and indication. Albumin, fibrin sealants and hemostats, diagnostics and allergenics are not included, nor are new brands of an already-marketed active such as another albumin. The blood-product list leans toward new actives and routes, so it is a judgement call at the edges. CBER products carry no orphan or priority-review flags and no efficacy-supplement data, so they are left out of those statistics and out of the Buckets and Product Pipelines views.</p>
+  <p>Drugs on FDA CDER's annual <em>Novel Drug Approvals</em> list (new molecular entities and new therapeutic biologics) from 21 October 2016 to 20 October 2026. 2021–2026 come straight from FDA's published tables. FDA has retired the 2016–2020 pages, so those years are rebuilt from Drugs@FDA through openFDA as original NDA/BLA approvals classed Type 1; annual counts land within one or two of CDER's published totals (2017 and 2020 are each one short for the CDER list), after de-duplicating same-day twin applications. CBER's first-time approvals are added alongside: cell and gene therapies, vaccines, and blood and plasma products (recombinant clotting factors, immune globulins and similar proteins), taken from CBER's product pages. CBER pages keep only recent approval letters, so first-approval dates for these were set by hand from FDA announcements and the pages supply the BLA number, manufacturer and indication. Albumin, fibrin sealants and hemostats, diagnostics and allergenics are not included, nor are new brands of an already-marketed active such as another albumin. The blood-product list leans toward new actives and routes, so it is a judgement call at the edges. CBER products carry no orphan or priority-review flags and no efficacy-supplement data, so they are left out of those statistics and out of the Buckets and Product Pipelines views. They are also left out of the funnel and the card hit rates: the big-sponsor crawl finds only a few of their programs, so counting their failures without their successes would pull the rates down. A card's approval count includes CBER products; its rates do not.</p>
   <h3>Sponsors and areas</h3>
   <p>Sponsors are rolled up to their parent as of October 2026 (for example Genentech to Roche, Celgene to BMS, Seagen to Pfizer). Therapeutic areas are assigned from the FDA indication text with keyword rules, with manual fixes where text was missing; a drug gets one area.</p>
   <h3>Phase history and "halted"</h3>
@@ -321,7 +323,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <h3>The funnel</h3>
   <ul>
     <li>Programs are drug candidates identified in industry-sponsored Phase 1–3 studies that started 2008–2018 at 26 large sponsors. Aliases are merged when ClinicalTrials.gov lists them together (such as LY2439821 and ixekizumab). A program must carry one of its sponsor's own code prefixes (LY, PF, MK and so on) or match an FDA approval.</li>
-    <li>Programs whose active ingredient was already FDA-approved before October 2016 are dropped, otherwise a 2012 approval would read as a failure.</li>
+    <li>Programs whose active ingredient or brand was already FDA-approved before October 2016 are dropped, otherwise a 2012 approval would read as a failure. Vaccine, cell and gene therapy and blood-product programs are dropped for the CBER reason below.</li>
     <li>The cohort is programs whose first Phase 1 started 2009–2018, giving at least eight years to reach approval. Phase 1/2 counts as Phase 2 and Phase 2/3 as Phase 3.</li>
     <li><b>Halted</b>: the last study at the highest phase reached was terminated, withdrawn or suspended. <b>Stalled</b>: studies finished and no later phase was registered, which usually means a quiet discontinuation. <b>Active</b>: something is still recruiting or running; these are left out of the success rates.</li>
     <li>Success means a novel FDA approval inside this window. A drug approved only abroad, or filed but not yet approved, counts as not approved.</li>
@@ -834,12 +836,12 @@ function bdStats(){
   const taTot = d3.rollups(drugs,v=>d3.sum(v,d=>d3.sum(d.rev.y)),d=>d.ta).sort((a,b)=>b[1]-a[1]);
   const taN = d3.rollups(drugs,v=>v.length,d=>d.ta).sort((a,b)=>b[1]-a[1]);
   const sp = d3.rollups(drugs,v=>v.length,d=>d.company);
-  const cder=drugs.filter(d=>d.center!=='CBER');
+  const cder=drugs.filter(d=>d.center!=='CBER'), yr1=d3.median(drugs.filter(d=>d.rev.peak>0),d=>d.rev.y[0]/d.rev.peak), spread=d3.extent(cards.filter(c=>c.medDev!=null),c=>c.medDev);
   return {n:drugs.length, nCber:drugs.length-cder.length, orph:cder.filter(d=>d.orphan).length/cder.length, onc:drugs.filter(d=>d.ta==='Oncology').length/drugs.length,
-    ab:drugs.filter(d=>d.modality==='Antibody / ADC').length/drugs.length, sm:drugs.filter(d=>d.modality==='Small molecule').length/drugs.length,
+    ab:cder.filter(d=>d.modality==='Antibody / ADC').length/cder.length, sm:cder.filter(d=>d.modality==='Small molecule').length/cder.length, yr1, spread, nCder:cder.length,
     bigShare:bigN.length/drugs.length, bigCos:big.size, acq, bigN:bigN.length,
-    halted:drugs.filter(d=>d.trials.p1.halted+d.trials.p2.halted+d.trials.p3.halted>0).length/drugs.length,
-    noP1:drugs.filter(d=>!d.trials.p1.n).length/drugs.length, prio:cder.filter(d=>d.priority==='Priority').length/cder.length,
+    halted:cder.filter(d=>d.trials.p1.halted+d.trials.p2.halted+d.trials.p3.halted>0).length/cder.length,
+    noP1:cder.filter(d=>!d.trials.p1.n).length/cder.length, prio:cder.filter(d=>d.priority==='Priority').length/cder.length,
     dev:d3.median(drugs,d=>d.trials.devYears), top20:d3.sum(tot.slice(0,20))/all, top50:d3.sum(tot.slice(0,50))/all,
     p1:r2.length/res.length, p2:r3.length/r2.length, p3:ok3.length/r3.length, hit:ok.length/res.length, resolved:res.length,
     bOne:bk('one')/old.length, bFew:bk('few')/old.length, bMany:bk('many')/old.length, bFran:bk('fran'), oldN:old.length,
@@ -854,7 +856,7 @@ function bdWeeks(S){
   {t:'Where new drugs come from',s:'The shape of a decade of first-time approvals',
    use:[go('flow','Who & What'),go('approvals','Approvals')],
    body:'Frame the course: BD exists because many new drugs are not invented by the company that ends up selling them. Students map who sponsors, what they treat and what kind of molecule it is.',
-   ins:[`<b>${S.n}</b> first-time approvals in ten years (<b>${S.nCber}</b> of them cell, gene or vaccine products from CBER); the <b>${S.bigCos}</b> largest sponsors hold <b>${pc(S.bigShare)}</b> of them, so the long tail of ${S.sponsors} sponsors is most of the supply.`,
+   ins:[`<b>${S.n}</b> first-time approvals in ten years (<b>${S.nCber}</b> of them cell, gene, vaccine or blood products from CBER); the <b>${S.bigCos}</b> largest sponsors hold <b>${pc(S.bigShare)}</b> of them, so the long tail of ${S.sponsors} sponsors is most of the supply.`,
         `<b>${pc(S.orph)}</b> of CDER approvals carry an orphan designation and <b>${pc(S.onc)}</b> are cancer drugs; <b>${pc(S.ab)}</b> are antibodies or ADCs.`,
         `<b>${S.single}</b> of ${S.sponsors} sponsors have exactly one approval: a single asset often is the company.`],
    read:['Munos, B. (2009) Lessons from 60 years of pharmaceutical innovation. <i>Nature Reviews Drug Discovery</i> 8:959–968.','Pisano, G. (2006) Can science be a business? Lessons from biotech. <i>Harvard Business Review</i>, October.','Paul, S.M. et al. (2010) How to improve R&D productivity. <i>Nature Reviews Drug Discovery</i> 9:203–214.'],
@@ -873,14 +875,14 @@ function bdWeeks(S){
    use:[go('cards','Baseball Cards')],
    body:'Link success rates to cost. Time is the cheapest lever BD can pull: buying a late-stage asset skips years of capital at risk.',
    ins:[`Median time from first registered study to approval is <b>${S.dev.toFixed(1)} years</b>; <b>${pc(S.noP1)}</b> of approvals show no registered Phase 1 at all, so early work is often invisible to outsiders.`,
-        `Cards show a wide spread in speed across sponsors even at similar sample sizes: a candidate for what an acquirer is really paying for.`],
+        `Across the ${cards.length} sponsor cards the median runs from <b>${S.spread[0]}</b> to <b>${S.spread[1]}</b> years: speed is a real difference between sponsors, and a candidate for what an acquirer is paying for.`],
    read:['Scannell, J.W. et al. (2012) Diagnosing the decline in pharmaceutical R&D efficiency. <i>Nature Reviews Drug Discovery</i> 11:191–200.','DiMasi, J.A., Grabowski, H.G. & Hansen, R.W. (2016) Innovation in the pharmaceutical industry: new estimates of R&D costs. <i>Journal of Health Economics</i> 47:20–33.','Wouters, O.J., McKee, M. & Luyten, J. (2020) Estimated research and development investment needed to bring a new medicine to market, 2009–2018. <i>JAMA</i> 323(9):844–853.','Ringel, M.S. et al. (2020) Breaking Eroom\'s law. <i>Nature Reviews Drug Discovery</i> 19:833–834.'],
    disc:'If an average drug costs billions once failures are included, what does that imply for the maximum a buyer can pay for a Phase 2 asset?',
    asg:'Estimate the capitalised cost of reaching approval from Phase 1 for one area using the funnel rates and a cost per phase you source and defend.'},
   {t:'Build, buy or partner',s:'Sourcing innovation: organic, alliances, acquisitions',
    use:[go('approvals','Approvals'),go('cards','Baseball Cards')],
    body:'Compare the three sourcing routes and what each does to returns, speed and control. Use the approvals whose sponsor of record is an acquired biotech.',
-   ins:[`<b>${S.acq.length}</b> of the <b>${S.bigN}</b> big-sponsor approvals were filed by a company the sponsor later acquired, for example ${S.acq.slice(0,6).map(d=>d.brand).join(', ')}.`,
+   ins:[`<b>${S.acq.length}</b> of the <b>${S.bigN}</b> big-sponsor approvals were filed by a company the sponsor later acquired, for example ${S.acq.slice(0,6).map(d=>esc(d.brand)).join(', ')}.`,
         `Counting only the sponsor of record understates outside sourcing: licensed and co-developed assets file under the big company too.`],
    read:['Higgins, M.J. & Rodriguez, D. (2006) The outsourcing of R&D through acquisitions in the pharmaceutical industry. <i>Journal of Financial Economics</i> 80:351–383.','Danzon, P.M., Nicholson, S. & Pereira, N.S. (2005) Productivity in pharmaceutical–biotechnology R&D: the role of experience and alliances. <i>Journal of Health Economics</i> 24:317–339.','Schuhmacher, A., Gassmann, O. & Hinder, M. (2016) Changing R&D models in research-based pharmaceutical companies. <i>Journal of Translational Medicine</i> 14:105.'],
    disc:'When does buying a company beat licensing its lead asset? Use two drugs from the list.',
@@ -888,7 +890,7 @@ function bdWeeks(S){
   {t:'Areas, modalities and portfolio strategy',s:'Where to play: oncology, rare disease and the modality mix',
    use:[go('flow','Who & What'),go('revenue','Revenue y1–y10')],
    body:'Use approval counts and modelled sales together to ask which areas are crowded and which pay. Distinguish a count of approvals from the value of them.',
-   ins:[`<b>${S.taNum[0]}</b> leads on approvals (${S.taNum[1]}) while <b>${S.taRev[0]}</b> leads on modelled 10-year sales: crowded and valuable are different questions.`,
+   ins:[`<b>${S.taNum[0]}</b> leads on approvals (${S.taNum[1]})${S.taNum[0]===S.taRev[0]?` and also on modelled 10-year sales, but its share of approvals is ${pc(S.taNum[1]/S.n)} against ${pc(S.taRev[1]/d3.sum(drugs,d=>d3.sum(d.rev.y)))} of sales: count and value are different questions`:`, while <b>${S.taRev[0]}</b> leads on modelled 10-year sales: crowded and valuable are different questions`}.`,
         `<b>${pc(S.orph)}</b> orphan share shows rare disease is mainstream, not niche; <b>${pc(S.sm)}</b> are small molecules, which matters for the Medicare clock in week 11.`],
    read:['Tambuyzer, E. et al. (2020) Therapies for rare diseases: therapeutic modalities, progress and challenges ahead. <i>Nature Reviews Drug Discovery</i> 19:93–111.','Pisano, G.P. (2006) <i>Science Business: The Promise, the Reality, and the Future of Biotech</i>. Harvard Business School Press.','Christensen, C.M., Grossman, J.H. & Hwang, J. (2009) <i>The Innovator\'s Prescription</i>. McGraw-Hill.'],
    disc:'Should a mid-size company concentrate in one area or diversify? What does the almanac say about concentration risk?',
@@ -897,7 +899,7 @@ function bdWeeks(S){
    use:[go('revenue','Revenue y1–y10')],
    body:'Teach risk-adjusted NPV. Students rebuild the almanac\'s crude sales model and then break it, because the model is deliberately simple.',
    ins:[`The top 20 drugs hold <b>${pc(S.top20)}</b> of modelled 10-year sales and the top 50 hold <b>${pc(S.top50)}</b>: a portfolio is a few winners paying for many ordinary drugs.`,
-        `Launch is slow: year 1 is a fraction of peak for most drugs, so discounting punishes late peaks. Peak assumptions dominate everything else.`,
+        `In the model the median drug earns only <b>${pc(S.yr1)}</b> of its peak in year 1, so discounting punishes late peaks. That shape is an assumption, not a finding; peak assumptions dominate everything else.`,
         `The almanac\'s sales are modelled, not reported. Use that as the hook: what would you need to see in a data room to replace each assumption?`],
    read:['Stewart, J.J., Allison, P.N. & Johnson, R.S. (2001) Putting a price on biotechnology. <i>Nature Biotechnology</i> 19:813–817.','Bogdan, B. & Villiger, R. (2010) <i>Valuation in Life Sciences: A Practical Guide</i>, 3rd ed. Springer.'],
    disc:'Which single assumption moves value most, and who in a negotiation controls it?',
@@ -931,7 +933,7 @@ function bdWeeks(S){
    body:'The most valuable products keep winning approvals. Students learn to read a product pipeline by condition and to value optionality.',
    ins:[`Of drugs old enough to judge, <b>${pc(S.bOne)}</b> are one and done, <b>${pc(S.bFew)}</b> gather a few more approvals, and only a handful become franchises.`,
         `The busiest product, <b>${esc(S.topProd.brand)}</b>, collected <b>${S.topProd.d.length}</b> efficacy supplements in ten years across dozens of conditions.`,
-        `<b>${S.exp}</b> drugs first approved before 2016 also won new approvals in the window: lifecycle management is a bigger business than first approvals.`],
+        `<b>${S.exp}</b> drugs first approved before 2016 also won at least one efficacy supplement in the window, about as many as the ${S.nCder} first-time CDER approvals: stretching a product is as common as launching one.`],
    read:['Pushpakom, S. et al. (2019) Drug repurposing: progress, challenges and recommendations. <i>Nature Reviews Drug Discovery</i> 18:41–58.','Public FDA labels and approval letters for one franchise product (Drugs@FDA).'],
    disc:'What do franchise products have in common at launch that a one-and-done drug lacks?',
    asg:'Map the indication pipeline of one product from the Product Pipelines tab and value the optionality of its Phase 3 conditions.'},
@@ -947,7 +949,7 @@ function bdWeeks(S){
    use:[go('flow','Who & What')],
    body:'Zoom out to the supply chain of innovation: venture, royalty and structured finance, and non-US sources of assets.',
    ins:[`<b>${pc(1-S.bigShare)}</b> of approvals come from sponsors outside the ${S.bigCos} largest, and <b>${S.single}</b> sponsors have a single approval.`,
-        `BeOne Medicines alone holds <b>${S.beone}</b> approvals, a reminder that assets now originate outside the US and Europe.`],
+        `The three busiest sponsors (${S.topCo.map(c=>esc(c[0])+' '+c[1]).join(', ')}) account for ${pc(d3.sum(S.topCo,c=>c[1])/S.n)} of approvals; the rest of the market is a long tail you have to scout one asset at a time.`],
    read:['Lerner, J. (2012) <i>The Architecture of Innovation: The Economics of Creative Organizations</i>. Harvard Business Review Press.','Fernandez, J.-M., Stein, R.M. & Lo, A.W. (2012) Commercializing biomedical research through securitization techniques. <i>Nature Biotechnology</i> 30:964–975.'],
    disc:'If most approvals come from small sponsors, what is the durable advantage of a big company?',
    asg:'Sketch a financing and partnering path for a one-asset biotech from Phase 2 to approval and name the likely acquirer.'},

@@ -34,6 +34,7 @@ PARENTS = [
     (r"BEONE|BEIGENE", "BeOne Medicines"),
     (r"^MODERNA", "Moderna"),
     (r"OCTAPHARMA", "Octapharma"),
+    (r"^GE\b|GE HEALTHCARE", "GE HealthCare"),
     (r"^CSL", "CSL Behring"),
     (r"^GC\b|GC BIOPHARMA", "GC Biopharma"),
     (r"^LFB", "LFB"),

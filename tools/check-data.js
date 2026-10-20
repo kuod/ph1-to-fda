@@ -15,6 +15,16 @@ drugs.forEach(d => {
 });
 products.forEach(p => { if (!p.pipe || !p.d.length) errs.push('product ' + p.id); });
 expansions.forEach(e => { if (!e.d.length) errs.push('expansion ' + e.id); });
+drugs.forEach(d => {
+  if (d.date > meta.built) errs.push('after build date ' + d.id);
+  if (d.center === 'CBER' && (d.orphan || d.supps !== null)) errs.push('CBER fields ' + d.id);
+  if (d.center !== 'CBER' && !Array.isArray(d.supps)) errs.push('CDER supps ' + d.id);
+});
+const names = new Set(drugs.map(d => d.brand.toLowerCase() + '|' + d.center));
+if (names.size !== drugs.length) errs.push('duplicate brand within a center');
+const unk = drugs.filter(d => d.company === 'Unknown');
+if (unk.length) console.warn('warning: unknown sponsor: ' + unk.map(d => d.brand).join(', '));
+cards.forEach(c => { if (c.approvals !== drugs.filter(d => d.company === c.company).length) errs.push('card count ' + c.company); });
 const outcomes = new Set(['approved', 'halted', 'stalled', 'ongoing']);
 programs.forEach(p => { if (!outcomes.has(p.outcome)) errs.push('outcome ' + p.name); if (p.reached < 1 || p.reached > 3) errs.push('reached ' + p.name); });
 cards.forEach(c => ['hit', 'p1', 'p2', 'p3'].forEach(k => { if (c[k] != null && (c[k] < 0 || c[k] > 1)) errs.push('rate ' + c.company + k); }));

@@ -41,7 +41,7 @@ Large raw crawls (`data/trials_*_raw.json`, `approvals_raw.json`, `approvals_enr
 - **Revenue is modelled, not reported.** Never present it as actuals. The Buckets plot's sales do not depend on approval count; say so if you change it.
 - **Funnel rates are biased.** Failures that cannot be identified are not counted, and combination-arm partners, CBER blood programs and renamed assets distort them. Method text states the pooled rates and the direction of bias; update those numbers when the cohort changes (`index.html` Method tab, `README.md`).
 - **Counts are written in prose** in `README.md` and the Method tab (approvals, cards, anchors, pooled rates). After a data change, grep for stale numbers.
-- CBER products have no orphan, priority or supplement data; keep them out of those statistics and out of Buckets and Product Pipelines.
+- CBER products have no orphan, priority or supplement data; keep them out of those statistics and out of the funnel, card rates, Buckets and Product Pipelines (`06_programs.py` marks them `cohort: false`).
 - "Approved" on Product Pipelines means the condition is mentioned in the current label (keyword match), and efficacy supplements are a proxy for new indications.
 - BD201 reading citations were written from memory; keep the "check each citation" footnote.
 

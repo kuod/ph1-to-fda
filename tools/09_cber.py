@@ -60,7 +60,7 @@ def page(path):
     except RuntimeError:
         return None
     txt = s.get_text("\n", strip=True)
-    field = lambda k: (re.search(k + r":\s*\n(.+)", txt) or [None, ""])[1].strip()
+    field = lambda k: (re.search(k + r"\s*:?\s*\n:?\s*(?!:)(.+)", txt) or [None, ""])[1].strip(" :")
     letters = re.findall(r"([A-Z][a-z]+ \d{1,2}, \d{4}) Approval Letter", txt) or re.findall(r"([A-Z][a-z]+ \d{1,2}, \d{4})\s*(?:Approval|Licensure) Letter", txt)
     dates = []
     for l in letters:
@@ -68,7 +68,7 @@ def page(path):
             dates.append(dt.datetime.strptime(l, "%B %d, %Y").date())
         except ValueError:
             pass
-    ind = re.search(r"Indications?\s*\n(.+)", txt)
+    ind = re.search(r"Indications?\s*\n:?\s*\n?(.+)", txt)
     return dict(stn=field("STN"), proper=field("Proper Name"), trade=field("Tradename"), mfr=re.sub(r"Indications?$", "", field("Manufacturer")).strip(),
                 use=(ind.group(1).strip() if ind else ""), first=min(dates).isoformat() if dates else None, n_letters=len(dates))
 

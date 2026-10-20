@@ -22,9 +22,9 @@ SKIP_PREFIX = {"PHASE", "COVID", "SARS", "NCT", "HIV", "II", "III", "IV", "HPV",
 NOISE = re.compile(r"\b(placebo|matching|standard|care|therapy|treatment|injection|tablets?|capsules?|oral|solution|infusion|subcutaneous|intravenous|sc|iv|im|bid|qd|qw|q\dw|high|low|dose|doses|mg|mcg|ug|ml|vs|and|plus|control|comparator|arm|group|part|cohort|formulation|fasted|fed|single|multiple|ascending|reference|test|period|sequence)\b|[\d.]+\s*(mg|mcg|ug|g|ml|iu|%|kg)?", re.I)
 ACTIVE = {"RECRUITING", "NOT_YET_RECRUITING", "ACTIVE_NOT_RECRUITING", "ENROLLING_BY_INVITATION", "AVAILABLE"}
 HALT = {"TERMINATED", "WITHDRAWN", "SUSPENDED"}
-# Blood, plasma and allergen products are CBER-regulated but not on our approval list, so counting their programs would only add false failures.
-# (Cell and gene therapies and vaccines are on the list, so those programs are kept.)
-CBER = re.compile(r"immunoglobulin|\bivig\b|antihemophilic|factor (viii|ix|x)\b|coagulation factor|plasma|albumin|allergen|\bbcg\b|\bmenveo", re.I)
+# The funnel covers CDER products only. CBER products (vaccines, cell and gene therapy, blood products) are on the approval list, but the
+# big-sponsor crawl finds only a few of their programs, so counting their failures without their successes would drag the hit rate down.
+CBER = re.compile(r"vaccin|toxoid|conjugate|virus.like|mrna|\baav|adenovir|lentivir|\bad26\b|leucel|\bcar[- ]?t|-cel\b|cabtagene|cell therapy|gene therapy|immunoglobulin|\bivig\b|antihemophilic|factor (viii|ix|x)\b|coagulation factor|plasma|albumin|allergen|\bbcg\b|\bmenveo|denvax", re.I)
 OK_TYPES = {"DRUG", "BIOLOGICAL", "GENETIC", "COMBINATION_PRODUCT"}
 COHORT_FROM, COHORT_TO = 2009, 2018
 STEM = re.compile(r"(mab|nib|stat|vir|gliptin|gliflozin|tide|ase|cept|parib|ciclib|lisib|tinib|rsen|siran|dipine|sartan|prazole|mycin|statin|oxetine|zomib|lutamide|gliptin|limus|setron|pitant|gepant|degib|metinib|rafenib)$")
@@ -256,6 +256,9 @@ def main():
             if k not in best or score > best[k][0]:
                 best[k] = (score, p)
     out = [p for p in out if not p["approved"] or best[p["approved"]][1] is p]
+    for p in out:  # approved CBER products are matched but kept out of the funnel for the reason above
+        if p["approved"] and ap_by_id[p["approved"]].get("center") == "CBER":
+            p["cohort"], p["outcome"] = False, "cber"
     json.dump(out, open(os.path.join(D, "programs.json"), "w"))
     c = collections.Counter((p["company"], p["cohort"]) for p in out)
     coh = [p for p in out if p["cohort"]]

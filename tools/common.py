@@ -1,7 +1,7 @@
 """Shared helpers: cached HTTP GETs so the pipeline is re-runnable and polite."""
 import hashlib, json, os, re, time, requests
 
-CACHE = os.environ.get("EASY_AS_CACHE", os.path.join(os.path.dirname(__file__), "..", ".cache"))
+CACHE = os.environ.get("PH1_TO_FDA_CACHE") or os.environ.get("EASY_AS_CACHE") or os.path.join(os.path.dirname(__file__), "..", ".cache")
 os.makedirs(CACHE, exist_ok=True)
 UA = {"User-Agent": "ph1-to-fda-research/1.0 (github.com/kuod/ph1-to-fda)"}
 

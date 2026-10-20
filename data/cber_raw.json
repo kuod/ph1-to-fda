@@ -916,10 +916,10 @@
   "path": "/vaccines-blood-biologics/fayuvi",
   "cat": "Cell or gene therapy",
   "brand": "Fayuvi",
-  "ingredient": "",
+  "ingredient": "rebisufligene etisparvovec-hopf",
   "date": "2026-09-17",
-  "sponsor": "",
-  "use": ":",
+  "sponsor": "Ultragenyx Pharmaceutical Inc",
+  "use": "Treatment of neurologic manifestations of mucopolysaccharidosis type IIIA (MPS IIIA, Sanfilippo syndrome type A) in pediatric patients with preserved neurodevelopmental function..",
   "stn": "125845",
   "letters": 1
  }

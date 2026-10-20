@@ -2,7 +2,7 @@
 
 Ten years of first-time FDA drug approvals, traced from Phase 1.
 
-Every first-time FDA drug approval from October 2016 to October 2026 (490 drugs), with each drug's Phase 1–3 history, the programs that fell away on the way, and a modelled sales curve for years 1–10. Design follows the [Pharma & Biotech Almanac](https://kuod.github.io/pharma-biotech-almanac/).
+Every first-time FDA drug approval from October 2016 to October 2026 (492 drugs), with each drug's Phase 1–3 history, the programs that fell away on the way, and a modelled sales curve for years 1–10. Design follows the [Pharma & Biotech Almanac](https://kuod.github.io/pharma-biotech-almanac/).
 
 Live page: https://kuod.github.io/ph1-to-fda/
 

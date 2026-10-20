@@ -79,6 +79,19 @@ td.muted{color:var(--ink-3);font-size:12px;}
 .pill.rust{background:var(--accent-light);color:var(--accent);border-color:#e8c8be;}
 .pill.gold{background:var(--gold-light);color:#8a6420;border-color:#e8d4a8;}
 tbody tr.row.xp{cursor:pointer;}
+.f-split{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start;}
+.f-split.open{grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);}
+.f-panel{display:none;background:var(--bg-card);border:1px solid var(--ink);border-radius:3px;position:sticky;top:48px;max-height:calc(100vh - 64px);flex-direction:column;box-shadow:3px 3px 0 var(--rule);}
+.f-split.open .f-panel{display:flex;}
+.f-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:12px 14px;border-bottom:1px solid var(--rule);}
+.f-panel-title{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.2;}
+.f-panel-sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:3px;}
+.f-x{width:30px;height:30px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:2px;cursor:pointer;font-size:14px;line-height:1;flex-shrink:0;}
+.f-x:hover{background:var(--accent);border-color:var(--accent);}
+.f-panel-body{overflow:auto;padding:0 6px 10px;}
+.f-panel-body table{font-size:12.5px;}
+.f-panel .dgrid{grid-template-columns:1fr;}
+@media(max-width:900px){.f-split.open{grid-template-columns:minmax(0,1fr);}.f-panel{position:static;max-height:75vh;}}
 tbody tr.row.xp td:first-child::before{content:'▸';display:inline-block;width:14px;color:var(--ink-3);font-size:10px;}
 tbody tr.row.xp.open td:first-child::before{content:'▾';}
 tbody tr.row.mix td:first-child{box-shadow:inset 3px 0 0 var(--accent);}
@@ -185,7 +198,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
 
 <section class="tab-panel active" id="tab-funnel"><div class="shell">
   <div class="view-head"><div class="view-title">From first-in-human to approval</div>
-  <div class="view-desc">Each ribbon is a drug program that entered Phase 1 between 2009 and 2018 at one of 26 large sponsors. Follow it right to the FDA, or watch where it drops out. Click a column to list its programs.</div></div>
+  <div class="view-desc">Each ribbon is a drug program that entered Phase 1 between 2009 and 2018 at one of 26 large sponsors. Follow it right to the FDA, or watch where it drops out. Click a column or a ribbon to list its programs beside the chart.</div></div>
   <div class="ctl-row">
     <label class="ctl">Colour by <span class="seg" id="f-color"><button data-v="outcome" class="on">Outcome</button><button data-v="company">Company</button><button data-v="ta">Therapeutic area</button></span></label>
     <label class="ctl">Area <select id="f-ta"></select></label>
@@ -193,12 +206,19 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <label class="ctl"><span class="chip" id="f-clear">Clear companies</span></label>
   </div>
   <div class="chips" id="f-co"></div>
-  <div class="vz-wrap"><svg id="sk-funnel" class="min"></svg></div>
-  <div class="legend" id="f-legend"></div>
+  <div class="f-split" id="f-split">
+    <div class="f-chart">
+      <div class="vz-wrap"><svg id="sk-funnel" class="min"></svg></div>
+      <div class="legend" id="f-legend"></div>
+    </div>
+    <aside class="f-panel" id="f-panel" aria-label="Programs in the selected stage">
+      <div class="f-panel-head"><div><div class="f-panel-title" id="f-panel-title"></div><div class="f-panel-sub" id="f-panel-sub"></div></div><button class="f-x" id="f-close" aria-label="Close list" title="Close (Esc)">✕</button></div>
+      <div class="f-panel-body" id="f-list"></div>
+    </aside>
+  </div>
   <div class="rates" id="f-rates"></div>
   <div class="vz-wrap" style="margin-top:1.25rem"><svg id="started-halted" class="min"></svg></div>
   <div class="note">Studies started and halted: grey bars count every Phase 1/2/3 study registered for the programs above; rust is the share ended early (terminated, withdrawn or suspended). Phase 1/2 studies count as Phase 2 and Phase 2/3 as Phase 3.</div>
-  <div class="table-wrap" id="f-list" style="margin-top:1.5rem"></div>
   <p class="note fn" id="f-fn"></p>
 </div></section>
 
@@ -412,35 +432,42 @@ function buildFunnel(){
     r.forEach(id=>(through[id]=through[id]||[]).push(p));
     for(let i=0;i<r.length-1;i++){
       const k = r[i]+'>'+r[i+1]+'>'+g;
-      links.set(k,(links.get(k)||{source:idx[r[i]],target:idx[r[i+1]],value:0,g}));
-      links.get(k).value++;
+      links.set(k,(links.get(k)||{source:idx[r[i]],target:idx[r[i+1]],value:0,g,k,progs:[]}));
+      links.get(k).value++; links.get(k).progs.push(p);
     }
   });
+  // what each clickable node or ribbon lists in the side panel
+  F.map = {};
+  nodes.forEach(n=>{ if(through[n.id]) F.map['n:'+n.id]={title:n.label,sub:`${through[n.id].length} programs through this stage`,progs:through[n.id]}; });
+  links.forEach(l=>{ F.map['l:'+l.k]={title:`${nodes[l.source].label} → ${nodes[l.target].label}`,sub:`${cf.label(l.g)} · ${l.value} programs`,progs:l.progs}; });
+  if(F.node && !F.map[F.node]) F.node=null;
+  $('#f-split').classList.toggle('open',!!F.node);
   const L = [...links.values()];
   const used = new Set(L.flatMap(l=>[l.source,l.target]));
   const keep = nodes.filter((n,i)=>used.has(i));
   const remap = Object.fromEntries(keep.map((n,i)=>[nodes.indexOf(n),i]));
   const LL = L.map(l=>({...l,source:remap[l.source],target:remap[l.target]}));
   const svg = d3.select('#sk-funnel'); svg.selectAll('*').remove();
-  const W = 1100, H = 520; svg.attr('viewBox',`0 0 ${W} ${H}`);
-  if(!ps.length){svg.append('text').attr('x',W/2).attr('y',H/2).attr('text-anchor','middle').attr('fill','#8a8078').text('No programs match these filters');renderRates(ps);listNode(null,ps,through);return;}
+  const W = F.node ? 760 : 1100, H = 520; svg.attr('viewBox',`0 0 ${W} ${H}`);
+  if(!ps.length){svg.append('text').attr('x',W/2).attr('y',H/2).attr('text-anchor','middle').attr('fill','#8a8078').text('No programs match these filters');renderRates(ps);F.node=null;renderPanel();return;}
   const sk = d3.sankey().nodeId(d=>d.index).nodeAlign(d=>d.layer).nodeWidth(16).nodePadding(14).nodeSort(null).extent([[8,8],[W-170,H-8]]);
   const g = sk({nodes:keep.map(d=>({...d})),links:LL.map(d=>({...d}))});
+  const pick = key=>{F.node=F.node===key?null:key;F.open=null;buildFunnel();if(F.node&&innerWidth<=900)$('#f-panel').scrollIntoView({behavior:'smooth',block:'start'});};
   const total = ps.length;
   svg.append('g').attr('fill','none').selectAll('path').data(g.links).join('path')
-    .attr('d',d3.sankeyLinkHorizontal()).attr('stroke',d=>cf.col(d.g)).attr('stroke-opacity',.5).attr('stroke-width',d=>Math.max(1,d.width))
-    .on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(cf.label(d.g))}</div><div class="t2">${d.value} programs</div><div class="t3">${esc(d.source.label)} → ${esc(d.target.label)}</div>`))
-    .on('mouseleave',hideTip)
-    .on('mouseover',function(){d3.select(this).attr('stroke-opacity',.85);}).on('mouseout',function(){d3.select(this).attr('stroke-opacity',.5);});
+    .attr('d',d3.sankeyLinkHorizontal()).attr('stroke',d=>cf.col(d.g)).attr('stroke-opacity',d=>F.node==='l:'+d.k?.9:.5).attr('stroke-width',d=>Math.max(1,d.width)).style('cursor','pointer')
+    .on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(cf.label(d.g))}</div><div class="t2">${d.value} programs</div><div class="t3">${esc(d.source.label)} → ${esc(d.target.label)}<br>Click to list these programs</div>`))
+    .on('mouseleave',hideTip).on('click',(e,d)=>{hideTip();pick('l:'+d.k);})
+    .on('mouseover',function(){d3.select(this).attr('stroke-opacity',.85);}).on('mouseout',function(e,d){d3.select(this).attr('stroke-opacity',F.node==='l:'+d.k?.9:.5);});
   const nd = svg.append('g').selectAll('g').data(g.nodes).join('g').style('cursor','pointer')
-    .on('click',(e,d)=>{F.node=F.node===d.id?null:d.id;listNode(F.node,ps,through);});
+    .on('click',(e,d)=>{hideTip();pick('n:'+d.id);});
   nd.append('rect').attr('x',d=>d.x0).attr('y',d=>d.y0).attr('width',d=>d.x1-d.x0).attr('height',d=>Math.max(1,d.y1-d.y0))
-    .attr('fill',d=>d.o?OUT[d.o].c:'#1a1814').attr('rx',1);
+    .attr('fill',d=>d.o?OUT[d.o].c:'#1a1814').attr('rx',1).attr('stroke',d=>F.node==='n:'+d.id?'#b84a2e':'none').attr('stroke-width',3);
   nd.append('text').attr('class','sankey-lbl').attr('x',d=>d.x1+7).attr('y',d=>(d.y0+d.y1)/2-2).text(d=>d.label);
   nd.append('text').attr('class','sankey-lbl sub').attr('x',d=>d.x1+7).attr('y',d=>(d.y0+d.y1)/2+11).text(d=>`${d.value} · ${Math.round(d.value/total*100)}%`);
-  nd.on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(d.label)}</div><div class="t2">${d.value} programs</div><div class="t3">Click to list them</div>`)).on('mouseleave',hideTip);
+  nd.on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(d.label)}</div><div class="t2">${d.value} programs</div><div class="t3">Click to list them on the right</div>`)).on('mouseleave',hideTip);
   $('#f-legend').innerHTML = cf.keys.map(k=>`<span><i style="background:${cf.col(k)}"></i>${esc(cf.label(k))}</span>`).join('');
-  renderRates(ps); renderStarted(ps); listNode(F.node,ps,through);
+  renderRates(ps); renderStarted(ps); renderPanel();
   $('#f-fn').textContent = `${ps.length} programs in view${F.co.size?'':' (all 26 sponsors)'}. Outcomes as of October 2026; success counts novel FDA approvals in the window only.`;
 }
 function renderRates(ps){
@@ -461,20 +488,25 @@ function renderStarted(ps){
     svg.append('text').attr('x',x(r.n)+8).attr('y',y+22).attr('font-size',11).attr('fill','#4a4540').text(`${r.n.toLocaleString()} started · ${r.h.toLocaleString()} halted (${r.n?Math.round(r.h/r.n*100):0}%)`);
   });
 }
-function listNode(id,ps,through){
-  const el = $('#f-list');
-  if(id!==F.lastNode){F.open=null;F.lastNode=id;}
-  if(!id){el.innerHTML='';return;}
-  const list = (through[id]||[]).slice().sort((a,b)=>(b.outcome==='approved')-(a.outcome==='approved')||b.reached-a.reached).slice(0,250);
+function renderPanel(){
+  const sel = F.node && F.map && F.map[F.node];
+  $('#f-split').classList.toggle('open',!!sel);
+  if(!sel){$('#f-list').innerHTML='';return;}
+  const all = sel.progs.slice().sort((a,b)=>(b.outcome==='approved')-(a.outcome==='approved')||b.reached-a.reached), list = all.slice(0,250);
   F.list = list;
-  el.innerHTML = `<div class="note" style="margin:0 0 .5rem">${(through[id]||[]).length} programs through this stage${(through[id]||[]).length>250?' (first 250 shown)':''}</div><table><thead><tr><th>Program</th><th>Company</th><th>Area</th><th class="r">Ph1 start</th><th class="r">Highest phase</th><th>Outcome</th></tr></thead><tbody>`+
-    list.map((p,i)=>`<tr class="row xp${F.open===i?' open':''}" data-i="${i}"><td>${esc(p.name)}</td><td>${esc(p.company)}</td><td class="muted">${esc(p.ta)}</td><td class="r mono">${p.y}</td><td class="r mono">${p.reached}</td><td><span class="pill ${p.outcome==='halted'?'rust':p.outcome==='ongoing'?'gold':''}">${OUT[p.outcome].l}</span></td></tr>`+(F.open===i?`<tr class="detail"><td colspan="6">${progDetail(p)}</td></tr>`:'')).join('')+'</tbody></table>';
+  $('#f-panel-title').textContent = sel.title;
+  $('#f-panel-sub').textContent = sel.sub + (all.length>250?' · first 250 shown':'');
+  $('#f-list').innerHTML = `<table><thead><tr><th>Program</th><th class="r">Ph1</th><th class="r">Top</th><th>Outcome</th></tr></thead><tbody>`+
+    list.map((p,i)=>`<tr class="row xp${F.open===i?' open':''}" data-i="${i}"><td>${esc(p.name)}<div class="muted" style="font-size:11px">${esc(p.company)} · ${esc(p.ta)}</div></td><td class="r mono">${p.y}</td><td class="r mono">${p.reached}</td><td><span class="pill ${p.outcome==='halted'?'rust':p.outcome==='ongoing'?'gold':''}">${OUT[p.outcome].l}</span></td></tr>`+(F.open===i?`<tr class="detail"><td colspan="4">${progDetail(p)}</td></tr>`:'')).join('')+'</tbody></table>';
 }
 function progDetail(p){
   const ph=[1,2,3].map(n=>`<tr><td>Phase ${n}</td><td class="r mono">${p.st[n]||'–'}</td><td class="r mono">${p.ha[n]||'–'}</td></tr>`).join('');
   return `<div class="dgrid"><div><h4>Program</h4><p><b>${esc(p.name)}</b> · ${esc(p.company)} · ${esc(p.ta)}<br>Phase 1 started ${p.y}. Highest phase reached: ${p.reached}. Outcome: ${OUT[p.outcome].l}.</p><h4>Conditions studied</h4><p>${(p.cd||[]).map(esc).join(' · ')||'–'}</p>${p.why&&p.why[0]?`<h4>Why it was halted</h4><p>${esc(p.why[0])}</p>`:''}${p.approved?`<p><a href="#approvals" data-drug="${esc(p.approved)}">See the approval →</a></p>`:''}</div><div><h4>Studies registered</h4><table style="max-width:320px"><thead><tr><th>Stage</th><th class="r">Started</th><th class="r">Halted</th></tr></thead><tbody>${ph}</tbody></table></div></div>`;
 }
-$('#f-list').addEventListener('click',e=>{if(e.target.closest('a'))return;const r=e.target.closest('tr.row');if(!r)return;const i=+r.dataset.i;F.open=F.open===i?null:i;listNode(F.node,null,{[F.node]:F.list});});
+$('#f-list').addEventListener('click',e=>{if(e.target.closest('a'))return;const r=e.target.closest('tr.row');if(!r)return;const i=+r.dataset.i;F.open=F.open===i?null:i;renderPanel();});
+const closeFunnelPanel=()=>{if(!F.node)return;F.node=null;F.open=null;buildFunnel();};
+$('#f-close').addEventListener('click',closeFunnelPanel);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#tab-funnel').classList.contains('active'))closeFunnelPanel();});
 builders.funnel = function(){
   const cos = d3.rollups(programs,v=>v.length,p=>p.company).sort((a,b)=>b[1]-a[1]).map(d=>d[0]);
   $('#f-co').innerHTML = cos.map(c=>`<span class="chip" data-c="${esc(c)}">${esc(c)}</span>`).join('');

@@ -8,7 +8,7 @@ Live page: https://kuod.github.io/ph1-to-fda/
 
 ## Views
 
-**Funnel** — Alluvial of drug programs that entered Phase 1 in 2009–2018 at 26 large sponsors, flowing through Phase 2, Phase 3 and FDA approval, with halted, stalled and still-active branches. Colour by outcome, company or therapeutic area; filter by company, area and start year; click a column to list its programs. Below it, studies started vs halted per phase.
+**Funnel** — Alluvial of drug programs that entered Phase 1 in 2009–2018 at 26 large sponsors, flowing through Phase 2, Phase 3 and FDA approval, with halted, stalled and still-active branches. Colour by outcome, company or therapeutic area; filter by company, area and start year; click a column or a ribbon to list its programs in a panel beside the chart (✕ or Esc closes it). Below it, studies started vs halted per phase.
 
 **Baseball Cards** — Hit rate and Phase 1 / 2 / 3 pass rates for each of the 16 sponsors with six or more approvals, plus approvals per year, median years from first registered start to approval, orphan share and top estimated earner. Cards built on fewer than 50 programs are flagged.
 

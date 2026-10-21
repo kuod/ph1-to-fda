@@ -2,7 +2,7 @@
 
 Ten years of first-time FDA drug approvals, traced from Phase 1.
 
-Every first-time FDA drug approval from October 2016 to October 2026 (576 products: 492 from CDER and 84 cell, gene, vaccine and blood products from CBER), with each drug's Phase 1–3 history, the programs that fell away on the way, and a modelled sales curve for years 1–10. Design follows the [Pharma & Biotech Almanac](https://kuod.github.io/pharma-biotech-almanac/).
+Every first-time FDA drug approval from October 2016 to October 2026 (577 products: 493 from CDER and 84 cell, gene, vaccine and blood products from CBER), with each drug's Phase 1–3 history, the programs that fell away on the way, and a modelled sales curve for years 1–10. Design follows the [Pharma & Biotech Almanac](https://kuod.github.io/pharma-biotech-almanac/).
 
 Live page: https://kuod.github.io/ph1-to-fda/
 

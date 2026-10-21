@@ -120,7 +120,8 @@ TA_OVERRIDE = {
     "jesduvroq": "Hematology", "xenoview": "Diagnostic imaging", "attruby": "Cardiovascular",
     "tzield": "Metabolic & Endocrine", "gallium-ga-68-gozetotide": "Diagnostic imaging",
 }
-SPONSOR_OVERRIDE = {"pepaxto": "Oncopeptides", "hovilpri": "AiCuris"}
+SPONSOR_OVERRIDE = {"pepaxto": "Oncopeptides", "hovilpri": "AiCuris",
+                    "hibsago": "GlaxoSmithKline"}  # openFDA does not list Hibsago yet; applicant inferred (bepirovirsen is GSK's asset): confirm once openFDA catches up
 
 # Condition strings from ClinicalTrials.gov are messy; fold the common ones into disease groups for the product-pipeline view.
 COND_GROUPS = [

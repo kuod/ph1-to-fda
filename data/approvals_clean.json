@@ -512,22 +512,6 @@
   "center": "CDER"
  },
  {
-  "id": "benznidazole",
-  "brand": "Benznidazole",
-  "ingredient": "benznidazole",
-  "date": "2017-08-29",
-  "year": 2017,
-  "sponsor": "CHEMO RESEARCH SL",
-  "company": "Chemo Research Sl",
-  "use": "Benznidazole Tablets are indicated in pediatric patients 2 to 12 years of age for the treatment of Chagas disease (American trypanosomiasis) caused by Trypanosoma cruzi . This indication is approved under accelerated",
-  "ta": "Infectious disease",
-  "modality": "Small molecule",
-  "priority": "Priority",
-  "orphan": true,
-  "app": "NDA209570",
-  "center": "CDER"
- },
- {
   "id": "vabomere",
   "brand": "Vabomere",
   "ingredient": "meropenem, vaborbactam",
@@ -541,6 +525,22 @@
   "priority": "Priority",
   "orphan": false,
   "app": "NDA209776",
+  "center": "CDER"
+ },
+ {
+  "id": "benznidazole",
+  "brand": "Benznidazole",
+  "ingredient": "benznidazole",
+  "date": "2017-08-29",
+  "year": 2017,
+  "sponsor": "CHEMO RESEARCH SL",
+  "company": "Chemo Research Sl",
+  "use": "Benznidazole Tablets are indicated in pediatric patients 2 to 12 years of age for the treatment of Chagas disease (American trypanosomiasis) caused by Trypanosoma cruzi . This indication is approved under accelerated",
+  "ta": "Infectious disease",
+  "modality": "Small molecule",
+  "priority": "Priority",
+  "orphan": true,
+  "app": "NDA209570",
   "center": "CDER"
  },
  {
@@ -1040,22 +1040,6 @@
   "center": "CDER"
  },
  {
-  "id": "zemdri",
-  "brand": "Zemdri",
-  "ingredient": "plazomicin sulfate",
-  "date": "2018-06-25",
-  "year": 2018,
-  "sponsor": "CIPLA USA",
-  "company": "Cipla",
-  "use": "ZEMDRI is an aminoglycoside antibacterial indicated for the treatment of patients 18 years of age or older with Complicated Urinary Tract Infections (cUTI) including Pyelonephritis. ( 1.1 ) As only limited clinical ",
-  "ta": "Infectious disease",
-  "modality": "Small molecule",
-  "priority": "Priority",
-  "orphan": false,
-  "app": "NDA210303",
-  "center": "CDER"
- },
- {
   "id": "epidiolex",
   "brand": "Epidiolex",
   "ingredient": "cannabidiol",
@@ -1072,19 +1056,19 @@
   "center": "CDER"
  },
  {
-  "id": "mektovi",
-  "brand": "Mektovi",
-  "ingredient": "binimetinib",
-  "date": "2018-06-27",
+  "id": "zemdri",
+  "brand": "Zemdri",
+  "ingredient": "plazomicin sulfate",
+  "date": "2018-06-25",
   "year": 2018,
-  "sponsor": "ARRAY BIOPHARMA INC",
-  "company": "Pfizer",
-  "use": "MEKTOVI is a kinase inhibitor indicated: \u2022 in combination with encorafenib, for the treatment of patients with unresectable or metastatic melanoma with a BRAF V600E or V600K mutation, as detected by an FDA-approved t",
-  "ta": "Oncology",
+  "sponsor": "CIPLA USA",
+  "company": "Cipla",
+  "use": "ZEMDRI is an aminoglycoside antibacterial indicated for the treatment of patients 18 years of age or older with Complicated Urinary Tract Infections (cUTI) including Pyelonephritis. ( 1.1 ) As only limited clinical ",
+  "ta": "Infectious disease",
   "modality": "Small molecule",
-  "priority": "Standard",
-  "orphan": true,
-  "app": "NDA210498",
+  "priority": "Priority",
+  "orphan": false,
+  "app": "NDA210303",
   "center": "CDER"
  },
  {
@@ -1101,6 +1085,22 @@
   "priority": "Standard",
   "orphan": true,
   "app": "NDA210496",
+  "center": "CDER"
+ },
+ {
+  "id": "mektovi",
+  "brand": "Mektovi",
+  "ingredient": "binimetinib",
+  "date": "2018-06-27",
+  "year": 2018,
+  "sponsor": "ARRAY BIOPHARMA INC",
+  "company": "Pfizer",
+  "use": "MEKTOVI is a kinase inhibitor indicated: \u2022 in combination with encorafenib, for the treatment of patients with unresectable or metastatic melanoma with a BRAF V600E or V600K mutation, as detected by an FDA-approved t",
+  "ta": "Oncology",
+  "modality": "Small molecule",
+  "priority": "Standard",
+  "orphan": true,
+  "app": "NDA210498",
   "center": "CDER"
  },
  {
@@ -2288,22 +2288,6 @@
   "center": "CDER"
  },
  {
-  "id": "fetroja",
-  "brand": "Fetroja",
-  "ingredient": "cefiderocol sulfate tosylate",
-  "date": "2019-11-14",
-  "year": 2019,
-  "sponsor": "SHIONOGI",
-  "company": "Shionogi",
-  "use": "FETROJA is a cephalosporin antibacterial indicated in patients 18 years of age or older for the treatment of the following infections caused by susceptible Gram-negative microorganisms: Complicated Urinary Tract Infe",
-  "ta": "Infectious disease",
-  "modality": "Small molecule",
-  "priority": "Priority",
-  "orphan": false,
-  "app": "NDA209445",
-  "center": "CDER"
- },
- {
   "id": "brukinsa",
   "brand": "Brukinsa",
   "ingredient": "zanubrutinib",
@@ -2317,6 +2301,22 @@
   "priority": "Priority",
   "orphan": true,
   "app": "NDA213217",
+  "center": "CDER"
+ },
+ {
+  "id": "fetroja",
+  "brand": "Fetroja",
+  "ingredient": "cefiderocol sulfate tosylate",
+  "date": "2019-11-14",
+  "year": 2019,
+  "sponsor": "SHIONOGI",
+  "company": "Shionogi",
+  "use": "FETROJA is a cephalosporin antibacterial indicated in patients 18 years of age or older for the treatment of the following infections caused by susceptible Gram-negative microorganisms: Complicated Urinary Tract Infe",
+  "ta": "Infectious disease",
+  "modality": "Small molecule",
+  "priority": "Priority",
+  "orphan": false,
+  "app": "NDA209445",
   "center": "CDER"
  },
  {
@@ -7866,6 +7866,22 @@
   "use": "To treat adults with weakened immune systems who have mucocutaneous lesions caused by herpes simplex virus infection and have not responded to other therapies",
   "ta": "Infectious disease",
   "modality": "Small molecule",
+  "priority": "",
+  "orphan": false,
+  "app": "",
+  "center": "CDER"
+ },
+ {
+  "id": "hibsago",
+  "brand": "Hibsago",
+  "ingredient": "bepirovirsen",
+  "date": "2026-10-20",
+  "year": 2026,
+  "sponsor": "GlaxoSmithKline",
+  "company": "GSK",
+  "use": "To treat chronic hepatitis B virus infection in certain adults without cirrhosis, in combination with existing antiviral therapy",
+  "ta": "Infectious disease",
+  "modality": "Oligonucleotide",
   "priority": "",
   "orphan": false,
   "app": "",

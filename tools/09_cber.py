@@ -68,9 +68,9 @@ def page(path):
             dates.append(dt.datetime.strptime(l, "%B %d, %Y").date())
         except ValueError:
             pass
-    ind = re.search(r"Indications?\s*\n:?\s*\n?(.+)", txt)
+    ind = re.search(r"Indications?\s*:?\s*\n:?\s*\n?(.*?)\n(?:Product Information|Supporting Documents|Package Insert)", txt, re.S)
     return dict(stn=field("STN"), proper=field("Proper Name"), trade=field("Tradename"), mfr=re.sub(r"Indications?$", "", field("Manufacturer")).strip(),
-                use=(ind.group(1).strip() if ind else ""), first=min(dates).isoformat() if dates else None, n_letters=len(dates))
+                use=(re.sub(r"\s*\n\s*", " ", ind.group(1)).strip(" :") if ind else ""), first=min(dates).isoformat() if dates else None, n_letters=len(dates))
 
 
 # Blood and plasma products (therapeutic proteins and immune globulins). Brands sharing an old active (albumin, fibrin sealants, hemostats)

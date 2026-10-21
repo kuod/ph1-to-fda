@@ -28,7 +28,7 @@
   "ingredient": "fibrinogen (human)",
   "date": "2017-06-07",
   "sponsor": "OCTAPHARMA Pharmazeutika Produktionsges.m.b.H.",
-  "use": "FIBRYGA is a human fibrinogen concentrate indicated for:",
+  "use": "FIBRYGA is a human fibrinogen concentrate indicated for: fibrinogen supplementation in bleeding patients with acquired fibrinogen deficiency treatment of acute bleeding episodes in patients with congenital fibrinogen deficiency, including afibrinogenemia and hypofibrinogenemia. Limitations of Use: FIBRYGA is not indicated for dysfibrinogenemia",
   "stn": "",
   "letters": 4
  },
@@ -50,7 +50,7 @@
   "ingredient": "rabies immune globulin (human)",
   "date": "2017-08-23",
   "sponsor": "Kamada Ltd.",
-  "use": "",
+  "use": "Passive, transient post-exposure prophylaxis of rabies infection, when given immediately after contact with a rabid or possibly rabid animal and in combination with a rabies vaccine.",
   "stn": "125613",
   "letters": 2
  },
@@ -61,7 +61,7 @@
   "ingredient": "tisagenlecleucel",
   "date": "2017-08-30",
   "sponsor": "Novartis Pharmaceuticals Corporation",
-  "use": "KYMRIAH is a CD19-directed genetically modified autologous T-cell immunotherapy indicated for the treatment of:",
+  "use": "KYMRIAH is a CD19-directed genetically modified autologous T-cell immunotherapy indicated for the treatment of: Patients up to 25 years of age with B-cell precursor acute lymphoblastic leukemia (ALL) that is refractory or in second or later relapse. Adult patients with relapsed or refractory (r/r) large B-cell lymphoma after two or more lines of systemic therapy, including diffuse large B-cell lymphoma (DLBCL) not otherwise specified, high grade B-cell lymphoma and DLBCL arising from follicular lymphoma. Limitations of Use: KYMRIAH is not indicated for treatment of patients with primary central nervous system lymphoma. Adult patients with relapsed or refractory follicular lymphoma (FL) after two or more lines of systemic therapy. This indication is approved under accelerated approval based on response rate and duration of response. Continued approval for this indication may be contingent upon verification and description of clinical benefit in confirmatory trial(s).",
   "stn": "125646",
   "letters": 8
  },
@@ -83,7 +83,7 @@
   "ingredient": "zoster vaccine recombinant, adjuvanted",
   "date": "2017-10-20",
   "sponsor": "GlaxoSmithKline Biologicals, S.A.",
-  "use": "SHINGRIX is a vaccine indicated for prevention of herpes zoster (HZ) (shingles):",
+  "use": "SHINGRIX is a vaccine indicated for prevention of herpes zoster (HZ) (shingles): In adults aged 50 years and older. In adults aged 18 years and older who are or will be at increased risk of HZ due to immunodeficiency or immunosuppression caused by known disease or therapy.",
   "stn": "125614",
   "letters": 9
  },
@@ -94,7 +94,7 @@
   "ingredient": "hepatitis b vaccine (recombinant), adjuvanted",
   "date": "2017-11-09",
   "sponsor": "Dynavax Technologies Corporation",
-  "use": "HEPLISAV-B is indicated for prevention of infection caused by all known subtypes of hepatitis B virus.",
+  "use": "HEPLISAV-B is indicated for prevention of infection caused by all known subtypes of hepatitis B virus. HEPLISAV-B is approved for use in adults 18 years of age and older.",
   "stn": "125428",
   "letters": 5
  },
@@ -105,7 +105,7 @@
   "ingredient": "voretigene neparvovec-rzyl",
   "date": "2017-12-19",
   "sponsor": "Spark Therapeutics, Inc.",
-  "use": "For the treatment of patients with confirmed biallelic",
+  "use": "For the treatment of patients with confirmed biallelic RPE65 mutation-associated retinal dystrophy.",
   "stn": "125610",
   "letters": 2
  },
@@ -138,7 +138,7 @@
   "ingredient": "immune globulin intravenous (human)-ifas",
   "date": "2018-08-02",
   "sponsor": "Octapharma Pharmazeutika Produktionsges.m.b.H",
-  "use": "Indication",
+  "use": "Indication for the treatment of adults 18 years of age and older with chronic inflammatory demyelinating polyneuropathy (CIDP) to improve neuromuscular disability and impairment. Primary humoral immunodeficiency (PI) in patients 2 years of age and older. Chronic immune thrombocytopenia (ITP) in adults.",
   "stn": "125587",
   "letters": 2
  },
@@ -149,7 +149,7 @@
   "ingredient": "antihemophilic factor (recombinant), pegylated-aucl",
   "date": "2018-08-29",
   "sponsor": "Bayer Healthcare, Inc",
-  "use": "",
+  "use": "Indicated for use in previously treated adults and adolescents (12 years of age and older) with hemophilia A (congenital Factor VIII deficiency) for: On-demand treatment and control of bleeding episodes Perioperative management of bleeding Routine prophylaxis to reduce the frequency of bleeding episodes",
   "stn": "BL 125661",
   "letters": 2
  },
@@ -171,7 +171,7 @@
   "ingredient": "diphtheria and tetanus toxoids and acellular pertussis, inactivated poliovirus, haemophilus b conjugate and hepatitis b vaccine",
   "date": "2018-12-21",
   "sponsor": "MSP Vaccine Company",
-  "use": "VAXELIS is a vaccine indicated for active immunization to prevent diphtheria, tetanus, pertussis, poliomyelitis, hepatitis B, and invasive disease due to",
+  "use": "VAXELIS is a vaccine indicated for active immunization to prevent diphtheria, tetanus, pertussis, poliomyelitis, hepatitis B, and invasive disease due to Haemophilus influenzae type b. VAXELIS is approved for use as a 3-dose series in children from 6 weeks through 4 years of age (prior to the 5th birthday).",
   "stn": "125563",
   "letters": 7
  },
@@ -182,7 +182,7 @@
   "ingredient": "antihemophilic factor (recombinant), glycopegylated-exei",
   "date": "2019-02-19",
   "sponsor": "Novo Nordisk, Inc.",
-  "use": "",
+  "use": "Adults and children with hemophilia A for control and prevention of bleeding, perioperative management, and routine prophylaxis to reduce the frequency of bleeding episodes.",
   "stn": "BL 125671",
   "letters": 2
  },
@@ -215,7 +215,7 @@
   "ingredient": "onasemnogene abeparvovec-xioi",
   "date": "2019-05-24",
   "sponsor": "Novartis Gene Therapies, Inc.",
-  "use": "",
+  "use": "For the treatment of pediatric patients less than two years of age with spinal muscular atrophy (SMA) with bi-allelic mutations in the survival motor neuron 1 (SMN1) gene.",
   "stn": "125694",
   "letters": 9
  },
@@ -226,7 +226,7 @@
   "ingredient": "xembify",
   "date": "2019-07-03",
   "sponsor": "Grifols Therapeutics LLC",
-  "use": "Primary humoral immunodeficiency in patients 2 years and older",
+  "use": "For subcutaneous injection indicated for treatment of Primary Humoral Immunodeficiency (PI) in patients 2 years of age and older.",
   "stn": "",
   "letters": 2
  },
@@ -259,7 +259,7 @@
   "ingredient": "influenza a (h5n1) monovalent vaccine, adjuvanted",
   "date": "2020-01-31",
   "sponsor": "Seqirus, Inc.",
-  "use": "",
+  "use": "AUDENZ is an inactivated vaccine indicated for active immunization for the prevention of disease caused by the influenza A virus H5N1 subtype contained in the vaccine. AUDENZ is approved for use in persons 6 months of age and older at increased risk of exposure to the influenza A virus H5N1 subtype contained in the vaccine.",
   "stn": "125692",
   "letters": 4
  },
@@ -270,7 +270,7 @@
   "ingredient": "coagulation factor viia (recombinant)-jncw",
   "date": "2020-04-01",
   "sponsor": "LFB S.A.",
-  "use": "",
+  "use": "For the treatment and control of bleeding episodes occurring in adults and adolescents (12 years of age and older) with hemophilia A or B with inhibitors.",
   "stn": "",
   "letters": 3
  },
@@ -281,7 +281,7 @@
   "ingredient": "meningococcal (groups a, c, y, w) conjugate vaccine",
   "date": "2020-04-23",
   "sponsor": "Sanofi Pasteur, Inc.",
-  "use": "",
+  "use": "MenQuadfi is a vaccine indicated for active immunization for the prevention of invasive meningococcal disease caused by Neisseria meningitidis serogroups A, C, W, and Y. MenQuadfi is approved for use in individuals 6 weeks of age and older.",
   "stn": "125701",
   "letters": 8
  },
@@ -292,7 +292,7 @@
   "ingredient": "brexucabtagene autoleucel",
   "date": "2020-07-24",
   "sponsor": "Kite Pharmaceuticals, Inc.",
-  "use": "TECARTUS is indicated for the treatment of:",
+  "use": "TECARTUS is indicated for the treatment of: Adult patients with relapsed or refractory mantle cell lymphoma (MCL). Adult patients with relapsed or refractory B-cell precursor acute lymphoblastic leukemia (ALL).",
   "stn": "BL 125703",
   "letters": 10
  },
@@ -303,7 +303,7 @@
   "ingredient": "lisocabtagene maraleucel",
   "date": "2021-02-05",
   "sponsor": "Juno Therapeutics, Inc., a Bristol-Myers Squibb Company",
-  "use": "",
+  "use": "BREYANZI is a CD19-directed genetically modified autologous T cell immunotherapy indicated for the treatment of: Adult patients with large B-cell lymphoma (LBCL), including diffuse large B-cell lymphoma (DLBCL) not otherwise specified (including DLBCL arising from indolent lymphoma), high-grade B-cell lymphoma, primary mediastinal large B-cell lymphoma, and follicular lymphoma grade 3B, who have: Refractory disease to first-line chemoimmunotherapy or relapse within 12 months of first-line chemoimmunotherapy; or Refractory disease to first-line chemoimmunotherapy or relapse after first-line chemoimmunotherapy and are not eligible for hematopoietic stem cell transplantation (HSCT) due to comorbidities or age; or Relapsed or refractory disease after 2 or more lines of systemic therapy. Limitations of Use: BREYANZI is not indicated for the treatment of patients with primary central nervous system lymphoma. Adult patients with relapsed or refractory chronic lymphocytic leukemia (CLL) or small lymphocytic lymphoma (SLL) who have received at least 2 prior lines of therapy, including a Bruton tyrosine kinase (BTK) inhibitor and a B-cell lymphoma 2 (BCL-2) inhibitor. This indication is approved under accelerated approval based on response rate and duration of response. Continued approval for this indication may be contingent upon verification and description of clinical benefit in confirmatory trial(s). Adult patients with relapsed or refractory follicular lymphoma (FL) who have received 2 or more prior lines of systemic therapy. Adult patients with relapsed or refractory mantle cell lymphoma (MCL) who have received at least 2 prior lines of systemic therapy, including a Bruton tyrosine kinase (BTK) inhibitor. Adult patients with relapsed or refractory marginal zone lymphoma (MZL) who have received at least 2 prior lines of systemic therapy.",
   "stn": "BLA 125714",
   "letters": 7
  },
@@ -325,7 +325,7 @@
   "ingredient": "plasminogen, human-tvmh",
   "date": "2021-06-04",
   "sponsor": "Prometic Biotherapeutics Inc.",
-  "use": "",
+  "use": "For the treatment of patients with plasminogen deficiency type 1 (hypoplasminogenemia)",
   "stn": "125659",
   "letters": 2
  },
@@ -336,7 +336,7 @@
   "ingredient": "pneumococcal 20-valent conjugate vaccine",
   "date": "2021-06-10",
   "sponsor": "Wyeth Pharmaceuticals LLC",
-  "use": "",
+  "use": "Active immunization for the prevention of invasive disease caused by Streptococcus pneumoniae serotypes 1, 3, 4, 5, 6A, 6B, 7F, 8, 9V, 10A, 11A, 12F, 14, 15B, 18C, 19A, 19F, 22F, 23F, and 33F in individuals 6 weeks of age and older. Active immunization for the prevention of otitis media caused by S. pneumoniae serotypes 4, 6B, 9V, 14, 18C, 19F, and 23F in individuals 6 weeks through 5 years of age. Active immunization for the prevention of pneumonia caused by S. pneumoniae serotypes 1, 3, 4, 5, 6A, 6B, 7F, 8, 9V, 10A, 11A, 12F, 14, 15B, 18C, 19A, 19F, 22F, 23F, and 33F in individuals 18 years of age and older.",
   "stn": "125731",
   "letters": 3
  },
@@ -358,7 +358,7 @@
   "ingredient": "pneumococcal 15-valent conjugate vaccine",
   "date": "2021-07-16",
   "sponsor": "Merck Sharp & Dohme LLC",
-  "use": "",
+  "use": "Active immunization for the prevention of invasive disease caused by Streptococcus pneumoniae serotypes 1, 3, 4, 5, 6A, 6B, 7F, 9V, 14, 18C, 19A, 19F, 22F, 23F and 33F in individuals 6 weeks of age and older.",
   "stn": "125741",
   "letters": 3
  },
@@ -369,7 +369,7 @@
   "ingredient": "tick-borne encephalitis vaccine",
   "date": "2021-08-13",
   "sponsor": "Pfizer Ireland Pharmaceuticals",
-  "use": "",
+  "use": "For active immunization to prevent tick-borne encephalitis (TBE) in individuals 1 year of age and older.",
   "stn": "125740",
   "letters": 1
  },
@@ -380,7 +380,7 @@
   "ingredient": "covid-19 vaccine, mrna",
   "date": "2021-08-23",
   "sponsor": "BioNTech Manufacturing GmbH",
-  "use": "COMIRNATY is a vaccine indicated for active immunization to prevent coronavirus disease 2019 (COVID 19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
+  "use": "COMIRNATY is a vaccine indicated for active immunization to prevent coronavirus disease 2019 (COVID 19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). COMIRNATY is approved for use in individuals who are: 65 years of age and older, or 5 years through 64 years of age with at least one underlying condition that puts them at high risk for severe outcomes from COVID-19.",
   "stn": "125742",
   "letters": 15
  },
@@ -391,7 +391,7 @@
   "ingredient": "allogeneic processed thymus tissue\u2013agdc",
   "date": "2021-10-08",
   "sponsor": "Enzyvant Therapeutics GmbH",
-  "use": "",
+  "use": "For immune reconstitution in pediatric patients with congenital athymia.",
   "stn": "125685",
   "letters": 1
  },
@@ -413,7 +413,7 @@
   "ingredient": "covid-19 vaccine, mrna",
   "date": "2022-01-31",
   "sponsor": "Moderna Tx, Inc",
-  "use": "For active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
+  "use": "For active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). SPIKEVAX is approved for use in individuals who are: 65 years of age and older, or 6 months through 64 years of age with at least one underlying condition that puts them at high risk for severe outcomes from COVID-19.",
   "stn": "125752",
   "letters": 11
  },
@@ -435,7 +435,7 @@
   "ingredient": "measles, mumps and rubella vaccine, live",
   "date": "2022-06-03",
   "sponsor": "GlaxoSmithKline Biologicals SA",
-  "use": "",
+  "use": "PRIORIX is a vaccine indicated for active immunization for the prevention of measles, mumps, and rubella in individuals 12 months of age and older.",
   "stn": "125748",
   "letters": 4
  },
@@ -446,7 +446,7 @@
   "ingredient": "betibeglogene autotemcel",
   "date": "2022-08-17",
   "sponsor": "bluebird bio Inc.",
-  "use": "",
+  "use": "For treatment of adult and pediatric patients with \u00df-thalassemia who require regular red blood cell (RBC) transfusions",
   "stn": "125717",
   "letters": 1
  },
@@ -457,7 +457,7 @@
   "ingredient": "elivaldogene autotemcel",
   "date": "2022-09-16",
   "sponsor": "bluebird bio, Inc.",
-  "use": "SKYSONA is indicated to slow the progression of neurologic dysfunction in boys 4- 17 years of age with early, active cerebral adrenoleukodystrophy (CALD) without an available human leukocyte antigen (HLA)-matched donor for allogeneic hematopoietic stem cell transplant.",
+  "use": "SKYSONA is indicated to slow the progression of neurologic dysfunction in boys 4- 17 years of age with early, active cerebral adrenoleukodystrophy (CALD) without an available human leukocyte antigen (HLA)-matched donor for allogeneic hematopoietic stem cell transplant. Latest Safety Information FDA Approves Required Labeling Changes for Increased Risk of Hematologic Malignancy Following Treatment with Skysona (elivaldogene autotemcel) August 7, 2025",
   "stn": "125755",
   "letters": 3
  },
@@ -468,7 +468,7 @@
   "ingredient": "etranacogene dezaparvovec-drlb",
   "date": "2022-11-22",
   "sponsor": "CSL Behring LLC",
-  "use": "",
+  "use": "For treatment of adults with Hemophilia B (congenital Factor IX deficiency) who: Currently use Factor IX prophylaxis therapy, or have current or historical life-threatening hemorrhage, or have repeated, serious spontaneous bleeding episodes.",
   "stn": "BLA 125772",
   "letters": 2
  },
@@ -479,7 +479,7 @@
   "ingredient": "nadofaragene firadenovec-vncg",
   "date": "2022-12-16",
   "sponsor": "Ferring Pharmaceuticals A/S",
-  "use": "",
+  "use": "High-grade, Bacillus Calmette-Guerin (BCG) unresponsive non-muscle invasive bladder cancer",
   "stn": "BLA 125700",
   "letters": 5
  },
@@ -490,7 +490,7 @@
   "ingredient": "efanesoctocog alfa (antihemophilic factor recombinant, fc-vwf-xten fusion protein)",
   "date": "2023-02-22",
   "sponsor": "Bioverativ Therapeutics Inc.",
-  "use": "ALTUVIIIO [antihemophilic factor (recombinant), Fc-VWF-XTEN fusion protein-ehtl] is a recombinant DNA-derived, Factor VIII concentrate indicated for use in adults and children with hemophilia A (congenital factor VIII deficiency) for:",
+  "use": "ALTUVIIIO [antihemophilic factor (recombinant), Fc-VWF-XTEN fusion protein-ehtl] is a recombinant DNA-derived, Factor VIII concentrate indicated for use in adults and children with hemophilia A (congenital factor VIII deficiency) for: Routine prophylaxis to reduce the frequency of bleeding episodes On-demand treatment & control of bleeding episodes Perioperative management of bleeding Limitation of Use: ALTUVIIIO is not indicated for the treatment of von Willebrand disease.",
   "stn": "125771",
   "letters": 4
  },
@@ -501,7 +501,7 @@
   "ingredient": "omidubicel-onlv",
   "date": "2023-04-17",
   "sponsor": "Gamida Cell Ltd.",
-  "use": "",
+  "use": "For the treatment of: Adults and pediatric patients 12 years and older with hematologic malignancies who are planned for umbilical cord blood transplantation following myeloablative conditioning to reduce the time to neutrophil recovery and the incidence of infection. Adults and pediatric patients 6 years and older with severe aplastic anemia (SAA) following reduced intensity conditioning.",
   "stn": "125738",
   "letters": 3
  },
@@ -512,7 +512,7 @@
   "ingredient": "beremagene geperpavec-svdt",
   "date": "2023-05-19",
   "sponsor": "Krystal Biotech, Inc.",
-  "use": "",
+  "use": "For the treatment of wounds in adult and pediatric patients with dystrophic epidermolysis bullosa (DEB) with mutation(s) in the collagen type VII alpha 1 chain (COL7A1) gene.",
   "stn": "125774",
   "letters": 3
  },
@@ -523,7 +523,7 @@
   "ingredient": "respiratory syncytial virus vaccine, adjuvanted",
   "date": "2023-05-23",
   "sponsor": "GlaxoSmithKline Biologicals SA",
-  "use": "AREXVY is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in:",
+  "use": "AREXVY is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in: Individuals 60 years of age and older; Individuals 18 through 59 years of age who are at increased risk for LRTD caused by RSV",
   "stn": "125775",
   "letters": 10
  },
@@ -534,7 +534,7 @@
   "ingredient": "respiratory syncytial virus vaccine",
   "date": "2023-05-31",
   "sponsor": "Pfizer Inc.",
-  "use": "ABRYSVO is indicated for:",
+  "use": "ABRYSVO is indicated for: Active immunization of pregnant individuals at 32 through 36 weeks gestational age for the prevention of lower respiratory tract disease (LRTD) and severe LRTD caused by respiratory syncytial virus (RSV) in infants from birth through 6 months of age. Active immunization for the prevention of LRTD caused by RSV in individuals 60 years of age and older. Active immunization for the prevention of LRTD caused by RSV in individuals 18 through 59 years of age who are at increased risk for LRTD caused by RSV.",
   "stn": "125769;\u00a0125768",
   "letters": 10
  },
@@ -545,7 +545,7 @@
   "ingredient": "delandistrogene moxeparvovec-rokl",
   "date": "2023-06-22",
   "sponsor": "Sarepta Therapeutics, Inc.",
-  "use": "",
+  "use": "ELEVIDYS is an adeno-associated virus vector-based gene therapy indicated for the treatment of patients 4 years of age and older with Duchenne muscular dystrophy (DMD) who are ambulatory and have a confirmed mutation in the DMD gene. Limitations of Use: ELEVIDYS is not recommended in patients with: Preexisting liver impairment (defined as gamma-glutamyl transferase [GGT] > 2 x upper limit of normal or total bilirubin > the upper limit of normal not due to Gilbert\u2019s syndrome) or active hepatic viral infection due to the high risk of acute serious liver injury and acute liver failure. Recent vaccination (within 4 weeks of treatment) due to immunogenicity and potential safety concerns Active or recent (within 4 weeks) infections due to safety concerns.",
   "stn": "125781",
   "letters": 5
  },
@@ -556,7 +556,7 @@
   "ingredient": "donislecel-jujn",
   "date": "2023-06-28",
   "sponsor": "CellTrans Inc.",
-  "use": "",
+  "use": "the treatment of adults with Type 1 diabetes who are unable to approach target HbA1c because of current repeated episodes of severe hypoglycemia despite intensive diabetes management and education.",
   "stn": "125734",
   "letters": 1
  },
@@ -578,7 +578,7 @@
   "ingredient": "anthrax vaccine adsorbed, adjuvanted",
   "date": "2023-07-20",
   "sponsor": "Emergent BioDefense Operations Lansing LLC.",
-  "use": "CYFENDUS (Anthrax Vaccine Adsorbed, Adjuvanted) is a vaccine indicated for post-exposure prophylaxis of disease following suspected or confirmed exposure to Bacillus anthracis in persons 18 through 65 years of age when administered in conjunction with recommended antibacterial drugs.",
+  "use": "CYFENDUS (Anthrax Vaccine Adsorbed, Adjuvanted) is a vaccine indicated for post-exposure prophylaxis of disease following suspected or confirmed exposure to Bacillus anthracis in persons 18 through 65 years of age when administered in conjunction with recommended antibacterial drugs. The efficacy of CYFENDUS for post-exposure prophylaxis is based solely on studies in animal models of inhalational anthrax.",
   "stn": "125761",
   "letters": 2
  },
@@ -589,7 +589,7 @@
   "ingredient": "prothrombin complex concentrate, human-lans",
   "date": "2023-07-21",
   "sponsor": "Octapharma Pharmazeutika Produktiosges.m.b.H.",
-  "use": "",
+  "use": "For the urgent reversal of acquired coagulation factor deficiency induced by Vitamin K antagonist (VKA, e.g., warfarin) therapy in adult patients with need for an urgent surgery/invasive procedure.",
   "stn": "125776",
   "letters": 1
  },
@@ -600,7 +600,7 @@
   "ingredient": "meningococcal groups a, b, c, w, and y vaccine",
   "date": "2023-10-20",
   "sponsor": "Pfizer Ireland Pharmaceuticals",
-  "use": "",
+  "use": "PENBRAYA is indicated for active immunization to prevent invasive disease caused by Neisseria meningitidis serogroups A, B, C, W, and Y. PENBRAYA is approved for use in individuals 10 through 25 years of age.",
   "stn": "125770",
   "letters": 3
  },
@@ -622,7 +622,7 @@
   "ingredient": "exagamglogene autotemcel",
   "date": "2023-12-08",
   "sponsor": "Vertex Pharmaceuticals Incorporated",
-  "use": "STN 125787 - For the treatment of patients aged 2 years and older with:",
+  "use": "STN 125787 - For the treatment of patients aged 2 years and older with: Sickle cell disease (SCD) with recurrent vaso-occlusive crises (VOCs). Transfusion-dependent \u03b2-thalassemia (TDT). STN 125785 - Indicated for the treatment of patients aged 12 years and older with sickle cell disease (SCD) with recurrent vaso occlusive crises (VOCs) and transfusion-dependent \u00df-thalassemia (TDT).",
   "stn": "125787",
   "letters": 5
  },
@@ -633,7 +633,7 @@
   "ingredient": "lovotibeglogene autotemcel (lovo-cel)",
   "date": "2023-12-08",
   "sponsor": "bluebird bio, Inc.",
-  "use": "",
+  "use": "Treatment of patients 12 years of age or older with sickle cell disease and a history of vaso-occlusive events (VOEs). Production Information",
   "stn": "125788",
   "letters": 1
  },
@@ -644,7 +644,7 @@
   "ingredient": "immune globulin intravenous, human-stwk",
   "date": "2023-12-15",
   "sponsor": "GC Biopharma Corp.",
-  "use": "",
+  "use": "Indicated for the treatment of primary humoral immunodeficiency (PI) in adults.",
   "stn": "125743",
   "letters": 2
  },
@@ -677,7 +677,7 @@
   "ingredient": "fidanacogene elaparvovec-dzkt",
   "date": "2024-04-25",
   "sponsor": "Pfizer, Inc.",
-  "use": "",
+  "use": "For the treatment of adults with moderate to severe hemophilia B (congenital factor IX deficiency) who: Currently use factor IX prophylaxis therapy, or Have current or historical life-threatening hemorrhage, or Have repeated, serious spontaneous bleeding episodes, and, Do not have neutralizing antibodies to adeno-associated virus serotype Rh74var (AAVRh74var) capsid as detected by an FDA-approved test.",
   "stn": "125786",
   "letters": 1
  },
@@ -688,7 +688,7 @@
   "ingredient": "respiratory syncytial virus vaccine",
   "date": "2024-06-14",
   "sponsor": "ModernaTX, Inc.",
-  "use": "MRESVIA is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in",
+  "use": "MRESVIA is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in Individuals 60 years of age and older Individuals 18 through 59 years of age who are at increased risk for LRTD caused by RSV",
   "stn": "125796",
   "letters": 5
  },
@@ -699,7 +699,7 @@
   "ingredient": "pneumoccocal 21-valent conjugate vaccine",
   "date": "2024-06-17",
   "sponsor": "Merck Sharp & Dohme, LLC",
-  "use": "CAPVAXIVE is indicated for:",
+  "use": "CAPVAXIVE is indicated for: Active immunization for the prevention of invasive disease caused by Streptococcus pneumoniae serotypes 3, 6A, 7F, 8, 9N, 10A, 11A, 12F, 15A, 15B, 15C, 16F, 17F, 19A, 20A, 22F, 23A, 23B, 24F, 31, 33F, and 35B in individuals: 18 years of age and older and Individuals 2 through 17 years of age who are at increased risk for pneumococcal disease. Active immunization for the prevention of pneumonia caused by S. pneumoniae serotypes 3, 6A, 7F, 8, 9N, 10A, 11A, 12F, 15A, 15C, 16F, 17F, 19A, 20A, 22F, 23A, 23B, 24F, 31, 33F, and 35B in individuals 18 years of age and older. The indication for the prevention of pneumonia caused by S. pneumoniae serotypes 3, 6A, 7F, 8, 9N, 10A, 11A, 12F, 15A, 15C, 16F, 17F, 19A, 20A, 22F, 23A, 23B, 24F, 31, 33F, and 35B is approved under accelerated approval based on immune responses as measured by opsonophagocytic activity (OPA). Continued approval for this indication may be contingent upon verification and description of clinical benefit in a confirmatory trial.",
   "stn": "125814",
   "letters": 3
  },
@@ -710,7 +710,7 @@
   "ingredient": "afamitresgene autoleucel",
   "date": "2024-08-01",
   "sponsor": "Adaptimmune LLC",
-  "use": "",
+  "use": "Treatment of adults and pediatric patients 12 years of age and older with unresectable or metastatic synovial sarcoma who have received prior chemotherapy, are HLAA* 02:01P, -A*02:02P, -A*02:03P, or -A*02:06P positive and whose tumor expresses the MAGEA4 antigen as determined by FDA-approved or cleared companion diagnostic devices.",
   "stn": "125789",
   "letters": 2
  },
@@ -721,7 +721,7 @@
   "ingredient": "obecabtagene autoleucel",
   "date": "2024-11-08",
   "sponsor": "Autolus Limited",
-  "use": "",
+  "use": "For the treatment of adults with relapsed or refractory B-cell precursor acute lymphoblastic leukemia (ALL).",
   "stn": "125813",
   "letters": 2
  },
@@ -732,7 +732,7 @@
   "ingredient": "eladocagene exuparvovec-tneq",
   "date": "2024-11-13",
   "sponsor": "PTC Therapeutics",
-  "use": "",
+  "use": "For the treatment of adult and pediatric patients with aromatic L amino acid decarboxylase (AADC) deficiency.",
   "stn": "125722",
   "letters": 1
  },
@@ -743,7 +743,7 @@
   "ingredient": "hpc, cord blood",
   "date": "2024-11-20",
   "sponsor": "StemCyte, Inc.",
-  "use": "",
+  "use": "For use in unrelated donor hematopoietic progenitor cell transplantation procedures in conjunction with an appropriate preparative regimen for hematopoietic and immunologic reconstitution in patients with disorders affecting the hematopoietic system that are inherited, acquired, or result from myeloablative treatment.",
   "stn": "125764",
   "letters": 1
  },
@@ -754,7 +754,7 @@
   "ingredient": "remestemcel-l-rknd",
   "date": "2024-12-18",
   "sponsor": "Mesoblast, Inc.",
-  "use": "",
+  "use": "Indicated for the treatment of steroid-refractory acute graft versus host disease (SR-aGvHD) in pediatric patients 2 months of age and older.",
   "stn": "125706",
   "letters": 1
  },
@@ -765,7 +765,7 @@
   "ingredient": "acellular tissue engineered vessel-tyod",
   "date": "2024-12-19",
   "sponsor": "Humacyte Global, Inc.",
-  "use": "",
+  "use": "Indicated for use in adults as a vascular conduit for extremity arterial injury when urgent revascularization is needed to avoid imminent limb loss, and autologous vein graft is not feasible.",
   "stn": "125812",
   "letters": 1
  },
@@ -787,7 +787,7 @@
   "ingredient": "meningococcal groups a, b, c, w, and y vaccine",
   "date": "2025-02-14",
   "sponsor": "GlaxoSmithKline Biologicals",
-  "use": "",
+  "use": "PENMENVY is a vaccine indicated for active immunization to prevent invasive disease caused by Neisseria meningitidis serogroups A, B, C, W, and Y in individuals 10 through 25 years of age.",
   "stn": "BLA 125819",
   "letters": 2
  },
@@ -798,7 +798,7 @@
   "ingredient": "revakinagene taroretcel-lwey",
   "date": "2025-03-05",
   "sponsor": "Neurotech Pharmaceuticals, Inc.",
-  "use": "",
+  "use": "For The treatment of adults with idiopathic macular telangiectasia type 2 (MacTel)",
   "stn": "BLA 125798",
   "letters": 1
  },
@@ -809,7 +809,7 @@
   "ingredient": "prademagene zamikeracel",
   "date": "2025-04-28",
   "sponsor": "Abeona Therapeutics, Inc.",
-  "use": "",
+  "use": "ZEVASKYN is an autologous cell sheet-based gene therapy indicated for the treatment of wounds in adult and pediatric patients with recessive dystrophic epidermolysis bullosa (RDEB).",
   "stn": "125807",
   "letters": 1
  },
@@ -820,7 +820,7 @@
   "ingredient": "covid-19 vaccine, adjuvanted",
   "date": "2025-05-16",
   "sponsor": "Sanofi Vaccines US, Inc",
-  "use": "NUVAXOVID is a vaccine indicated for active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).",
+  "use": "NUVAXOVID is a vaccine indicated for active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). NUVAXOVID is approved for use in individuals who are: 65 years of age and older, or 12 years through 64 years of age with at least one underlying condition that puts them at high risk for severe outcomes from COVID-19.",
   "stn": "125817",
   "letters": 3
  },
@@ -831,7 +831,7 @@
   "ingredient": "covid-19 vaccine, mrna",
   "date": "2025-05-30",
   "sponsor": "ModernaTX, Inc.",
-  "use": "",
+  "use": "MNEXSPIKE is a vaccine indicated for active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). MNEXSPIKE is approved for use in individuals who are: 65 years of age and older, or 12 years through 64 years of age with at least one underlying condition that puts them at high risk for severe outcomes from COVID-19.",
   "stn": "125835",
   "letters": 4
  },
@@ -842,7 +842,7 @@
   "ingredient": "zopapogene imadenovec-drba",
   "date": "2025-08-14",
   "sponsor": "Precigen, Inc.",
-  "use": "",
+  "use": "For the treatment of adults with recurrent respiratory papillomatosis.",
   "stn": "125832",
   "letters": 2
  },
@@ -853,7 +853,7 @@
   "ingredient": "onasemnogene abeparvovec-brve",
   "date": "2025-11-24",
   "sponsor": "Novartis Gene Therapies, Inc.",
-  "use": "",
+  "use": "For the treatment of spinal muscular atrophy (SMA) in adult and pediatric patients 2 years of age and older with confirmed mutation in survival motor neuron 1 (SMN1) gene.",
   "stn": "BL 125856/0",
   "letters": 2
  },
@@ -864,7 +864,7 @@
   "ingredient": "etuvetidigene autotemcel",
   "date": "2025-12-09",
   "sponsor": "Fondazione Telethon ETS",
-  "use": "",
+  "use": "Ttreatment of pediatric patients aged 6 months and older and adults with Wiskott-Aldrich Syndrome (WAS) who have a mutation in the WAS gene for whom hematopoietic stem cell transplantation (HSCT) is appropriate and no suitable human leukocyte antigen (HLA)-matched related stem cell donor is available.",
   "stn": "BLA 125846",
   "letters": 1
  },
@@ -875,7 +875,7 @@
   "ingredient": "fibrinogen, human\u2013chmt",
   "date": "2025-12-16",
   "sponsor": "Grifols Therapeutics, Inc.",
-  "use": "",
+  "use": "Fibrinogen, human\u2013chmt is indicated for treatment of acute bleeding episodes in pediatric and adult patients with congenital fibrinogen deficiency, including hypo- or afibrinogenemia.",
   "stn": "BLA 125833",
   "letters": 1
  },
@@ -886,7 +886,7 @@
   "ingredient": "lunsotogene parvec-cwha",
   "date": "2026-04-23",
   "sponsor": "Regeneron Pharmaceuticals, Inc.",
-  "use": "",
+  "use": "For the treatment of pediatric and adult patients with severe-to-profound and profound sensorineural hearing loss (HL; any frequency >90 dB) associated with molecularly confirmed biallelic variants in the OTOF gene, preserved outer hair cell function, and no prior cochlear implant in the same ear.",
   "stn": "125874",
   "letters": 1
  },
@@ -897,7 +897,7 @@
   "ingredient": "allogeneic regulatory t cell immunotherapy with hspc and t cells-vldq",
   "date": "2026-07-01",
   "sponsor": "Orca Biosystems Inc",
-  "use": "",
+  "use": "For use in matched donor hematopoietic stem cell transplantation with myeloablative preparative regimen, for hematopoietic and immunologic reconstitution and to improve chronic graft-versus-host disease (cGVHD)-free survival, in the treatment of adults with hematological malignancies",
   "stn": "BLA 125868",
   "letters": 1
  },

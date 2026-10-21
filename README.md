@@ -57,7 +57,7 @@ Large raw crawls (`data/trials_*_raw.json`) are not committed; the pipeline rege
 
 ## Sources
 
-FDA CDER Novel Drug Approvals and Drugs@FDA (via openFDA) · ClinicalTrials.gov API v2 · d3 (ISC) and d3-sankey (BSD-3-Clause), vendored in `vendor/`.
+FDA CDER Novel Drug Approvals and Drugs@FDA (via openFDA) · FDA CBER product pages · DailyMed · ClinicalTrials.gov API v2 · d3 (ISC) and d3-sankey (BSD-3-Clause), vendored in `vendor/`.
 
 ## License
 

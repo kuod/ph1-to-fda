@@ -14,17 +14,19 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#f5f2eb;--bg-card:#faf8f3;--ink:#1a1814;--ink-2:#4a4540;--ink-3:#8a8078;
+  --bg:#f5f2eb;--bg-card:#faf8f3;--ink:#1a1814;--ink-2:#4a4540;--ink-3:#6f665e;
   --rule:#ddd8ce;--accent:#b84a2e;--accent-light:#f5e8e4;
   --gold:#c9943a;--gold-light:#f7f0e1;--silver:#7a8a96;--silver-light:#eaeef1;
   --ok:#2f6f4f;--ok-light:#e4eee8;--stall:#a39a8c;
 }
 html{scroll-behavior:smooth;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.tab-btn:focus-visible{outline-color:#e0795a;outline-offset:-3px;}
 body{background:var(--bg);color:var(--ink);font-family:'Instrument Sans',sans-serif;min-height:100vh;}
 a{color:var(--accent);}
 .masthead{background:var(--ink);color:var(--bg);padding:3rem 3rem 2.2rem;position:relative;overflow:hidden;}
 .masthead::before{content:'';position:absolute;top:0;right:0;bottom:0;width:40%;background:repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,.025) 18px,rgba(255,255,255,.025) 19px);pointer-events:none;}
-.masthead-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;}
+.masthead-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#e0795a;margin-bottom:.75rem;}
 .masthead h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:400;line-height:1.1;letter-spacing:-.02em;max-width:760px;margin-bottom:1rem;}
 .masthead-sub{font-size:14px;color:rgba(245,242,235,.6);max-width:640px;line-height:1.6;}
 .stats{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;margin-top:1.75rem;position:relative;}
@@ -186,20 +188,20 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <p class="masthead-sub">Every new molecular entity and new biologic the FDA approved in the last decade — who sponsored it, what it treats, how many programs fell away on the road from Phase 1, and what each approval is modelled to earn in years 1 through 10.</p>
   <div class="stats" id="stats"></div>
 </header>
-<nav class="tab-bar" id="tabs">
-  <button class="tab-btn active" data-tab="funnel">Funnel</button>
-  <button class="tab-btn" data-tab="cards">Baseball Cards</button>
-  <button class="tab-btn" data-tab="approvals">Approvals</button>
-  <button class="tab-btn" data-tab="products">Product Pipelines</button>
-  <button class="tab-btn" data-tab="buckets">Buckets</button>
-  <button class="tab-btn" data-tab="revenue">Revenue y1–y10</button>
-  <button class="tab-btn" data-tab="flow">Who &amp; What</button>
-  <button class="tab-btn" data-tab="bd201">BD201</button>
-  <button class="tab-btn" data-tab="method">Method</button>
+<nav class="tab-bar" id="tabs" role="tablist" aria-label="Views">
+  <button class="tab-btn active" data-tab="funnel" id="tabbtn-funnel" role="tab" aria-selected="true" aria-controls="tab-funnel">Funnel</button>
+  <button class="tab-btn" data-tab="cards" id="tabbtn-cards" role="tab" aria-selected="false" aria-controls="tab-cards">Baseball Cards</button>
+  <button class="tab-btn" data-tab="approvals" id="tabbtn-approvals" role="tab" aria-selected="false" aria-controls="tab-approvals">Approvals</button>
+  <button class="tab-btn" data-tab="products" id="tabbtn-products" role="tab" aria-selected="false" aria-controls="tab-products">Product Pipelines</button>
+  <button class="tab-btn" data-tab="buckets" id="tabbtn-buckets" role="tab" aria-selected="false" aria-controls="tab-buckets">Buckets</button>
+  <button class="tab-btn" data-tab="revenue" id="tabbtn-revenue" role="tab" aria-selected="false" aria-controls="tab-revenue">Revenue y1–y10</button>
+  <button class="tab-btn" data-tab="flow" id="tabbtn-flow" role="tab" aria-selected="false" aria-controls="tab-flow">Who &amp; What</button>
+  <button class="tab-btn" data-tab="bd201" id="tabbtn-bd201" role="tab" aria-selected="false" aria-controls="tab-bd201">BD201</button>
+  <button class="tab-btn" data-tab="method" id="tabbtn-method" role="tab" aria-selected="false" aria-controls="tab-method">Method</button>
 </nav>
 
-<section class="tab-panel active" id="tab-funnel"><div class="shell">
-  <div class="view-head"><div class="view-title">From first-in-human to approval</div>
+<section class="tab-panel active" id="tab-funnel" role="tabpanel" aria-labelledby="tabbtn-funnel"><div class="shell">
+  <div class="view-head"><h2 class="view-title">From first-in-human to approval</h2>
   <div class="view-desc">Each ribbon is a drug program that entered Phase 1 between 2009 and 2018 at one of 26 large sponsors. Follow it right to the FDA, or watch where it drops out. Click a column or a ribbon to list its programs beside the chart.</div></div>
   <div class="ctl-row">
     <label class="ctl">Colour by <span class="seg" id="f-color"><button data-v="outcome" class="on">Outcome</button><button data-v="company">Company</button><button data-v="ta">Therapeutic area</button></span></label>
@@ -224,16 +226,16 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <p class="note fn" id="f-fn"></p>
 </div></section>
 
-<section class="tab-panel" id="tab-cards"><div class="shell">
-  <div class="view-head"><div class="view-title">Big-pharma baseball cards</div>
+<section class="tab-panel" id="tab-cards" role="tabpanel" aria-labelledby="tabbtn-cards"><div class="shell">
+  <div class="view-head"><h2 class="view-title">Big-pharma baseball cards</h2>
   <div class="view-desc">Every large sponsor with six or more first-time approvals in the window. <b>Hit rate</b> is the share of programs entering Phase 1 in 2009–2018 that reached FDA approval. The three bars are the phase-by-phase pass rates for the same programs. Only programs that have resolved are counted, so those still running do not drag the numbers down.</div></div>
   <div class="ctl-row"><label class="ctl">Sort by <span class="seg" id="c-sort"><button data-v="approvals" class="on">Approvals</button><button data-v="hit">Hit rate</button><button data-v="p1">Ph1</button><button data-v="p2">Ph2</button><button data-v="p3">Ph3</button><button data-v="medDev">Speed</button></span></label></div>
   <div class="cards" id="cards"></div>
   <p class="note fn">Read with care: how many of a company's failed programs can be identified varies a lot (GSK ≈ 150, Pfizer ≈ 30), and a thin sample leans toward its winners. Cards under 50 programs are flagged. Rates are descriptive, not a league table. See Method.</p>
 </div></section>
 
-<section class="tab-panel" id="tab-approvals"><div class="shell">
-  <div class="view-head"><div class="view-title">Every approval</div>
+<section class="tab-panel" id="tab-approvals" role="tabpanel" aria-labelledby="tabbtn-approvals"><div class="shell">
+  <div class="view-head"><h2 class="view-title">Every approval</h2>
   <div class="view-desc">Click a row for its development history: when each phase first started, how many studies ran, which were halted and why, plus the modelled sales curve.</div></div>
   <div class="ctl-row">
     <label class="ctl"><input type="search" id="a-q" placeholder="Search drug, company, indication"></label>
@@ -249,8 +251,8 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <div class="table-wrap"><table id="a-table"><thead></thead><tbody></tbody></table></div>
 </div></section>
 
-<section class="tab-panel" id="tab-products"><div class="shell">
-  <div class="view-head"><div class="view-title">One drug, many approvals</div>
+<section class="tab-panel" id="tab-products" role="tabpanel" aria-labelledby="tabbtn-products"><div class="shell">
+  <div class="view-head"><h2 class="view-title">One drug, many approvals</h2>
   <div class="view-desc">The pipeline inside a single product. The top chart ranks products by efficacy supplements approved in the window, which cover new indications, new populations and dosing changes. Pick one to see when each approval landed and which conditions its Phase 1–3 studies are chasing.</div></div>
   <div class="ctl-row"><label class="ctl">Product <select id="p-sel"></select></label></div>
   <div class="vz-wrap"><svg id="p-rank" class="min"></svg></div>
@@ -259,8 +261,8 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <p class="note fn">Supplement counts come from Drugs@FDA and are not a clean count of indications: some are label or dosing expansions. The condition table counts industry-sponsored Phase 1–3 studies registered on ClinicalTrials.gov for the drug, grouped by condition; one study can appear under several conditions.</p>
 </div></section>
 
-<section class="tab-panel" id="tab-buckets"><div class="shell">
-  <div class="view-head"><div class="view-title">One and done, or one then many</div>
+<section class="tab-panel" id="tab-buckets" role="tabpanel" aria-labelledby="tabbtn-buckets"><div class="shell">
+  <div class="view-head"><h2 class="view-title">One and done, or one then many</h2>
   <div class="view-desc">Each dot is a first-time approval. Left to right is how many FDA approvals it has collected since launch (the first plus every efficacy supplement); up is its modelled sales. Colours are buckets by approval count. Hover for the drug, click to pin it, click a bucket in the legend to hide it.</div></div>
   <div class="ctl-row">
     <label class="ctl">Up is <select id="b-y"><option value="peak">Peak annual sales</option><option value="y25">2025 sales</option><option value="cum">10-year total</option><option value="per">10-year total per approval</option></select></label>
@@ -276,8 +278,8 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <p class="note fn">Buckets count efficacy supplements approved since launch, which include new populations and dosing as well as new indications, so treat the boundaries as rough. Sales are modelled from therapeutic area, orphan status, drug type and sponsor, plus editorial peaks for well-known blockbusters. They are not driven by the approval count, so the plot shows where blockbusters sit, not proof that more approvals cause more sales. Newer drugs have had little time to collect approvals; the default hides those under two years old.</p>
 </div></section>
 
-<section class="tab-panel" id="tab-revenue"><div class="shell">
-  <div class="view-head"><div class="view-title">What the approvals are worth, year by year</div>
+<section class="tab-panel" id="tab-revenue" role="tabpanel" aria-labelledby="tabbtn-revenue"><div class="shell">
+  <div class="view-head"><h2 class="view-title">What the approvals are worth, year by year</h2>
   <div class="view-desc">Modelled net sales for years 1 to 10 after approval, summed across the drugs you select. These are estimates built from therapeutic area, orphan status, drug type and sponsor scale, with editorial anchors for well-known blockbusters. They are not reported figures.</div></div>
   <div class="ctl-row">
     <label class="ctl">Stack by <span class="seg" id="r-by"><button data-v="company" class="on">Company</button><button data-v="ta">Therapeutic area</button><button data-v="modality">Drug type</button><button data-v="year">Approval year</button></span></label>
@@ -292,8 +294,8 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <p class="note fn">Each drug carries a low–high band of roughly 0.35× to 2.6× the central estimate. Year 1 is the first 12 months after approval. Figures are in nominal US dollars.</p>
 </div></section>
 
-<section class="tab-panel" id="tab-flow"><div class="shell">
-  <div class="view-head"><div class="view-title">Who makes what</div>
+<section class="tab-panel" id="tab-flow" role="tabpanel" aria-labelledby="tabbtn-flow"><div class="shell">
+  <div class="view-head"><h2 class="view-title">Who makes what</h2>
   <div class="view-desc">Sponsor → therapeutic area → drug type for the approvals in view. Ribbon width is the number of approvals.</div></div>
   <div class="ctl-row">
     <label class="ctl">Approved <select id="w-y0"></select> – <select id="w-y1"></select></label>
@@ -303,8 +305,8 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <div class="vz-wrap"><svg id="sk-flow" class="min"></svg></div>
 </div></section>
 
-<section class="tab-panel" id="tab-bd201"><div class="shell">
-  <div class="view-head"><div class="view-title">BD201 · Biopharma business development</div>
+<section class="tab-panel" id="tab-bd201" role="tabpanel" aria-labelledby="tabbtn-bd201"><div class="shell">
+  <div class="view-head"><h2 class="view-title">BD201 · Biopharma business development</h2>
   <div class="view-desc">A proposed MBA elective built on this almanac: how drugs are found, valued, licensed, bought and stretched across indications. Each week pairs a view from the almanac with readings and the lessons its numbers carry. Figures in the insight boxes are computed live from the data on this page.</div></div>
   <div id="bd-head"></div>
   <div class="ctl-row"><button class="btn ghost" id="bd-open">Expand all</button><button class="btn ghost" id="bd-close">Collapse all</button></div>
@@ -312,8 +314,8 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <p class="note fn" id="bd-foot"></p>
 </div></section>
 
-<section class="tab-panel" id="tab-method"><div class="shell method">
-  <div class="view-head"><div class="view-title">Method and caveats</div></div>
+<section class="tab-panel" id="tab-method" role="tabpanel" aria-labelledby="tabbtn-method"><div class="shell method">
+  <div class="view-head"><h2 class="view-title">Method and caveats</h2></div>
   <h3>What counts as a first-time approval</h3>
   <p>Drugs on FDA CDER's annual <em>Novel Drug Approvals</em> list (new molecular entities and new therapeutic biologics) from 21 October 2016 to <span id="m-end">20 October 2026</span>. 2021–2026 come straight from FDA's published tables. FDA has retired the 2016–2020 pages, so those years are rebuilt from Drugs@FDA through openFDA as original NDA/BLA approvals classed Type 1; annual counts land within one or two of CDER's published totals (2017 and 2020 are each one short for the CDER list), after de-duplicating same-day twin applications. CBER's first-time approvals are added alongside: cell and gene therapies, vaccines, and blood and plasma products (recombinant clotting factors, immune globulins and similar proteins), taken from CBER's product pages. CBER pages keep only recent approval letters, so first-approval dates for these were set by hand from FDA announcements and the pages supply the BLA number, manufacturer and indication. Albumin, fibrin sealants and hemostats, diagnostics and allergenics are not included, nor are new brands of an already-marketed active such as another albumin. The blood-product list leans toward new actives and routes, so it is a judgement call at the edges. CBER products carry no orphan or priority-review flags and no efficacy-supplement data, so they are left out of those statistics and out of the Buckets and Product Pipelines views. They are also left out of the funnel and the card hit rates: the big-sponsor crawl finds only a few of their programs, so counting their failures without their successes would pull the rates down. A card's approval count includes CBER products; its rates do not.</p>
   <h3>Sponsors and areas</h3>
@@ -341,6 +343,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <ul>
     <li>FDA CDER Novel Drug Approvals and Drugs@FDA (via openFDA)</li>
     <li>ClinicalTrials.gov API v2</li>
+    <li>DailyMed (label text where openFDA has none) and FDA's CBER product pages</li>
     <li>Design after the <a href="https://kuod.github.io/pharma-biotech-almanac/">Pharma &amp; Biotech Almanac</a></li>
   </ul>
   <p>Code, pipeline and raw extracts: <a href="https://github.com/kuod/ph1-to-fda">github.com/kuod/ph1-to-fda</a>.</p>
@@ -365,6 +368,12 @@ const PAL = ['#b84a2e','#2f6f4f','#c9943a','#3f6c8c','#7a5a8c','#5a8a7a','#a04a6
 const OTHER = '#c9c2b4';
 const ARIA = {'sk-funnel':'Alluvial diagram of drug programs flowing from Phase 1 through Phase 2, Phase 3 and FDA approval, with halted, stalled and active branches','started-halted':'Bar chart of Phase 1, 2 and 3 studies started and halted','p-rank':'Bar chart ranking products by efficacy supplements approved','b-plot':'Scatter plot of first-time approvals: approvals since launch against modelled sales','r-chart':'Stacked bar chart of modelled sales for years 1 to 10 after approval','sk-flow':'Alluvial diagram from sponsor to therapeutic area to drug type'};
 Object.entries(ARIA).forEach(([id,t])=>{const e=document.getElementById(id);if(e){e.setAttribute('role','img');e.setAttribute('aria-label',t);}});
+/* keyboard access: rows that expand and chips behave like buttons */
+let kbdQueued=false;
+new MutationObserver(()=>{if(kbdQueued)return;kbdQueued=true;requestAnimationFrame(()=>{kbdQueued=false;
+  $$('tr.row.xp').forEach(e=>{if(!e.hasAttribute('tabindex'))e.tabIndex=0;e.setAttribute('aria-expanded',e.classList.contains('open'));});
+  $$('.chip').forEach(e=>{if(!e.hasAttribute('tabindex')){e.tabIndex=0;e.setAttribute('role','button');}});});}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
+document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('tr.row.xp,.chip')){e.preventDefault();e.target.click();}});
 const tip = $('#tip');
 function showTip(e,h){tip.innerHTML=h;tip.classList.add('on');const w=tip.offsetWidth;tip.style.left=Math.min(e.clientX+14,innerWidth-w-8)+'px';tip.style.top=(e.clientY+14)+'px';}
 function hideTip(){tip.classList.remove('on');}
@@ -396,7 +405,7 @@ const fill = (sel, items, all) => { sel.innerHTML = (all?`<option value="all">${
 const built = {};
 function openTab(t){
   if(!$('#tab-'+t)) t='funnel';
-  $$('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));
+  $$('.tab-btn').forEach(b=>{const on=b.dataset.tab===t;b.classList.toggle('active',on);b.setAttribute('aria-selected',on);});
   $$('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+t));
   if(!built[t]){built[t]=true;builders[t]&&builders[t]();}
   else renderers[t]&&renderers[t]();
@@ -454,7 +463,7 @@ function buildFunnel(){
   const LL = L.map(l=>({...l,source:remap[l.source],target:remap[l.target]}));
   const svg = d3.select('#sk-funnel'); svg.selectAll('*').remove();
   const W = F.node ? 760 : 1100, H = 520; svg.attr('viewBox',`0 0 ${W} ${H}`);
-  if(!ps.length){svg.append('text').attr('x',W/2).attr('y',H/2).attr('text-anchor','middle').attr('fill','#8a8078').text('No programs match these filters');renderRates(ps);F.node=null;renderPanel();return;}
+  if(!ps.length){svg.append('text').attr('x',W/2).attr('y',H/2).attr('text-anchor','middle').attr('fill','#6f665e').text('No programs match these filters');renderRates(ps);F.node=null;renderPanel();return;}
   const sk = d3.sankey().nodeId(d=>d.index).nodeAlign(d=>d.layer).nodeWidth(16).nodePadding(14).nodeSort(null).extent([[8,8],[W-170,H-8]]);
   const g = sk({nodes:keep.map(d=>({...d})),links:LL.map(d=>({...d}))});
   const pick = key=>{F.node=F.node===key?null:key;F.open=null;buildFunnel();if(F.node&&innerWidth<=900)$('#f-panel').scrollIntoView({behavior:'smooth',block:'start'});};
@@ -464,7 +473,7 @@ function buildFunnel(){
     .on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(cf.label(d.g))}</div><div class="t2">${d.value} programs</div><div class="t3">${esc(d.source.label)} → ${esc(d.target.label)}<br>Click to list these programs</div>`))
     .on('mouseleave',hideTip).on('click',(e,d)=>{hideTip();pick('l:'+d.k);})
     .on('mouseover',function(){d3.select(this).attr('stroke-opacity',.85);}).on('mouseout',function(e,d){d3.select(this).attr('stroke-opacity',F.node==='l:'+d.k?.9:.5);});
-  const nd = svg.append('g').selectAll('g').data(g.nodes).join('g').style('cursor','pointer')
+  const nd = svg.append('g').selectAll('g').data(g.nodes).join('g').style('cursor','pointer').attr('tabindex',0).attr('role','button').attr('aria-label',d=>`${d.label}: ${d.value} programs. Press Enter to list them.`).on('keydown',(e,d)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick('n:'+d.id);}})
     .on('click',(e,d)=>{hideTip();pick('n:'+d.id);});
   nd.append('rect').attr('x',d=>d.x0).attr('y',d=>d.y0).attr('width',d=>d.x1-d.x0).attr('height',d=>Math.max(1,d.y1-d.y0))
     .attr('fill',d=>d.o?OUT[d.o].c:'#1a1814').attr('rx',1).attr('stroke',d=>F.node==='n:'+d.id?'#b84a2e':'none').attr('stroke-width',3);
@@ -569,22 +578,22 @@ function revSpark(d){
   const area=d3.area().x((v,i)=>x(i)).y0((v,i)=>y(p.lo[i])).y1((v,i)=>y(p.hi[i]));
   const line=d3.line().x((v,i)=>x(i)).y(v=>y(v));
   return `<svg viewBox="0 0 ${w} ${h}" style="width:100%;max-width:${w}px;font-family:'DM Mono',monospace"><path d="${area(p.y)}" fill="#e8c8be" opacity=".6"/><path d="${line(p.y.slice(0,e))}" fill="none" stroke="#b84a2e" stroke-width="2"/><path d="${line(p.y)}" fill="none" stroke="#b84a2e" stroke-width="1.5" stroke-dasharray="3 3" opacity=".7"/>`+
-    p.y.map((v,i)=>i%3===0||i===9?`<text x="${x(i)}" y="${h-2}" font-size="9" text-anchor="middle" fill="#8a8078">y${i+1}</text>`:'').join('')+
+    p.y.map((v,i)=>i%3===0||i===9?`<text x="${x(i)}" y="${h-2}" font-size="9" text-anchor="middle" fill="#6f665e">y${i+1}</text>`:'').join('')+
     `<text x="${w-10}" y="12" font-size="10" text-anchor="end" fill="#4a4540">peak ≈ ${fmtM(p.peak)}${p.basis==='anchor'?'':' (model)'}</text></svg>`;
 }
 function suppBars(ds){
   const by=d3.rollup(ds,v=>v.length,x=>x.slice(0,4)), yrs=d3.range(2016,2027), mx=Math.max(...yrs.map(y=>by.get(String(y))||0),1);
-  return `<svg viewBox="0 0 420 70" style="width:100%;max-width:420px;font-family:'DM Mono',monospace">`+yrs.map((y,i)=>{const v=by.get(String(y))||0,h=v/mx*40;return `<rect x="${8+i*37}" y="${48-h}" width="28" height="${h}" fill="#1a1814"/>${v?`<text x="${22+i*37}" y="${44-h}" font-size="9" text-anchor="middle" fill="#4a4540">${v}</text>`:''}<text x="${22+i*37}" y="62" font-size="9" text-anchor="middle" fill="#8a8078">${String(y).slice(2)}</text>`;}).join('')+'</svg>';
+  return `<svg viewBox="0 0 420 70" style="width:100%;max-width:420px;font-family:'DM Mono',monospace">`+yrs.map((y,i)=>{const v=by.get(String(y))||0,h=v/mx*40;return `<rect x="${8+i*37}" y="${48-h}" width="28" height="${h}" fill="#1a1814"/>${v?`<text x="${22+i*37}" y="${44-h}" font-size="9" text-anchor="middle" fill="#4a4540">${v}</text>`:''}<text x="${22+i*37}" y="62" font-size="9" text-anchor="middle" fill="#6f665e">${String(y).slice(2)}</text>`;}).join('')+'</svg>';
 }
 function pipeLink(id){return products.some(p=>p.id===id)?`<p><a href="#products" data-prod="${esc(id)}">Open this product's pipeline →</a></p>`:'';}
 function detail(d){
-  if(d.exp) return `<div class="dgrid"><div><h4>Indication (label)</h4><p>${esc(d.use)}</p><p style="font-size:12px;color:#8a8078">First approved ${d.first||'before the window'}. ${d.d.length} efficacy supplement${d.d.length>1?'s':''} approved in the window.</p>${pipeLink(d.id)}</div><div><h4>Efficacy supplements by year</h4>${suppBars(d.d)}</div></div>`;
+  if(d.exp) return `<div class="dgrid"><div><h4>Indication (label)</h4><p>${esc(d.use)}</p><p style="font-size:12px;color:#6f665e">First approved ${d.first||'before the window'}. ${d.d.length} efficacy supplement${d.d.length>1?'s':''} approved in the window.</p>${pipeLink(d.id)}</div><div><h4>Efficacy supplements by year</h4>${suppBars(d.d)}</div></div>`;
   const t=d.trials, tot=n=>t[n].n;
   const ph = [1,2,3].map(n=>`<tr><td>Phase ${n}</td><td class="r mono">${t['p'+n].n}</td><td class="r mono">${t['p'+n].halted}</td><td class="r mono">${t['p'+n].first||'–'}</td></tr>`).join('');
-  const hl = t.halted.length?'<ul class="halts">'+t.halted.map(h=>`<li><a href="https://clinicaltrials.gov/study/${h.id}" target="_blank" rel="noopener">${h.id}</a> · Ph${h.ph} · ${h.yr} · ${esc(h.st)} · ${esc(h.sp)}<br><span style="color:#8a8078">${esc(h.why||'No reason given')}</span></li>`).join('')+'</ul>':'<p>No halted Phase 1–3 studies were found before approval.</p>';
+  const hl = t.halted.length?'<ul class="halts">'+t.halted.map(h=>`<li><a href="https://clinicaltrials.gov/study/${h.id}" target="_blank" rel="noopener">${h.id}</a> · Ph${h.ph} · ${h.yr} · ${esc(h.st)} · ${esc(h.sp)}<br><span style="color:#6f665e">${esc(h.why||'No reason given')}</span></li>`).join('')+'</ul>':'<p>No halted Phase 1–3 studies were found before approval.</p>';
   return `<div class="dgrid"><div><h4>Indication</h4><p>${esc(d.use)}</p><h4>Development timeline</h4>${timeline(d)}<h4 style="margin-top:12px">Studies before approval</h4><table style="max-width:420px"><thead><tr><th>Stage</th><th class="r">Started</th><th class="r">Halted</th><th class="r">First start</th></tr></thead><tbody>${ph}</tbody></table>
-    <p style="margin-top:8px;font-size:12px;color:#8a8078">${t.devYears!=null?`First registered start to approval: ${t.devYears} yrs. `:''}${t.p1.n?'':'No Phase 1 is registered, which is common for early studies run outside ClinicalTrials.gov. '}</p></div>
-    <div>${(d.supps||[]).length?`<h4>Efficacy supplements since approval</h4>${suppBars(d.supps)}${pipeLink(d.id)}`:''}<h4 style="margin-top:12px">Halted studies</h4>${hl}<h4 style="margin-top:12px">Modelled sales, y1–y10 (${d.rev.basis==='anchor'?'editorial anchor':'model'})</h4>${revSpark(d)}<p style="font-size:12px;color:#8a8078">Solid line: years already elapsed. Dashed: projection. Shaded: low–high band.</p></div></div>`;
+    <p style="margin-top:8px;font-size:12px;color:#6f665e">${t.devYears!=null?`First registered start to approval: ${t.devYears} yrs. `:''}${t.p1.n?'':'No Phase 1 is registered, which is common for early studies run outside ClinicalTrials.gov. '}</p></div>
+    <div>${(d.supps||[]).length?`<h4>Efficacy supplements since approval</h4>${suppBars(d.supps)}${pipeLink(d.id)}`:''}<h4 style="margin-top:12px">Halted studies</h4>${hl}<h4 style="margin-top:12px">Modelled sales, y1–y10 (${d.rev.basis==='anchor'?'editorial anchor':'model'})</h4>${revSpark(d)}<p style="font-size:12px;color:#6f665e">Solid line: years already elapsed. Dashed: projection. Shaded: low–high band.</p></div></div>`;
 }
 function renderApprovals(){
   const rows = aFiltered().sort((a,b)=>{const x=aVal(a,A.sort),y=aVal(b,A.sort);return (x>y?1:x<y?-1:0)*A.dir;});
@@ -635,7 +644,7 @@ function renderRevenue(){
   const mx=d3.max(stack[stack.length-1],d=>d[1])||1;
   const x=d3.scaleBand(d3.range(10),[m.l,W-m.r]).padding(.18), y=d3.scaleLinear([0,mx*1.05],[H-m.b,m.t]).nice();
   svg.append('g').selectAll('line').data(y.ticks(5)).join('line').attr('x1',m.l).attr('x2',W-m.r).attr('y1',d=>y(d)).attr('y2',d=>y(d)).attr('stroke','#ddd8ce');
-  svg.append('g').selectAll('text').data(y.ticks(5)).join('text').attr('x',m.l-8).attr('y',d=>y(d)+4).attr('text-anchor','end').attr('font-size',10).attr('fill','#8a8078').text(d=>'$'+(d/1000)+'B');
+  svg.append('g').selectAll('text').data(y.ticks(5)).join('text').attr('x',m.l-8).attr('y',d=>y(d)+4).attr('text-anchor','end').attr('font-size',10).attr('fill','#6f665e').text(d=>'$'+(d/1000)+'B');
   svg.append('g').selectAll('g').data(stack).join('g').attr('fill',s=>col(s.key)).selectAll('rect').data(s=>s.map(d=>({...d,k:s.key}))).join('rect')
     .attr('x',d=>x(d.data.i)).attr('width',x.bandwidth()).attr('y',d=>y(d[1])).attr('height',d=>Math.max(0,y(d[0])-y(d[1])))
     .on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(d.k)}</div><div class="t2">${fmtM(d[1]-d[0])} in year ${d.data.i+1}</div>`)).on('mouseleave',hideTip);
@@ -708,8 +717,8 @@ function condDetail(r){
   const bar=seg.map(([l,v,c])=>v?`<span title="${l}: ${v}" style="display:inline-block;height:14px;width:${v/Math.max(n,1)*100}%;background:${c}"></span>`:'').join('');
   const status = r.lab&&r.halted?`<p class="note" style="margin:8px 0 0"><b>Approved and halted.</b> This condition appears in the current label, yet ${r.halted} stud${r.halted>1?'ies were':'y was'} stopped early. That is normal for a busy franchise: stopped trials are often about sequence, dose or competition, not failure of the approved use.</p>`
     : r.halted?`<p class="note" style="margin:8px 0 0"><b>Halted, not in the label.</b> ${r.halted} stud${r.halted>1?'ies were':'y was'} stopped and the condition does not appear in the current label.</p>`:'';
-  const hl=(r.h||[]).length?`<h4 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8a8078;font-weight:400;margin:12px 0 4px">Halted studies</h4><ul class="halts">${r.h.map(h=>`<li><a href="https://clinicaltrials.gov/study/${h.id}" target="_blank" rel="noopener">${h.id}</a> · Ph${h.ph} · ${h.y||'–'} · ${esc(h.st)}<br><span style="color:#8a8078">${esc(h.why||'No reason given')}</span></li>`).join('')}</ul>${r.halted>r.h.length?`<p class="note">Showing ${r.h.length} of ${r.halted}.</p>`:''}`:'';
-  return `<div style="max-width:700px"><h4 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8a8078;font-weight:400;margin:0 0 6px">${esc(r.g)}: ${n} studies by status</h4><div style="display:flex;border-radius:2px;overflow:hidden">${bar}</div><div class="legend">${seg.filter(x=>x[1]).map(([l,v,c])=>`<span><i style="background:${c}"></i>${l} ${v}</span>`).join('')}</div><p class="note" style="margin-top:8px">Phase mix: ${r.p1} Ph1, ${r.p2} Ph2, ${r.p3} Ph3. Studies started ${r.first<9999?r.first:'–'} to ${r.first<9999?r.last:'–'}. A study listing several conditions is counted under each.</p>${status}${hl}</div>`;
+  const hl=(r.h||[]).length?`<h4 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6f665e;font-weight:400;margin:12px 0 4px">Halted studies</h4><ul class="halts">${r.h.map(h=>`<li><a href="https://clinicaltrials.gov/study/${h.id}" target="_blank" rel="noopener">${h.id}</a> · Ph${h.ph} · ${h.y||'–'} · ${esc(h.st)}<br><span style="color:#6f665e">${esc(h.why||'No reason given')}</span></li>`).join('')}</ul>${r.halted>r.h.length?`<p class="note">Showing ${r.h.length} of ${r.halted}.</p>`:''}`:'';
+  return `<div style="max-width:700px"><h4 style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6f665e;font-weight:400;margin:0 0 6px">${esc(r.g)}: ${n} studies by status</h4><div style="display:flex;border-radius:2px;overflow:hidden">${bar}</div><div class="legend">${seg.filter(x=>x[1]).map(([l,v,c])=>`<span><i style="background:${c}"></i>${l} ${v}</span>`).join('')}</div><p class="note" style="margin-top:8px">Phase mix: ${r.p1} Ph1, ${r.p2} Ph2, ${r.p3} Ph3. Studies started ${r.first<9999?r.first:'–'} to ${r.first<9999?r.last:'–'}. A study listing several conditions is counted under each.</p>${status}${hl}</div>`;
 }
 function renderProducts(){
   const list = products.slice().sort((a,b)=>b.d.length-a.d.length);
@@ -719,7 +728,7 @@ function renderProducts(){
   const x = d3.scaleLinear([0,d3.max(top,d=>d.d.length)],[m.l,W-m.r]);
   top.forEach((d,i)=>{
     const y=8+i*rh, sel=d.id===P.sel;
-    const g=svg.append('g').style('cursor','pointer').on('click',()=>{P.sel=d.id;$('#p-sel').value=d.id;renderProducts();}).on('mousemove',e=>showTip(e,`<div class="t1">${esc(d.brand)}</div><div class="t2">${d.d.length} efficacy supplements</div><div class="t3">${esc(d.company)} · first approved ${d.first||'earlier'}</div>`)).on('mouseleave',hideTip);
+    const g=svg.append('g').style('cursor','pointer').attr('tabindex',0).attr('role','button').attr('aria-label',`${d.brand}, ${d.d.length} efficacy supplements`).on('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();P.sel=d.id;$('#p-sel').value=d.id;renderProducts();}}).on('click',()=>{P.sel=d.id;$('#p-sel').value=d.id;renderProducts();}).on('mousemove',e=>showTip(e,`<div class="t1">${esc(d.brand)}</div><div class="t2">${d.d.length} efficacy supplements</div><div class="t3">${esc(d.company)} · first approved ${d.first||'earlier'}</div>`)).on('mouseleave',hideTip);
     g.append('rect').attr('x',0).attr('y',y-2).attr('width',W).attr('height',rh-2).attr('fill',sel?'#f5e8e4':'transparent');
     g.append('text').attr('x',m.l-10).attr('y',y+12).attr('text-anchor','end').attr('font-size',11).attr('fill','#1a1814').attr('font-weight',sel?600:400).text(`${d.brand} · ${d.company}`.slice(0,40));
     g.append('rect').attr('x',m.l).attr('y',y).attr('width',x(d.d.length)-m.l).attr('height',rh-8).attr('fill',d.novel?'#b84a2e':'#1a1814');
@@ -736,7 +745,7 @@ function productDetail(p){
   let halts=''; const hv=Object.entries(p.pipe.hy||{}).filter(([y])=>+y>=2017&&+y<=2026), hmx=Math.max(1,...hv.map(([,n])=>n)), hs=70/hmx;
   hv.forEach(([y,n])=>{ const cx=x(+y+.5), h=Math.max(2,n*hs);
     halts+=`<rect x="${cx-9}" y="${AX+34}" width="18" height="${h}" fill="#b84a2e" fill-opacity=".85"><title>${y}: ${n} studies halted</title></rect><text x="${cx}" y="${AX+34+h+11}" font-size="9" text-anchor="middle" fill="#b84a2e">${n}</text>`; });
-  const axis = d3.range(2017,2027).map(y=>`<line x1="${x(y)}" x2="${x(y)}" y1="${AX}" y2="${AX+8}" stroke="#8a8078"/><text x="${x(y)}" y="${AX+24}" font-size="10" text-anchor="middle" fill="#8a8078">${y}</text>`).join('');
+  const axis = d3.range(2017,2027).map(y=>`<line x1="${x(y)}" x2="${x(y)}" y1="${AX}" y2="${AX+8}" stroke="#6f665e"/><text x="${x(y)}" y="${AX+24}" font-size="10" text-anchor="middle" fill="#6f665e">${y}</text>`).join('');
   const start = p.novel?'':`<text x="40" y="18" font-size="11" fill="#4a4540">First approved ${p.first||'before 2016'} ←</text>`;
   const tl = `<div class="vz-wrap"><svg viewBox="0 0 ${W} ${H}" class="min" role="img" aria-label="Timeline of approvals above the axis and halted studies below it"><text x="${W-40}" y="18" font-size="10" text-anchor="end" fill="#1a1814">● efficacy supplement approved</text><line x1="40" x2="${W-40}" y1="${AX}" y2="${AX}" stroke="#ddd8ce" stroke-width="2"/>${axis}${start}${dots}<text x="40" y="${H-8}" font-size="10" fill="#b84a2e">▮ studies halted, by year (bar height = count)</text>${halts}</svg></div>`;
   const all = p.pipe.conds, mx = Math.max(1,...all.map(r=>Math.max(r.p1,r.p2,r.p3)));
@@ -750,7 +759,7 @@ function productDetail(p){
   <div class="chips">${chip('all','All conditions',all.length)}${chip('mix','Approved and halted',nMix)}${chip('halt','Halted, not approved',nHalt)}</div>
   <div class="table-wrap"><table><thead><tr><th>Condition</th><th>Label</th><th class="r">Ph1</th><th class="r">Ph2</th><th class="r">Ph3</th><th class="r">Active</th><th class="r">Halted</th><th class="r">First–latest start</th></tr></thead><tbody>`+
     rows.map(r=>`<tr class="row xp${P.openCond===r.g?' open':''}${isMix(r)?' mix':isHaltOnly(r)?' haltonly':''}" data-g="${esc(r.g)}"><td>${esc(r.g)}</td><td>${r.lab?'<span class="pill">approved</span>':'<span class="muted" style="font-size:11px">not in label</span>'}</td>${cell(r.p1,'184,74,46')}${cell(r.p2,'184,74,46')}${cell(r.p3,'184,74,46')}<td class="r mono">${r.active||'–'}</td><td class="r mono">${r.halted?`<span class="pill rust">${r.halted}</span>`:'–'}</td><td class="r mono">${r.first<9999?r.first+'–'+r.last:'–'}</td></tr>`+(P.openCond===r.g?`<tr class="detail"><td colspan="8">${condDetail(r)}</td></tr>`:'')).join('')+(rows.length?'':'<tr><td colspan="8" class="muted">No conditions match this filter.</td></tr>')+'</tbody></table></div>';
-  return `<div class="view-title" style="font-size:1.6rem">${esc(p.brand)} <span class="muted" style="font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.05em;color:#8a8078">${esc(p.ingredient)} · ${esc(p.company)} · ${esc(p.ta)}</span></div><div class="note" style="margin:.2rem 0 .8rem">Dots above the line are efficacy supplements the FDA approved; red blocks below it are studies stopped that year.${p.pr?` ${p.pr} approvals were priority reviews.`:''} "In the label" is a keyword match against the current label, so treat it as a guide.</div>${tl}<div style="margin-top:1rem">${table}</div>`;
+  return `<div class="view-title" style="font-size:1.6rem">${esc(p.brand)} <span class="muted" style="font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.05em;color:#6f665e">${esc(p.ingredient)} · ${esc(p.company)} · ${esc(p.ta)}</span></div><div class="note" style="margin:.2rem 0 .8rem">Dots above the line are efficacy supplements the FDA approved; red blocks below it are studies stopped that year.${p.pr?` ${p.pr} approvals were priority reviews.`:''} "In the label" is a keyword match against the current label, so treat it as a guide.</div>${tl}<div style="margin-top:1rem">${table}</div>`;
 }
 builders.products = renderers.products = function(){
   if(!$('#p-sel').options.length){
@@ -786,7 +795,7 @@ function bucketRows(){
 function renderBuckets(){
   const rows = bucketRows(), vis = rows.filter(d=>!B.hidden.has(bucketOf(d).k));
   const svg=d3.select('#b-plot'); svg.selectAll('*').remove();
-  if(!rows.length){svg.attr('viewBox','0 0 1100 120');svg.append('text').attr('x',550).attr('y',60).attr('text-anchor','middle').attr('fill','#8a8078').text('No drugs match these filters');$('#b-legend').innerHTML='';$('#b-pin').innerHTML='';$('#b-table').innerHTML='';return;}
+  if(!rows.length){svg.attr('viewBox','0 0 1100 120');svg.append('text').attr('x',550).attr('y',60).attr('text-anchor','middle').attr('fill','#6f665e').text('No drugs match these filters');$('#b-legend').innerHTML='';$('#b-pin').innerHTML='';$('#b-table').innerHTML='';return;}
   const W=1100,H=520,m={l:78,r:30,t:16,b:50}; svg.attr('viewBox',`0 0 ${W} ${H}`);
   const xs=d3.scaleSymlog().constant(1).domain([0,Math.max(10,d3.max(rows,d=>nSupp(d))||1)+1]).range([m.l,W-m.r]);
   const ys=vals=>{const mx=d3.max(vals)||1;return B.scale==='log'?d3.scaleSymlog().constant(Math.max(1,mx/500)).domain([0,mx*1.1]).range([H-m.b,m.t]):d3.scaleLinear([0,mx*1.05],[H-m.b,m.t]);};
@@ -794,10 +803,10 @@ function renderBuckets(){
   const fmt=v=>B.y==='per'||B.y==='peak'||true?(v>=1000?'$'+(v/1000).toFixed(v>=10000?0:1)+'B':'$'+Math.round(v)+'M'):v;
   const yt=y.ticks(6).filter(v=>v>=0);
   svg.append('g').selectAll('line').data(yt).join('line').attr('x1',m.l).attr('x2',W-m.r).attr('y1',d=>y(d)).attr('y2',d=>y(d)).attr('stroke','#ddd8ce');
-  svg.append('g').selectAll('text').data(yt).join('text').attr('x',m.l-8).attr('y',d=>y(d)+4).attr('text-anchor','end').attr('font-size',10).attr('fill','#8a8078').text(fmt);
+  svg.append('g').selectAll('text').data(yt).join('text').attr('x',m.l-8).attr('y',d=>y(d)+4).attr('text-anchor','end').attr('font-size',10).attr('fill','#6f665e').text(fmt);
   const xt=[0,1,2,3,5,8,14,25,50,100].filter(v=>v<=xs.domain()[1]);
   svg.append('g').selectAll('line').data(xt).join('line').attr('y1',m.t).attr('y2',H-m.b).attr('x1',d=>xs(d)).attr('x2',d=>xs(d)).attr('stroke','#ddd8ce').attr('stroke-dasharray','2 4');
-  svg.append('g').selectAll('text').data(xt).join('text').attr('x',d=>xs(d)).attr('y',H-m.b+18).attr('text-anchor','middle').attr('font-size',10).attr('fill','#8a8078').text(d=>d+1);
+  svg.append('g').selectAll('text').data(xt).join('text').attr('x',d=>xs(d)).attr('y',H-m.b+18).attr('text-anchor','middle').attr('font-size',10).attr('fill','#6f665e').text(d=>d+1);
   svg.append('text').attr('x',(m.l+W-m.r)/2).attr('y',H-8).attr('text-anchor','middle').attr('font-size',11).attr('fill','#4a4540').text('FDA approvals since launch (first approval + efficacy supplements)');
   const hash=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h/4294967295;};
   const jx=d=>(hash(d.id)-.5)*(nSupp(d)<3?14:5);
@@ -809,7 +818,7 @@ function renderBuckets(){
   // label the biggest dots
   const lab=vis.slice().sort((a,b)=>yOf(b,B.y)-yOf(a,B.y)).slice(0,10);
   svg.append('g').selectAll('text').data(lab).join('text').attr('x',d=>xs(nSupp(d))+jx(d)+(xs(nSupp(d))>W-110?-8:8)).attr('text-anchor',d=>xs(nSupp(d))>W-110?'end':'start').attr('y',d=>y(yOf(d,B.y))+3).attr('font-size',10).attr('fill','#1a1814').attr('paint-order','stroke').attr('stroke','#faf8f3').attr('stroke-width',3).text(d=>d.brand);
-  $('#b-legend').innerHTML=BK.map(b=>`<span data-k="${b.k}" style="opacity:${B.hidden.has(b.k)?.35:1}"><i style="background:${b.c}"></i>${b.l} <span style="color:#8a8078">(${b.d}) · ${rows.filter(d=>bucketOf(d).k===b.k).length}</span></span>`).join('');
+  $('#b-legend').innerHTML=BK.map(b=>`<span data-k="${b.k}" style="opacity:${B.hidden.has(b.k)?.35:1}"><i style="background:${b.c}"></i>${b.l} <span style="color:#6f665e">(${b.d}) · ${rows.filter(d=>bucketOf(d).k===b.k).length}</span></span>`).join('');
   const pin=drugs.find(d=>d.id===B.pin);
   $('#b-pin').innerHTML=pin?`<div class="rates"><div class="rate"><span>${esc(pin.company)}</span><b>${esc(pin.brand)}</b><i>${esc(pin.use.slice(0,110))}</i></div><div class="rate"><span>Approvals</span><b>${nSupp(pin)+1}</b><i>${esc(bucketOf(pin).l)}</i></div><div class="rate"><span>Peak (est.)</span><b>${fmt(pin.rev.peak)}</b><i>10-yr total ${fmt(d3.sum(pin.rev.y))}</i></div><div class="rate"><span>Open</span><b style="font-size:1rem"><a href="#products" data-prod="${esc(pin.id)}">Pipeline →</a></b><i>${products.some(p=>p.id===pin.id)?'conditions and timeline':'not among the busiest products'}</i></div></div>`:'';
   const tb=BK.map(b=>{const r=rows.filter(d=>bucketOf(d).k===b.k),cum=d3.sum(r,d=>d3.sum(d.rev.y));return `<tr class="row xp${B.openB===b.k?' open':''}" data-k="${b.k}"><td><i style="display:inline-block;width:10px;height:10px;background:${b.c};border-radius:2px;margin:0 8px 0 2px"></i>${b.l}</td><td class="muted">${b.d}</td><td class="r mono">${r.length}</td><td class="r mono">${pct(r.length/Math.max(rows.length,1))}</td><td class="r mono">${r.length?fmt(d3.median(r,d=>d.rev.peak)):'–'}</td><td class="r mono">${fmt(cum)}</td><td class="r mono">${pct(cum/Math.max(d3.sum(rows,d=>d3.sum(d.rev.y)),1))}</td></tr>`+(B.openB===b.k?`<tr class="detail"><td colspan="7"><div style="display:flex;flex-wrap:wrap;gap:6px">${r.slice().sort((x,y)=>y.rev.peak-x.rev.peak).slice(0,60).map(d=>`<span class="chip${d.id===B.pin?' on':''}" data-pin="${esc(d.id)}">${esc(d.brand)}</span>`).join('')}</div>${r.length>60?`<p class="note">Largest 60 of ${r.length} shown.</p>`:''}<p class="note">Click a name to pin it on the plot.</p></td></tr>`:'');}).join('');

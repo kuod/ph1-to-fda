@@ -1,7 +1,7 @@
 """Attach sponsor, review designations and label indication text to each approval (openFDA)."""
 import json, os, re, sys, urllib.parse
 sys.path.insert(0, os.path.dirname(__file__))
-from common import get_json
+from common import get_json, get_text
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 DF = "https://api.fda.gov/drug/drugsfda.json"
@@ -23,6 +23,25 @@ def find_app(brand, date):
                     if abs(int(sd[:4]) * 372 + int(sd[4:6]) * 31 + int(sd[6:]) - (int(date[:4]) * 372 + int(date[5:7]) * 31 + int(date[8:]))) <= 62:
                         return a, s
     return None, None
+
+
+def dailymed_use(brand):
+    """Indications text from DailyMed's SPL for labels openFDA does not carry."""
+    try:
+        d = get_json("https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json", {"drug_name": clean_brand(brand)})
+        setid = (d.get("data") or [{}])[0].get("setid")
+        if not setid:
+            return ""
+        xml = get_text(f"https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/{setid}.xml")
+    except RuntimeError:
+        return ""
+    i = xml.find('code="34067-9"')
+    if i < 0:
+        return ""
+    txt = re.sub(r"<[^>]+>", " ", xml[i:i + 6000])
+    txt = re.sub(r"\s+", " ", txt)
+    txt = re.sub(r"^.*?INDICATIONS (?:AND|&) USAGE\s*", "", txt, flags=re.I)
+    return txt[:300].strip()
 
 
 def label(brand, ingredient=""):
@@ -66,6 +85,8 @@ def main():
             miss += 1
             r["sponsor_raw"] = None
         lb = label(r["brand"], r["ingredient"])
+        if not lb["ind"] and r["src"] != "fda-novel-list":
+            lb["ind"] = dailymed_use(r["brand"])
         r["label_ind"], r["epc"] = lb["ind"], lb["epc"]
         if not r.get("use"):
             r["use"] = re.sub(r"^INDICATIONS AND USAGE:?\s*(\d\.?\d?\s*)?", "", lb["ind"])[:240]

@@ -120,6 +120,13 @@ TA_OVERRIDE = {
     "jesduvroq": "Hematology", "xenoview": "Diagnostic imaging", "attruby": "Cardiovascular",
     "tzield": "Metabolic & Endocrine", "gallium-ga-68-gozetotide": "Diagnostic imaging",
 }
+# Indications for labels that neither openFDA nor DailyMed returned (wording follows the FDA labels).
+USE_OVERRIDE = {
+    "bevyxxa": "Prophylaxis of venous thromboembolism in adult patients hospitalized for an acute medical illness",
+    "zulresso": "Treatment of postpartum depression in patients 15 years and older",
+    "pizensy": "Treatment of chronic idiopathic constipation in adults",
+    "artesunate": "Initial treatment of severe malaria in adult and pediatric patients",
+}
 SPONSOR_OVERRIDE = {"pepaxto": "Oncopeptides", "hovilpri": "AiCuris",
                     "hibsago": "GlaxoSmithKline"}  # openFDA does not list Hibsago yet; applicant inferred (bepirovirsen is GSK's asset): confirm once openFDA catches up
 

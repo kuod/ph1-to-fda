@@ -1,7 +1,7 @@
 """Parent company, therapeutic area, modality, and cleaned-up fields for every approval."""
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from taxonomy import parent, TA, MODALITY, TA_OVERRIDE, SPONSOR_OVERRIDE, PARENTS, CBER_TA, CBER_GENE
+from taxonomy import parent, TA, MODALITY, TA_OVERRIDE, SPONSOR_OVERRIDE, USE_OVERRIDE, PARENTS, CBER_TA, CBER_GENE
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 DIAG = re.compile(r"\b(F[ -]?18|Ga[ -]?68|Cu[ -]?64|Tc[ -]?99m?|Zr[ -]?89|Lu[ -]?177|gallium|fluorine|technetium|flotufolastat|piflufolastat|fluciclovine)\b|diagnos|imaging|PET", re.I)
@@ -9,6 +9,8 @@ DIAG = re.compile(r"\b(F[ -]?18|Ga[ -]?68|Cu[ -]?64|Tc[ -]?99m?|Zr[ -]?89|Lu[ -]
 
 def clean_use(u):
     u = u.replace("\xa0", " ")
+    u = re.sub(r"\s*Drug Tr(?:ia|ai)ls? Snapshot.*$", "", u)
+    u = re.sub(r"\s*[®™]\s*", " ", u).replace(" TM ", " ")
     u = re.sub(r"^\s*(INDICATIONS (AND|&) USAGE:?\s*)?\d?\.?\d*\s*(INDICATIONS (AND|&) USAGE:?\s*)?", "", u)
     u = re.sub(r"\s*Press Release.*$", "", u)
     return u[:240]
@@ -58,7 +60,7 @@ def main():
             id=re.sub(r"[^a-z0-9]+", "-", r["brand"].lower()).strip("-"),
             brand=re.sub(r"\s*\(.*?\)", "", r["brand"]).strip(),
             ingredient=r["ingredient"], date=r["date"], year=int(r["date"][:4]),
-            sponsor=sp, company=parent(sp), use=clean_use(r["use"] if len(r["use"]) > 12 else r["ingredient"].capitalize()), ta=TA_OVERRIDE.get(bid) or ta_of(r), modality=modality(r),
+            sponsor=sp, company=parent(sp), use=USE_OVERRIDE.get(bid) or clean_use(r["use"] if len(r["use"]) > 12 else r["ingredient"].capitalize()), ta=TA_OVERRIDE.get(bid) or ta_of(r), modality=modality(r),
             priority=r.get("priority", ""), orphan=bool(r.get("orphan")), app=r.get("app", ""),
         ))
     # CBER products (cell and gene therapy, vaccines): same record shape, area and modality set by hand, no review-priority or orphan data
@@ -74,7 +76,7 @@ def main():
                 ta = CBER_TA.get(bid) or ta_of(dict(use=r["use"], epc=[], ingredient=r["ingredient"], label_ind=r["use"]))
                 mod = "Gene therapy" if bid in CBER_GENE else "Cell therapy"
             out.append(dict(id=bid, brand=r["brand"], ingredient=r["ingredient"], date=r["date"], year=int(r["date"][:4]), sponsor=r["sponsor"],
-                            company=parent(r["sponsor"]), use=clean_use(r["use"]), ta=ta, modality=mod, priority="", orphan=False,
+                            company=parent(r["sponsor"]), use=clean_use(r["use"] if len(r["use"]) > 12 else r["ingredient"].capitalize()), ta=ta, modality=mod, priority="", orphan=False,
                             app=("BLA " + re.sub(r"\D", "", r["stn"])[:6]) if r["stn"] else "", center="CBER"))
     for o in out:
         o.setdefault("center", "CDER")

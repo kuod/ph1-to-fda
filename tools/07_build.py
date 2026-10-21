@@ -9,7 +9,7 @@ import collections, datetime as dt, json, math, os, re, statistics, sys
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 OUT = os.path.join(os.path.dirname(__file__), "..", "data.js")
-TODAY = dt.date(2026, 10, 20)
+TODAY = dt.date.fromisoformat(os.environ.get("PH1_TO_FDA_TODAY", dt.date.today().isoformat()))  # drives years-elapsed and the page's end date
 HALT = {"TERMINATED", "WITHDRAWN", "SUSPENDED"}
 BIG = {"Pfizer", "Merck & Co.", "Novartis", "Roche", "AstraZeneca", "GSK", "Sanofi", "Eli Lilly", "Bristol Myers Squibb", "Johnson & Johnson",
        "AbbVie", "Amgen", "Takeda", "Gilead Sciences", "Bayer", "Novo Nordisk", "Regeneron", "Boehringer Ingelheim", "Vertex", "Astellas",
@@ -21,9 +21,9 @@ TA_PEAK = {"Oncology": 700, "Immunology": 1200, "Metabolic & Endocrine": 600, "N
            "Pain & Anesthesia": 150, "Diagnostic imaging": 40, "Other": 150}
 MOD_MULT = {"Blood / plasma product": 0.8, "Cell therapy": 0.9, "Gene therapy": 1.1, "Vaccine": 1.3, "Antibody / ADC": 1.3, "Protein / biologic": 1.1, "Oligonucleotide": 0.9, "Peptide": 1.0, "Radiopharmaceutical": 0.7, "Small molecule": 1.0}
 # Editorial peak-sales anchors ($M/yr, approximate, from public commentary) for clear outliers; everything else is purely modelled.
-ANCHOR = {"ozempic": 18000, "mounjaro": 20000, "dupixent": 16000, "skyrizi": 18000, "biktarvy": 14000, "trikafta": 12000, "rinvoq": 8000,
+ANCHOR = {"ozempic": 18000, "mounjaro": 20000, "dupixent": 16000, "skyrizi": 18000, "biktarvy": 14000, "trikafta-copackaged": 12000, "rinvoq": 8000,
           "ocrevus": 7000, "vyndaqel": 6000, "verzenio": 5500, "imfinzi": 6000, "kisqali": 4500, "enhertu": 6000, "erleada": 3500,
-          "tezspire": 2500, "nurtec": 1500, "ubrelvy": 1200, "paxlovid": 6000, "veklury": 5600, "cabenuva": 2500, "rybrevant": 3500,
+          "tezspire": 2500, "nurtec-odt": 1500, "ubrelvy": 1200, "paxlovid": 6000, "veklury": 5600, "cabenuva": 2500, "rybrevant": 3500,
           "kerendia": 1000, "leqvio": 1200, "leqembi": 800, "camzyos": 1000, "reblozyl": 2500, "padcev": 2500, "polivy": 1500,
           "trodelvy": 1500, "tepezza": 1800, "evenity": 1200, "aimovig": 700, "emgality": 1100, "ajovy": 700, "xofluza": 1000,
           "evrysdi": 1800, "zeposia": 1000, "vabysmo": 4500, "olumiant": 1500, "calquence": 3500, "brukinsa": 3000, "jaypirca": 700,
@@ -143,6 +143,10 @@ def main():
     ap = json.load(open(os.path.join(D, "trials_approved_raw.json")))
     progs = json.load(open(os.path.join(D, "programs.json")))
     peers = collections.Counter(a["company"] for a in ap)
+    ids = {a["id"] for a in ap}
+    missing = [k for k in list(ANCHOR) + list(SHAPE) if k not in ids]
+    if missing:  # a typo here silently drops a blockbuster back to the generic model
+        sys.exit("ANCHOR/SHAPE keys match no drug id: " + ", ".join(missing))
     drugs = []
     for a in ap:
         t = trial_summary(a)

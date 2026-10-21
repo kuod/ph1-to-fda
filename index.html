@@ -181,7 +181,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
 </head>
 <body>
 <header class="masthead">
-  <div class="masthead-label">FDA novel approvals · Oct 2016 – Oct 2026</div>
+  <div class="masthead-label" id="m-label">FDA novel approvals · Oct 2016 – Oct 2026</div>
   <h1>Ten years of first-time drug approvals</h1>
   <p class="masthead-sub">Every new molecular entity and new biologic the FDA approved in the last decade — who sponsored it, what it treats, how many programs fell away on the road from Phase 1, and what each approval is modelled to earn in years 1 through 10.</p>
   <div class="stats" id="stats"></div>
@@ -315,7 +315,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
 <section class="tab-panel" id="tab-method"><div class="shell method">
   <div class="view-head"><div class="view-title">Method and caveats</div></div>
   <h3>What counts as a first-time approval</h3>
-  <p>Drugs on FDA CDER's annual <em>Novel Drug Approvals</em> list (new molecular entities and new therapeutic biologics) from 21 October 2016 to 20 October 2026. 2021–2026 come straight from FDA's published tables. FDA has retired the 2016–2020 pages, so those years are rebuilt from Drugs@FDA through openFDA as original NDA/BLA approvals classed Type 1; annual counts land within one or two of CDER's published totals (2017 and 2020 are each one short for the CDER list), after de-duplicating same-day twin applications. CBER's first-time approvals are added alongside: cell and gene therapies, vaccines, and blood and plasma products (recombinant clotting factors, immune globulins and similar proteins), taken from CBER's product pages. CBER pages keep only recent approval letters, so first-approval dates for these were set by hand from FDA announcements and the pages supply the BLA number, manufacturer and indication. Albumin, fibrin sealants and hemostats, diagnostics and allergenics are not included, nor are new brands of an already-marketed active such as another albumin. The blood-product list leans toward new actives and routes, so it is a judgement call at the edges. CBER products carry no orphan or priority-review flags and no efficacy-supplement data, so they are left out of those statistics and out of the Buckets and Product Pipelines views. They are also left out of the funnel and the card hit rates: the big-sponsor crawl finds only a few of their programs, so counting their failures without their successes would pull the rates down. A card's approval count includes CBER products; its rates do not.</p>
+  <p>Drugs on FDA CDER's annual <em>Novel Drug Approvals</em> list (new molecular entities and new therapeutic biologics) from 21 October 2016 to <span id="m-end">20 October 2026</span>. 2021–2026 come straight from FDA's published tables. FDA has retired the 2016–2020 pages, so those years are rebuilt from Drugs@FDA through openFDA as original NDA/BLA approvals classed Type 1; annual counts land within one or two of CDER's published totals (2017 and 2020 are each one short for the CDER list), after de-duplicating same-day twin applications. CBER's first-time approvals are added alongside: cell and gene therapies, vaccines, and blood and plasma products (recombinant clotting factors, immune globulins and similar proteins), taken from CBER's product pages. CBER pages keep only recent approval letters, so first-approval dates for these were set by hand from FDA announcements and the pages supply the BLA number, manufacturer and indication. Albumin, fibrin sealants and hemostats, diagnostics and allergenics are not included, nor are new brands of an already-marketed active such as another albumin. The blood-product list leans toward new actives and routes, so it is a judgement call at the edges. CBER products carry no orphan or priority-review flags and no efficacy-supplement data, so they are left out of those statistics and out of the Buckets and Product Pipelines views. They are also left out of the funnel and the card hit rates: the big-sponsor crawl finds only a few of their programs, so counting their failures without their successes would pull the rates down. A card's approval count includes CBER products; its rates do not.</p>
   <h3>Sponsors and areas</h3>
   <p>Sponsors are rolled up to their parent as of October 2026 (for example Genentech to Roche, Celgene to BMS, Seagen to Pfizer). Therapeutic areas are assigned from the FDA indication text with keyword rules, with manual fixes where text was missing; a drug gets one area.</p>
   <h3>Phase history and "halted"</h3>
@@ -326,7 +326,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <li>Programs whose active ingredient or brand was already FDA-approved before October 2016 are dropped, otherwise a 2012 approval would read as a failure. Vaccine, cell and gene therapy and blood-product programs are dropped for the CBER reason below.</li>
     <li>The cohort is programs whose first Phase 1 started 2009–2018, giving at least eight years to reach approval. Phase 1/2 counts as Phase 2 and Phase 2/3 as Phase 3.</li>
     <li><b>Halted</b>: the last study at the highest phase reached was terminated, withdrawn or suspended. <b>Stalled</b>: studies finished and no later phase was registered, which usually means a quiet discontinuation. <b>Active</b>: something is still recruiting or running; these are left out of the success rates.</li>
-    <li>Success means a novel FDA approval inside this window. A drug approved only abroad, or filed but not yet approved, counts as not approved.</li>
+    <li>Success means a novel CDER approval inside this window. A drug approved only abroad, or filed but not yet approved, counts as not approved.</li>
   </ul>
   <p><b>Known biases.</b> Identification of failures depends on how a company labels its studies, so coverage differs widely and a thin sample leans toward its approved drugs. Alias fragmentation can make a program that was renamed after Phase 1 look like a Phase 1 failure, and a marketed or CBER product that slips past the filters reads as a failure. Pooled across the 26 sponsors this page shows about 42% Phase 1→2, 50% Phase 2→3, 60% Phase 3→approval and 13% overall; commonly quoted industry benchmarks are roughly 52%, 29%, 58% and 8%. So Phase 1 is likely understated, while Phase 2 and the overall hit rate are likely overstated because failures go uncounted. Treat company comparisons as indicative, and the pooled numbers as an upper-leaning estimate.</p>
   <h3>New indications, product pipelines and buckets</h3>
@@ -336,7 +336,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <li>Buckets split first-time approvals by approvals since launch: one and done (none later), one then a few (1–4), one then many (5–14), franchise (15+). Revenue on that plot is modelled without reference to the approval count, so it shows where blockbusters sit and not that more approvals cause more sales.</li>
   </ul>
   <h3>Revenue estimates</h3>
-  <p>Central peak sales = median for the therapeutic area × orphan factor (0.5) × drug-type factor × priority-review factor (1.1) × sponsor-scale factor, scaled by 0.45 so the un-anchored tail sums to a plausible total. About seventy-five well-known drugs instead use an editorial peak taken from public commentary. Annual sales follow an S-shaped ramp whose time to peak depends on area and orphan status, with the first year halved as a partial year, and two COVID antivirals use hand-set shapes. Low and high bands are 0.35× and 2.6×. These numbers are for exploration; they are not forecasts and not company-reported sales.</p>
+  <p>Central peak sales = median for the therapeutic area × orphan factor (0.5) × drug-type factor × priority-review factor (1.1) × sponsor-scale factor, scaled by 0.45, an informal calibration that has not been checked against reported totals. About 115 well-known drugs (37 of them CBER products) instead use an editorial peak taken from memory of public commentary. Annual sales follow an S-shaped ramp whose time to peak depends on area and orphan status, with the first year halved as a partial year, and four COVID products (two antivirals, two vaccines) use hand-set shapes. Low and high bands are 0.35× and 2.6×. These numbers are for exploration; they are not forecasts and not company-reported sales.</p>
   <h3>Sources</h3>
   <ul>
     <li>FDA CDER Novel Drug Approvals and Drugs@FDA (via openFDA)</li>
@@ -384,9 +384,12 @@ const fill = (sel, items, all) => { sel.innerHTML = (all?`<option value="all">${
     [Math.round(drugs.filter(d=>d.orphan).length/drugs.filter(d=>d.center!=='CBER').length*100)+'%','of CDER approvals are orphan'],
     [drugs.filter(d=>d.center==='CBER').length,'CBER: cell, gene, vaccine & blood'],
     [pct(hit),'of big-pharma Phase 1 programs reach approval'],
-    ['$'+Math.round(y25/1000)+'B','modelled 2025 sales']
+    ['$'+Math.round(y25/1000)+'B','modelled 2025 sales (likely high)']
   ].map(([b,s])=>`<div class="stat"><b>${b}</b><span>${s}</span></div>`).join('');
   $('#built').textContent = DATA.meta.built;
+  const be=new Date(DATA.meta.built+'T12:00:00');
+  $('#m-end').textContent=be.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  $('#m-label').textContent='FDA novel approvals · Oct 2016 – '+be.toLocaleDateString('en-GB',{month:'short',year:'numeric'});
 })();
 
 /* ---------- tabs ---------- */
@@ -585,9 +588,10 @@ function detail(d){
 }
 function renderApprovals(){
   const rows = aFiltered().sort((a,b)=>{const x=aVal(a,A.sort),y=aVal(b,A.sort);return (x>y?1:x<y?-1:0)*A.dir;});
+  $('#a-table').classList.toggle('empty',!rows.length);
   $('#a-count').textContent = `${rows.length} of ${drugs.length+(G.incl?expRows.length:0)} ${G.incl?'drugs':'approvals'}`;
   $('#a-table thead').innerHTML = '<tr>'+A_COLS.map(([k,l,c])=>`<th data-k="${k}" class="${c||''}">${l}${A.sort===k?(A.dir>0?' ▲':' ▼'):''}</th>`).join('')+'</tr>';
-  $('#a-table tbody').innerHTML = rows.map(d=>{
+  $('#a-table tbody').innerHTML = !rows.length?'<tr><td colspan="'+A_COLS.length+'" class="muted" style="padding:18px 10px">No approvals match these filters.</td></tr>':rows.map(d=>{
     const h=aVal(d,'h'), o=A.open===d.id;
     return `<tr class="row xp${o?' open':''}" data-id="${d.id}"><td><b>${esc(d.brand)}</b> <span class="muted" style="font-size:11px">${esc(d.ingredient)}</span>${d.orphan?' <span class="pill gold">orphan</span>':''}${d.center==='CBER'?' <span class="pill">CBER</span>':''}</td><td>${esc(d.company)}</td><td class="muted">${esc(d.ta)}</td><td class="muted hide-sm">${esc(d.modality)}</td><td class="mono">${d.exp?`<span class="pill gold">new indication</span> <span class="muted" style="font-size:11px">since ${d.first||'–'}</span>`:d.date}</td><td class="r mono">${nSupp(d)||'–'}</td>`+
       ['p1','p2','p3'].map(k=>`<td class="r mono hide-sm">${d.exp?'':d.trials[k].n||'–'}</td>`).join('')+`<td class="r mono">${h?`<span class="pill rust">${h}</span>`:'–'}</td><td class="r mono">${d.exp?'':Math.round(d3.sum(d.rev.y)).toLocaleString()}</td></tr>`+(o?`<tr class="detail"><td colspan="${A_COLS.length}">${detail(d)}</td></tr>`:'');
@@ -782,6 +786,7 @@ function bucketRows(){
 function renderBuckets(){
   const rows = bucketRows(), vis = rows.filter(d=>!B.hidden.has(bucketOf(d).k));
   const svg=d3.select('#b-plot'); svg.selectAll('*').remove();
+  if(!rows.length){svg.attr('viewBox','0 0 1100 120');svg.append('text').attr('x',550).attr('y',60).attr('text-anchor','middle').attr('fill','#8a8078').text('No drugs match these filters');$('#b-legend').innerHTML='';$('#b-pin').innerHTML='';$('#b-table').innerHTML='';return;}
   const W=1100,H=520,m={l:78,r:30,t:16,b:50}; svg.attr('viewBox',`0 0 ${W} ${H}`);
   const xs=d3.scaleSymlog().constant(1).domain([0,Math.max(10,d3.max(rows,d=>nSupp(d))||1)+1]).range([m.l,W-m.r]);
   const ys=vals=>{const mx=d3.max(vals)||1;return B.scale==='log'?d3.scaleSymlog().constant(Math.max(1,mx/500)).domain([0,mx*1.1]).range([H-m.b,m.t]):d3.scaleLinear([0,mx*1.05],[H-m.b,m.t]);};

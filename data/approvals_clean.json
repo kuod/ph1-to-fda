@@ -336,6 +336,22 @@
   "center": "CDER"
  },
  {
+  "id": "rydapt",
+  "brand": "Rydapt",
+  "ingredient": "midostaurin",
+  "date": "2017-04-28",
+  "year": 2017,
+  "sponsor": "NOVARTIS",
+  "company": "Novartis",
+  "use": "To treat acute myeloid leukemia, advanced systemic mastocytosis",
+  "ta": "Oncology",
+  "modality": "Small molecule",
+  "priority": "Priority",
+  "orphan": true,
+  "app": "NDA207997",
+  "center": "CDER"
+ },
+ {
   "id": "imfinzi",
   "brand": "Imfinzi",
   "ingredient": "durvalumab",
@@ -512,22 +528,6 @@
   "center": "CDER"
  },
  {
-  "id": "vabomere",
-  "brand": "Vabomere",
-  "ingredient": "meropenem, vaborbactam",
-  "date": "2017-08-29",
-  "year": 2017,
-  "sponsor": "REMPEX",
-  "company": "Rempex",
-  "use": "VABOMERE (meropenem and vaborbactam) is a combination of meropenem, a penem antibacterial, and vaborbactam, a beta-lactamase inhibitor, indicated for the treatment of patients 18 years and older with complicated urin",
-  "ta": "Infectious disease",
-  "modality": "Small molecule",
-  "priority": "Priority",
-  "orphan": false,
-  "app": "NDA209776",
-  "center": "CDER"
- },
- {
   "id": "benznidazole",
   "brand": "Benznidazole",
   "ingredient": "benznidazole",
@@ -541,6 +541,22 @@
   "priority": "Priority",
   "orphan": true,
   "app": "NDA209570",
+  "center": "CDER"
+ },
+ {
+  "id": "vabomere",
+  "brand": "Vabomere",
+  "ingredient": "meropenem, vaborbactam",
+  "date": "2017-08-29",
+  "year": 2017,
+  "sponsor": "REMPEX",
+  "company": "Rempex",
+  "use": "VABOMERE (meropenem and vaborbactam) is a combination of meropenem, a penem antibacterial, and vaborbactam, a beta-lactamase inhibitor, indicated for the treatment of patients 18 years and older with complicated urin",
+  "ta": "Infectious disease",
+  "modality": "Small molecule",
+  "priority": "Priority",
+  "orphan": false,
+  "app": "NDA209776",
   "center": "CDER"
  },
  {
@@ -1040,22 +1056,6 @@
   "center": "CDER"
  },
  {
-  "id": "epidiolex",
-  "brand": "Epidiolex",
-  "ingredient": "cannabidiol",
-  "date": "2018-06-25",
-  "year": 2018,
-  "sponsor": "JAZZ PHARMS RES",
-  "company": "Jazz",
-  "use": "EPIDIOLEX is indicated for the treatment of seizures associated with Lennox-Gastaut syndrome (LGS), Dravet syndrome (DS), or tuberous sclerosis complex (TSC) in patients 1 year of age and older. EPIDIOLEX is indicate",
-  "ta": "Neurology",
-  "modality": "Small molecule",
-  "priority": "Priority",
-  "orphan": true,
-  "app": "NDA210365",
-  "center": "CDER"
- },
- {
   "id": "zemdri",
   "brand": "Zemdri",
   "ingredient": "plazomicin sulfate",
@@ -1072,19 +1072,19 @@
   "center": "CDER"
  },
  {
-  "id": "braftovi",
-  "brand": "Braftovi",
-  "ingredient": "encorafenib",
-  "date": "2018-06-27",
+  "id": "epidiolex",
+  "brand": "Epidiolex",
+  "ingredient": "cannabidiol",
+  "date": "2018-06-25",
   "year": 2018,
-  "sponsor": "ARRAY BIOPHARMA INC",
-  "company": "Pfizer",
-  "use": "BRAFTOVI is a kinase inhibitor indicated: Melanoma \u2022 in combination with binimetinib, for the treatment of patients with unresectable or metastatic melanoma with a BRAF V600E or V600K mutation, as detected by an FDA-",
-  "ta": "Oncology",
+  "sponsor": "JAZZ PHARMS RES",
+  "company": "Jazz",
+  "use": "EPIDIOLEX is indicated for the treatment of seizures associated with Lennox-Gastaut syndrome (LGS), Dravet syndrome (DS), or tuberous sclerosis complex (TSC) in patients 1 year of age and older. EPIDIOLEX is indicate",
+  "ta": "Neurology",
   "modality": "Small molecule",
-  "priority": "Standard",
+  "priority": "Priority",
   "orphan": true,
-  "app": "NDA210496",
+  "app": "NDA210365",
   "center": "CDER"
  },
  {
@@ -1101,6 +1101,22 @@
   "priority": "Standard",
   "orphan": true,
   "app": "NDA210498",
+  "center": "CDER"
+ },
+ {
+  "id": "braftovi",
+  "brand": "Braftovi",
+  "ingredient": "encorafenib",
+  "date": "2018-06-27",
+  "year": 2018,
+  "sponsor": "ARRAY BIOPHARMA INC",
+  "company": "Pfizer",
+  "use": "BRAFTOVI is a kinase inhibitor indicated: Melanoma \u2022 in combination with binimetinib, for the treatment of patients with unresectable or metastatic melanoma with a BRAF V600E or V600K mutation, as detected by an FDA-",
+  "ta": "Oncology",
+  "modality": "Small molecule",
+  "priority": "Standard",
+  "orphan": true,
+  "app": "NDA210496",
   "center": "CDER"
  },
  {
@@ -2288,22 +2304,6 @@
   "center": "CDER"
  },
  {
-  "id": "brukinsa",
-  "brand": "Brukinsa",
-  "ingredient": "zanubrutinib",
-  "date": "2019-11-14",
-  "year": 2019,
-  "sponsor": "BEONE MEDICINES USA",
-  "company": "BeOne Medicines",
-  "use": "BRUKINSA is a kinase inhibitor indicated for the treatment of adult patients with: Mantle cell lymphoma (MCL) who have received at least one prior therapy. ( 1.1 ) This indication is approved under accelerated approval based on overall resp",
-  "ta": "Oncology",
-  "modality": "Small molecule",
-  "priority": "Priority",
-  "orphan": true,
-  "app": "NDA213217",
-  "center": "CDER"
- },
- {
   "id": "fetroja",
   "brand": "Fetroja",
   "ingredient": "cefiderocol sulfate tosylate",
@@ -2317,6 +2317,22 @@
   "priority": "Priority",
   "orphan": false,
   "app": "NDA209445",
+  "center": "CDER"
+ },
+ {
+  "id": "brukinsa",
+  "brand": "Brukinsa",
+  "ingredient": "zanubrutinib",
+  "date": "2019-11-14",
+  "year": 2019,
+  "sponsor": "BEONE MEDICINES USA",
+  "company": "BeOne Medicines",
+  "use": "BRUKINSA is a kinase inhibitor indicated for the treatment of adult patients with: Mantle cell lymphoma (MCL) who have received at least one prior therapy. ( 1.1 ) This indication is approved under accelerated approval based on overall resp",
+  "ta": "Oncology",
+  "modality": "Small molecule",
+  "priority": "Priority",
+  "orphan": true,
+  "app": "NDA213217",
   "center": "CDER"
  },
  {
@@ -2973,6 +2989,22 @@
   "priority": "Priority",
   "orphan": true,
   "app": "BLA761163",
+  "center": "CDER"
+ },
+ {
+  "id": "blenrep",
+  "brand": "Blenrep",
+  "ingredient": "belantamab mafodotin-blmf",
+  "date": "2020-08-05",
+  "year": 2020,
+  "sponsor": "GlaxoSmithKline",
+  "company": "GSK",
+  "use": "To treat multiple myeloma",
+  "ta": "Oncology",
+  "modality": "Small molecule",
+  "priority": "",
+  "orphan": false,
+  "app": "",
   "center": "CDER"
  },
  {
@@ -8631,7 +8663,7 @@
   "year": 2023,
   "sponsor": "Krystal Biotech, Inc.",
   "company": "Krystal",
-  "use": "For the treatment of wounds in adult and pediatric patients with dystrophic epidermolysis bullosa (DEB) with mutation(s) in the collagen type VII alpha 1 chain (COL7A1) gene.",
+  "use": "Treatment of wounds in adult and pediatric patients with dystrophic epidermolysis bullosa with mutation(s) in the collagen type VII alpha 1 chain (COL7A1) gene.",
   "ta": "Dermatology",
   "modality": "Gene therapy",
   "priority": "",

@@ -30,6 +30,7 @@ Run in this order (`03` reads `09`'s CBER output, and `07` reads `08`'s):
 
 `01_approvals` → `02_enrich` → `09_cber` → `03_classify` → `04_trials_approved` → `05_trials_sponsors` → `06_programs` → `08_expansions` → `07_build`
 
+- `01_approvals.py`: 2021–2026 from FDA's tables; 2016–2020 rebuilt from openFDA and checked against Wayback copies of FDA's original lists (the page year is trusted over typo'd dates). Pages that change (this year's table, CBER pages) expire from the cache after 6 hours; **never serve the approvals tables from a stale cache**, or a refresh silently drops new approvals.
 - `common.py`: cached `get_json`/`get_text` (cache in `.cache/`, override with `EASY_AS_CACHE`) and `marketed_before()`, the "already FDA-approved before the window" check. Network errors and timeouts retry; openFDA is slow and occasionally times out, so long steps are best run in the background.
 - `taxonomy.py`: sponsor → parent regexes (`PARENTS`), keyword therapeutic-area rules, hand overrides (`TA_OVERRIDE`, `CBER_TA`), condition grouping for product pipelines. **Word-boundary every short regex**: a bare substring once matched `RA PHARM` inside "Deciphera Pharms".
 - `09_cber.py`: CBER's pages keep only recent letters, so first-approval dates are **curated by hand** (`CURATED`, `BLOOD`); pages supply BLA number, manufacturer and indication. Add new CBER products to those dicts and to `CBER_TA`/`CBER_GENE` in `taxonomy.py`.

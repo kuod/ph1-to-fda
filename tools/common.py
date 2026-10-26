@@ -36,10 +36,11 @@ def get_json(url, params=None, retries=5, pause=0.0):
     return data
 
 
-def get_text(url, retries=4):
+def get_text(url, retries=4, max_age_hours=None):
+    """Cached GET. Pages that change (the current year's approvals table, CBER pages) pass max_age_hours so a re-run cannot serve stale data."""
     key = hashlib.sha1(url.encode()).hexdigest()
     path = os.path.join(CACHE, key + ".html")
-    if os.path.exists(path):
+    if os.path.exists(path) and (max_age_hours is None or time.time() - os.path.getmtime(path) < max_age_hours * 3600):
         return open(path).read()
     for i in range(retries):
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=90)

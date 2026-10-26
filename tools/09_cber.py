@@ -44,7 +44,7 @@ CURATED = {
 
 
 def links(path):
-    s = BeautifulSoup(get_text(BASE + path), "html.parser")
+    s = BeautifulSoup(get_text(BASE + path, max_age_hours=6), "html.parser")
     out = {}
     for a in s.select("main a, .content a"):
         h = a.get("href", "")
@@ -56,7 +56,7 @@ def links(path):
 
 def page(path):
     try:
-        s = BeautifulSoup(get_text(BASE + path), "html.parser")
+        s = BeautifulSoup(get_text(BASE + path, max_age_hours=6), "html.parser")
     except RuntimeError:
         return None
     txt = s.get_text("\n", strip=True)

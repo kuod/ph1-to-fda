@@ -2,7 +2,7 @@
 
 Ten years of first-time FDA drug approvals, traced from Phase 1.
 
-Every first-time FDA drug approval from October 2016 to October 2026 (577 products: 493 from CDER and 84 cell, gene, vaccine and blood products from CBER), with each drug's Phase 1–3 history, the programs that fell away on the way, and a modelled sales curve for years 1–10. Design follows the [Pharma & Biotech Almanac](https://kuod.github.io/pharma-biotech-almanac/).
+Every first-time FDA drug approval from October 2016 to October 2026 (579 products: 495 from CDER and 84 cell, gene, vaccine and blood products from CBER), with each drug's Phase 1–3 history, the programs that fell away on the way, and a modelled sales curve for years 1–10. Design follows the [Pharma & Biotech Almanac](https://kuod.github.io/pharma-biotech-almanac/).
 
 Live page: https://kuod.github.io/ph1-to-fda/
 
@@ -52,7 +52,7 @@ Large raw crawls (`data/trials_*_raw.json`) are not committed; the pipeline rege
 ## Read this before quoting a number
 
 - **Revenue is modelled, not reported.** Central peak sales come from therapeutic-area medians with modifiers for orphan status, drug type, review priority and sponsor scale, with editorial peaks for about 115 well-known drugs. The modelled 2025 total is probably too high. Years 1–10 follow an S-curve. Bands are 0.35×–2.6×.
-- **Funnel rates are descriptive and probably flattering.** Pooled, they read 42% / 50% / 60% for the three phases and 13% overall against rough industry benchmarks of 52% / 29% / 58% and 8%, because failures that cannot be identified go uncounted. A program is identified from ClinicalTrials.gov intervention records, so how many failures a company shows depends on how it labels studies. Thin samples lean toward winners, and renamed assets can look like Phase 1 failures. Company comparisons are indicative only. Details are on the page's Method tab.
+- **Funnel rates are descriptive and probably flattering.** Pooled, they read 42% / 50% / 61% for the three phases and 13% overall against rough industry benchmarks of 52% / 29% / 58% and 8%, because failures that cannot be identified go uncounted. A program is identified from ClinicalTrials.gov intervention records, so how many failures a company shows depends on how it labels studies. Thin samples lean toward winners, and renamed assets can look like Phase 1 failures. Company comparisons are indicative only. Details are on the page's Method tab.
 - **Scope.** CDER novel approvals plus CBER's first approvals of cell therapies, gene therapies, vaccines and blood and plasma products. CBER first-approval dates were set by hand from FDA announcements because CBER's pages keep only recent letters. Albumin, fibrin sealants and hemostats, diagnostics and allergenics are not included. CBER products have no orphan, priority-review or supplement data, so they are left out of those statistics, the funnel and card hit rates, Buckets and Product Pipelines. Phase 1 is often unregistered, so some approved drugs show none.
 
 ## Sources

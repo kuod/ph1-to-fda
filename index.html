@@ -231,7 +231,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
   <div class="view-desc">Every large sponsor with six or more first-time approvals in the window. <b>Hit rate</b> is the share of programs entering Phase 1 in 2009–2018 that reached FDA approval. The three bars are the phase-by-phase pass rates for the same programs. Only programs that have resolved are counted, so those still running do not drag the numbers down.</div></div>
   <div class="ctl-row"><label class="ctl">Sort by <span class="seg" id="c-sort"><button data-v="approvals" class="on">Approvals</button><button data-v="hit">Hit rate</button><button data-v="p1">Ph1</button><button data-v="p2">Ph2</button><button data-v="p3">Ph3</button><button data-v="medDev">Speed</button></span></label></div>
   <div class="cards" id="cards"></div>
-  <p class="note fn">Read with care: how many of a company's failed programs can be identified varies a lot (GSK ≈ 150, Pfizer ≈ 30), and a thin sample leans toward its winners. Cards under 50 programs are flagged. Rates are descriptive, not a league table. See Method.</p>
+  <p class="note fn">Read with care: how many of a company's failed programs can be identified varies a lot (about 115 resolved programs at GSK, about 30 at Pfizer), and a thin sample leans toward its winners. Cards under 50 programs are flagged. Rates are descriptive, not a league table. See Method.</p>
 </div></section>
 
 <section class="tab-panel" id="tab-approvals" role="tabpanel" aria-labelledby="tabbtn-approvals"><div class="shell">
@@ -330,7 +330,9 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <li><b>Halted</b>: the last study at the highest phase reached was terminated, withdrawn or suspended. <b>Stalled</b>: studies finished and no later phase was registered, which usually means a quiet discontinuation. <b>Active</b>: something is still recruiting or running; these are left out of the success rates.</li>
     <li>Success means a novel CDER approval inside this window. A drug approved only abroad, or filed but not yet approved, counts as not approved.</li>
   </ul>
-  <p><b>Known biases.</b> Identification of failures depends on how a company labels its studies, so coverage differs widely and a thin sample leans toward its approved drugs. Alias fragmentation can make a program that was renamed after Phase 1 look like a Phase 1 failure, and a marketed or CBER product that slips past the filters reads as a failure. Pooled across the 26 sponsors this page shows about 42% Phase 1→2, 50% Phase 2→3, 61% Phase 3→approval and 13% overall; commonly quoted industry benchmarks are roughly 52%, 29%, 58% and 8%. So Phase 1 is likely understated, while Phase 2 and the overall hit rate are likely overstated because failures go uncounted. Treat company comparisons as indicative, and the pooled numbers as an upper-leaning estimate.</p>
+  <p><b>Known biases.</b> Identification of failures depends on how a company labels its studies, so coverage differs widely and a thin sample leans toward its approved drugs. Alias fragmentation can make a program that was renamed after Phase 1 look like a Phase 1 failure. A marketed or CBER product that slips past the filters would read as a failure, but a check of every unmatched program's single-word aliases against all Drugs@FDA NDA/BLA approvals (any date) found none that the filters had missed. Treat company comparisons as indicative.</p>
+  <h3>Validation against published benchmarks</h3>
+  <div id="m-valid"></div>
   <h3>New indications, product pipelines and buckets</h3>
   <ul>
     <li>The Approvals and Who &amp; What toggle adds drugs first approved before October 2016 that won at least one <em>efficacy supplement</em> in the window. Drugs@FDA labels supplements as Efficacy, Labeling or Manufacturing; efficacy ones carry new indications but also new populations and dosing, so they are a proxy for new indications, not an exact count.</li>
@@ -392,9 +394,27 @@ const fill = (sel, items, all) => { sel.innerHTML = (all?`<option value="all">${
     [uniq(drugs.map(d=>d.company)).length,'sponsors'],
     [Math.round(drugs.filter(d=>d.orphan).length/drugs.filter(d=>d.center!=='CBER').length*100)+'%','of CDER approvals are orphan'],
     [drugs.filter(d=>d.center==='CBER').length,'CBER: cell, gene, vaccine & blood'],
-    [pct(hit),'of big-pharma Phase 1 programs reach approval'],
+    [pct(hit),'of big-pharma Phase 1 programs reach approval ('+pct(DATA.meta.funnel.deep.hit)+' where coverage is good; see Method)'],
     ['$'+Math.round(y25/1000)+'B','modelled 2025 sales (likely high)']
   ].map(([b,s])=>`<div class="stat"><b>${b}</b><span>${s}</span></div>`).join('');
+  (function(){
+    const F=DATA.meta.funnel; if(!F) return;
+    const p=v=>v==null?'–':(v*100).toFixed(1).replace(/\.0$/,'')+'%', ci=(v,c)=>c?`${p(v)} <small>(${(c[0]*100).toFixed(0)}–${(c[1]*100).toFixed(0)})</small>`:p(v);
+    const row=(l,o)=>`<tr><td>${l}</td><td class="r">${o.n}</td><td class="r">${ci(o.p1,o.p1ci)}</td><td class="r">${ci(o.p2,o.p2ci)}</td><td class="r">${ci(o.p3,o.p3ci)}</td><td class="r">${ci(o.hit,o.hitci)}</td></tr>`;
+    const brow=b=>`<tr><td>${esc(b.name)} <small>${esc(b.span)}</small></td><td class="r">–</td><td class="r">${p(b.p1)}</td><td class="r">${p(b.p2)}</td><td class="r">${p(b.p3)}</td><td class="r">${p(b.hit)}</td></tr>`;
+    const nc=F.approvedNoCode, na=F.approvedN, bio=F.bench[0];
+    $('#m-valid').innerHTML=`<p>Pooled over resolved programs (ongoing ones excluded; Wilson 95% intervals in brackets) next to two published benchmarks. The benchmarks are not the same population (all sponsors and programs tracked, Phase 1 start dates differ), so this is a plausibility check and not a calibration.</p>
+    <div class="table-wrap"><table><thead><tr><th>Source</th><th class="r">Programs</th><th class="r">Ph1→2</th><th class="r">Ph2→3</th><th class="r">Ph3→approval</th><th class="r">Ph1→approval</th></tr></thead><tbody>
+    ${row('This page, all '+F.sponsors+' sponsors',F.all)}${row('This page, '+F.deepSponsors+' well-covered sponsors (≥'+F.deepMin+' programs)',F.deep)}${row('This page, thinner-covered sponsors',F.thin)}${F.bench.map(brow).join('')}</tbody></table></div>
+    <ul>
+    <li><b>Which benchmark.</b> The ${p(bio.p1)} / ${p(bio.p2)} / 58% / ${p(bio.hit)} set often quoted is BIO's; its 58% (57.8%) is Phase 3 to <em>filing</em>, and the comparable Phase 3 to approval figure is ${p(bio.p3)}, which is what the table shows. The 2019 academic estimate (Wong, Siah &amp; Lo) is much higher at every step, with ${p(F.bench[1].hit)} overall, so ${p(F.all.hit)} sits between the two published overall rates and is not by itself evidence of error.</li>
+    <li><b>Coverage is the biggest measurable cause.</b> Sponsors with at least ${F.deepMin} resolved programs (${F.deepSponsors} of ${F.sponsors}) read ${p(F.deep.hit)} overall and ${p(F.deep.p2)} Phase 2→3; the other ${F.sponsors-F.deepSponsors} read ${p(F.thin.hit)} and ${p(F.thin.p2)}. Their approvals are found through the FDA match whatever their coding, while their failures need a sponsor code prefix, so their failures go missing. The well-covered figures are the better estimate and are close to BIO's.</li>
+    <li><b>Failures without a code name.</b> ${nc} of ${na} approved programs carry no code-style alias (${Math.round(nc/na*100)}%). If failures are about as often uncoded, roughly that share of failures is invisible, which lowers the true hit rate a little further. This is a rough bound, not a measurement.</li>
+    <li><b>Right-censoring is not the cause.</b> Programs that started 2009–2013 read ${p(F.early.hit)} overall and those from 2014 read ${p(F.late.hit)}, about the same. Later starters show a lower Ph1→2 (${p(F.late.p1)} against ${p(F.early.p1)}) and a higher Ph3→approval (${p(F.late.p3)} against ${p(F.early.p3)}) because programs still in development read as stalled, so later phases of recent programs are not settled.</li>
+    <li><b>Phase 1 is understated in both.</b> Ph1→2 is below both benchmarks even at well-covered sponsors. Renamed or re-coded assets (a Phase 1 under one code and later phases under another) read as Phase 1 failures; this is not measured and not fixed here. ClinicalTrials.gov also under-registers Phase 1.</li>
+    </ul>
+    <p class="note">Sources: ${F.bench.map(b=>esc(b.cite)+' <a href="'+esc(b.url)+'" target="_blank" rel="noopener">link</a>').join(' ')}</p>`;
+  })();
   $('#built').textContent = DATA.meta.built;
   const be=new Date(DATA.meta.built+'T12:00:00');
   $('#m-end').textContent=be.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
@@ -542,13 +562,13 @@ function spark(arr){
   const w=110,h=38,mx=Math.max(...arr,1),bw=w/arr.length;
   return `<svg class="spark" viewBox="0 0 ${w} ${h}">`+arr.map((v,i)=>`<rect x="${i*bw+1}" y="${h-(v/mx)*(h-4)-1}" width="${bw-2}" height="${(v/mx)*(h-4)+1}" fill="${v?'#1a1814':'#ddd8ce'}"/>`).join('')+'</svg>';
 }
-function phRow(l,v,n){return `<div class="ph"><em>${l}</em><div class="bar"><i style="width:${(v||0)*100}%"></i></div><b>${pct(v)}</b><small>${n?n[0]+' of '+n[1]+' programs':''}</small></div>`;}
+function phRow(l,v,n,ci){return `<div class="ph" title="${ci?'95% interval '+Math.round(ci[0]*100)+'–'+Math.round(ci[1]*100)+'%':''}"><em>${l}</em><div class="bar"><i style="width:${(v||0)*100}%"></i></div><b>${pct(v)}</b><small>${n?n[0]+' of '+n[1]+' programs':''}</small></div>`;}
 renderers.cards = builders.cards = function(){
   const s = C.sort, list = cards.slice().sort((a,b)=>s==='medDev'?(a.medDev??99)-(b.medDev??99):(b[s]??-1)-(a[s]??-1));
   $('#cards').innerHTML = list.map((c,i)=>`<div class="bb ${i<3?'r'+(i+1):''}">${c.resolvedN<50?'<span class="badge">Thin sample</span>':''}<div class="bb-in">
     <div class="bb-top"><div><div class="bb-name">${esc(c.company)}</div><div class="bb-sub">${c.approvals} approvals · ${esc(c.topTA)}</div></div><div class="bb-rank">#${i+1}</div></div>
-    <div class="bb-hero"><div><b>${pct(c.hit)}</b><span>Hit rate · ${c.resolvedN} programs</span></div>${spark(c.byYear)}</div>
-    ${phRow('Ph1',c.p1,c.p1n)}${phRow('Ph2',c.p2,c.p2n)}${phRow('Ph3',c.p3,c.p3n)}
+    <div class="bb-hero"><div><b>${pct(c.hit)}</b><span>Hit rate · ${c.resolvedN} programs${c.hitci?' · 95% CI '+Math.round(c.hitci[0]*100)+'–'+Math.round(c.hitci[1]*100)+'%':''}</span></div>${spark(c.byYear)}</div>
+    ${phRow('Ph1',c.p1,c.p1n,c.p1ci)}${phRow('Ph2',c.p2,c.p2n,c.p2ci)}${phRow('Ph3',c.p3,c.p3n,c.p3ci)}
     <div class="bb-foot"><div><span>First registered study → approval</span>${c.medDev??'–'} yrs</div><div><span>Orphan share</span>${pct(c.orphan)}</div><div><span>Main type</span>${esc(c.topMod)}</div><div><span>Top earner (est.)</span>${esc(c.flagship)}</div></div>
   </div></div>`).join('');
 };

@@ -113,6 +113,60 @@ def trial_summary(a):
     return out
 
 
+def wilson(k, n, z=1.96):
+    """95% Wilson score interval for k of n, as [lo, hi] rounded to 3 places (None when n is 0)."""
+    if not n:
+        return None
+    p = k / n
+    d = 1 + z * z / n
+    c = (p + z * z / (2 * n)) / d
+    h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
+    return [round(max(0.0, c - h), 3), round(min(1.0, c + h), 3)]
+
+
+# Published funnel benchmarks, each checked against the source document (see issue #3). They are shown beside our pooled rates on the Method tab.
+# BIO/Informa/QLS: phase-by-phase transitions for all programs Biomedtracker tracked, 2011-2020 (Fig. 1 and Fig. 5 tables). Note its 57.8% is Phase III -> NDA/BLA
+# filing; Phase III -> approval is 52.4% (its table of LOA from Phase III), and 7.9% is the LOA from Phase I.
+# Wong, Siah & Lo 2019 (corrected Table 1): path-by-path POS, all indications, industry-sponsored, 2000-2015 data.
+BENCH = [
+    dict(id="bio2021", name="BIO / Informa / QLS 2021", span="2011-2020", p1=0.520, p2=0.289, p3=0.524, hit=0.079,
+         cite="BIO, Informa Pharma Intelligence and QLS Advisors, Clinical Development Success Rates and Contributing Factors 2011-2020 (February 2021): Phase I to II 52.0% (n=4,414), II to III 28.9% (n=4,933), III to NDA/BLA 57.8% (n=1,928) and NDA/BLA to approval 90.6%; likelihood of approval from Phase III 52.4%, from Phase I 7.9% (n=12,728).",
+         url="https://go.bio.org/rs/490-EHZ-999/images/ClinicalDevelopmentSuccessRates2011_2020.pdf"),
+    dict(id="wong2019", name="Wong, Siah & Lo 2019", span="2000-2015", p1=0.664, p2=0.583, p3=0.590, hit=0.138,
+         cite="Wong CH, Siah KW, Lo AW. Estimation of clinical trial success rates and related parameters. Biostatistics 2019;20(2):273-286, corrected Table 1 (path-by-path, all indications): Phase 1 to 2 66.4%, 2 to 3 58.3%, 3 to approval 59.0%, Phase 1 to approval 13.8%.",
+         url="https://doi.org/10.1093/biostatistics/kxx069"),
+]
+DEEP_MIN = 50  # a sponsor with at least this many resolved programs counts as well covered (the cards' "Thin sample" line)
+
+
+def pooled(coh):
+    """Pooled funnel rates over resolved (not ongoing) cohort programs, with Wilson intervals."""
+    res = [p for p in coh if p["outcome"] != "ongoing"]
+    r2 = [p for p in res if p["reached"] >= 2]
+    r3 = [p for p in res if p["reached"] >= 3]
+    ok = [p for p in res if p["outcome"] == "approved"]
+    ok3 = [p for p in r3 if p["outcome"] == "approved"]
+    out = dict(n=len(res), approved=len(ok), r2=len(r2), r3=len(r3), ok3=len(ok3))
+    for k, a, b in (("p1", len(r2), len(res)), ("p2", len(r3), len(r2)), ("p3", len(ok3), len(r3)), ("hit", len(ok), len(res))):
+        out[k] = round(a / b, 4) if b else None
+        out[k + "ci"] = wilson(a, b)
+    return out
+
+
+def funnel_stats(progs):
+    """Pooled rates for the whole cohort, for well-covered sponsors only, and for the splits that show how much each known bias moves them."""
+    coh = [p for p in progs if p["cohort"]]
+    res = collections.Counter(p["company"] for p in coh if p["outcome"] != "ongoing")
+    deep = {c for c, n in res.items() if n >= DEEP_MIN}
+    appr = [p for p in coh if p["outcome"] == "approved"]
+    yr = lambda p: p["first"]["1"][:4]
+    return dict(
+        all=pooled(coh), deep=pooled([p for p in coh if p["company"] in deep]), thin=pooled([p for p in coh if p["company"] not in deep]),
+        early=pooled([p for p in coh if yr(p) <= "2013"]), late=pooled([p for p in coh if yr(p) >= "2014"]),
+        deepMin=DEEP_MIN, deepSponsors=len(deep), sponsors=len(res),
+        approvedNoCode=sum(1 for p in appr if not p["code"]), approvedN=len(appr))
+
+
 def card(company, drugs, progs):
     coh = [p for p in progs if p["company"] == company and p["cohort"]]
     res = [p for p in coh if p["outcome"] != "ongoing"]
@@ -130,10 +184,10 @@ def card(company, drugs, progs):
         topMod=collections.Counter(d["modality"] for d in drugs).most_common(1)[0][0],
         medDev=round(statistics.median(dev), 1) if dev else None,
         cohortN=len(coh), resolvedN=len(res), ongoingN=len(coh) - len(res),
-        hit=rate(len(ok), len(res)),
-        p1=rate(len(r2), len(res)), p1n=[len(r2), len(res)],
-        p2=rate(len(r3), len(r2)), p2n=[len(r3), len(r2)],
-        p3=rate(len(ok3), len(r3)), p3n=[len(ok3), len(r3)],
+        hit=rate(len(ok), len(res)), hitci=wilson(len(ok), len(res)),
+        p1=rate(len(r2), len(res)), p1n=[len(r2), len(res)], p1ci=wilson(len(r2), len(res)),
+        p2=rate(len(r3), len(r2)), p2n=[len(r3), len(r2)], p2ci=wilson(len(r3), len(r2)),
+        p3=rate(len(ok3), len(r3)), p3n=[len(ok3), len(r3)], p3ci=wilson(len(ok3), len(r3)),
         flagship=max(drugs, key=lambda d: d["rev"]["peak"])["brand"],
         rev10=round(sum(sum(d["rev"]["y"]) for d in drugs)),
     )
@@ -178,7 +232,8 @@ def main():
     for e in expansions:
         if e["prod"]:
             e["id"] = e["id"]
-    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr), expansions=len(expansions))
+    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr), expansions=len(expansions),
+                funnel=dict(funnel_stats(progs), bench=BENCH))
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:
         f.write("window.DATA=" + json.dumps(dict(meta=meta, drugs=drugs, programs=pr, cards=cards, expansions=expansions, products=products), separators=(",", ":")) + ";\n")

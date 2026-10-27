@@ -32,4 +32,5 @@ const unmapped = drugs.filter(d => d.ta === 'Other');
 if (unmapped.length) console.warn('warning: ' + unmapped.length + ' drugs in "Other": ' + unmapped.map(d => d.brand).join(', '));
 console.log(`${drugs.length} drugs, ${programs.length} programs, ${cards.length} cards, ${expansions.length} expansions, ${products.length} products, ${errs.length} problem(s)`);
 errs.slice(0, 20).forEach(e => console.error(e));
-process.exit(errs.length ? 1 : 0);
+const funnelStatus = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'check-funnel.js')], { stdio: 'inherit' }).status;  // pooled funnel rates vs programs, README and benchmarks
+process.exit(errs.length || funnelStatus ? 1 : 0);

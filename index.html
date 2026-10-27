@@ -856,7 +856,7 @@ function bdStats(){
     bigShare:bigN.length/drugs.length, bigCos:big.size, acq, bigN:bigN.length,
     halted:cder.filter(d=>d.trials.p1.halted+d.trials.p2.halted+d.trials.p3.halted>0).length/cder.length,
     noP1:cder.filter(d=>!d.trials.p1.n).length/cder.length, prio:cder.filter(d=>d.priority==='Priority').length/cder.length,
-    dev:d3.median(drugs,d=>d.trials.devYears), top20:d3.sum(tot.slice(0,20))/all, top50:d3.sum(tot.slice(0,50))/all,
+    dev:d3.median(cder,d=>d.trials.devYears), top20:d3.sum(tot.slice(0,20))/all, top50:d3.sum(tot.slice(0,50))/all,
     p1:r2.length/res.length, p2:r3.length/r2.length, p3:ok3.length/r3.length, hit:ok.length/res.length, resolved:res.length,
     bOne:bk('one')/old.length, bFew:bk('few')/old.length, bMany:bk('many')/old.length, bFran:bk('fran'), oldN:old.length,
     topProd:products.slice().sort((a,b)=>b.d.length-a.d.length)[0], exp:expansions.length,

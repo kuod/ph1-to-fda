@@ -7,3 +7,4 @@ data/trials_approved_raw.json
 data/trials_sponsors_raw.json
 data/approvals_raw.json
 data/approvals_enriched.json
+.claude/

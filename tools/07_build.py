@@ -121,7 +121,7 @@ def card(company, drugs, progs):
     ok = [p for p in res if p["outcome"] == "approved"]
     ok3 = [p for p in r3 if p["outcome"] == "approved"]
     rate = lambda n, d: round(n / d, 3) if d else None
-    dev = [d["trials"]["devYears"] for d in drugs if d["trials"]["devYears"] is not None]
+    dev = [d["trials"]["devYears"] for d in drugs if d["trials"]["devYears"] is not None and d["center"] != "CBER"]  # CBER histories come from a sponsor-restricted, noisier crawl
     by_y = collections.Counter(d["year"] for d in drugs)
     return dict(
         company=company, approvals=len(drugs), byYear=[by_y.get(y, 0) for y in range(2016, 2027)],
@@ -174,7 +174,7 @@ def main():
     products = [dict(id=e["novel"] or e["id"], brand=e["brand"], ingredient=e["ingredient"].split(",")[0][:40], company=e["company"], ta=e["ta"],
                      first=e["orig"][:4] if e["orig"] else None, novel=bool(e["novel"]), d=[x["d"][:7] for x in e["eff"]],
                      pr=sum(1 for x in e["eff"] if x["pr"] == "Priority"), orphan=sum(1 for x in e["eff"] if x["o"]), pipe=e["pipeline"])
-                for e in ex if "pipeline" in e]
+                for e in ex if "pipeline" in e and e["pipeline"]["conds"]]  # contrast agents and the like have no Phase 1-3 history to show
     for e in expansions:
         if e["prod"]:
             e["id"] = e["id"]

@@ -139,6 +139,18 @@ function assert(c, msg) { if (!c) throw new Error(msg); }
     assert(await page.locator('#bd-weeks details[open]').count() === 1, 'single toggle');
   });
 
+  await step('prose counts are filled from the data', async () => {
+    const r = await page.evaluate(() => {
+      const P = window.DATA.meta.prose;
+      const els = [...document.querySelectorAll('[data-fill]')];
+      return { empty: els.filter(e => !e.textContent.trim()).length, n: els.length,
+        method: document.querySelector('#tab-method').textContent, stats: document.querySelector('#stats').textContent, P };
+    });
+    assert(r.n >= 10 && r.empty === 0, 'unfilled data-fill spans');
+    assert(r.method.includes(`${r.P.p1}% Phase 1`) && r.method.includes(`${r.P.nAnchor} well-known drugs`), 'Method prose not from data');
+    assert(r.stats.includes(String(r.P.nDrugs)), 'masthead count differs from meta.prose');
+  });
+
   await step('no console or page errors on desktop', async () => {
     assert(problems.length === 0, problems.join(' | '));
   });

@@ -13,7 +13,7 @@ from common import get_text
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 BASE = "https://www.fda.gov"
-START = dt.date(2016, 10, 21)
+from config import START
 LISTS = [
     ("Cell or gene therapy", "/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products"),
     ("Vaccine", "/vaccines-blood-biologics/vaccines/vaccines-licensed-use-united-states"),

@@ -2,15 +2,15 @@
 
 Ten years of first-time FDA drug approvals, traced from Phase 1.
 
-Every first-time FDA drug approval from October 2016 to October 2026 (579 products: 495 from CDER and 84 cell, gene, vaccine and blood products from CBER), with each drug's Phase 1–3 history, the programs that fell away on the way, and a modelled sales curve for years 1–10. Design follows the [Pharma & Biotech Almanac](https://kuod.github.io/pharma-biotech-almanac/).
+Every first-time FDA drug approval from <!-- p:start -->October 2016<!-- /p --> to <!-- p:end -->October 2026<!-- /p --> (<!-- p:nDrugs -->579<!-- /p --> products: <!-- p:nCder -->495<!-- /p --> from CDER and <!-- p:nCber -->84<!-- /p --> cell, gene, vaccine and blood products from CBER), with each drug's Phase 1–3 history, the programs that fell away on the way, and a modelled sales curve for years 1–10. Design follows the [Pharma & Biotech Almanac](https://kuod.github.io/pharma-biotech-almanac/).
 
 Live page: https://kuod.github.io/ph1-to-fda/
 
 ## Views
 
-**Funnel** — Alluvial of drug programs that entered Phase 1 in 2009–2018 at 26 large sponsors, flowing through Phase 2, Phase 3 and FDA approval, with halted, stalled and still-active branches. Colour by outcome, company or therapeutic area; filter by company, area and start year; click a column or a ribbon to list its programs in a panel beside the chart (✕ or Esc closes it). Below it, studies started vs halted per phase.
+**Funnel** — Alluvial of drug programs that entered Phase 1 in <!-- p:cohortFrom -->2009<!-- /p -->–<!-- p:cohortTo -->2018<!-- /p --> at <!-- p:nSponsors -->26<!-- /p --> large sponsors, flowing through Phase 2, Phase 3 and FDA approval, with halted, stalled and still-active branches. Colour by outcome, company or therapeutic area; filter by company, area and start year; click a column or a ribbon to list its programs in a panel beside the chart (✕ or Esc closes it). Below it, studies started vs halted per phase.
 
-**Baseball Cards** — Hit rate and Phase 1 / 2 / 3 pass rates for each of the 17 sponsors with six or more approvals, plus approvals per year, median years from first registered start to approval, orphan share and top estimated earner. Cards built on fewer than 50 programs are flagged.
+**Baseball Cards** — Hit rate and Phase 1 / 2 / 3 pass rates for each of the <!-- p:nCards -->17<!-- /p --> sponsors with <!-- p:minCardWord -->six<!-- /p --> or more approvals, plus approvals per year, median years from first registered start to approval, orphan share and top estimated earner. Cards built on fewer than 50 programs are flagged.
 
 **Approvals** — Searchable, sortable table of all approvals. Each row expands to a development timeline, studies started and halted per phase (with the stated reasons and links to ClinicalTrials.gov) and the modelled sales curve. CSV download. A toggle adds drugs first approved earlier that won a new indication (efficacy supplement) in the window.
 
@@ -34,7 +34,7 @@ No build step for the site: `index.html` plus `data.js` and two vendored librari
 | 2 | `02_enrich.py` | Sponsor, review priority, orphan flag, label text via openFDA |
 | 3 | `03_classify.py` | Parent company, therapeutic area, drug type |
 | 4 | `04_trials_approved.py` | Each approved drug's Phase 1–3 studies from ClinicalTrials.gov |
-| 5 | `05_trials_sponsors.py` | All Phase 1–3 industry studies 2008–2018 for 26 large sponsors |
+| 5 | `05_trials_sponsors.py` | All Phase 1–3 industry studies <!-- p:crawlFrom -->2008<!-- /p -->–<!-- p:crawlTo -->2018<!-- /p --> for <!-- p:nSponsors -->26<!-- /p --> large sponsors |
 | 6 | `06_programs.py` | Group studies into programs; outcome per program |
 | 7 | `07_build.py` | Revenue model, company cards, `data.js` |
 | 9 | `09_cber.py` | CBER first approvals: cell and gene therapies, vaccines, blood products (run before 03) |
@@ -47,12 +47,14 @@ python3 -m http.server                               # then open http://localhos
 node tools/check-scripts.js && node tools/check-data.js
 ```
 
+The window start, as-of date and cohort years live in `tools/config.json` (set `as_of` or `PH1_TO_FDA_TODAY` to pin a date). The counts quoted in this README and on the Method tab are generated from the data by `07_build.py`.
+
 Large raw crawls (`data/trials_*_raw.json`) are not committed; the pipeline regenerates them.
 
 ## Read this before quoting a number
 
-- **Revenue is modelled, not reported.** Central peak sales come from therapeutic-area medians with modifiers for orphan status, drug type, review priority and sponsor scale, with editorial peaks for about 115 well-known drugs. The modelled 2025 total is probably too high. Years 1–10 follow an S-curve. Bands are 0.35×–2.6×.
-- **Funnel rates are descriptive and probably flattering.** Pooled, they read 42% / 50% / 61% for the three phases and 13% overall against rough industry benchmarks of 52% / 29% / 58% and 8%, because failures that cannot be identified go uncounted. A program is identified from ClinicalTrials.gov intervention records, so how many failures a company shows depends on how it labels studies. Thin samples lean toward winners, and renamed assets can look like Phase 1 failures. Company comparisons are indicative only. Details are on the page's Method tab.
+- **Revenue is modelled, not reported.** Central peak sales come from therapeutic-area medians with modifiers for orphan status, drug type, review priority and sponsor scale, with editorial peaks for about <!-- p:nAnchor -->115<!-- /p --> well-known drugs. The modelled 2025 total is probably too high. Years 1–10 follow an S-curve. Bands are 0.35×–2.6×.
+- **Funnel rates are descriptive and probably flattering.** Pooled, they read <!-- p:p1 -->42<!-- /p -->% / <!-- p:p2 -->50<!-- /p -->% / <!-- p:p3 -->61<!-- /p -->% for the three phases and <!-- p:overall -->13<!-- /p -->% overall against rough industry benchmarks of 52% / 29% / 58% and 8%, because failures that cannot be identified go uncounted. A program is identified from ClinicalTrials.gov intervention records, so how many failures a company shows depends on how it labels studies. Thin samples lean toward winners, and renamed assets can look like Phase 1 failures. Company comparisons are indicative only. Details are on the page's Method tab.
 - **Scope.** CDER novel approvals plus CBER's first approvals of cell therapies, gene therapies, vaccines and blood and plasma products. CBER first-approval dates were set by hand from FDA announcements because CBER's pages keep only recent letters. Albumin, fibrin sealants and hemostats, diagnostics and allergenics are not included. CBER products have no orphan, priority-review or supplement data, so they are left out of those statistics, the funnel and card hit rates, Buckets and Product Pipelines. Phase 1 is often unregistered, so some approved drugs show none.
 
 ## Sources

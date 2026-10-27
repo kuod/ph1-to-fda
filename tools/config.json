@@ -1,0 +1,9 @@
+{
+  "_comment": "Single source for the refresh window. as_of null means today; PH1_TO_FDA_TODAY overrides it. Edit here, then re-run the pipeline.",
+  "window_start": "2016-10-21",
+  "as_of": null,
+  "cohort_from": 2009,
+  "cohort_to": 2018,
+  "crawl_from": "2008-01-01",
+  "crawl_to": "2018-12-31"
+}

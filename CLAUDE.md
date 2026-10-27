@@ -35,6 +35,7 @@ Run in this order (`03` reads `09`'s CBER output, and `07` reads `08`'s):
 - `taxonomy.py`: sponsor → parent regexes (`PARENTS`), keyword therapeutic-area rules, hand overrides (`TA_OVERRIDE`, `CBER_TA`), condition grouping for product pipelines. **Word-boundary every short regex**: a bare substring once matched `RA PHARM` inside "Deciphera Pharms".
 - `09_cber.py`: CBER's pages keep only recent letters, so first-approval dates are **curated by hand** (`CURATED`, `BLOOD`); pages supply BLA number, manufacturer and indication. Add new CBER products to those dicts and to `CBER_TA`/`CBER_GENE` in `taxonomy.py`.
 - `02_enrich.py`: openFDA label text, with DailyMed as a fallback for labels openFDA lacks; any indication still blank goes in `USE_OVERRIDE` (`taxonomy.py`).
+- `tools/config.json` (read via `config.py`): the window start, as-of date (`null` = today, or `PH1_TO_FDA_TODAY`) and cohort/crawl years; every step imports it, nothing hard-codes dates.
 - `07_build.py`: revenue model, company cards, writes `data.js`. `ANCHOR` holds editorial peak-sales overrides.
 
 Large raw crawls (`data/trials_*_raw.json`, `approvals_raw.json`, `approvals_enriched.json`) are gitignored and regenerated; `data/approvals_clean.json`, `programs.json`, `expansions.json`, `cber_*.json` and `data.js` are committed.
@@ -43,7 +44,7 @@ Large raw crawls (`data/trials_*_raw.json`, `approvals_raw.json`, `approvals_enr
 
 - **Revenue is modelled, not reported.** Never present it as actuals. The Buckets plot's sales do not depend on approval count; say so if you change it.
 - **Funnel rates are biased.** Failures that cannot be identified are not counted, and combination-arm partners, CBER blood programs and renamed assets distort them. Method text states the pooled rates and the direction of bias; update those numbers when the cohort changes (`index.html` Method tab, `README.md`).
-- **Counts are written in prose** in `README.md` and the Method tab (approvals, cards, anchors, pooled rates). After a data change, grep for stale numbers.
+- **Counts in prose are generated.** `07_build.py` writes them to `meta.prose` in `data.js`; the page fills `<span data-fill="key">` elements from it, and the build rewrites the `<!-- p:key -->…<!-- /p -->` markers in `README.md`. Do not type those numbers by hand. The industry benchmark rates and the yearly CDER totals are static editorial text.
 - CBER products have no orphan, priority or supplement data; keep them out of those statistics and out of the funnel, card rates, Buckets and Product Pipelines (`06_programs.py` marks them `cohort: false`).
 - "Approved" on Product Pipelines means the condition is mentioned in the current label (keyword match), and efficacy supplements are a proxy for new indications.
 - BD201 reading citations were written from memory; keep the "check each citation" footnote.

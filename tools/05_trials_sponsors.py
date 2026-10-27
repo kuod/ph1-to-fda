@@ -14,7 +14,7 @@ spec.loader.exec_module(t4)
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 U = "https://clinicaltrials.gov/api/v2/studies"
-FROM, TO = "2008-01-01", "2018-12-31"
+from config import CRAWL_FROM as FROM, CRAWL_TO as TO
 
 SPONSORS = {
     "Pfizer": ["Pfizer", "Wyeth", "Seagen", "Array BioPharma", "Medivation", "Arena Pharmaceuticals", "Biohaven", "Global Blood Therapeutics"],

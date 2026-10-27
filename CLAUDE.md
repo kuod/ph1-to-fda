@@ -19,7 +19,7 @@ The site has no build step: open `index.html` directly. `data.js` (`window.DATA 
    - Each tab keeps its state in a small object (`F` funnel, `C` cards, `A` approvals, `P` products, `B` buckets, `R` revenue, `W` flow, `G` the shared "include earlier-approved drugs" toggle).
    - **Do not call a builder twice**: it re-adds event listeners and rows end up toggling twice. To refresh a built tab, set state and call its render function.
    - Interpolate any data string into `innerHTML` through `esc()`.
-   - Keyboard: a MutationObserver gives `tr.row.xp` and `.chip` a tabindex, and one keydown handler turns Enter/Space into a click; SVG nodes set their own `tabindex`/`aria-label`. Keep `--ink-3` at 4.5:1 contrast or better on the cream backgrounds.
+   - Keyboard: a MutationObserver gives `tr.row.xp` and `.chip` a tabindex, and one keydown handler turns Enter/Space into a click; SVG nodes set their own `tabindex`/`aria-label`. Buckets dots use a roving tabindex (arrows move, Enter/Space pin, Esc unpins). Each sankey/scatter has a `<details class="alt">` table alternative (`#f-alt`, `#b-alt`, `#w-alt`); the funnel's has a List button per stage and ribbon, which is how ribbons are reached by keyboard. Re-fill these whenever you change what a chart draws. Keep `--ink-3` at 4.5:1 contrast or better on the cream backgrounds.
    - Expandable table rows use `tr.row.xp` plus an inserted `tr.detail`; the funnel's program list lives in the right-hand `#f-panel` (open with `F.node`, close with the ✕ button or Esc).
 
 `DATA` fields used by the page: `drugs` (each approval, including `center` CDER/CBER, `trials`, `rev`, `supps`), `programs` (funnel cohort), `cards`, `expansions` (earlier-approved drugs with efficacy supplements in the window), `products` (busiest products with per-condition pipelines).
@@ -35,6 +35,7 @@ Run in this order (`03` reads `09`'s CBER output, and `07` reads `08`'s):
 - `taxonomy.py`: sponsor → parent regexes (`PARENTS`), keyword therapeutic-area rules, hand overrides (`TA_OVERRIDE`, `CBER_TA`), condition grouping for product pipelines. **Word-boundary every short regex**: a bare substring once matched `RA PHARM` inside "Deciphera Pharms".
 - `09_cber.py`: CBER's pages keep only recent letters, so first-approval dates are **curated by hand** (`CURATED`, `BLOOD`); pages supply BLA number, manufacturer and indication. Add new CBER products to those dicts and to `CBER_TA`/`CBER_GENE` in `taxonomy.py`.
 - `02_enrich.py`: openFDA label text, with DailyMed as a fallback for labels openFDA lacks; any indication still blank goes in `USE_OVERRIDE` (`taxonomy.py`).
+- `tools/config.json` (read via `config.py`): the window start, as-of date (`null` = today, or `PH1_TO_FDA_TODAY`) and cohort/crawl years; every step imports it, nothing hard-codes dates.
 - `07_build.py`: revenue model, company cards, writes `data.js`. `ANCHOR` holds editorial peak-sales overrides.
 
 Large raw crawls (`data/trials_*_raw.json`, `approvals_raw.json`, `approvals_enriched.json`) are gitignored and regenerated; `data/approvals_clean.json`, `programs.json`, `expansions.json`, `cber_*.json` and `data.js` are committed.
@@ -43,21 +44,22 @@ Large raw crawls (`data/trials_*_raw.json`, `approvals_raw.json`, `approvals_enr
 
 - **Revenue is modelled, not reported.** Never present it as actuals. The Buckets plot's sales do not depend on approval count; say so if you change it.
 - **Funnel rates are biased.** Failures that cannot be identified are not counted, and combination-arm partners, CBER blood programs and renamed assets distort them. Method text states the pooled rates and the direction of bias; update those numbers when the cohort changes (`index.html` Method tab, `README.md`).
-- **Counts are written in prose** in `README.md` and the Method tab (approvals, cards, anchors, pooled rates). After a data change, grep for stale numbers.
+- **Counts in prose are generated.** `07_build.py` writes them to `meta.prose` in `data.js`; the page fills `<span data-fill="key">` elements from it, and the build rewrites the `<!-- p:key -->…<!-- /p -->` markers in `README.md`. Do not type those numbers by hand. The industry benchmark rates and the yearly CDER totals are static editorial text.
 - CBER products have no orphan, priority or supplement data; keep them out of those statistics and out of the funnel, card rates, Buckets and Product Pipelines (`06_programs.py` marks them `cohort: false`).
 - "Approved" on Product Pipelines means the condition is mentioned in the current label (keyword match), and efficacy supplements are a proxy for new indications.
 - BD201 reading citations were written from memory; keep the "check each citation" footnote.
 
 ## Checks
 
-No test suite. CI (`.github/workflows/check.yml`) runs:
+CI (`.github/workflows/check.yml`) runs:
 
 ```sh
 node tools/check-scripts.js   # syntax-check the inline script
 node tools/check-data.js      # sanity-check data.js (unique ids, 10 revenue years, rates in [0,1], bands)
+npm ci && npx playwright install chromium && npm run test:ui   # tests/smoke.js
 ```
 
-Also open `index.html` in a browser and click through the tabs after any change; the checks do not catch rendering or interaction bugs.
+`tests/smoke.js` (Playwright) opens every tab, exercises the funnel panel, expandable rows, include toggle, filters and the BD201 accordion, and fails on console errors or horizontal overflow at 390px. Add a step there when you add an interaction. Still open `index.html` in a browser after visual changes.
 
 ## Git
 

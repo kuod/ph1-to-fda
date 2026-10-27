@@ -26,7 +26,7 @@ HALT = {"TERMINATED", "WITHDRAWN", "SUSPENDED"}
 # big-sponsor crawl finds only a few of their programs, so counting their failures without their successes would drag the hit rate down.
 CBER = re.compile(r"vaccin|toxoid|conjugate|virus.like|mrna|\baav|adenovir|lentivir|\bad26\b|leucel|\bcar[- ]?t|-cel\b|cabtagene|cell therapy|gene therapy|immunoglobulin|\bivig\b|antihemophilic|factor (viii|ix|x)\b|coagulation factor|plasma|albumin|allergen|\bbcg\b|\bmenveo|denvax", re.I)
 OK_TYPES = {"DRUG", "BIOLOGICAL", "GENETIC", "COMBINATION_PRODUCT"}
-COHORT_FROM, COHORT_TO = 2009, 2018
+from config import COHORT_FROM, COHORT_TO
 STEM = re.compile(r"(mab|nib|stat|vir|gliptin|gliflozin|tide|ase|cept|parib|ciclib|lisib|tinib|rsen|siran|dipine|sartan|prazole|mycin|statin|oxetine|zomib|lutamide|gliptin|limus|setron|pitant|gepant|degib|metinib|rafenib)$")
 
 

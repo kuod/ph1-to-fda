@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 sys.path.insert(0, os.path.dirname(__file__))
 from common import get_json, get_text
 
-START = dt.date(2016, 10, 21)
+from config import START
 OFDA = "https://api.fda.gov/drug/drugsfda.json"
 OFFICIAL = {2016: 22, 2017: 46, 2018: 59, 2019: 48, 2020: 53}  # CDER annual totals
 

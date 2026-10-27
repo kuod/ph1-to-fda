@@ -1,5 +1,7 @@
 """Shared helpers: cached HTTP GETs so the pipeline is re-runnable and polite."""
-import hashlib, json, os, re, time, requests
+import hashlib, json, os, re, sys, time, requests
+sys.path.insert(0, os.path.dirname(__file__))
+from config import START_YMD
 
 CACHE = os.environ.get("PH1_TO_FDA_CACHE") or os.environ.get("EASY_AS_CACHE") or os.path.join(os.path.dirname(__file__), "..", ".cache")
 os.makedirs(CACHE, exist_ok=True)
@@ -54,7 +56,7 @@ def get_text(url, retries=4, max_age_hours=None):
 _MKT = {}
 
 
-def marketed_before(word, cutoff="20161021"):
+def marketed_before(word, cutoff=START_YMD):
     """True if an NDA/BLA with this active ingredient (or brand) was approved before the window opened.
     Ingredient search uses a stem wildcard so salt/ester names still match (isavuconazole ~ isavuconazonium)."""
     word = re.sub(r"[^A-Za-z]", "", word)

@@ -22,7 +22,7 @@ def load(name):
 enrich, classify, trials = load("02_enrich"), load("03_classify"), load("04_trials_approved")
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 OFDA = "https://api.fda.gov/drug/drugsfda.json"
-W0, W1 = "20161021", "20261020"
+from config import START_YMD as W0, ASOF_YMD as W1, ASOF
 TOP = 60
 
 
@@ -88,7 +88,7 @@ def conditions_matrix(studies, label=""):
             r["active"] += st in trials_active
             if st in ("TERMINATED", "WITHDRAWN", "SUSPENDED"):
                 r["halted"] += 1
-                hy = int(s["end"][:4]) if s["end"][:4].isdigit() and int(s["end"][:4]) <= 2026 else y
+                hy = int(s["end"][:4]) if s["end"][:4].isdigit() and int(s["end"][:4]) <= ASOF.year else y
                 r["h"].append(dict(id=s["id"], ph=lv, y=hy, st=st.title(), why=(s["why"] or "")[:160]))
             r["done"] += st == "COMPLETED"
             if y:
@@ -114,7 +114,7 @@ def pipeline(p):
     halts = collections.Counter()
     for s in sts:
         if s["status"] in ("TERMINATED", "WITHDRAWN", "SUSPENDED"):
-            y = s["end"][:4] if s["end"][:4].isdigit() and int(s["end"][:4]) <= 2026 else s["start"][:4]
+            y = s["end"][:4] if s["end"][:4].isdigit() and int(s["end"][:4]) <= ASOF.year else s["start"][:4]
             if y.isdigit():
                 halts[y] += 1
     return dict(n=len(sts), conds=conditions_matrix(sts, p.get("label", "")), hy=dict(sorted(halts.items())))

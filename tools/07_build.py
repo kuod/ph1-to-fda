@@ -9,7 +9,10 @@ import collections, datetime as dt, json, math, os, re, statistics, sys
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 OUT = os.path.join(os.path.dirname(__file__), "..", "data.js")
-TODAY = dt.date.fromisoformat(os.environ.get("PH1_TO_FDA_TODAY", dt.date.today().isoformat()))  # drives years-elapsed and the page's end date
+sys.path.insert(0, os.path.dirname(__file__))
+from config import ASOF as TODAY, START, COHORT_FROM, COHORT_TO, CRAWL_FROM, CRAWL_TO  # window and as-of date: tools/config.json (PH1_TO_FDA_TODAY overrides)
+README = os.path.join(os.path.dirname(__file__), "..", "README.md")
+MIN_CARD = 6  # approvals a big sponsor needs to get a baseball card
 HALT = {"TERMINATED", "WITHDRAWN", "SUSPENDED"}
 BIG = {"Pfizer", "Merck & Co.", "Novartis", "Roche", "AstraZeneca", "GSK", "Sanofi", "Eli Lilly", "Bristol Myers Squibb", "Johnson & Johnson",
        "AbbVie", "Amgen", "Takeda", "Gilead Sciences", "Bayer", "Novo Nordisk", "Regeneron", "Boehringer Ingelheim", "Vertex", "Astellas",
@@ -124,7 +127,7 @@ def card(company, drugs, progs):
     dev = [d["trials"]["devYears"] for d in drugs if d["trials"]["devYears"] is not None and d["center"] != "CBER"]  # CBER histories come from a sponsor-restricted, noisier crawl
     by_y = collections.Counter(d["year"] for d in drugs)
     return dict(
-        company=company, approvals=len(drugs), byYear=[by_y.get(y, 0) for y in range(2016, 2027)],
+        company=company, approvals=len(drugs), byYear=[by_y.get(y, 0) for y in range(START.year, TODAY.year + 1)],
         orphan=round(sum(d["orphan"] for d in drugs if d["center"] != "CBER") / max(1, sum(1 for d in drugs if d["center"] != "CBER")), 2),
         topTA=collections.Counter(d["ta"] for d in drugs).most_common(1)[0][0],
         topMod=collections.Counter(d["modality"] for d in drugs).most_common(1)[0][0],
@@ -137,6 +140,14 @@ def card(company, drugs, progs):
         flagship=max(drugs, key=lambda d: d["rev"]["peak"])["brand"],
         rev10=round(sum(sum(d["rev"]["y"]) for d in drugs)),
     )
+
+
+def write_readme_prose(p, start, today):
+    """Fill the counts in README.md, written as <!-- p:key -->value<!-- /p -->, from the data just built."""
+    words = {6: "six", 5: "five", 7: "seven", 8: "eight", 4: "four"}
+    vals = dict(p, minCardWord=words.get(p["minCard"], str(p["minCard"])), start=start.strftime("%B %Y"), end=today.strftime("%B %Y"))
+    txt = re.sub(r"<!-- p:(\w+) -->.*?<!-- /p -->", lambda m: f"<!-- p:{m.group(1)} -->{vals[m.group(1)]}<!-- /p -->", open(README).read())
+    open(README, "w").write(txt)
 
 
 def main():
@@ -159,7 +170,7 @@ def main():
     pr = [dict(company=p["company"], name=p["name"], reached=p["reached"], outcome=p["outcome"], ta=p["ta"], approved=p["approved"],
                y=int(p["first"]["1"][:4]) if p["first"]["1"] else None, st=p["started"], ha=p["halted"], cd=p["conds"], why=p["why"][:1]) for p in progs if p["cohort"]]
     counts = collections.Counter(d["company"] for d in drugs)
-    cards = [card(c, [d for d in drugs if d["company"] == c], progs) for c, n in counts.items() if n >= 6 and c in BIG]
+    cards = [card(c, [d for d in drugs if d["company"] == c], progs) for c, n in counts.items() if n >= MIN_CARD and c in BIG]
     cards.sort(key=lambda c: -c["approvals"])
     # approvals won in the window by drugs first approved earlier (the toggle), and the products with many approvals
     ex = json.load(open(os.path.join(D, "expansions.json")))
@@ -178,7 +189,16 @@ def main():
     for e in expansions:
         if e["prod"]:
             e["id"] = e["id"]
-    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr), expansions=len(expansions))
+    cder = [d for d in drugs if d["center"] != "CBER"]
+    res = [p for p in pr if p["outcome"] != "ongoing"]
+    r2, r3 = [p for p in res if p["reached"] >= 2], [p for p in res if p["reached"] >= 3]
+    ok, ok3 = [p for p in res if p["outcome"] == "approved"], [p for p in r3 if p["outcome"] == "approved"]
+    pc = lambda n, d: round(100 * n / d)
+    prose = dict(nDrugs=len(drugs), nCder=len(cder), nCber=len(drugs) - len(cder), nCards=len(cards), minCard=MIN_CARD, cohortFrom=COHORT_FROM, cohortTo=COHORT_TO, crawlFrom=CRAWL_FROM[:4], crawlTo=CRAWL_TO[:4], nSponsors=len(BIG),
+                 nAnchor=len(ANCHOR), nAnchorCber=sum(1 for d in drugs if d["id"] in ANCHOR and d["center"] == "CBER"),
+                 p1=pc(len(r2), len(res)), p2=pc(len(r3), len(r2)), p3=pc(len(ok3), len(r3)), overall=pc(len(ok), len(res)))
+    meta = dict(built=TODAY.isoformat(), from_=START.isoformat(), n=len(drugs), cohort=f"{COHORT_FROM}-{COHORT_TO}", programs=len(pr), expansions=len(expansions), prose=prose)
+    write_readme_prose(prose, START, TODAY)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:
         f.write("window.DATA=" + json.dumps(dict(meta=meta, drugs=drugs, programs=pr, cards=cards, expansions=expansions, products=products), separators=(",", ":")) + ";\n")

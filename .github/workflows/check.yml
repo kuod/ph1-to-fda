@@ -10,3 +10,6 @@ jobs:
           node-version: 22
       - run: node tools/check-scripts.js
       - run: node tools/check-data.js
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:ui

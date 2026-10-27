@@ -8092,7 +8092,7 @@
   "modality": "Blood / plasma product",
   "priority": "",
   "orphan": false,
-  "app": "",
+  "app": "BLA 125586",
   "center": "CBER"
  },
  {
@@ -8252,7 +8252,7 @@
   "modality": "Blood / plasma product",
   "priority": "",
   "orphan": false,
-  "app": "",
+  "app": "BLA 125683",
   "center": "CBER"
  },
  {
@@ -8403,7 +8403,7 @@
   "id": "prevnar-20",
   "brand": "Prevnar 20",
   "ingredient": "pneumococcal 20-valent conjugate vaccine",
-  "date": "2021-06-10",
+  "date": "2021-06-08",
   "year": 2021,
   "sponsor": "Wyeth Pharmaceuticals LLC",
   "company": "Pfizer",
@@ -8656,6 +8656,22 @@
   "center": "CBER"
  },
  {
+  "id": "arexvy",
+  "brand": "Arexvy",
+  "ingredient": "respiratory syncytial virus vaccine, adjuvanted",
+  "date": "2023-05-03",
+  "year": 2023,
+  "sponsor": "GlaxoSmithKline Biologicals SA",
+  "company": "GSK",
+  "use": "AREXVY is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in: Individuals 60 years of age and older; Individuals 18 through 59 years of age",
+  "ta": "Infectious disease",
+  "modality": "Vaccine",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125775",
+  "center": "CBER"
+ },
+ {
   "id": "vyjuvek",
   "brand": "Vyjuvek",
   "ingredient": "beremagene geperpavec-svdt",
@@ -8669,22 +8685,6 @@
   "priority": "",
   "orphan": false,
   "app": "BLA 125774",
-  "center": "CBER"
- },
- {
-  "id": "arexvy",
-  "brand": "Arexvy",
-  "ingredient": "respiratory syncytial virus vaccine, adjuvanted",
-  "date": "2023-05-23",
-  "year": 2023,
-  "sponsor": "GlaxoSmithKline Biologicals SA",
-  "company": "GSK",
-  "use": "AREXVY is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in: Individuals 60 years of age and older; Individuals 18 through 59 years of age",
-  "ta": "Infectious disease",
-  "modality": "Vaccine",
-  "priority": "",
-  "orphan": false,
-  "app": "BLA 125775",
   "center": "CBER"
  },
  {
@@ -8812,7 +8812,7 @@
   "modality": "Vaccine",
   "priority": "",
   "orphan": false,
-  "app": "",
+  "app": "BLA 125777",
   "center": "CBER"
  },
  {
@@ -8876,7 +8876,7 @@
   "modality": "Cell therapy",
   "priority": "",
   "orphan": false,
-  "app": "",
+  "app": "BLA 125773",
   "center": "CBER"
  },
  {
@@ -8915,7 +8915,7 @@
   "id": "mresvia",
   "brand": "Mresvia",
   "ingredient": "respiratory syncytial virus vaccine",
-  "date": "2024-06-14",
+  "date": "2024-05-31",
   "year": 2024,
   "sponsor": "ModernaTX, Inc.",
   "company": "Moderna",
@@ -9219,7 +9219,7 @@
   "id": "tregzi",
   "brand": "Tregzi",
   "ingredient": "allogeneic regulatory t cell immunotherapy with hspc and t cells-vldq",
-  "date": "2026-07-01",
+  "date": "2026-06-30",
   "year": 2026,
   "sponsor": "Orca Biosystems Inc",
   "company": "Orca Biosystems",

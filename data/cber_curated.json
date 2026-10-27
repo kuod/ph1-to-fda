@@ -1,0 +1,1271 @@
+{
+ "as_of": "2026-10-27",
+ "about": "First-approval dates for CBER products (cell and gene therapy, vaccines, blood and plasma products), read by tools/09_cber.py. date is the effective original BLA approval date. purple_book is the Original approval date in FDA's Purple Book for that BLA; sources are FDA pages and letters. status is 'verified' when the date matches a primary FDA record named in verified_by, otherwise 'unverified'; 'note' explains any place the records disagree.",
+ "purple_book_file": "https://www.accessdata.fda.gov/drugsatfda_docs/PurpleBook/2026/purplebook-search-September-data-download.csv",
+ "products": {
+  "Maci": {
+   "date": "2016-12-13",
+   "cat": "Cell or gene therapy",
+   "bla": "125603",
+   "purple_book": "2016-12-13",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/maci-autologous-cultured-chondrocytes-porcine-collagen-membrane"
+   ],
+   "verified_by": [
+    "purple_book"
+   ],
+   "status": "verified"
+  },
+  "Kymriah": {
+   "date": "2017-08-30",
+   "cat": "Cell or gene therapy",
+   "bla": "125646",
+   "purple_book": "2017-08-30",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/kymriah",
+    "https://www.fda.gov/media/106989/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Yescarta": {
+   "date": "2017-10-18",
+   "cat": "Cell or gene therapy",
+   "bla": "125643",
+   "purple_book": "2017-10-18",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/yescarta",
+    "https://www.fda.gov/media/108458/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Luxturna": {
+   "date": "2017-12-19",
+   "cat": "Cell or gene therapy",
+   "bla": "125610",
+   "purple_book": "2017-12-19",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/luxturna",
+    "https://www.fda.gov/media/109487/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Zolgensma": {
+   "date": "2019-05-24",
+   "cat": "Cell or gene therapy",
+   "bla": "125694",
+   "purple_book": "2019-05-24",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/zolgensma",
+    "https://www.fda.gov/media/126130/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Tecartus": {
+   "date": "2020-07-24",
+   "cat": "Cell or gene therapy",
+   "bla": "125703",
+   "purple_book": "2020-07-24",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecartus",
+    "https://www.fda.gov/media/140415/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Breyanzi": {
+   "date": "2021-02-05",
+   "cat": "Cell or gene therapy",
+   "bla": "125714",
+   "purple_book": "2021-02-05",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/breyanzi",
+    "https://www.fda.gov/media/145712/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Abecma": {
+   "date": "2021-03-26",
+   "cat": "Cell or gene therapy",
+   "bla": "125736",
+   "purple_book": "2021-03-03",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/abecma",
+    "https://www.fda.gov/media/147062/download"
+   ],
+   "note": "Approval letter (media/147062, STN BL 125736/0) is dated March 26, 2021. The Purple Book lists March 3, 2021, which looks like a data-entry slip; the letter is taken as authoritative.",
+   "verified_by": [
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Stratagraft": {
+   "date": "2021-06-15",
+   "cat": "Cell or gene therapy",
+   "bla": "125730",
+   "purple_book": "2021-06-15",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/stratagraft",
+    "https://www.fda.gov/media/150131/download"
+   ],
+   "note": "Purple Book status: Voluntarily Revoked.",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Rethymic": {
+   "date": "2021-10-08",
+   "cat": "Cell or gene therapy",
+   "bla": "125685",
+   "purple_book": "2021-10-08",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/rethymic",
+    "https://www.fda.gov/media/152935/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Carvykti": {
+   "date": "2022-02-28",
+   "cat": "Cell or gene therapy",
+   "bla": "125746",
+   "purple_book": "2022-02-28",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/carvykti",
+    "https://www.fda.gov/media/156572/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Zynteglo": {
+   "date": "2022-08-17",
+   "cat": "Cell or gene therapy",
+   "bla": "125717",
+   "purple_book": "2022-08-17",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/zynteglo",
+    "https://www.fda.gov/media/160994/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Skysona": {
+   "date": "2022-09-16",
+   "cat": "Cell or gene therapy",
+   "bla": "125755",
+   "purple_book": "2022-09-16",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/skysona",
+    "https://www.fda.gov/media/161665/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Hemgenix": {
+   "date": "2022-11-22",
+   "cat": "Cell or gene therapy",
+   "bla": "125772",
+   "purple_book": "2022-11-22",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/hemgenix",
+    "https://www.fda.gov/media/163466/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Adstiladrin": {
+   "date": "2022-12-16",
+   "cat": "Cell or gene therapy",
+   "bla": "125700",
+   "purple_book": "2022-12-16",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/adstiladrin",
+    "https://www.fda.gov/media/164030/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Omisirge": {
+   "date": "2023-04-17",
+   "cat": "Cell or gene therapy",
+   "bla": "125738",
+   "purple_book": "2023-04-17",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/omisirge",
+    "https://www.fda.gov/media/167203/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Vyjuvek": {
+   "date": "2023-05-19",
+   "cat": "Cell or gene therapy",
+   "bla": "125774",
+   "purple_book": "2023-05-19",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vyjuvek",
+    "https://www.fda.gov/media/168356/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Elevidys": {
+   "date": "2023-06-22",
+   "cat": "Cell or gene therapy",
+   "bla": "125781",
+   "purple_book": "2023-06-22",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/tissue-tissue-products/elevidys"
+   ],
+   "verified_by": [
+    "purple_book"
+   ],
+   "status": "verified"
+  },
+  "Lantidra": {
+   "date": "2023-06-28",
+   "cat": "Cell or gene therapy",
+   "bla": "125734",
+   "purple_book": "2023-06-28",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/lantidra"
+   ],
+   "verified_by": [
+    "purple_book"
+   ],
+   "status": "verified"
+  },
+  "Roctavian": {
+   "date": "2023-06-29",
+   "cat": "Cell or gene therapy",
+   "bla": "125720",
+   "purple_book": "2023-06-29",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/roctavian",
+    "https://www.fda.gov/media/169963/download"
+   ],
+   "note": "The page's letter is a replacement dated June 30, 2023; it says the effective approval date remains June 29, 2023 (matches the Purple Book).",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Casgevy": {
+   "date": "2023-12-08",
+   "cat": "Cell or gene therapy",
+   "bla": "125787",
+   "purple_book": "2023-12-08",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/casgevy",
+    "https://www.fda.gov/media/174618/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Lyfgenia": {
+   "date": "2023-12-08",
+   "cat": "Cell or gene therapy",
+   "bla": "125788",
+   "purple_book": "2023-12-08",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/lyfgenia",
+    "https://www.fda.gov/media/174617/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Amtagvi": {
+   "date": "2024-02-16",
+   "cat": "Cell or gene therapy",
+   "bla": "125773",
+   "purple_book": "2024-02-16",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/amtagvi",
+    "https://www.fda.gov/media/176418/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Lenmeldy": {
+   "date": "2024-03-18",
+   "cat": "Cell or gene therapy",
+   "bla": "125758",
+   "purple_book": "2024-03-18",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/lenmeldy",
+    "https://www.fda.gov/media/177122/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Beqvez": {
+   "date": "2024-04-25",
+   "cat": "Cell or gene therapy",
+   "bla": "125786",
+   "purple_book": "2024-04-25",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/beqvez",
+    "https://www.fda.gov/media/178139/download"
+   ],
+   "note": "Purple Book status: Voluntarily Revoked.",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Tecelra": {
+   "date": "2024-08-01",
+   "cat": "Cell or gene therapy",
+   "bla": "125789",
+   "purple_book": "2024-08-01",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecelra",
+    "https://www.fda.gov/media/180568/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Aucatzyl": {
+   "date": "2024-11-08",
+   "cat": "Cell or gene therapy",
+   "bla": "125813",
+   "purple_book": "2024-11-08",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/aucatzyl",
+    "https://www.fda.gov/media/183464/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Kebilidi": {
+   "date": "2024-11-13",
+   "cat": "Cell or gene therapy",
+   "bla": "125722",
+   "purple_book": "2024-11-13",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/kebilidi",
+    "https://www.fda.gov/media/183536/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Regenecyte": {
+   "date": "2024-11-20",
+   "cat": "Cell or gene therapy",
+   "bla": "125764",
+   "purple_book": "2024-11-21",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/regenecyte",
+    "https://www.fda.gov/media/183774/download"
+   ],
+   "note": "Approval letter (media/183774, STN BL 125764/0) is dated November 20, 2024; the Purple Book lists November 21, 2024. The letter is taken as authoritative.",
+   "verified_by": [
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Ryoncil": {
+   "date": "2024-12-18",
+   "cat": "Cell or gene therapy",
+   "bla": "125706",
+   "purple_book": "2024-12-18",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/ryoncil",
+    "https://www.fda.gov/media/184605/download"
+   ],
+   "note": "The page labels its letter December 19, 2024, but the letter itself is dated December 18, 2024 (matches the Purple Book).",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Symvess": {
+   "date": "2024-12-19",
+   "cat": "Cell or gene therapy",
+   "bla": "125812",
+   "purple_book": "2024-12-19",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/symvess",
+    "https://www.fda.gov/media/184644/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Encelto": {
+   "date": "2025-03-05",
+   "cat": "Cell or gene therapy",
+   "bla": "125798",
+   "purple_book": "2025-03-05",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/center-biologics-evaluation-and-research-cber-product-approval-information/encelto",
+    "https://www.fda.gov/media/185733/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Zevaskyn": {
+   "date": "2025-04-28",
+   "cat": "Cell or gene therapy",
+   "bla": "125807",
+   "purple_book": "2025-04-28",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/zevaskyn",
+    "https://www.fda.gov/media/186513/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Papzimeos": {
+   "date": "2025-08-14",
+   "cat": "Cell or gene therapy",
+   "bla": "125832",
+   "purple_book": "2025-08-14",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/papzimeos",
+    "https://www.fda.gov/media/188256/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Itvisma": {
+   "date": "2025-11-24",
+   "cat": "Cell or gene therapy",
+   "bla": "125856",
+   "purple_book": "2025-11-24",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/itvisma",
+    "https://www.fda.gov/media/189856/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Waskyra": {
+   "date": "2025-12-09",
+   "cat": "Cell or gene therapy",
+   "bla": "125846",
+   "purple_book": "2025-12-09",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/waskyra",
+    "https://www.fda.gov/media/190097/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Otarmeni": {
+   "date": "2026-04-23",
+   "cat": "Cell or gene therapy",
+   "bla": "125874",
+   "purple_book": "2026-04-23",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/otarmeni",
+    "https://www.fda.gov/media/192111/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Tregzi": {
+   "date": "2026-06-30",
+   "cat": "Cell or gene therapy",
+   "bla": "125868",
+   "purple_book": "2026-06-30",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/tregzi",
+    "https://www.fda.gov/media/193424/download"
+   ],
+   "note": "Was 2026-07-01, the date of the replacement letter. That letter (media/193424) says the effective approval date remains June 30, 2026.",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Genglycos": {
+   "date": "2026-08-19",
+   "cat": "Cell or gene therapy",
+   "bla": "125858",
+   "purple_book": "2026-08-19",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/genglycos",
+    "https://www.fda.gov/media/194371/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Fayuvi": {
+   "date": "2026-09-17",
+   "cat": "Cell or gene therapy",
+   "bla": "125845",
+   "purple_book": "2026-09-17",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/fayuvi",
+    "https://www.fda.gov/media/194921/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "HPC, Cord Blood - MD Anderson Cord Blood Bank": {
+   "date": "2018-06-21",
+   "cat": "Cell or gene therapy",
+   "bla": "125657",
+   "purple_book": "2018-06-21",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-md-anderson-cord-blood-bank",
+    "https://www.fda.gov/media/114120/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Shingrix": {
+   "date": "2017-10-20",
+   "cat": "Vaccine",
+   "bla": "125614",
+   "purple_book": "2017-10-20",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/shingrix",
+    "https://www.fda.gov/media/108274/download"
+   ],
+   "note": "BLA 125614 was assigned before the window but first licensure is October 20, 2017 (Purple Book original approval).",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Heplisav-B": {
+   "date": "2017-11-09",
+   "cat": "Vaccine",
+   "bla": "125428",
+   "purple_book": "2017-11-09",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/heplisav-b",
+    "https://www.fda.gov/media/108828/download"
+   ],
+   "note": "BLA 125428 predates the window (earlier submission), but first licensure is November 9, 2017 (Purple Book original approval and FDA page letter).",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Vaxelis": {
+   "date": "2018-12-21",
+   "cat": "Vaccine",
+   "bla": "125563",
+   "purple_book": "2018-12-21",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaxelis",
+    "https://www.fda.gov/media/119466/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Dengvaxia": {
+   "date": "2019-05-01",
+   "cat": "Vaccine",
+   "bla": "125682",
+   "purple_book": "2019-05-01",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/dengvaxia",
+    "https://www.fda.gov/media/124402/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Jynneos": {
+   "date": "2019-09-24",
+   "cat": "Vaccine",
+   "bla": "125678",
+   "purple_book": "2019-09-24",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/jynneos",
+    "https://www.fda.gov/media/131079/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Ervebo": {
+   "date": "2019-12-19",
+   "cat": "Vaccine",
+   "bla": "125690",
+   "purple_book": "2019-12-19",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/ervebo",
+    "https://www.fda.gov/media/133757/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Audenz": {
+   "date": "2020-01-31",
+   "cat": "Vaccine",
+   "bla": "125692",
+   "purple_book": "2020-01-31",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/audenz",
+    "https://www.fda.gov/media/134855/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "MenQuadfi": {
+   "date": "2020-04-23",
+   "cat": "Vaccine",
+   "bla": "125701",
+   "purple_book": "2020-04-23",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/menquadfi",
+    "https://www.fda.gov/media/137331/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Prevnar 20": {
+   "date": "2021-06-08",
+   "cat": "Vaccine",
+   "bla": "125731",
+   "purple_book": "2021-06-08",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/prevnar-20",
+    "https://www.fda.gov/media/150021/download",
+    "https://www.fda.gov/media/150388/download"
+   ],
+   "note": "Was 2021-06-10, the date of the replacement letter. That letter (media/150021) says the effective approval date remains June 8, 2021, the date of the original letter; the Summary Basis for Regulatory Action (media/150388) is dated June 8, 2021.",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Vaxneuvance": {
+   "date": "2021-07-16",
+   "cat": "Vaccine",
+   "bla": "125741",
+   "purple_book": "2021-07-16",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/vaxneuvance",
+    "https://www.fda.gov/media/150820/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Ticovac": {
+   "date": "2021-08-13",
+   "cat": "Vaccine",
+   "bla": "125740",
+   "purple_book": "2021-08-13",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/ticovac",
+    "https://www.fda.gov/media/151516/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Comirnaty": {
+   "date": "2021-08-23",
+   "cat": "Vaccine",
+   "bla": "125742",
+   "purple_book": "2021-08-23",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/comirnaty",
+    "https://www.fda.gov/media/151710/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Prehevbrio": {
+   "date": "2021-11-30",
+   "cat": "Vaccine",
+   "bla": "125737",
+   "purple_book": "2021-11-30",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/prehevbrio",
+    "https://www.fda.gov/media/154560/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Spikevax": {
+   "date": "2022-01-31",
+   "cat": "Vaccine",
+   "bla": "125752",
+   "purple_book": "2022-01-31",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/spikevax",
+    "https://www.fda.gov/media/155815/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Priorix": {
+   "date": "2022-06-03",
+   "cat": "Vaccine",
+   "bla": "125748",
+   "purple_book": "2022-06-03",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/priorix",
+    "https://www.fda.gov/media/158962/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Arexvy": {
+   "date": "2023-05-03",
+   "cat": "Vaccine",
+   "bla": "125775",
+   "purple_book": "2023-05-03",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/arexvy",
+    "https://www.fda.gov/media/167806/download",
+    "https://www.fda.gov/media/168519/download"
+   ],
+   "note": "Was 2023-05-23, the date of the replacement letter. That letter (media/167806) says the effective approval date remains May 3, 2023; the Summary Basis for Regulatory Action (media/168519) is dated May 3, 2023.",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Abrysvo": {
+   "date": "2023-05-31",
+   "cat": "Vaccine",
+   "bla": "125769",
+   "purple_book": "2023-05-31",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/abrysvo",
+    "https://www.fda.gov/media/168890/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Cyfendus": {
+   "date": "2023-07-20",
+   "cat": "Vaccine",
+   "bla": "125761",
+   "purple_book": "2023-07-20",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/cyfendus",
+    "https://www.fda.gov/media/170463/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Penbraya": {
+   "date": "2023-10-20",
+   "cat": "Vaccine",
+   "bla": "125770",
+   "purple_book": "2023-10-20",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/penbraya",
+    "https://www.fda.gov/media/173225/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Ixchiq": {
+   "date": "2023-11-09",
+   "cat": "Vaccine",
+   "bla": "125777",
+   "purple_book": "2023-11-09",
+   "sources": [],
+   "note": "No current FDA product page (Purple Book status: Revoked); date from the Purple Book. Still a first approval in the window.",
+   "verified_by": [
+    "purple_book"
+   ],
+   "status": "verified"
+  },
+  "Mresvia": {
+   "date": "2024-05-31",
+   "cat": "Vaccine",
+   "bla": "125796",
+   "purple_book": "2024-05-31",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/mresvia",
+    "https://www.fda.gov/media/179015/download",
+    "https://www.fda.gov/media/179634/download"
+   ],
+   "note": "Was 2024-06-14, the date of the replacement letter. That letter (media/179015) says the effective approval date remains May 31, 2024; the Summary Basis for Regulatory Action (media/179634) is dated May 31, 2024.",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Capvaxive": {
+   "date": "2024-06-17",
+   "cat": "Vaccine",
+   "bla": "125814",
+   "purple_book": "2024-06-17",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/capvaxive",
+    "https://www.fda.gov/media/179428/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Vimkunya": {
+   "date": "2025-02-14",
+   "cat": "Vaccine",
+   "bla": "125820",
+   "purple_book": "2025-02-14",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vimkunya",
+    "https://www.fda.gov/media/185478/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Penmenvy": {
+   "date": "2025-02-14",
+   "cat": "Vaccine",
+   "bla": "125819",
+   "purple_book": "2025-02-14",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/penmenvy",
+    "https://www.fda.gov/media/185482/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Nuvaxovid": {
+   "date": "2025-05-16",
+   "cat": "Vaccine",
+   "bla": "125817",
+   "purple_book": "2025-05-16",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/vaccines/nuvaxovid",
+    "https://www.fda.gov/media/186545/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Mnexspike": {
+   "date": "2025-05-30",
+   "cat": "Vaccine",
+   "bla": "125835",
+   "purple_book": "2025-05-30",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/mnexspike",
+    "https://www.fda.gov/media/186740/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Rebinyn": {
+   "date": "2017-05-31",
+   "cat": "Blood product",
+   "bla": "125611",
+   "purple_book": "2017-05-31",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/rebinyn",
+    "https://www.fda.gov/media/105612/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Fibryga": {
+   "date": "2017-06-07",
+   "cat": "Blood product",
+   "bla": "125612",
+   "purple_book": "2017-06-07",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/fibryga",
+    "https://www.fda.gov/media/105873/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Haegarda": {
+   "date": "2017-06-22",
+   "cat": "Blood product",
+   "bla": "125606",
+   "purple_book": "2017-06-22",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/haegarda"
+   ],
+   "note": "FDA's Haegarda page lists only a September 2020 supplement letter, so the date rests on the Purple Book record alone.",
+   "verified_by": [
+    "purple_book"
+   ],
+   "status": "verified"
+  },
+  "Kedrab": {
+   "date": "2017-08-23",
+   "cat": "Blood product",
+   "bla": "125613",
+   "purple_book": "2017-08-23",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/kedrab",
+    "https://www.fda.gov/media/106802/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Andexxa": {
+   "date": "2018-05-03",
+   "cat": "Blood product",
+   "bla": "125586",
+   "purple_book": "2018-05-03",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/andexxa",
+    "https://www.fda.gov/media/113285/download"
+   ],
+   "note": "Purple Book status: Revoked. The FDA page lists the May 3, 2018 approval letter.",
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Panzyga": {
+   "date": "2018-08-02",
+   "cat": "Blood product",
+   "bla": "125587",
+   "purple_book": "2018-08-02",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/panzyga",
+    "https://www.fda.gov/media/115387/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Jivi": {
+   "date": "2018-08-29",
+   "cat": "Blood product",
+   "bla": "125661",
+   "purple_book": "2018-08-29",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/jivi",
+    "https://www.fda.gov/media/117185"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Cutaquig": {
+   "date": "2018-12-12",
+   "cat": "Blood product",
+   "bla": "125668",
+   "purple_book": "2018-12-12",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cutaquig",
+    "https://www.fda.gov/media/119232/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Esperoct": {
+   "date": "2019-02-19",
+   "cat": "Blood product",
+   "bla": "125671",
+   "purple_book": "2019-02-19",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/esperoct",
+    "https://www.fda.gov/media/120350/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Asceniv": {
+   "date": "2019-04-01",
+   "cat": "Blood product",
+   "bla": "125590",
+   "purple_book": "2019-04-01",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/asceniv",
+    "https://www.fda.gov/media/122533/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Xembify": {
+   "date": "2019-07-03",
+   "cat": "Blood product",
+   "bla": "125683",
+   "purple_book": "2019-07-03",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/xembify",
+    "https://www.fda.gov/media/128602/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Sevenfact": {
+   "date": "2020-04-01",
+   "cat": "Blood product",
+   "bla": "125641",
+   "purple_book": "2020-04-01",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/sevenfact",
+    "https://www.fda.gov/media/136612/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Ryplazim": {
+   "date": "2021-06-04",
+   "cat": "Blood product",
+   "bla": "125659",
+   "purple_book": "2021-06-04",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/ryplazim",
+    "https://www.fda.gov/media/149887/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Altuviiio": {
+   "date": "2023-02-22",
+   "cat": "Blood product",
+   "bla": "125771",
+   "purple_book": "2023-02-22",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/altuviiio",
+    "https://www.fda.gov/media/165595/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Balfaxar": {
+   "date": "2023-07-21",
+   "cat": "Blood product",
+   "bla": "125776",
+   "purple_book": "2023-07-21",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/balfaxar",
+    "https://www.fda.gov/media/170486/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Alyglo": {
+   "date": "2023-12-15",
+   "cat": "Blood product",
+   "bla": "125743",
+   "purple_book": "2023-12-15",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/alyglo",
+    "https://www.fda.gov/media/174897/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Fesilty": {
+   "date": "2025-12-16",
+   "cat": "Blood product",
+   "bla": "125833",
+   "purple_book": "2025-12-16",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/fesilty",
+    "https://www.fda.gov/media/190222/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  }
+ }
+}

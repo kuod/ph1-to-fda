@@ -20,27 +20,14 @@ LISTS = [
     ("Blood product", "/vaccines-blood-biologics/blood-blood-products/approved-blood-products"),
 ]
 # CBER's pages only keep recent letters (older ones sit in a 13 MB archive), so the first-approval date cannot be read
-# reliably from them. These dates are from FDA's approval announcements and are the source of truth for which products
-# count; the pages supply the BLA number, manufacturer and indication. Page letters are used to cross-check.
-CURATED = {
-    # cell and gene therapy
-    "Maci": "2016-12-13", "Kymriah": "2017-08-30", "Yescarta": "2017-10-18", "Luxturna": "2017-12-19", "Zolgensma": "2019-05-24",
-    "Tecartus": "2020-07-24", "Breyanzi": "2021-02-05", "Abecma": "2021-03-26", "Stratagraft": "2021-06-15", "Rethymic": "2021-10-08",
-    "Carvykti": "2022-02-28", "Zynteglo": "2022-08-17", "Skysona": "2022-09-16", "Hemgenix": "2022-11-22", "Adstiladrin": "2022-12-16",
-    "Omisirge": "2023-04-17", "Vyjuvek": "2023-05-19", "Elevidys": "2023-06-22", "Lantidra": "2023-06-28", "Roctavian": "2023-06-29",
-    "Casgevy": "2023-12-08", "Lyfgenia": "2023-12-08", "Amtagvi": "2024-02-16", "Lenmeldy": "2024-03-18", "Beqvez": "2024-04-25",
-    "Tecelra": "2024-08-01", "Aucatzyl": "2024-11-08", "Kebilidi": "2024-11-13", "Regenecyte": "2024-11-20", "Ryoncil": "2024-12-18",
-    "Symvess": "2024-12-19", "Encelto": "2025-03-05", "Zevaskyn": "2025-04-28", "Papzimeos": "2025-08-14", "Itvisma": "2025-11-24",
-    "Waskyra": "2025-12-09", "Otarmeni": "2026-04-23", "Tregzi": "2026-07-01", "Genglycos": "2026-08-19", "Fayuvi": "2026-09-17",
-    "HPC, Cord Blood - MD Anderson Cord Blood Bank": "2018-06-21",
-    # vaccines
-    "Shingrix": "2017-10-20", "Heplisav-B": "2017-11-09", "Vaxelis": "2018-12-21", "Dengvaxia": "2019-05-01", "Jynneos": "2019-09-24",
-    "Ervebo": "2019-12-19", "Audenz": "2020-01-31", "MenQuadfi": "2020-04-23", "Prevnar 20": "2021-06-10", "Vaxneuvance": "2021-07-16",
-    "Ticovac": "2021-08-13", "Comirnaty": "2021-08-23", "Prehevbrio": "2021-11-30", "Spikevax": "2022-01-31", "Priorix": "2022-06-03",
-    "Arexvy": "2023-05-23", "Abrysvo": "2023-05-31", "Cyfendus": "2023-07-20", "Penbraya": "2023-10-20", "Ixchiq": "2023-11-09",
-    "Mresvia": "2024-06-14", "Capvaxive": "2024-06-17", "Vimkunya": "2025-02-14", "Penmenvy": "2025-02-14", "Nuvaxovid": "2025-05-16",
-    "Mnexspike": "2025-05-30",
-}
+# reliably from them. The dates live in data/cber_curated.json, each with the FDA sources it was checked against
+# (Purple Book original approval date, FDA page, approval letter) and a status. They are the source of truth for which
+# products count; the pages supply the BLA number, manufacturer and indication. Page letters are used to cross-check,
+# and tools/09b_cber_verify.py re-checks every date against the Purple Book.
+_J = json.load(open(os.path.join(D, "cber_curated.json")))["products"]
+CURATED = {k: v["date"] for k, v in _J.items()}
+BLOOD = {k: v["date"] for k, v in _J.items() if v["cat"] == "Blood product"}
+VACCINES = {k for k, v in _J.items() if v["cat"] == "Vaccine"}
 
 
 def links(path):
@@ -73,25 +60,17 @@ def page(path):
                 use=(re.sub(r"\s*\n\s*", " ", ind.group(1)).strip(" :") if ind else ""), first=min(dates).isoformat() if dates else None, n_letters=len(dates))
 
 
-# Blood and plasma products (therapeutic proteins and immune globulins). Brands sharing an old active (albumin, fibrin sealants, hemostats)
-# and diagnostics are left out. Dates match the earliest letter on the FDA page except Haegarda and Andexxa, whose pages are missing or
-# only show a later supplement.
-BLOOD = {"Rebinyn": "2017-05-31", "Fibryga": "2017-06-07", "Haegarda": "2017-06-22", "Kedrab": "2017-08-23", "Andexxa": "2018-05-03",
-         "Panzyga": "2018-08-02", "Jivi": "2018-08-29", "Cutaquig": "2018-12-12", "Esperoct": "2019-02-19", "Asceniv": "2019-04-01",
-         "Xembify": "2019-07-03", "Sevenfact": "2020-04-01", "Ryplazim": "2021-06-04", "Altuviiio": "2023-02-22", "Balfaxar": "2023-07-21",
-         "Alyglo": "2023-12-15", "Fesilty": "2025-12-16"}
-CURATED.update(BLOOD)
+# Blood and plasma products are the entries with cat 'Blood product' in cber_curated.json; the inclusion rule is in tools/09b_cber_verify.py.
 SLUG = {"Haegarda": "haegarda", "Xembify": "xembify"}
 
 # Pages that do not parse cleanly: metadata typed in from the FDA pages.
 FALLBACK = {
-    "Ixchiq": ("chikungunya vaccine, live", "Valneva Austria GmbH", "Prevention of disease caused by chikungunya virus in people 18 years and older", ""),
-    "Amtagvi": ("lifileucel", "Iovance Biotherapeutics, Inc.", "Unresectable or metastatic melanoma previously treated with a PD-1 blocking antibody", ""),
-    "Andexxa": ("coagulation factor xa (recombinant), inactivated-zhzo", "Portola Pharmaceuticals, Inc.", "Reversal of anticoagulation with rivaroxaban or apixaban in life-threatening or uncontrolled bleeding", ""),
-    "Xembify": ("immune globulin subcutaneous (human), 20%", "Grifols Therapeutics LLC", "Primary humoral immunodeficiency in patients 2 years and older", ""),
+    "Ixchiq": ("chikungunya vaccine, live", "Valneva Austria GmbH", "Prevention of disease caused by chikungunya virus in people 18 years and older", "BL 125777"),
+    "Amtagvi": ("lifileucel", "Iovance Biotherapeutics, Inc.", "Unresectable or metastatic melanoma previously treated with a PD-1 blocking antibody", "BL 125773"),
+    "Andexxa": ("coagulation factor xa (recombinant), inactivated-zhzo", "Portola Pharmaceuticals, Inc.", "Reversal of anticoagulation with rivaroxaban or apixaban in life-threatening or uncontrolled bleeding", "BL 125586"),
+    "Xembify": ("immune globulin subcutaneous (human), 20%", "Grifols Therapeutics LLC", "Primary humoral immunodeficiency in patients 2 years and older", "BL 125683"),
     "Lenmeldy": ("atidarsagene autotemcel", "Orchard Therapeutics (Europe) Limited", "Metachromatic leukodystrophy (MLD) in children", "BL 125758"),
 }
-VACCINES = {"Shingrix", "Heplisav-B", "Vaxelis", "Dengvaxia", "Jynneos", "Ervebo", "Audenz", "MenQuadfi", "Prevnar 20", "Vaxneuvance", "Ticovac", "Comirnaty", "Prehevbrio", "Spikevax", "Priorix", "Arexvy", "Abrysvo", "Cyfendus", "Penbraya", "Ixchiq", "Mresvia", "Capvaxive", "Vimkunya", "Penmenvy", "Nuvaxovid", "Mnexspike"}
 
 
 def main():

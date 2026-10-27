@@ -1,0 +1,12 @@
+{
+  "name": "ph1-to-fda",
+  "private": true,
+  "description": "Static page; npm is used only for the Playwright smoke test (npm run test:ui).",
+  "scripts": {
+    "check": "node tools/check-scripts.js && node tools/check-data.js",
+    "test:ui": "node tests/smoke.js"
+  },
+  "devDependencies": {
+    "playwright": "1.49.1"
+  }
+}

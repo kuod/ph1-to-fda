@@ -50,14 +50,15 @@ Large raw crawls (`data/trials_*_raw.json`, `approvals_raw.json`, `approvals_enr
 
 ## Checks
 
-No test suite. CI (`.github/workflows/check.yml`) runs:
+CI (`.github/workflows/check.yml`) runs:
 
 ```sh
 node tools/check-scripts.js   # syntax-check the inline script
 node tools/check-data.js      # sanity-check data.js (unique ids, 10 revenue years, rates in [0,1], bands)
+npm ci && npx playwright install chromium && npm run test:ui   # tests/smoke.js
 ```
 
-Also open `index.html` in a browser and click through the tabs after any change; the checks do not catch rendering or interaction bugs.
+`tests/smoke.js` (Playwright) opens every tab, exercises the funnel panel, expandable rows, include toggle, filters and the BD201 accordion, and fails on console errors or horizontal overflow at 390px. Add a step there when you add an interaction. Still open `index.html` in a browser after visual changes.
 
 ## Git
 

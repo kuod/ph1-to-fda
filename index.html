@@ -21,6 +21,11 @@
 }
 html{scroll-behavior:smooth;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+circle:focus-visible{outline:none;stroke:var(--accent);stroke-width:3.5;}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+details.alt{margin-top:1rem;font-size:13px;}
+details.alt summary{cursor:pointer;color:var(--ink-2,var(--ink));font-weight:600;}
+details.alt .table-wrap{max-height:340px;overflow:auto;margin-top:.5rem;}
 .tab-btn:focus-visible{outline-color:#e0795a;outline-offset:-3px;}
 body{background:var(--bg);color:var(--ink);font-family:'Instrument Sans',sans-serif;min-height:100vh;}
 a{color:var(--accent);}
@@ -214,6 +219,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <div class="f-chart">
       <div class="vz-wrap"><svg id="sk-funnel" class="min"></svg></div>
       <div class="legend" id="f-legend"></div>
+      <details class="alt" id="f-alt"><summary>Funnel as a table (stages and flows, each with a button to list its programs)</summary><div class="table-wrap" id="f-alt-body"></div></details>
     </div>
     <aside class="f-panel" id="f-panel" aria-label="Programs in the selected stage">
       <div class="f-panel-head"><div><div class="f-panel-title" id="f-panel-title"></div><div class="f-panel-sub" id="f-panel-sub"></div></div><button class="f-x" id="f-close" aria-label="Close list" title="Close (Esc)">✕</button></div>
@@ -272,8 +278,10 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <label class="ctl"><span class="seg" id="b-age"><button data-v="2" class="on">Approved 2+ yrs ago</button><button data-v="0">All</button></span></label>
   </div>
   <div class="vz-wrap"><svg id="b-plot" class="min"></svg></div>
+  <p class="note" style="margin:.25rem 0 0">Keyboard: Tab into the chart, arrow keys move between dots, Enter or Space pins a drug, Esc unpins.</p>
   <div class="legend" id="b-legend" style="cursor:pointer"></div>
   <div id="b-pin" style="margin-top:1rem"></div>
+  <details class="alt" id="b-alt"><summary>Chart data as a table</summary><div class="table-wrap" id="b-alt-body"></div></details>
   <div class="table-wrap" id="b-table" style="margin-top:1.5rem"></div>
   <p class="note fn">Buckets count efficacy supplements approved since launch, which include new populations and dosing as well as new indications, so treat the boundaries as rough. Sales are modelled from therapeutic area, orphan status, drug type and sponsor, plus editorial peaks for well-known blockbusters. They are not driven by the approval count, so the plot shows where blockbusters sit, not proof that more approvals cause more sales. Newer drugs have had little time to collect approvals; the default hides those under two years old.</p>
 </div></section>
@@ -303,6 +311,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <span class="chip incl-toggle"></span>
   </div>
   <div class="vz-wrap"><svg id="sk-flow" class="min"></svg></div>
+  <details class="alt" id="w-alt"><summary>Flows as a table</summary><div class="table-wrap" id="w-alt-body"></div></details>
 </div></section>
 
 <section class="tab-panel" id="tab-bd201" role="tabpanel" aria-labelledby="tabbtn-bd201"><div class="shell">
@@ -474,6 +483,7 @@ function buildFunnel(){
   const sk = d3.sankey().nodeId(d=>d.index).nodeAlign(d=>d.layer).nodeWidth(16).nodePadding(14).nodeSort(null).extent([[8,8],[W-170,H-8]]);
   const g = sk({nodes:keep.map(d=>({...d})),links:LL.map(d=>({...d}))});
   const pick = key=>{F.node=F.node===key?null:key;F.open=null;buildFunnel();if(F.node&&innerWidth<=900)$('#f-panel').scrollIntoView({behavior:'smooth',block:'start'});};
+  F.pickFn = pick;
   const total = ps.length;
   svg.append('g').attr('fill','none').selectAll('path').data(g.links).join('path')
     .attr('d',d3.sankeyLinkHorizontal()).attr('stroke',d=>cf.col(d.g)).attr('stroke-opacity',d=>F.node==='l:'+d.k?.9:.5).attr('stroke-width',d=>Math.max(1,d.width)).style('cursor','pointer')
@@ -488,6 +498,9 @@ function buildFunnel(){
   nd.append('text').attr('class','sankey-lbl sub').attr('x',d=>d.x1+7).attr('y',d=>(d.y0+d.y1)/2+11).text(d=>`${d.value} · ${Math.round(d.value/total*100)}%`);
   nd.on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(d.label)}</div><div class="t2">${d.value} programs</div><div class="t3">Click to list them on the right</div>`)).on('mouseleave',hideTip);
   $('#f-legend').innerHTML = cf.keys.map(k=>`<span><i style="background:${cf.col(k)}"></i>${esc(cf.label(k))}</span>`).join('');
+  $('#f-alt-body').innerHTML = `<table><thead><tr><th>From</th><th>To</th><th>Group</th><th class="r">Programs</th><th>List</th></tr></thead><tbody>`+
+    g.nodes.map(d=>`<tr><td><b>${esc(d.label)}</b></td><td>(stage)</td><td>all</td><td class="r mono">${d.value}</td><td><button class="btn ghost" data-pick="n:${esc(d.id)}">List</button></td></tr>`).join('')+
+    g.links.map(d=>`<tr><td>${esc(d.source.label)}</td><td>${esc(d.target.label)}</td><td>${esc(cf.label(d.g))}</td><td class="r mono">${d.value}</td><td><button class="btn ghost" data-pick="l:${esc(d.k)}">List</button></td></tr>`).join('')+`</tbody></table>`;
   renderRates(ps); renderStarted(ps); renderPanel();
   $('#f-fn').textContent = `${ps.length} programs in view${F.co.size?'':' (all ${DATA.meta.prose.nSponsors} sponsors)'}. Outcomes as of ${endMonth}; success counts novel FDA approvals in the window only.`;
 }
@@ -527,6 +540,7 @@ function progDetail(p){
 $('#f-list').addEventListener('click',e=>{if(e.target.closest('a'))return;const r=e.target.closest('tr.row');if(!r)return;const i=+r.dataset.i;F.open=F.open===i?null:i;renderPanel();});
 const closeFunnelPanel=()=>{if(!F.node)return;F.node=null;F.open=null;buildFunnel();};
 $('#f-close').addEventListener('click',closeFunnelPanel);
+$('#f-alt-body').addEventListener('click',e=>{const b=e.target.closest('[data-pick]');if(!b||!F.pickFn)return;F.node=null;F.pickFn(b.dataset.pick);$('#f-close').focus();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#tab-funnel').classList.contains('active'))closeFunnelPanel();});
 builders.funnel = function(){
   const cos = d3.rollups(programs,v=>v.length,p=>p.company).sort((a,b)=>b[1]-a[1]).map(d=>d[0]);
@@ -694,6 +708,7 @@ function renderFlow(){
   svg.append('g').attr('fill','none').selectAll('path').data(g.links).join('path').attr('d',d3.sankeyLinkHorizontal()).attr('stroke',colFor).attr('stroke-opacity',.45).attr('stroke-width',d=>Math.max(1,d.width))
     .on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(d.source.name)} → ${esc(d.target.name)}</div><div class="t2">${d.value} approvals</div>`)).on('mouseleave',hideTip)
     .on('mouseover',function(){d3.select(this).attr('stroke-opacity',.8);}).on('mouseout',function(){d3.select(this).attr('stroke-opacity',.45);});
+  $('#w-alt-body').innerHTML=`<table><thead><tr><th>From</th><th>To</th><th class="r">Approvals</th></tr></thead><tbody>`+g.links.slice().sort((a,b)=>b.value-a.value).map(d=>`<tr><td>${esc(d.source.name)}</td><td>${esc(d.target.name)}</td><td class="r mono">${d.value}</td></tr>`).join('')+`</tbody></table>`;
   const nd=svg.append('g').selectAll('g').data(g.nodes).join('g');
   nd.append('rect').attr('x',d=>d.x0).attr('y',d=>d.y0).attr('width',d=>d.x1-d.x0).attr('height',d=>Math.max(1,d.y1-d.y0)).attr('fill','#1a1814');
   nd.append('text').attr('class','sankey-lbl').attr('x',d=>d.layer===0?d.x0-7:d.x1+7).attr('text-anchor',d=>d.layer===0?'end':'start').attr('y',d=>(d.y0+d.y1)/2+4).text(d=>`${d.name} · ${d.value}`);
@@ -815,17 +830,37 @@ function renderBuckets(){
   svg.append('g').selectAll('line').data(xt).join('line').attr('y1',m.t).attr('y2',H-m.b).attr('x1',d=>xs(d)).attr('x2',d=>xs(d)).attr('stroke','#ddd8ce').attr('stroke-dasharray','2 4');
   svg.append('g').selectAll('text').data(xt).join('text').attr('x',d=>xs(d)).attr('y',H-m.b+18).attr('text-anchor','middle').attr('font-size',10).attr('fill','#6f665e').text(d=>d+1);
   svg.append('text').attr('x',(m.l+W-m.r)/2).attr('y',H-8).attr('text-anchor','middle').attr('font-size',11).attr('fill','#4a4540').text('FDA approvals since launch (first approval + efficacy supplements)');
+  const tipHtml=d=>`<div class="t1">${esc(d.brand)} <span style="font-weight:400;color:#c9c2b4">${esc(d.ingredient)}</span></div><div class="t2">${fmt(yOf(d,B.y))} · ${nSupp(d)+1} approval${nSupp(d)?'s':''}</div><div class="t3">${esc(d.company)} · ${esc(d.ta)} · approved ${d.date.slice(0,4)}<br>${esc(bucketOf(d).l)}</div>`;
   const hash=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h/4294967295;};
   const jx=d=>(hash(d.id)-.5)*(nSupp(d)<3?14:5);
   svg.append('g').selectAll('circle').data(vis).join('circle')
     .attr('cx',d=>xs(nSupp(d))+jx(d)).attr('cy',d=>y(yOf(d,B.y))).attr('r',d=>d.id===B.pin?8:5)
     .attr('fill',d=>bucketOf(d).c).attr('fill-opacity',.72).attr('stroke',d=>d.id===B.pin?'#1a1814':'#faf8f3').attr('stroke-width',d=>d.id===B.pin?2:.8).style('cursor','pointer')
-    .on('mousemove',(e,d)=>showTip(e,`<div class="t1">${esc(d.brand)} <span style="font-weight:400;color:#c9c2b4">${esc(d.ingredient)}</span></div><div class="t2">${fmt(yOf(d,B.y))} · ${nSupp(d)+1} approval${nSupp(d)?'s':''}</div><div class="t3">${esc(d.company)} · ${esc(d.ta)} · approved ${d.date.slice(0,4)}<br>${esc(bucketOf(d).l)}</div>`))
+    .on('mousemove',(e,d)=>showTip(e,tipHtml(d)))
     .on('mouseleave',hideTip).on('click',(e,d)=>{B.pin=B.pin===d.id?null:d.id;renderBuckets();});
+  // keyboard: one tab stop, arrow keys rove between dots (ordered by approvals then sales), Enter/Space pin, Esc unpins
+  const order=vis.slice().sort((a,b)=>nSupp(a)-nSupp(b)||yOf(b,B.y)-yOf(a,B.y)), startId=vis.length?(vis.find(d=>d.id===B.pin)||order[0]).id:null;
+  const dots=svg.selectAll('circle').attr('tabindex',d=>d.id===startId?0:-1).attr('role','button').attr('aria-pressed',d=>d.id===B.pin)
+    .attr('aria-label',d=>`${d.brand}, ${d.company}, ${nSupp(d)+1} approval${nSupp(d)?'s':''}, ${fmt(yOf(d,B.y))}. Press Enter to pin.`);
+  const nodeOf=new Map(); dots.each(function(d){nodeOf.set(d.id,this);});
+  const focusDot=(d)=>{const el=nodeOf.get(d.id);if(!el)return;dots.attr('tabindex',x=>x.id===d.id?0:-1);el.focus();};
+  dots.on('focus',function(e,d){const r=this.getBoundingClientRect();showTip({clientX:r.right,clientY:r.top},tipHtml(d));}).on('blur',hideTip)
+    .on('keydown',function(e,d){
+      const i=order.indexOf(d), k=e.key;
+      if(k==='Enter'||k===' '){e.preventDefault();B.pin=B.pin===d.id?null:d.id;renderBuckets();const f=[...$('#b-plot').querySelectorAll('circle')].find(c=>c.__data__.id===d.id);if(f)f.focus();}
+      else if(k==='ArrowRight'||k==='ArrowDown'){e.preventDefault();focusDot(order[Math.min(order.length-1,i+1)]);}
+      else if(k==='ArrowLeft'||k==='ArrowUp'){e.preventDefault();focusDot(order[Math.max(0,i-1)]);}
+      else if(k==='Home'){e.preventDefault();focusDot(order[0]);}
+      else if(k==='End'){e.preventDefault();focusDot(order[order.length-1]);}
+      else if(k==='Escape'&&B.pin){B.pin=null;renderBuckets();}
+    });
   // label the biggest dots
   const lab=vis.slice().sort((a,b)=>yOf(b,B.y)-yOf(a,B.y)).slice(0,10);
   svg.append('g').selectAll('text').data(lab).join('text').attr('x',d=>xs(nSupp(d))+jx(d)+(xs(nSupp(d))>W-110?-8:8)).attr('text-anchor',d=>xs(nSupp(d))>W-110?'end':'start').attr('y',d=>y(yOf(d,B.y))+3).attr('font-size',10).attr('fill','#1a1814').attr('paint-order','stroke').attr('stroke','#faf8f3').attr('stroke-width',3).text(d=>d.brand);
   $('#b-legend').innerHTML=BK.map(b=>`<span data-k="${b.k}" style="opacity:${B.hidden.has(b.k)?.35:1}"><i style="background:${b.c}"></i>${b.l} <span style="color:#6f665e">(${b.d}) · ${rows.filter(d=>bucketOf(d).k===b.k).length}</span></span>`).join('');
+  $('#b-alt').querySelector('summary').textContent=`Chart data as a table (${vis.length} drugs)`;
+  $('#b-alt-body').innerHTML=`<table><thead><tr><th>Drug</th><th>Company</th><th>Area</th><th class="r">Approved</th><th class="r">Approvals</th><th class="r">${esc($('#b-y').selectedOptions[0].textContent)}</th><th>Bucket</th></tr></thead><tbody>`+
+    vis.slice().sort((a,b)=>yOf(b,B.y)-yOf(a,B.y)).map(d=>`<tr><td>${esc(d.brand)}</td><td>${esc(d.company)}</td><td>${esc(d.ta)}</td><td class="r mono">${esc(d.date.slice(0,4))}</td><td class="r mono">${nSupp(d)+1}</td><td class="r mono">${fmt(yOf(d,B.y))}</td><td>${esc(bucketOf(d).l)}</td></tr>`).join('')+`</tbody></table>`;
   const pin=drugs.find(d=>d.id===B.pin);
   $('#b-pin').innerHTML=pin?`<div class="rates"><div class="rate"><span>${esc(pin.company)}</span><b>${esc(pin.brand)}</b><i>${esc(pin.use.slice(0,110))}</i></div><div class="rate"><span>Approvals</span><b>${nSupp(pin)+1}</b><i>${esc(bucketOf(pin).l)}</i></div><div class="rate"><span>Peak (est.)</span><b>${fmt(pin.rev.peak)}</b><i>10-yr total ${fmt(d3.sum(pin.rev.y))}</i></div><div class="rate"><span>Open</span><b style="font-size:1rem"><a href="#products" data-prod="${esc(pin.id)}">Pipeline →</a></b><i>${products.some(p=>p.id===pin.id)?'conditions and timeline':'not among the busiest products'}</i></div></div>`:'';
   const tb=BK.map(b=>{const r=rows.filter(d=>bucketOf(d).k===b.k),cum=d3.sum(r,d=>d3.sum(d.rev.y));return `<tr class="row xp${B.openB===b.k?' open':''}" data-k="${b.k}"><td><i style="display:inline-block;width:10px;height:10px;background:${b.c};border-radius:2px;margin:0 8px 0 2px"></i>${b.l}</td><td class="muted">${b.d}</td><td class="r mono">${r.length}</td><td class="r mono">${pct(r.length/Math.max(rows.length,1))}</td><td class="r mono">${r.length?fmt(d3.median(r,d=>d.rev.peak)):'–'}</td><td class="r mono">${fmt(cum)}</td><td class="r mono">${pct(cum/Math.max(d3.sum(rows,d=>d3.sum(d.rev.y)),1))}</td></tr>`+(B.openB===b.k?`<tr class="detail"><td colspan="7"><div style="display:flex;flex-wrap:wrap;gap:6px">${r.slice().sort((x,y)=>y.rev.peak-x.rev.peak).slice(0,60).map(d=>`<span class="chip${d.id===B.pin?' on':''}" data-pin="${esc(d.id)}">${esc(d.brand)}</span>`).join('')}</div>${r.length>60?`<p class="note">Largest 60 of ${r.length} shown.</p>`:''}<p class="note">Click a name to pin it on the plot.</p></td></tr>`:'');}).join('');

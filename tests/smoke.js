@@ -139,6 +139,40 @@ function assert(c, msg) { if (!c) throw new Error(msg); }
     assert(await page.locator('#bd-weeks details[open]').count() === 1, 'single toggle');
   });
 
+  await step('a11y: funnel table alternative lists programs via keyboard', async () => {
+    await open('funnel');
+    await page.locator('#f-alt summary').click();
+    assert(await page.locator('#f-alt-body button[data-pick^="l:"]').count() > 3, 'no ribbon buttons');
+    await page.locator('#f-alt-body button[data-pick^="l:"]').first().focus();
+    await page.keyboard.press('Enter');
+    await page.waitForSelector('#f-split.open');
+    assert(await page.locator('#f-list tr.row').count() > 0, 'ribbon list empty');
+    await page.keyboard.press('Escape');
+    assert(await page.locator('#f-split.open').count() === 0, 'Esc did not close');
+  });
+
+  await step('a11y: buckets dots are keyboard operable and have a table', async () => {
+    await open('buckets');
+    assert(await page.locator('#b-plot circle[tabindex="0"]').count() === 1, 'expected one roving tab stop');
+    await page.locator('#b-plot circle[tabindex="0"]').focus();
+    const first = await page.evaluate(() => document.activeElement.__data__.id);
+    await page.keyboard.press('ArrowRight');
+    const second = await page.evaluate(() => document.activeElement.__data__.id);
+    assert(first !== second, 'arrow key did not move focus');
+    await page.keyboard.press('Enter');
+    assert(await page.locator('#b-pin .rate').count() > 0, 'Enter did not pin');
+    assert(await page.evaluate(id => document.activeElement.__data__ && document.activeElement.__data__.id === id, second), 'focus lost after pin');
+    await page.keyboard.press('Escape');
+    assert(await page.locator('#b-pin .rate').count() === 0, 'Esc did not unpin');
+    await page.locator('#b-alt summary').click();
+    assert(await page.locator('#b-alt-body tbody tr').count() === await page.locator('#b-plot circle').count(), 'table rows differ from dots');
+  });
+
+  await step('a11y: flow table alternative', async () => {
+    await open('flow');
+    assert(await page.locator('#w-alt-body tbody tr').count() > 5, 'flow table short');
+  });
+
   await step('prose counts are filled from the data', async () => {
     const r = await page.evaluate(() => {
       const P = window.DATA.meta.prose;

@@ -46,7 +46,7 @@ Large raw crawls (`data/trials_*_raw.json`, `approvals_raw.json`, `approvals_enr
 - **Counts are written in prose** in `README.md` and the Method tab (approvals, cards, anchors, pooled rates). After a data change, grep for stale numbers.
 - CBER products have no orphan, priority or supplement data; keep them out of those statistics and out of the funnel, card rates, Buckets and Product Pipelines (`06_programs.py` marks them `cohort: false`).
 - "Approved" on Product Pipelines means the condition is mentioned in the current label (keyword match), and efficacy supplements are a proxy for new indications.
-- BD201 reading citations were written from memory; keep the "check each citation" footnote.
+- BD201 reading citations were verified in October 2026 (issue #11) against PubMed, Crossref and the IRA text; re-verify any you add and give DOI/PubMed links.
 
 ## Checks
 

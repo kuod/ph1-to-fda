@@ -280,7 +280,7 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
 
 <section class="tab-panel" id="tab-revenue" role="tabpanel" aria-labelledby="tabbtn-revenue"><div class="shell">
   <div class="view-head"><h2 class="view-title">What the approvals are worth, year by year</h2>
-  <div class="view-desc">Modelled net sales for years 1 to 10 after approval, summed across the drugs you select. These are estimates built from therapeutic area, orphan status, drug type and sponsor scale, with editorial anchors for well-known blockbusters. They are not reported figures.</div></div>
+  <div class="view-desc">Modelled net sales for years 1 to 10 after approval, summed across the drugs you select. These are estimates built from therapeutic area, orphan status, drug type and sponsor scale, with editorial anchors for well-known blockbusters. They are not reported figures. In the table, a peak with † is an unsourced editorial figure and * is purely modelled; unmarked peaks are set to the drug's reported 2025 sales. See Method.</div></div>
   <div class="ctl-row">
     <label class="ctl">Stack by <span class="seg" id="r-by"><button data-v="company" class="on">Company</button><button data-v="ta">Therapeutic area</button><button data-v="modality">Drug type</button><button data-v="year">Approval year</button></span></label>
     <label class="ctl">Cohort <select id="r-yr"></select></label>
@@ -340,7 +340,8 @@ tr.detail td{background:var(--bg-card);padding:16px 20px 20px;border-bottom:1px 
     <li>Buckets split first-time approvals by approvals since launch: one and done (none later), one then a few (1–4), one then many (5–14), franchise (15+). Revenue on that plot is modelled without reference to the approval count, so it shows where blockbusters sit and not that more approvals cause more sales.</li>
   </ul>
   <h3>Revenue estimates</h3>
-  <p>Central peak sales = median for the therapeutic area × orphan factor (0.5) × drug-type factor × priority-review factor (1.1) × sponsor-scale factor, scaled by 0.45, an informal calibration that has not been checked against reported totals. About 115 well-known drugs (37 of them CBER products) instead use an editorial peak taken from memory of public commentary. Annual sales follow an S-shaped ramp whose time to peak depends on area and orphan status, with the first year halved as a partial year, and four COVID products (two antivirals, two vaccines) use hand-set shapes. Low and high bands are 0.35× and 2.6×. These numbers are for exploration; they are not forecasts and not company-reported sales.</p>
+  <p>Central peak sales for a drug with no other basis = median for the therapeutic area × orphan factor (0.5) × drug-type factor × priority-review factor (1.1) × sponsor-scale factor, scaled by 0.45. The 0.45 was chosen so the un-anchored drugs sum to about $60B of 2025 sales, which is an assumed target and not a reported total, so the modelled tail is unvalidated. Each drug carries one of three bases, shown on the Revenue tab and in the approvals table: <b>reported</b> (peak set to the drug's own reported 2025 sales, a floor because the drug may still be growing), <b>editorial</b> († a peak set by hand from memory of public commentary and not sourced, which stays where reported sales are lower or absent) and <b>model</b> (*). Annual sales follow an S-shaped ramp whose time to peak depends on area and orphan status, with the first year halved as a partial year; four COVID products use hand-set shapes. Low and high bands are 0.35× and 2.6×. These numbers are for exploration; they are not forecasts and not company-reported sales.</p>
+  <div id="m-recon"></div>
   <h3>Sources</h3>
   <ul>
     <li>FDA CDER Novel Drug Approvals and Drugs@FDA (via openFDA)</li>
@@ -395,8 +396,17 @@ const fill = (sel, items, all) => { sel.innerHTML = (all?`<option value="all">${
     [Math.round(drugs.filter(d=>d.orphan).length/drugs.filter(d=>d.center!=='CBER').length*100)+'%','of CDER approvals are orphan'],
     [drugs.filter(d=>d.center==='CBER').length,'CBER: cell, gene, vaccine & blood'],
     [pct(hit),'of big-pharma Phase 1 programs reach approval ('+pct(DATA.meta.funnel.deep.hit)+' where coverage is good; see Method)'],
-    ['$'+Math.round(y25/1000)+'B','modelled 2025 sales (likely high)']
+    ['$'+Math.round(y25/1000)+'B','modelled 2025 sales; only '+DATA.meta.recon.n+' drugs checked against reported (see Method)']
   ].map(([b,s])=>`<div class="stat"><b>${b}</b><span>${s}</span></div>`).join('');
+  (function(){
+    const Rc=DATA.meta.recon, S=DATA.meta.src||{}; if(!Rc) return;
+    const B=v=>'$'+(v/1000).toFixed(0)+'B', bd=DATA.meta.recon.byBasis;
+    const ids=drugs.filter(d=>d.rev.rep), srcs=[...new Set(ids.map(d=>d.rev.src))];
+    const gaps=drugs.filter(d=>d.rev.rep).map(d=>{const k=2025-+d.date.slice(0,4);return [d,(k>=0&&k<10?d.rev.y[k]:0)-d.rev.rep];}).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).slice(0,6);
+    $('#m-recon').innerHTML=`<h3>Reconciliation with reported 2025 sales</h3>
+    <p>The modelled 2025 total is <b>${B(Rc.total)}</b>: ${B(bd.reported||0)} from drugs whose peak is set to reported sales, ${B(bd.editorial||0)} from editorial peaks and ${B(bd.model||0)} from the pure model. Reported calendar-2025 sales were read from company results documents for <b>${Rc.n}</b> drugs and total <b>${B(Rc.reported)}</b>; the model puts the same drugs at <b>${B(Rc.modelled)}</b> (${B(Rc.modelledEditorial)} before the reported floors were applied, so the editorial anchors alone ran about ${Math.round((1-Rc.modelledEditorial/Rc.reported)*100)}% low in total). That near-match is partly by construction, since the floors raise any peak that was below reported sales, and it hides large offsetting errors: ${gaps.map(([d,g])=>esc(d.brand)+' '+(g>0?'+':'−')+'$'+(Math.abs(g)/1000).toFixed(1)+'B').join(', ')} against reported. The ${Rc.unsourcedN} editorial anchors with no reported figure (${B(Rc.unsourced)} of 2025) and the ${B(bd.model||0)} modelled tail have <em>not</em> been checked, so the earlier worry that the total is too high is neither confirmed nor ruled out for them. Reported figures are lower bounds where the source notes partner-booked sales or a partial year.</p>
+    <p class="note">Sources: ${srcs.map(k=>S[k]?'<a href="'+esc(S[k][1])+'" target="_blank" rel="noopener">'+esc(S[k][0])+'</a>':'').join('; ')}.</p>`;
+  })();
   (function(){
     const F=DATA.meta.funnel; if(!F) return;
     const p=v=>v==null?'–':(v*100).toFixed(1).replace(/\.0$/,'')+'%', ci=(v,c)=>c?`${p(v)} <small>(${(c[0]*100).toFixed(0)}–${(c[1]*100).toFixed(0)})</small>`:p(v);
@@ -592,6 +602,11 @@ function timeline(d){
   pts.forEach(([l,v],i)=>{const cx=x(m(v));s+=`<circle cx="${cx}" cy="30" r="5" fill="${l==='FDA'?'#2f6f4f':'#1a1814'}"/><text x="${cx}" y="${i%2?58:16}" font-size="10" text-anchor="${cx<40?'start':cx>W-40?'end':'middle'}" fill="#4a4540">${l} ${v.slice(0,4)}</text>`;});
   return s+'</svg>';
 }
+function revSrc(d){
+  const r=d.rev; if(!r.rep) return r.basis==='editorial'?'<p style="font-size:12px;color:#6f665e">Peak set by hand from memory of public commentary; no reported figure was checked.</p>':'';
+  const S=(DATA.meta.src||{})[r.src]||['',''];
+  return `<p style="font-size:12px;color:#6f665e">Reported 2025 sales: <b>$${r.rep.toLocaleString()}M</b>${r.note?' ('+esc(r.note)+')':''} · <a href="${esc(S[1])}" target="_blank" rel="noopener">${esc(S[0])}</a>${r.basis==='editorial'?`. The editorial peak of $${r.ed.toLocaleString()}M is above this and is not sourced.`:'. The peak is set to this figure, a floor: the drug may sell more.'}</p>`;
+}
 function revSpark(d){
   const w=360,h=90,p=d.rev, mx=Math.max(...p.hi)*1.05, x=i=>24+i*(w-34)/9, y=v=>h-14-(v/mx)*(h-24);
   const e=Math.min(10,Math.ceil(d.elapsed));
@@ -599,7 +614,7 @@ function revSpark(d){
   const line=d3.line().x((v,i)=>x(i)).y(v=>y(v));
   return `<svg viewBox="0 0 ${w} ${h}" style="width:100%;max-width:${w}px;font-family:'DM Mono',monospace"><path d="${area(p.y)}" fill="#e8c8be" opacity=".6"/><path d="${line(p.y.slice(0,e))}" fill="none" stroke="#b84a2e" stroke-width="2"/><path d="${line(p.y)}" fill="none" stroke="#b84a2e" stroke-width="1.5" stroke-dasharray="3 3" opacity=".7"/>`+
     p.y.map((v,i)=>i%3===0||i===9?`<text x="${x(i)}" y="${h-2}" font-size="9" text-anchor="middle" fill="#6f665e">y${i+1}</text>`:'').join('')+
-    `<text x="${w-10}" y="12" font-size="10" text-anchor="end" fill="#4a4540">peak ≈ ${fmtM(p.peak)}${p.basis==='anchor'?'':' (model)'}</text></svg>`;
+    `<text x="${w-10}" y="12" font-size="10" text-anchor="end" fill="#4a4540">peak ≈ ${fmtM(p.peak)}${({reported:' (reported floor)',editorial:' (editorial)',model:' (model)'})[p.basis]||''}</text></svg>`;
 }
 function suppBars(ds){
   const by=d3.rollup(ds,v=>v.length,x=>x.slice(0,4)), yrs=d3.range(2016,2027), mx=Math.max(...yrs.map(y=>by.get(String(y))||0),1);
@@ -613,7 +628,7 @@ function detail(d){
   const hl = t.halted.length?'<ul class="halts">'+t.halted.map(h=>`<li><a href="https://clinicaltrials.gov/study/${h.id}" target="_blank" rel="noopener">${h.id}</a> · Ph${h.ph} · ${h.yr} · ${esc(h.st)} · ${esc(h.sp)}<br><span style="color:#6f665e">${esc(h.why||'No reason given')}</span></li>`).join('')+'</ul>':'<p>No halted Phase 1–3 studies were found before approval.</p>';
   return `<div class="dgrid"><div><h4>Indication</h4><p>${esc(d.use)}</p><h4>Development timeline</h4>${timeline(d)}<h4 style="margin-top:12px">Studies before approval</h4><table style="max-width:420px"><thead><tr><th>Stage</th><th class="r">Started</th><th class="r">Halted</th><th class="r">First start</th></tr></thead><tbody>${ph}</tbody></table>
     <p style="margin-top:8px;font-size:12px;color:#6f665e">${t.devYears!=null?`First registered start to approval: ${t.devYears} yrs. `:''}${t.p1.n?'':'No Phase 1 is registered, which is common for early studies run outside ClinicalTrials.gov. '}</p></div>
-    <div>${(d.supps||[]).length?`<h4>Efficacy supplements since approval</h4>${suppBars(d.supps)}${pipeLink(d.id)}`:''}<h4 style="margin-top:12px">Halted studies</h4>${hl}<h4 style="margin-top:12px">Modelled sales, y1–y10 (${d.rev.basis==='anchor'?'editorial anchor':'model'})</h4>${revSpark(d)}<p style="font-size:12px;color:#6f665e">Solid line: years already elapsed. Dashed: projection. Shaded: low–high band.</p></div></div>`;
+    <div>${(d.supps||[]).length?`<h4>Efficacy supplements since approval</h4>${suppBars(d.supps)}${pipeLink(d.id)}`:''}<h4 style="margin-top:12px">Halted studies</h4>${hl}<h4 style="margin-top:12px">Modelled sales, y1–y10 (${({reported:'peak set to reported FY2025 sales',editorial:'editorial peak, not sourced',model:'model'})[d.rev.basis]})</h4>${revSrc(d)}${revSpark(d)}<p style="font-size:12px;color:#6f665e">Solid line: years already elapsed. Dashed: projection. Shaded: low–high band.</p></div></div>`;
 }
 function renderApprovals(){
   const rows = aFiltered().sort((a,b)=>{const x=aVal(a,A.sort),y=aVal(b,A.sort);return (x>y?1:x<y?-1:0)*A.dir;});
@@ -677,7 +692,7 @@ function renderRevenue(){
   const top20 = ds.slice().sort((a,b)=>d3.sum(b.rev.y)-d3.sum(a.rev.y)).slice(0,20);
   $('#r-top tbody').innerHTML = top20.map(d=>{const mx=Math.max(...d.rev.hi.slice(0,1),d.rev.peak)*1.0,w=140,h=26;
     const p=d.rev.y.map((v,i)=>`${4+i*(w-8)/9},${h-3-(v/d.rev.peak)*(h-6)}`).join(' ');
-    return `<tr class="row xp${R.open===d.id?' open':''}" data-id="${d.id}"><td><b>${esc(d.brand)}</b> <span class="muted" style="font-size:11px">${esc(d.ingredient)}</span></td><td>${esc(d.company)}</td><td class="r mono">${d.date.slice(0,4)}</td><td class="r mono">${d.rev.peak.toLocaleString()}${d.rev.basis==='anchor'?'':'*'}</td><td class="r mono">${(d3.sum(d.rev.y)/1000).toFixed(1)}</td><td><svg width="${w}" height="${h}"><polyline points="${p}" fill="none" stroke="#b84a2e" stroke-width="1.6"/></svg></td></tr>`+(R.open===d.id?`<tr class="detail"><td colspan="6">${detail(d)}</td></tr>`:'');}).join('');
+    return `<tr class="row xp${R.open===d.id?' open':''}" data-id="${d.id}"><td><b>${esc(d.brand)}</b> <span class="muted" style="font-size:11px">${esc(d.ingredient)}</span></td><td>${esc(d.company)}</td><td class="r mono">${d.date.slice(0,4)}</td><td class="r mono">${d.rev.peak.toLocaleString()}${({editorial:'†',model:'*'})[d.rev.basis]||''}</td><td class="r mono">${(d3.sum(d.rev.y)/1000).toFixed(1)}</td><td><svg width="${w}" height="${h}"><polyline points="${p}" fill="none" stroke="#b84a2e" stroke-width="1.6"/></svg></td></tr>`+(R.open===d.id?`<tr class="detail"><td colspan="6">${detail(d)}</td></tr>`:'');}).join('');
 }
 $('#r-top tbody').addEventListener('click',e=>{if(e.target.closest('a'))return;const r=e.target.closest('tr.row');if(!r)return;R.open=R.open===r.dataset.id?null:r.dataset.id;renderRevenue();});
 builders.revenue = function(){

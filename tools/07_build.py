@@ -7,6 +7,9 @@ blockbusters; years 1-10 follow an S-shaped ramp. See the Method tab / README.
 """
 import collections, datetime as dt, json, math, os, re, statistics, sys
 
+sys.path.insert(0, os.path.dirname(__file__))
+from reported_sales import REPORTED, SRC
+
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 OUT = os.path.join(os.path.dirname(__file__), "..", "data.js")
 TODAY = dt.date.fromisoformat(os.environ.get("PH1_TO_FDA_TODAY", dt.date.today().isoformat()))  # drives years-elapsed and the page's end date
@@ -20,7 +23,8 @@ TA_PEAK = {"Oncology": 700, "Immunology": 1200, "Metabolic & Endocrine": 600, "N
            "Ophthalmology": 400, "Renal & Urology": 300, "Women's health": 200, "Musculoskeletal": 250, "Psychiatry": 400,
            "Pain & Anesthesia": 150, "Diagnostic imaging": 40, "Other": 150}
 MOD_MULT = {"Blood / plasma product": 0.8, "Cell therapy": 0.9, "Gene therapy": 1.1, "Vaccine": 1.3, "Antibody / ADC": 1.3, "Protein / biologic": 1.1, "Oligonucleotide": 0.9, "Peptide": 1.0, "Radiopharmaceutical": 0.7, "Small molecule": 1.0}
-# Editorial peak-sales anchors ($M/yr, approximate, from public commentary) for clear outliers; everything else is purely modelled.
+# EDITORIAL peak-sales anchors ($M/yr), set by hand from recollection of public commentary and NOT sourced: they are tagged "editorial" on the page.
+# A drug with a verified FY2025 figure in reported_sales.py gets a sourced floor under its peak (the peak is at least what was already sold). Everything else is modelled.
 ANCHOR = {"ozempic": 18000, "mounjaro": 20000, "dupixent": 16000, "skyrizi": 18000, "biktarvy": 14000, "trikafta-copackaged": 12000, "rinvoq": 8000,
           "ocrevus": 7000, "vyndaqel": 6000, "verzenio": 5500, "imfinzi": 6000, "kisqali": 4500, "enhertu": 6000, "erleada": 3500,
           "tezspire": 2500, "nurtec-odt": 1500, "ubrelvy": 1200, "paxlovid": 6000, "veklury": 5600, "cabenuva": 2500, "rybrevant": 3500,
@@ -56,19 +60,52 @@ def ramp(t_peak):
 def revenue(a, npeers):
     bid = a["id"]
     orphan, ta, mod = a["orphan"], a["ta"], a["modality"]
-    if bid in ANCHOR:
-        peak, tag = ANCHOR[bid], "anchor"
+    rep = REPORTED.get(bid)
+    ed = ANCHOR.get(bid)
+    if ed is not None:
+        # reported sales already at or above the editorial peak make the peak sourced; otherwise the editorial figure stands, with the reported floor shown beside it
+        peak, tag = (rep[0], "reported") if rep and rep[0] >= ed else (ed, "editorial")
     else:
         peak = TA_PEAK.get(ta, 150) * MOD_MULT.get(mod, 1.0) * (0.5 if orphan else 1.0) * (1.1 if a["priority"] == "Priority" else 1.0)
         size = 1.8 if a["company"] in BIG else 1.0 if npeers >= 3 else 0.65
-        peak, tag = peak * size * 0.45, "model"  # 0.45 calibrates the un-anchored tail to ~$60B of 2025 in-year sales
+        peak, tag = peak * size * 0.45, "model"  # 0.45 was set so the un-anchored tail sums to ~$60B of 2025 in-year sales: an assumed target, not a reported total (issue #4)
+        if rep and rep[0] > peak:
+            peak, tag = rep[0], "reported"
     t_peak = 4 if orphan else 5 if ta == "Oncology" else 7 if ta in ("Immunology", "Metabolic & Endocrine") else 6
     fr = SHAPE.get(bid) or ramp(t_peak)
     if bid not in SHAPE:
         fr = [fr[0] * 0.5] + fr[1:]  # launch year is a partial year
     mid = [round(peak * f, 1) for f in fr]
     lo, hi = 0.35, 2.6
-    return dict(peak=round(peak), basis=tag, y=mid, lo=[round(v * lo, 1) for v in mid], hi=[round(v * hi, 1) for v in mid])
+    extra = dict(rep=rep[0], src=rep[1], note=rep[2]) if rep else {}
+    if ed is not None:
+        extra["ed"] = ed
+    return dict(**extra, peak=round(peak), basis=tag, y=mid, lo=[round(v * lo, 1) for v in mid], hi=[round(v * hi, 1) for v in mid])
+
+
+def reconcile(drugs, fy=2025):
+    """Modelled calendar-fy sales of the drugs with a verified reported figure, against that figure. Also splits the modelled total by basis."""
+    rows = []
+    unsrc = []  # editorial anchors with no reported figure
+    before = 0  # the same drugs and years with the editorial anchors alone (before the sourced floors)
+    by_basis = collections.Counter()
+    for d in drugs:
+        k = fy - int(d["date"][:4])
+        v = d["rev"]["y"][k] if 0 <= k < 10 else 0
+        by_basis[d["rev"]["basis"]] += v
+        r = d["rev"]
+        if r["basis"] == "editorial" and "rep" not in r:
+            unsrc.append(v)
+        if "rep" in r:
+            rows.append((d["id"], d["brand"], r["rep"], v))
+            before += v * (r["ed"] / r["peak"]) if r.get("ed") else v
+    tot = sum(by_basis.values())
+    out = dict(fy=fy, n=len(rows), reported=round(sum(r[2] for r in rows)), modelled=round(sum(r[3] for r in rows)), modelledEditorial=round(before), unsourcedN=len(unsrc), unsourced=round(sum(unsrc)), total=round(tot),
+               byBasis={b: round(v) for b, v in by_basis.items()})
+    print(f"FY{fy} reconciliation: {len(rows)} drugs with a reported figure: reported ${out['reported']/1000:.1f}B vs modelled ${out['modelled']/1000:.1f}B; modelled total ${tot/1000:.0f}B ({', '.join(f'{b} ${v/1000:.0f}B' for b, v in by_basis.items())})")
+    for r in sorted(rows, key=lambda r: -abs(r[3] - r[2]))[:12]:
+        print(f"   {r[1]:14} reported {r[2]:>7,.0f}  modelled {r[3]:>7,.0f}  gap {r[3]-r[2]:>+8,.0f}")
+    return out
 
 
 def ymd(s):
@@ -232,7 +269,8 @@ def main():
     for e in expansions:
         if e["prod"]:
             e["id"] = e["id"]
-    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr), expansions=len(expansions),
+    recon = reconcile(drugs)
+    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr), expansions=len(expansions), recon=recon, src=SRC,
                 funnel=dict(funnel_stats(progs), bench=BENCH))
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:

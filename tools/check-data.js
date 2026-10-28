@@ -13,6 +13,13 @@ drugs.forEach(d => {
   if (d.date < meta.from_) errs.push('before window ' + d.id);
   if (!d.company || !d.ta) errs.push('missing company/ta ' + d.id);
 });
+drugs.forEach(d => {  // revenue basis: reported peaks are sourced floors, editorial ones are unsourced, and a peak is never below its reported figure
+  const r = d.rev;
+  if (!['reported', 'editorial', 'model'].includes(r.basis)) errs.push('revenue basis ' + d.id);
+  if (r.rep != null && (!(meta.src && meta.src[r.src] && /^https:\/\//.test(meta.src[r.src][1])) || r.peak < Math.round(r.rep))) errs.push('reported floor ' + d.id);
+  if (r.basis === 'reported' && r.rep == null) errs.push('reported basis without figure ' + d.id);
+  if (r.basis === 'editorial' && r.ed == null) errs.push('editorial basis without anchor ' + d.id);
+});
 products.forEach(p => { if (!p.pipe || !p.d.length) errs.push('product ' + p.id); });
 expansions.forEach(e => { if (!e.d.length) errs.push('expansion ' + e.id); });
 drugs.forEach(d => {

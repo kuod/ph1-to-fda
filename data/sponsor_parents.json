@@ -1,0 +1,949 @@
+{
+ "as_of": "2026-10-27",
+ "what": "Maps the sponsor of record on an FDA application (openFDA sponsor_name, upper-cased) to its parent company AS OF the as_of date, not as of the approval date. tools/taxonomy.py reads this file; rules are tried in order and the first parent whose patterns match wins; a sponsor that matches nothing keeps its own cleaned name.",
+ "review": "Change a pattern here, then run `python3 tools/test_taxonomy.py` and `python3 tools/sponsor_report.py`, and commit the regenerated data/sponsor_review.json. Patterns are Python regexes searched in the upper-cased sponsor string: anchor or word-bound anything short. Acquisition dates are not recorded (only the as_of state).",
+ "removed_wrong_mappings": [
+  {
+   "pattern": "XENCOR",
+   "was_mapped_to": "Johnson & Johnson",
+   "why_wrong": "Xencor is independent; the match credited its approvals to J&J.",
+   "fixed": "2026-10-20"
+  },
+  {
+   "pattern": "MARATHON",
+   "was_mapped_to": "Takeda",
+   "why_wrong": "Marathon Pharmaceuticals is not part of Takeda.",
+   "fixed": "2026-10-20"
+  },
+  {
+   "pattern": "ARDELYX",
+   "was_mapped_to": "Kyowa Kirin",
+   "why_wrong": "Ardelyx is independent.",
+   "fixed": "2026-10-20"
+  },
+  {
+   "pattern": "RA PHARM (unanchored)",
+   "was_mapped_to": "UCB",
+   "why_wrong": "Substring of 'DECIPHERA PHARMS'; Deciphera's approvals were credited to UCB.",
+   "fixed": "2026-10-20"
+  }
+ ],
+ "unverified_candidates": [
+  {
+   "sponsor": "DYAX CORP.",
+   "brand": "Takhzyro",
+   "candidate_parent": "Takeda",
+   "basis": "Dyax was acquired by Shire in 2016 and Shire by Takeda in 2019"
+  },
+  {
+   "sponsor": "PROGENICS PHARMS INC",
+   "brand": "Pylarify",
+   "candidate_parent": "Lantheus",
+   "basis": "Progenics was acquired by Lantheus in 2020"
+  },
+  {
+   "sponsor": "ANACOR PHARMS INC",
+   "brand": "Eucrisa",
+   "candidate_parent": "Pfizer",
+   "basis": "Anacor was acquired by Pfizer in 2016"
+  },
+  {
+   "sponsor": "FOLDRX PHARMS",
+   "brand": "Vyndaqel",
+   "candidate_parent": "Pfizer",
+   "basis": "FoldRx was acquired by Pfizer in 2010"
+  },
+  {
+   "sponsor": "VIELA BIO",
+   "brand": "Uplizna",
+   "candidate_parent": "Amgen",
+   "basis": "Viela was acquired by Horizon (2021), which Amgen then acquired (2023); Horizon is already mapped to Amgen"
+  },
+  {
+   "sponsor": "MORPHOSYS US INC",
+   "brand": "Monjuvi",
+   "candidate_parent": "Novartis",
+   "basis": "MorphoSys was acquired by Novartis in 2024"
+  },
+  {
+   "sponsor": "LA JOLLA PHARMA",
+   "brand": "Giapreza",
+   "candidate_parent": "Innoviva",
+   "basis": "La Jolla was acquired by Innoviva in 2022"
+  },
+  {
+   "sponsor": "Enzyvant Therapeutics GmbH",
+   "brand": "Rethymic",
+   "candidate_parent": "Sumitomo Pharma",
+   "basis": "Enzyvant was owned by Sumitomo; FDA's Purple Book now lists Sumitomo Pharma America as the applicant"
+  },
+  {
+   "sponsor": "STEMLINE THERAP",
+   "brand": "Elzonris / Orserdu",
+   "candidate_parent": "Menarini",
+   "basis": "Stemline was acquired by the Menarini Group in 2020"
+  },
+  {
+   "sponsor": "REMPEX",
+   "brand": "Vabomere",
+   "candidate_parent": "Melinta",
+   "basis": "Rempex was acquired by Melinta in 2017; Melinta is a separate parent in this data"
+  },
+  {
+   "sponsor": "AKARX INC",
+   "brand": "Doptelet",
+   "candidate_parent": "Sobi",
+   "basis": "AkaRx held the Doptelet application, marketed by Dova Pharmaceuticals, which Sobi acquired in 2019; AkaRx ownership to be confirmed"
+  },
+  {
+   "sponsor": "SENTYNL THERAPS INC",
+   "brand": "Zokinvy / Nulibry / Zycubo",
+   "candidate_parent": "Zydus",
+   "basis": "Sentynl is a Zydus Lifesciences subsidiary"
+  },
+  {
+   "sponsor": "LNHC",
+   "brand": "Xepi / Xeglyze / Zelsuvmi",
+   "candidate_parent": "unknown",
+   "basis": "LNHC, Inc. is a subsidiary of another company (possibly Sato Pharmaceutical); owner not confirmed"
+  },
+  {
+   "sponsor": "LXO IRELAND",
+   "brand": "Barhemsys",
+   "candidate_parent": "unknown",
+   "basis": "Sponsor name does not identify its owner; check the application holder"
+  },
+  {
+   "sponsor": "COMMAVE SUB",
+   "brand": "Azstarys",
+   "candidate_parent": "unknown",
+   "basis": "Commave Therapeutics, a licensee of KemPharm/Zevra; owner not confirmed"
+  },
+  {
+   "sponsor": "VIFOR PHARMA / VIFOR INTL / VIFOR FRESENIUS",
+   "brand": "Veltassa / Velphoro",
+   "candidate_parent": "CSL Behring",
+   "basis": "CSL acquired Vifor Pharma in 2022"
+  }
+ ],
+ "rules": [
+  {
+   "parent": "Pfizer",
+   "patterns": [
+    {
+     "re": "PFIZER"
+    },
+    {
+     "re": "WYETH"
+    },
+    {
+     "re": "SEAGEN"
+    },
+    {
+     "re": "SEATTLE GEN"
+    },
+    {
+     "re": "ARRAY BIO"
+    },
+    {
+     "re": "MEDIVATION"
+    },
+    {
+     "re": "ARENA PHARM"
+    },
+    {
+     "re": "BIOHAVEN"
+    },
+    {
+     "re": "GLOBAL BLOOD"
+    },
+    {
+     "re": "HOSPIRA"
+    }
+   ]
+  },
+  {
+   "parent": "Merck & Co.",
+   "patterns": [
+    {
+     "re": "MERCK SHARP"
+    },
+    {
+     "re": "^MSD\\b",
+     "note": "Anchored: 'MSD' (Merck & Co. outside the US), not any name containing 'MSD'."
+    },
+    {
+     "re": "MSD MERCK"
+    },
+    {
+     "re": "SCHERING"
+    },
+    {
+     "re": "^MERCK AND CO"
+    },
+    {
+     "re": "MERCK CO\\b"
+    },
+    {
+     "re": "ACCELERON"
+    },
+    {
+     "re": "PROMETHEUS"
+    }
+   ]
+  },
+  {
+   "parent": "Novartis",
+   "patterns": [
+    {
+     "re": "NOVARTIS"
+    },
+    {
+     "re": "^AAA\\b"
+    },
+    {
+     "re": "ADVANCED ACCELERATOR"
+    },
+    {
+     "re": "AVEXIS"
+    },
+    {
+     "re": "ENDOCYTE"
+    },
+    {
+     "re": "CHINOOK"
+    },
+    {
+     "re": "TOURMALINE"
+    }
+   ]
+  },
+  {
+   "parent": "Roche",
+   "patterns": [
+    {
+     "re": "GENENTECH"
+    },
+    {
+     "re": "HOFFMANN"
+    },
+    {
+     "re": "ROCHE"
+    },
+    {
+     "re": "CHUGAI"
+    },
+    {
+     "re": "SPARK THERAP"
+    },
+    {
+     "re": "FOUNDATION MEDICINE"
+    },
+    {
+     "re": "\\b89BIO\\b"
+    }
+   ]
+  },
+  {
+   "parent": "AstraZeneca",
+   "patterns": [
+    {
+     "re": "ASTRAZENECA"
+    },
+    {
+     "re": "ALEXION"
+    },
+    {
+     "re": "MEDIMMUNE"
+    },
+    {
+     "re": "PORTOLA"
+    },
+    {
+     "re": "ACERTA"
+    },
+    {
+     "re": "ZS PHARMA"
+    },
+    {
+     "re": "AMPLIMMUNE"
+    },
+    {
+     "re": "FUSION PHARM"
+    }
+   ]
+  },
+  {
+   "parent": "GSK",
+   "patterns": [
+    {
+     "re": "GLAXOSMITHKLINE"
+    },
+    {
+     "re": "^GSK"
+    },
+    {
+     "re": "TESARO"
+    },
+    {
+     "re": "\\bVIIV\\b"
+    },
+    {
+     "re": "BELLUS"
+    },
+    {
+     "re": "GLAXO GRP",
+     "note": "Glaxo Group Ltd, the GSK entity on older application records"
+    }
+   ]
+  },
+  {
+   "parent": "Sanofi",
+   "patterns": [
+    {
+     "re": "SANOFI"
+    },
+    {
+     "re": "GENZYME"
+    },
+    {
+     "re": "ABLYNX"
+    },
+    {
+     "re": "PRINCIPIA"
+    },
+    {
+     "re": "BIOVERATIV"
+    },
+    {
+     "re": "KYMAB"
+    },
+    {
+     "re": "PROVENTION"
+    },
+    {
+     "re": "AVENTIS"
+    }
+   ]
+  },
+  {
+   "parent": "Eli Lilly",
+   "patterns": [
+    {
+     "re": "ELI LILLY"
+    },
+    {
+     "re": "\\bLILLY\\b"
+    },
+    {
+     "re": "\\bLOXO\\b"
+    },
+    {
+     "re": "\\bDICE\\b"
+    },
+    {
+     "re": "MORPHIC"
+    },
+    {
+     "re": "POSEIDA"
+    },
+    {
+     "re": "SIGILON"
+    },
+    {
+     "re": "\\bVERVE\\b"
+    }
+   ]
+  },
+  {
+   "parent": "Bristol Myers Squibb",
+   "patterns": [
+    {
+     "re": "BRISTOL"
+    },
+    {
+     "re": "CELGENE"
+    },
+    {
+     "re": "\\bJUNO\\b"
+    },
+    {
+     "re": "MIRATI"
+    },
+    {
+     "re": "KARUNA"
+    },
+    {
+     "re": "TURNING POINT"
+    },
+    {
+     "re": "RAYZEBIO"
+    },
+    {
+     "re": "MYOKARDIA"
+    },
+    {
+     "re": "\\bBMS\\b"
+    }
+   ]
+  },
+  {
+   "parent": "Johnson & Johnson",
+   "patterns": [
+    {
+     "re": "JANSSEN"
+    },
+    {
+     "re": "JOHNSON"
+    },
+    {
+     "re": "ACTELION"
+    },
+    {
+     "re": "MOMENTA"
+    },
+    {
+     "re": "INTRA.?CELLULAR"
+    },
+    {
+     "re": "ABIOMED"
+    },
+    {
+     "re": "ARAGON",
+     "note": "Aragon Pharmaceuticals (J&J). Xencor was wrongly listed under J&J here before 2026-10-20."
+    },
+    {
+     "re": "CILAG",
+     "note": "Janssen-Cilag."
+    }
+   ]
+  },
+  {
+   "parent": "AbbVie",
+   "patterns": [
+    {
+     "re": "ABBVIE"
+    },
+    {
+     "re": "ALLERGAN"
+    },
+    {
+     "re": "PHARMACYCLICS"
+    },
+    {
+     "re": "CEREVEL"
+    },
+    {
+     "re": "IMMUNOGEN"
+    },
+    {
+     "re": "STEMCENTRX"
+    }
+   ]
+  },
+  {
+   "parent": "Amgen",
+   "patterns": [
+    {
+     "re": "AMGEN"
+    },
+    {
+     "re": "HORIZON THERAP"
+    },
+    {
+     "re": "HORIZON PHARMA"
+    },
+    {
+     "re": "CHEMOCENTRYX"
+    },
+    {
+     "re": "ONYX"
+    },
+    {
+     "re": "KAI PHARM"
+    },
+    {
+     "re": "FIVE PRIME"
+    }
+   ]
+  },
+  {
+   "parent": "Takeda",
+   "patterns": [
+    {
+     "re": "TAKEDA"
+    },
+    {
+     "re": "SHIRE"
+    },
+    {
+     "re": "MILLENNIUM"
+    },
+    {
+     "re": "BAXALTA"
+    },
+    {
+     "re": "NIMBUS"
+    },
+    {
+     "re": "TIGENIX"
+    },
+    {
+     "re": "ARIAD"
+    }
+   ]
+  },
+  {
+   "parent": "Gilead Sciences",
+   "patterns": [
+    {
+     "re": "GILEAD"
+    },
+    {
+     "re": "\\bKITE\\b"
+    },
+    {
+     "re": "IMMUNOMEDICS"
+    },
+    {
+     "re": "FORTY SEVEN"
+    },
+    {
+     "re": "CYMABAY"
+    },
+    {
+     "re": "TIZONA"
+    }
+   ]
+  },
+  {
+   "parent": "Novo Nordisk",
+   "patterns": [
+    {
+     "re": "NOVO NORDISK"
+    },
+    {
+     "re": "^NOVO\\b"
+    }
+   ]
+  },
+  {
+   "parent": "Bayer",
+   "patterns": [
+    {
+     "re": "BAYER"
+    },
+    {
+     "re": "ASKBIO"
+    }
+   ]
+  },
+  {
+   "parent": "Boehringer Ingelheim",
+   "patterns": [
+    {
+     "re": "BOEHRINGER"
+    }
+   ]
+  },
+  {
+   "parent": "Regeneron",
+   "patterns": [
+    {
+     "re": "REGENERON"
+    },
+    {
+     "re": "RENGENERON",
+     "note": "openFDA typo in the sponsor name on Lynozyfic's application ('RENGENERON PHARMACEUTICALS')"
+    }
+   ]
+  },
+  {
+   "parent": "Vertex",
+   "patterns": [
+    {
+     "re": "VERTEX"
+    }
+   ]
+  },
+  {
+   "parent": "Astellas",
+   "patterns": [
+    {
+     "re": "ASTELLAS"
+    },
+    {
+     "re": "IVERIC"
+    },
+    {
+     "re": "AUDENTES"
+    },
+    {
+     "re": "POTENZA"
+    },
+    {
+     "re": "XYPHOS"
+    }
+   ]
+  },
+  {
+   "parent": "Daiichi Sankyo",
+   "patterns": [
+    {
+     "re": "DAIICHI"
+    }
+   ]
+  },
+  {
+   "parent": "Biogen",
+   "patterns": [
+    {
+     "re": "BIOGEN"
+    },
+    {
+     "re": "REATA"
+    },
+    {
+     "re": "HI BIO"
+    }
+   ]
+  },
+  {
+   "parent": "Eisai",
+   "patterns": [
+    {
+     "re": "EISAI"
+    }
+   ]
+  },
+  {
+   "parent": "Otsuka",
+   "patterns": [
+    {
+     "re": "OTSUKA"
+    },
+    {
+     "re": "AVANIR",
+     "note": "Avanir (Otsuka)."
+    },
+    {
+     "re": "ASTEX",
+     "note": "Astex Pharmaceuticals (Otsuka)."
+    }
+   ]
+  },
+  {
+   "parent": "UCB",
+   "patterns": [
+    {
+     "re": "\\bUCB\\b"
+    },
+    {
+     "re": "ZOGENIX"
+    },
+    {
+     "re": "\\bRA PHARM",
+     "note": "Ra Pharmaceuticals. Needs the word boundary: a bare 'RA PHARM' matched 'DECIPHERA PHARMS' and credited Deciphera's approvals to UCB."
+    }
+   ]
+  },
+  {
+   "parent": "Sumitomo Pharma",
+   "patterns": [
+    {
+     "re": "SUMITOMO"
+    },
+    {
+     "re": "SUNOVION"
+    },
+    {
+     "re": "MYOVANT"
+    },
+    {
+     "re": "URO?VANT"
+    },
+    {
+     "re": "DAINIPPON"
+    }
+   ]
+  },
+  {
+   "parent": "Kyowa Kirin",
+   "patterns": [
+    {
+     "re": "KYOWA"
+    },
+    {
+     "re": "ORCHARD THERAP",
+     "note": "Orchard Therapeutics (Kyowa Kirin)."
+    }
+   ]
+  },
+  {
+   "parent": "Merck KGaA",
+   "patterns": [
+    {
+     "re": "EMD SERONO"
+    },
+    {
+     "re": "MERCK KGAA"
+    },
+    {
+     "re": "MERCK KGA"
+    }
+   ]
+  },
+  {
+   "parent": "BeOne Medicines",
+   "patterns": [
+    {
+     "re": "BEONE"
+    },
+    {
+     "re": "BEIGENE"
+    }
+   ]
+  },
+  {
+   "parent": "Moderna",
+   "patterns": [
+    {
+     "re": "^MODERNA"
+    }
+   ]
+  },
+  {
+   "parent": "Octapharma",
+   "patterns": [
+    {
+     "re": "OCTAPHARMA"
+    }
+   ]
+  },
+  {
+   "parent": "GE HealthCare",
+   "patterns": [
+    {
+     "re": "^GE\\b",
+     "note": "Anchored: GE HealthCare."
+    },
+    {
+     "re": "GE HEALTHCARE"
+    }
+   ]
+  },
+  {
+   "parent": "CSL Behring",
+   "patterns": [
+    {
+     "re": "^CSL",
+     "note": "Anchored: CSL Behring."
+    }
+   ]
+  },
+  {
+   "parent": "GC Biopharma",
+   "patterns": [
+    {
+     "re": "^GC\\b",
+     "note": "Anchored: GC Biopharma, not any name containing 'GC'."
+    },
+    {
+     "re": "GC BIOPHARMA"
+    }
+   ]
+  },
+  {
+   "parent": "LFB",
+   "patterns": [
+    {
+     "re": "^LFB",
+     "note": "Anchored: LFB."
+    }
+   ]
+  },
+  {
+   "parent": "BioNTech",
+   "patterns": [
+    {
+     "re": "BIONTECH"
+    }
+   ]
+  },
+  {
+   "parent": "Ionis",
+   "patterns": [
+    {
+     "re": "IONIS"
+    },
+    {
+     "re": "AKCEA"
+    }
+   ]
+  },
+  {
+   "parent": "Teva",
+   "patterns": [
+    {
+     "re": "TEVA"
+    },
+    {
+     "re": "ACTAVIS"
+    }
+   ]
+  },
+  {
+   "parent": "Servier",
+   "patterns": [
+    {
+     "re": "^SERVIER"
+    }
+   ]
+  },
+  {
+   "parent": "Alcon",
+   "patterns": [
+    {
+     "re": "ALCON",
+     "note": "Alcon is independent of Novartis since the 2019 spin-off."
+    },
+    {
+     "re": "AERIE",
+     "note": "Aerie Pharmaceuticals (Alcon)."
+    }
+   ]
+  },
+  {
+   "parent": "LEO Pharma",
+   "patterns": [
+    {
+     "re": "LEO PHARMA"
+    }
+   ]
+  },
+  {
+   "parent": "Viatris",
+   "patterns": [
+    {
+     "re": "VIATRIS"
+    },
+    {
+     "re": "MYLAN"
+    }
+   ]
+  },
+  {
+   "parent": "Bausch Health",
+   "patterns": [
+    {
+     "re": "BAUSCH"
+    },
+    {
+     "re": "VALEANT"
+    },
+    {
+     "re": "SALIX"
+    }
+   ]
+  },
+  {
+   "parent": "Supernus",
+   "patterns": [
+    {
+     "re": "SUPERNUS",
+     "note": "'SAGE THERAP SUPERNUS' (Zulresso): Sage Therapeutics, owned by Supernus"
+    }
+   ]
+  },
+  {
+   "parent": "Lantheus",
+   "patterns": [
+    {
+     "re": "LANTHEUS",
+     "note": "'CERVEAU LANTHEUS' (Tauklarify): Cerveau Technologies, owned by Lantheus"
+    }
+   ]
+  },
+  {
+   "parent": "Lundbeck",
+   "patterns": [
+    {
+     "re": "LUNDBECK",
+     "note": "'Lundbeck Seattle BioPharmaceuticals' (Vyepti, formerly Alder). Lundbeck is independent of Otsuka"
+    }
+   ]
+  },
+  {
+   "parent": "ImmunityBio",
+   "patterns": [
+    {
+     "re": "ALTOR BIOSCIENCE",
+     "note": "'ALTOR BIOSCIENCE, LLC, AN INDIRECT WHOLLY-OWNED SU[BSIDIARY OF IMMUNITYBIO]' (Anktiva)"
+    }
+   ]
+  },
+  {
+   "parent": "Emergent BioSolutions",
+   "patterns": [
+    {
+     "re": "EMERGENT",
+     "note": "'Emergent BioDefense Operations Lansing' (Cyfendus)"
+    }
+   ]
+  },
+  {
+   "parent": "Sun",
+   "patterns": [
+    {
+     "re": "^SUN PHARM",
+     "note": "Name variants of one company (no ownership claim): openFDA writes the sponsor several ways."
+    }
+   ]
+  },
+  {
+   "parent": "Ipsen",
+   "patterns": [
+    {
+     "re": "^IPSEN",
+     "note": "Name variants of one company (no ownership claim): openFDA writes the sponsor several ways."
+    }
+   ]
+  },
+  {
+   "parent": "Mallinckrodt",
+   "patterns": [
+    {
+     "re": "^MALLINCKRODT",
+     "note": "Name variants of one company (no ownership claim): openFDA writes the sponsor several ways."
+    }
+   ]
+  },
+  {
+   "parent": "Mayne",
+   "patterns": [
+    {
+     "re": "^MAYNE PHARMA",
+     "note": "Name variants of one company (no ownership claim): openFDA writes the sponsor several ways."
+    }
+   ]
+  },
+  {
+   "parent": "Vifor",
+   "patterns": [
+    {
+     "re": "^VIFOR",
+     "note": "Name variants of one company (no ownership claim): openFDA writes the sponsor several ways."
+    }
+   ]
+  },
+  {
+   "parent": "HRA Pharma",
+   "patterns": [
+    {
+     "re": "^(LABORATOIRE |LAB )?HRA\\b",
+     "note": "Name variants of one company (no ownership claim): openFDA writes the sponsor several ways."
+    }
+   ]
+  }
+ ]
+}

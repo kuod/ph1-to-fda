@@ -1,0 +1,4077 @@
+{
+ "as_of": "2026-10-27",
+ "n_sponsor_strings": 541,
+ "n_parents": 372,
+ "mapped_no_shared_token": [
+  {
+   "sponsor": "AAA USA INC",
+   "parent": "Novartis",
+   "brands": [
+    "Lutathera",
+    "Lutathera (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "^AAA\\b"
+  },
+  {
+   "sponsor": "ABLYNX NV",
+   "parent": "Sanofi",
+   "brands": [
+    "Cablivi",
+    "Cablivi (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "ABLYNX"
+  },
+  {
+   "sponsor": "ACTELION",
+   "parent": "Johnson & Johnson",
+   "brands": [
+    "Opsumit (earlier-approved)",
+    "Uptravi (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "ACTELION"
+  },
+  {
+   "sponsor": "AKCEA THERAPS",
+   "parent": "Ionis",
+   "brands": [
+    "Tegsedi"
+   ],
+   "n": 1,
+   "pattern": "AKCEA"
+  },
+  {
+   "sponsor": "ALEXION PHARM",
+   "parent": "AstraZeneca",
+   "brands": [
+    "Kanuma (earlier-approved)",
+    "Soliris (earlier-approved)",
+    "Strensiq (earlier-approved)",
+    "Ultomiris",
+    "Ultomiris (earlier-approved)"
+   ],
+   "n": 5,
+   "pattern": "ALEXION"
+  },
+  {
+   "sponsor": "ALEXION PHARMS INC",
+   "parent": "AstraZeneca",
+   "brands": [
+    "Voydeya"
+   ],
+   "n": 1,
+   "pattern": "ALEXION"
+  },
+  {
+   "sponsor": "ALLERGAN",
+   "parent": "AbbVie",
+   "brands": [
+    "Botox Cosmetic (earlier-approved)",
+    "Zymar (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "ALLERGAN"
+  },
+  {
+   "sponsor": "ALTOR BIOSCIENCE, LLC, AN INDIRECT WHOLLY-OWNED SU",
+   "parent": "ImmunityBio",
+   "brands": [
+    "Anktiva",
+    "Anktiva (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "ALTOR BIOSCIENCE"
+  },
+  {
+   "sponsor": "ARRAY BIOPHARMA INC",
+   "parent": "Pfizer",
+   "brands": [
+    "Braftovi",
+    "Braftovi (earlier-approved)",
+    "Mektovi",
+    "Mektovi (earlier-approved)"
+   ],
+   "n": 4,
+   "pattern": "ARRAY BIO"
+  },
+  {
+   "sponsor": "BEIGENE",
+   "parent": "BeOne Medicines",
+   "brands": [
+    "Tevimbra",
+    "Tevimbra (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "BEIGENE"
+  },
+  {
+   "sponsor": "Bioverativ Therapeutics Inc.",
+   "parent": "Sanofi",
+   "brands": [
+    "Altuviiio"
+   ],
+   "n": 1,
+   "pattern": "BIOVERATIV"
+  },
+  {
+   "sponsor": "CELGENE CORP",
+   "parent": "Bristol Myers Squibb",
+   "brands": [
+    "Reblozyl",
+    "Reblozyl (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "CELGENE"
+  },
+  {
+   "sponsor": "CHEMOCENTRYX",
+   "parent": "Amgen",
+   "brands": [
+    "Tavneos"
+   ],
+   "n": 1,
+   "pattern": "CHEMOCENTRYX"
+  },
+  {
+   "sponsor": "EMD SERONO INC",
+   "parent": "Merck KGaA",
+   "brands": [
+    "Bavencio",
+    "Bavencio (earlier-approved)",
+    "Euthyrox (earlier-approved)",
+    "Tepmetko",
+    "Tepmetko (earlier-approved)"
+   ],
+   "n": 5,
+   "pattern": "EMD SERONO"
+  },
+  {
+   "sponsor": "GC Biopharma Corp.",
+   "parent": "GC Biopharma",
+   "brands": [
+    "Alyglo"
+   ],
+   "n": 1,
+   "pattern": "^GC\\b"
+  },
+  {
+   "sponsor": "GE HEALTHCARE",
+   "parent": "GE HealthCare",
+   "brands": [
+    "Cerianna",
+    "Optison (earlier-approved)",
+    "Visipaque 270 (earlier-approved)",
+    "Vizamyl (earlier-approved)"
+   ],
+   "n": 5,
+   "pattern": "^GE\\b"
+  },
+  {
+   "sponsor": "GE HLTHCARE",
+   "parent": "GE HealthCare",
+   "brands": [
+    "Flyrcado"
+   ],
+   "n": 1,
+   "pattern": "^GE\\b"
+  },
+  {
+   "sponsor": "GE HLTHCARE INC",
+   "parent": "GE HealthCare",
+   "brands": [
+    "Datscan (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "^GE\\b"
+  },
+  {
+   "sponsor": "GENENTECH",
+   "parent": "Roche",
+   "brands": [
+    "Actemra (earlier-approved)",
+    "Avastin (earlier-approved)",
+    "Enspryng",
+    "Erivedge (earlier-approved)",
+    "Gazyva (earlier-approved)",
+    "Herceptin (earlier-approved)"
+   ],
+   "n": 15,
+   "pattern": "GENENTECH"
+  },
+  {
+   "sponsor": "GENENTECH INC",
+   "parent": "Roche",
+   "brands": [
+    "Columvi",
+    "Cotellic (earlier-approved)",
+    "Evrysdi",
+    "Evrysdi (earlier-approved)",
+    "Hemlibra",
+    "Hemlibra (earlier-approved)"
+   ],
+   "n": 20,
+   "pattern": "GENENTECH"
+  },
+  {
+   "sponsor": "GENZYME",
+   "parent": "Sanofi",
+   "brands": [
+    "Cerezyme (earlier-approved)",
+    "Clolar (earlier-approved)",
+    "Fabrazyme (earlier-approved)",
+    "Lemtrada (earlier-approved)",
+    "Renvela (earlier-approved)",
+    "Thyrogen (earlier-approved)"
+   ],
+   "n": 6,
+   "pattern": "GENZYME"
+  },
+  {
+   "sponsor": "GENZYME CORP",
+   "parent": "Sanofi",
+   "brands": [
+    "Caprelsa (earlier-approved)",
+    "Cerdelga (earlier-approved)",
+    "Nexviazyme",
+    "Nexviazyme (earlier-approved)",
+    "Qfitlia",
+    "Wayrilz"
+   ],
+   "n": 7,
+   "pattern": "GENZYME"
+  },
+  {
+   "sponsor": "GLAXO GRP ENGLAND",
+   "parent": "GSK",
+   "brands": [
+    "Incruse Ellipta (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "GLAXO GRP"
+  },
+  {
+   "sponsor": "GLAXO GRP LTD",
+   "parent": "GSK",
+   "brands": [
+    "Advair Diskus 500/50 (earlier-approved)",
+    "Breo Ellipta (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "GLAXO GRP"
+  },
+  {
+   "sponsor": "GLAXOSMITHKLINE",
+   "parent": "GSK",
+   "brands": [
+    "Anoro Ellipta (earlier-approved)",
+    "Arnuity Ellipta (earlier-approved)",
+    "Blujepa",
+    "Blujepa (earlier-approved)",
+    "Brexafemme",
+    "Brexafemme (earlier-approved)"
+   ],
+   "n": 17,
+   "pattern": "GLAXOSMITHKLINE"
+  },
+  {
+   "sponsor": "GLAXOSMITHKLINE LLC",
+   "parent": "GSK",
+   "brands": [
+    "Exdensur",
+    "Nucala (earlier-approved)",
+    "Requip Xl (earlier-approved)"
+   ],
+   "n": 3,
+   "pattern": "GLAXOSMITHKLINE"
+  },
+  {
+   "sponsor": "GLOBAL BLOOD THERAPS",
+   "parent": "Pfizer",
+   "brands": [
+    "Oxbryta",
+    "Oxbryta (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "GLOBAL BLOOD"
+  },
+  {
+   "sponsor": "GlaxoSmithKline",
+   "parent": "GSK",
+   "brands": [
+    "Blenrep",
+    "Hibsago"
+   ],
+   "n": 2,
+   "pattern": "GLAXOSMITHKLINE"
+  },
+  {
+   "sponsor": "GlaxoSmithKline Biologicals",
+   "parent": "GSK",
+   "brands": [
+    "Penmenvy"
+   ],
+   "n": 1,
+   "pattern": "GLAXOSMITHKLINE"
+  },
+  {
+   "sponsor": "GlaxoSmithKline Biologicals SA",
+   "parent": "GSK",
+   "brands": [
+    "Arexvy",
+    "Priorix"
+   ],
+   "n": 2,
+   "pattern": "GLAXOSMITHKLINE"
+  },
+  {
+   "sponsor": "GlaxoSmithKline Biologicals, S.A.",
+   "parent": "GSK",
+   "brands": [
+    "Shingrix"
+   ],
+   "n": 1,
+   "pattern": "GLAXOSMITHKLINE"
+  },
+  {
+   "sponsor": "HORIZON PHARMA",
+   "parent": "Amgen",
+   "brands": [
+    "Krystexxa (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "HORIZON PHARMA"
+  },
+  {
+   "sponsor": "HORIZON THERAP US",
+   "parent": "Amgen",
+   "brands": [
+    "Ravicti (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "HORIZON THERAP"
+  },
+  {
+   "sponsor": "HORIZON THERAPEUTICS IRELAND",
+   "parent": "Amgen",
+   "brands": [
+    "Tepezza"
+   ],
+   "n": 1,
+   "pattern": "HORIZON THERAP"
+  },
+  {
+   "sponsor": "HOSPIRA",
+   "parent": "Pfizer",
+   "brands": [
+    "Mannitol 25% (earlier-approved)",
+    "Methotrexate Preservative Free (earlier-approved)",
+    "Precedex (earlier-approved)"
+   ],
+   "n": 3,
+   "pattern": "HOSPIRA"
+  },
+  {
+   "sponsor": "HOSPIRA INC",
+   "parent": "Pfizer",
+   "brands": [
+    "Morphine Sulfate (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "HOSPIRA"
+  },
+  {
+   "sponsor": "IMMUNOGEN INC",
+   "parent": "AbbVie",
+   "brands": [
+    "Elahere",
+    "Elahere (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "IMMUNOGEN"
+  },
+  {
+   "sponsor": "IMMUNOMEDICS INC",
+   "parent": "Gilead Sciences",
+   "brands": [
+    "Trodelvy",
+    "Trodelvy (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "IMMUNOMEDICS"
+  },
+  {
+   "sponsor": "INTRA-CELLULAR",
+   "parent": "Johnson & Johnson",
+   "brands": [
+    "Caplyta",
+    "Caplyta (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "INTRA.?CELLULAR"
+  },
+  {
+   "sponsor": "JANSSEN BIOTECH",
+   "parent": "Johnson & Johnson",
+   "brands": [
+    "Balversa",
+    "Balversa (earlier-approved)",
+    "Darzalex (earlier-approved)",
+    "Erleada",
+    "Erleada (earlier-approved)",
+    "Icotyde"
+   ],
+   "n": 20,
+   "pattern": "JANSSEN"
+  },
+  {
+   "sponsor": "JANSSEN PHARMS",
+   "parent": "Johnson & Johnson",
+   "brands": [
+    "Duragesic-100 (earlier-approved)",
+    "Invega Hafyera (earlier-approved)",
+    "Invega Sustenna (earlier-approved)",
+    "Invokamet (earlier-approved)",
+    "Invokamet Xr (earlier-approved)",
+    "Invokana (earlier-approved)"
+   ],
+   "n": 10,
+   "pattern": "JANSSEN"
+  },
+  {
+   "sponsor": "JANSSEN PRODS",
+   "parent": "Johnson & Johnson",
+   "brands": [
+    "Edurant (earlier-approved)",
+    "Prezcobix (earlier-approved)",
+    "Prezista (earlier-approved)",
+    "Yondelis (earlier-approved)"
+   ],
+   "n": 5,
+   "pattern": "JANSSEN"
+  },
+  {
+   "sponsor": "JANSSEN R AND D",
+   "parent": "Johnson & Johnson",
+   "brands": [
+    "Intelence (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "JANSSEN"
+  },
+  {
+   "sponsor": "JANSSEN THERAP",
+   "parent": "Johnson & Johnson",
+   "brands": [
+    "Sirturo (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "JANSSEN"
+  },
+  {
+   "sponsor": "Janssen Biotech, Inc.",
+   "parent": "Johnson & Johnson",
+   "brands": [
+    "Carvykti"
+   ],
+   "n": 1,
+   "pattern": "JANSSEN"
+  },
+  {
+   "sponsor": "KAI PHARMS INC",
+   "parent": "Amgen",
+   "brands": [
+    "Parsabiv"
+   ],
+   "n": 1,
+   "pattern": "KAI PHARM"
+  },
+  {
+   "sponsor": "Kite Pharma Inc.",
+   "parent": "Gilead Sciences",
+   "brands": [
+    "Yescarta"
+   ],
+   "n": 1,
+   "pattern": "\\bKITE\\b"
+  },
+  {
+   "sponsor": "Kite Pharmaceuticals, Inc.",
+   "parent": "Gilead Sciences",
+   "brands": [
+    "Tecartus"
+   ],
+   "n": 1,
+   "pattern": "\\bKITE\\b"
+  },
+  {
+   "sponsor": "LOXO ONCOL",
+   "parent": "Eli Lilly",
+   "brands": [
+    "Jaypirca",
+    "Jaypirca (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "\\bLOXO\\b"
+  },
+  {
+   "sponsor": "MSD",
+   "parent": "Merck & Co.",
+   "brands": [
+    "Idvynso",
+    "Januvia (earlier-approved)",
+    "Lipfendra",
+    "Ohtuvayre",
+    "Verquvo",
+    "Verquvo (earlier-approved)"
+   ],
+   "n": 6,
+   "pattern": "^MSD\\b"
+  },
+  {
+   "sponsor": "MYLAN IRELAND LTD",
+   "parent": "Viatris",
+   "brands": [
+    "Arixtra (earlier-approved)",
+    "Pretomanid",
+    "Pretomanid (earlier-approved)",
+    "Yupelri"
+   ],
+   "n": 4,
+   "pattern": "MYLAN"
+  },
+  {
+   "sponsor": "Orchard Therapeutics (Europe) Limited",
+   "parent": "Kyowa Kirin",
+   "brands": [
+    "Lenmeldy"
+   ],
+   "n": 1,
+   "pattern": "ORCHARD THERAP"
+  },
+  {
+   "sponsor": "PHARMACYCLICS LLC",
+   "parent": "AbbVie",
+   "brands": [
+    "Imbruvica (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "PHARMACYCLICS"
+  },
+  {
+   "sponsor": "PORTOLA PHARMS INC",
+   "parent": "AstraZeneca",
+   "brands": [
+    "Bevyxxa"
+   ],
+   "n": 1,
+   "pattern": "PORTOLA"
+  },
+  {
+   "sponsor": "PROVENTION BIO INC",
+   "parent": "Sanofi",
+   "brands": [
+    "Tzield",
+    "Tzield (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "PROVENTION"
+  },
+  {
+   "sponsor": "RENGENERON PHARMACEUTICALS, INC.",
+   "parent": "Regeneron",
+   "brands": [
+    "Lynozyfic"
+   ],
+   "n": 1,
+   "pattern": "RENGENERON"
+  },
+  {
+   "sponsor": "SALIX",
+   "parent": "Bausch Health",
+   "brands": [
+    "Trulance",
+    "Trulance (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "SALIX"
+  },
+  {
+   "sponsor": "SCHERING",
+   "parent": "Merck & Co.",
+   "brands": [
+    "Noxafil (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "SCHERING"
+  },
+  {
+   "sponsor": "SEAGEN",
+   "parent": "Pfizer",
+   "brands": [
+    "Tivdak",
+    "Tivdak (earlier-approved)",
+    "Tukysa",
+    "Tukysa (earlier-approved)"
+   ],
+   "n": 4,
+   "pattern": "SEAGEN"
+  },
+  {
+   "sponsor": "SEATTLE GENETICS",
+   "parent": "Pfizer",
+   "brands": [
+    "Adcetris (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "SEATTLE GEN"
+  },
+  {
+   "sponsor": "SUNOVION PHARMS INC",
+   "parent": "Sumitomo Pharma",
+   "brands": [
+    "Latuda (earlier-approved)"
+   ],
+   "n": 1,
+   "pattern": "SUNOVION"
+  },
+  {
+   "sponsor": "Spark Therapeutics, Inc.",
+   "parent": "Roche",
+   "brands": [
+    "Luxturna"
+   ],
+   "n": 1,
+   "pattern": "SPARK THERAP"
+  },
+  {
+   "sponsor": "VALEANT LUXEMBOURG",
+   "parent": "Bausch Health",
+   "brands": [
+    "Siliq"
+   ],
+   "n": 1,
+   "pattern": "VALEANT"
+  },
+  {
+   "sponsor": "VIIV HLTHCARE",
+   "parent": "GSK",
+   "brands": [
+    "Cabenuva",
+    "Cabenuva Kit (earlier-approved)",
+    "Epzicom (earlier-approved)",
+    "Rukobia",
+    "Rukobia (earlier-approved)",
+    "Selzentry (earlier-approved)"
+   ],
+   "n": 8,
+   "pattern": "\\bVIIV\\b"
+  },
+  {
+   "sponsor": "WYETH PHARMS",
+   "parent": "Pfizer",
+   "brands": [
+    "Protonix Iv (earlier-approved)",
+    "Zosyn (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "WYETH"
+  },
+  {
+   "sponsor": "WYETH PHARMS INC",
+   "parent": "Pfizer",
+   "brands": [
+    "Besponsa",
+    "Besponsa (earlier-approved)"
+   ],
+   "n": 2,
+   "pattern": "WYETH"
+  },
+  {
+   "sponsor": "Wyeth Pharmaceuticals LLC",
+   "parent": "Pfizer",
+   "brands": [
+    "Prevnar 20"
+   ],
+   "n": 1,
+   "pattern": "WYETH"
+  }
+ ],
+ "unmapped": [
+  {
+   "sponsor": "ACACIA",
+   "parent": "Acacia",
+   "brands": [
+    "Byfavo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ACADIA PHARMS INC",
+   "parent": "Acadia",
+   "brands": [
+    "Daybue",
+    "Daybue (earlier-approved)",
+    "Nuplazid (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "ACROTECH BIOPHARMA",
+   "parent": "Acrotech",
+   "brands": [
+    "Adquey"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ADC Therapeutics SA",
+   "parent": "Adc",
+   "brands": [
+    "Zynlonta"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ADMA Biologics, Inc.",
+   "parent": "Adma Biologics",
+   "brands": [
+    "Asceniv"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AETERNA ZENTARIS",
+   "parent": "Aeterna Zentaris",
+   "brands": [
+    "Macrilen",
+    "Macrilen (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "AGIOS PHARMS INC",
+   "parent": "Agios",
+   "brands": [
+    "Pyrukynd",
+    "Pyrukynd (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "AKARX INC",
+   "parent": "Akarx",
+   "brands": [
+    "Doptelet",
+    "Doptelet (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "AKEBIA",
+   "parent": "Akebia",
+   "brands": [
+    "Vafseo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AKESO BIOPHARMA",
+   "parent": "Akeso",
+   "brands": [
+    "penpulimab-kcqx"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ALEMBIC THERAP",
+   "parent": "Alembic",
+   "brands": [
+    "Nuvessa (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ALFASIGMA",
+   "parent": "Alfasigma",
+   "brands": [
+    "Zelnorm (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ALK ABELLO",
+   "parent": "Alk Abello",
+   "brands": [
+    "Otiprio (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ALKERMES INC",
+   "parent": "Alkermes",
+   "brands": [
+    "Aristada (earlier-approved)",
+    "Lybalvi"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "ALMIRALL",
+   "parent": "Almirall",
+   "brands": [
+    "Aczone (earlier-approved)",
+    "Klisyri",
+    "Klisyri (earlier-approved)",
+    "Seysara"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "ALNYLAM PHARMS INC",
+   "parent": "Alnylam",
+   "brands": [
+    "Amvuttra",
+    "Amvuttra (earlier-approved)",
+    "Givlaari",
+    "Onpattro",
+    "Onpattro (earlier-approved)",
+    "Oxlumo"
+   ],
+   "n": 7
+  },
+  {
+   "sponsor": "ALTATHERA PHARMS LLC",
+   "parent": "Altathera",
+   "brands": [
+    "Sotalol Hydrochloride (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ALVOGEN",
+   "parent": "Alvogen",
+   "brands": [
+    "Thyro-Tabs (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AM REGENT",
+   "parent": "Am Regent",
+   "brands": [
+    "Injectafer (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AMARIN PHARMS",
+   "parent": "Amarin",
+   "brands": [
+    "Vascepa (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AMICUS THERAP US",
+   "parent": "Amicus",
+   "brands": [
+    "Galafold",
+    "Pombiliti"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "AMIVAS",
+   "parent": "Amivas",
+   "brands": [
+    "Artesunate"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AMNEAL",
+   "parent": "Amneal",
+   "brands": [
+    "Ongentys"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AMYLYX",
+   "parent": "Amylyx",
+   "brands": [
+    "Relyvrio"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ANACOR PHARMS INC",
+   "parent": "Anacor",
+   "brands": [
+    "Eucrisa",
+    "Eucrisa (earlier-approved)",
+    "Kerydin (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "ANI PHARMS",
+   "parent": "Ani",
+   "brands": [
+    "Pandel (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AOP HLTH US",
+   "parent": "Aop",
+   "brands": [
+    "Rapiblyk",
+    "Rapiblyk (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "APELLIS PHARMS",
+   "parent": "Apellis",
+   "brands": [
+    "Empaveli",
+    "Empaveli (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "APGDI",
+   "parent": "Apgdi",
+   "brands": [
+    "Myrbetriq (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "APOTEX",
+   "parent": "Apotex",
+   "brands": [
+    "Acetadote (earlier-approved)",
+    "Caldolor (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "APRECIA PHARMS",
+   "parent": "Aprecia",
+   "brands": [
+    "Spritam (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ARBOR PHARMS LLC",
+   "parent": "Arbor",
+   "brands": [
+    "Sklice (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ARDELYX INC",
+   "parent": "Ardelyx",
+   "brands": [
+    "Ibsrela"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ARGENX BV",
+   "parent": "Argenx",
+   "brands": [
+    "Vyvgart",
+    "Vyvgart (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "ARROWHEAD",
+   "parent": "Arrowhead",
+   "brands": [
+    "Redemplo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ASCENDIS",
+   "parent": "Ascendis",
+   "brands": [
+    "Yuviwel"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ASCENDIS PHARMA BONE",
+   "parent": "Ascendis",
+   "brands": [
+    "Yorvipath"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ASCENDIS PHARMA ENCOCRINOLOGY DIV A/S",
+   "parent": "Ascendis",
+   "brands": [
+    "Skytrofa",
+    "Skytrofa (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "AURINIA",
+   "parent": "Aurinia",
+   "brands": [
+    "Lupkynis",
+    "Lupkynis (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "AVEO PHARMS",
+   "parent": "Aveo",
+   "brands": [
+    "Fotivda"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AVERITAS",
+   "parent": "Averitas",
+   "brands": [
+    "Qutenza (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AVID RADIOPHARMS INC",
+   "parent": "Avid Radiopharms",
+   "brands": [
+    "Amyvid (earlier-approved)",
+    "Tauvid"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "AVYXA HOLDINGS",
+   "parent": "Avyxa Holdings",
+   "brands": [
+    "Posfrea (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AXSOME MALTA",
+   "parent": "Axsome",
+   "brands": [
+    "Sunosi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AYRMID PHARMA",
+   "parent": "Ayrmid",
+   "brands": [
+    "Aphexda"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AZURITY",
+   "parent": "Azurity",
+   "brands": [
+    "Feraheme (earlier-approved)",
+    "Suprep Bowel Prep Kit (earlier-approved)",
+    "Tudorza Pressair (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "Abeona Therapeutics, Inc.",
+   "parent": "Abeona",
+   "brands": [
+    "Zevaskyn"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Adaptimmune LLC",
+   "parent": "Adaptimmune",
+   "brands": [
+    "Tecelra"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "AiCuris",
+   "parent": "Aicuris",
+   "brands": [
+    "Hovilpri"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Autolus Limited",
+   "parent": "Autolus",
+   "brands": [
+    "Aucatzyl"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "B BRAUN",
+   "parent": "B Braun",
+   "brands": [
+    "Cefazolin And Dextrose (earlier-approved)",
+    "Mannitol 20% In Plastic Container (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "BAXTER HLTHCARE",
+   "parent": "Baxter",
+   "brands": [
+    "Osmitrol 20% In Water In Plastic Container (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BAXTER HLTHCARE CORP",
+   "parent": "Baxter",
+   "brands": [
+    "Cefazolin In Dextrose (earlier-approved)",
+    "Clinolipid 20% (earlier-approved)",
+    "Transderm Scop (earlier-approved)",
+    "Zosyn In Plastic Container (earlier-approved)"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "BDSI",
+   "parent": "Bdsi",
+   "brands": [
+    "Bunavail (earlier-approved)",
+    "Symproic"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "BERLEX LABS",
+   "parent": "Berlex",
+   "brands": [
+    "Leukine (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BIOCODEX SA",
+   "parent": "Biocodex",
+   "brands": [
+    "Diacomit",
+    "Diacomit (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "BIOCORRX PHARMS",
+   "parent": "Biocorrx",
+   "brands": [
+    "Lucemyra"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BIOCRYST",
+   "parent": "Biocryst",
+   "brands": [
+    "Orladeyo",
+    "Rapivab (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "BIOFRONTERA",
+   "parent": "Biofrontera",
+   "brands": [
+    "Ameluz (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BIOMARIN PHARM",
+   "parent": "Biomarin",
+   "brands": [
+    "Brineura",
+    "Brineura (earlier-approved)",
+    "Palynziq",
+    "Palynziq (earlier-approved)",
+    "Voxzogo",
+    "Voxzogo (earlier-approved)"
+   ],
+   "n": 6
+  },
+  {
+   "sponsor": "BIOVITRUM AB",
+   "parent": "Biovitrum",
+   "brands": [
+    "Kineret (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BLUE EARTH",
+   "parent": "Blue Earth",
+   "brands": [
+    "Posluma"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BLUEPRINT MEDICINES",
+   "parent": "Blueprint",
+   "brands": [
+    "Ayvakit",
+    "Ayvakit (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "BOTANIX SB",
+   "parent": "Botanix Sb",
+   "brands": [
+    "Sofdra"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BRACCO",
+   "parent": "Bracco",
+   "brands": [
+    "Cardiogen-82 (earlier-approved)",
+    "E-Z-Cat Dry (earlier-approved)",
+    "Iomervu",
+    "Isovue-250 (earlier-approved)",
+    "Lumason (earlier-approved)",
+    "Multihance (earlier-approved)"
+   ],
+   "n": 10
+  },
+  {
+   "sponsor": "BRAINTREE LABS",
+   "parent": "Braintree",
+   "brands": [
+    "Pizensy"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BRIDGEBIO PHARMA",
+   "parent": "Bridgebio",
+   "brands": [
+    "Attruby"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "BTG INTL",
+   "parent": "Btg Intl",
+   "brands": [
+    "Xuriden (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Bavarian Nordic A/S",
+   "parent": "Bavarian Nordic",
+   "brands": [
+    "Jynneos",
+    "Vimkunya"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "BioMarin Pharmaceutical Inc.",
+   "parent": "Biomarin",
+   "brands": [
+    "Roctavian"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Biotest AG",
+   "parent": "Biotest",
+   "brands": [
+    "Yimmugo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CAPLIN ONE LABS",
+   "parent": "Caplin One",
+   "brands": [
+    "Fludarabine Phosphate (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CARDINAL HEALTH 414",
+   "parent": "Cardinal Health 414",
+   "brands": [
+    "Lymphoseek Kit (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CASPER PHARMA LLC",
+   "parent": "Casper",
+   "brands": [
+    "Antivert (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CATALYST PHARMS",
+   "parent": "Catalyst",
+   "brands": [
+    "Agamree",
+    "Firdapse",
+    "Firdapse (earlier-approved)",
+    "Fycompa (earlier-approved)"
+   ],
+   "n": 5
+  },
+  {
+   "sponsor": "CELCUITY",
+   "parent": "Celcuity",
+   "brands": [
+    "Revtorpyk"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CELLTRION INC",
+   "parent": "Celltrion",
+   "brands": [
+    "Inflectra (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CENTOCOR ORTHO BIOTECH INC",
+   "parent": "Centocor Ortho",
+   "brands": [
+    "Simponi (earlier-approved)",
+    "Stelara (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "CEPHALON",
+   "parent": "Cephalon",
+   "brands": [
+    "Trisenox (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CHECKPOINT THERAPEUTICS INC",
+   "parent": "Checkpoint",
+   "brands": [
+    "Unloxcyt",
+    "Unloxcyt (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "CHEMO RESEARCH SL",
+   "parent": "Chemo Research Sl",
+   "brands": [
+    "Benznidazole"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CHEPLAPHARM",
+   "parent": "Cheplapharm",
+   "brands": [
+    "Cytovene (earlier-approved)",
+    "Valcyte (earlier-approved)",
+    "Vesanoid (earlier-approved)",
+    "Xeloda (earlier-approved)"
+   ],
+   "n": 5
+  },
+  {
+   "sponsor": "CHIESI",
+   "parent": "Chiesi",
+   "brands": [
+    "Ferriprox (earlier-approved)",
+    "Filsuvez",
+    "Juxtapid (earlier-approved)"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "CHIESI FARMACEUTICI SPA",
+   "parent": "Chiesi",
+   "brands": [
+    "Elfabrio",
+    "Lamzede"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "CHIESI USA INC",
+   "parent": "Chiesi",
+   "brands": [
+    "Revcovi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CHIMERIX",
+   "parent": "Chimerix",
+   "brands": [
+    "Modeyso"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CIPHER",
+   "parent": "Cipher",
+   "brands": [
+    "Natroba (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CIPLA USA",
+   "parent": "Cipla",
+   "brands": [
+    "Zemdri"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CLINIGEN",
+   "parent": "Clinigen",
+   "brands": [
+    "Totect (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CLIVUNEL INC",
+   "parent": "Clivunel",
+   "brands": [
+    "Scenesse"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "COHERUS BIOSCIENCES INC",
+   "parent": "Coherus",
+   "brands": [
+    "Loqtorzi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "COLLEGIUM PHARM INC",
+   "parent": "Collegium",
+   "brands": [
+    "Nucynta (earlier-approved)",
+    "Nucynta Er (earlier-approved)",
+    "Xtampza Er (earlier-approved)"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "COMMAVE SUB",
+   "parent": "Commave Sub",
+   "brands": [
+    "Azstarys"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "COOPERSURGICAL",
+   "parent": "Coopersurgical",
+   "brands": [
+    "Paragard T 380A (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CORCEPT THERAP",
+   "parent": "Corcept",
+   "brands": [
+    "Lifyorli"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CORMEDIX",
+   "parent": "Cormedix",
+   "brands": [
+    "Defencath"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "COSETTE",
+   "parent": "Cosette",
+   "brands": [
+    "Vyleesi",
+    "Welchol (earlier-approved)",
+    "Zipsor (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "COSMO TECHNOLOGIES",
+   "parent": "Cosmo Technologies",
+   "brands": [
+    "Aemcolo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CPPI CV",
+   "parent": "Cppi Cv",
+   "brands": [
+    "Sutent (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CRINETICS",
+   "parent": "Crinetics",
+   "brands": [
+    "Palsonify"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CUBIST PHARMS LLC",
+   "parent": "Cubist",
+   "brands": [
+    "Cubicin (earlier-approved)",
+    "Dificid (earlier-approved)",
+    "Sivextro (earlier-approved)",
+    "Zerbaxa (earlier-approved)"
+   ],
+   "n": 5
+  },
+  {
+   "sponsor": "CURIUM",
+   "parent": "Curium",
+   "brands": [
+    "Detectnet"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CYTOKINETICS",
+   "parent": "Cytokinetics",
+   "brands": [
+    "Myqorzo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "CellTrans Inc.",
+   "parent": "Celltrans",
+   "brands": [
+    "Lantidra"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "DAY ONE BIOPHARMS",
+   "parent": "Day One Biopharms",
+   "brands": [
+    "Ojemda",
+    "Ojemda (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "DECIPHERA PHARMS",
+   "parent": "Deciphera",
+   "brands": [
+    "Qinlock",
+    "Romvimza",
+    "Romvimza (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "DENALI THERAPEUTICS INC.",
+   "parent": "Denali",
+   "brands": [
+    "Avlayah"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "DIZAL",
+   "parent": "Dizal",
+   "brands": [
+    "Zegfrovy"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "DOMPE FARMACEUTICI",
+   "parent": "Dompe",
+   "brands": [
+    "Oxervate"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "DUCHESNAY",
+   "parent": "Duchesnay",
+   "brands": [
+    "Osphena (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "DUTCH OPHTHALMIC",
+   "parent": "Dutch Ophthalmic",
+   "brands": [
+    "Tissueblue"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "DYAX CORP.",
+   "parent": "Dyax",
+   "brands": [
+    "Takhzyro",
+    "Takhzyro (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "Dynavax Technologies Corporation",
+   "parent": "Dynavax Technologies",
+   "brands": [
+    "Heplisav-B"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ELAN PHARM",
+   "parent": "Elan",
+   "brands": [
+    "Myobloc (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ELEVAR",
+   "parent": "Elevar",
+   "brands": [
+    "Lyrfigtu"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ENDO PHARMS",
+   "parent": "Endo",
+   "brands": [
+    "Opana (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ENTASIS THERAP",
+   "parent": "Entasis",
+   "brands": [
+    "Nuzolvence",
+    "Xacduro"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "EPIZYME INC",
+   "parent": "Epizyme",
+   "brands": [
+    "Tazverik"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ESPERION THERAPS INC",
+   "parent": "Esperion",
+   "brands": [
+    "Nexletol",
+    "Nexletol (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "EVIVE BIOTECHNOLOGY",
+   "parent": "Evive Biotechnology",
+   "brands": [
+    "Ryzneuta"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "EVOFEM INC",
+   "parent": "Evofem",
+   "brands": [
+    "Solosec",
+    "Solosec (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "EVOLUS INC",
+   "parent": "Evolus",
+   "brands": [
+    "Jeuveau"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "EXELIXIS INC",
+   "parent": "Exelixis",
+   "brands": [
+    "Cabometyx (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Enzyvant Therapeutics GmbH",
+   "parent": "Enzyvant",
+   "brands": [
+    "Rethymic"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "FABRE KRAMER",
+   "parent": "Fabre Kramer",
+   "brands": [
+    "Exxua"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "FEINSTEIN",
+   "parent": "Feinstein",
+   "brands": [
+    "Fluorodopa F18"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "FERRING",
+   "parent": "Ferring",
+   "brands": [
+    "Zomacton (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "FERRING PHARMS INC",
+   "parent": "Ferring",
+   "brands": [
+    "Prepopik (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "FOLDRX PHARMS",
+   "parent": "Foldrx",
+   "brands": [
+    "Vyndaqel"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "FRESENIUS KABI USA",
+   "parent": "Fresenius Kabi",
+   "brands": [
+    "Glucagon (earlier-approved)",
+    "Omegaven",
+    "Smoflipid 20% (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "Ferring Pharmaceuticals A/S",
+   "parent": "Ferring",
+   "brands": [
+    "Adstiladrin"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Fondazione Telethon ETS",
+   "parent": "Fondazione Telethon Ets",
+   "brands": [
+    "Waskyra"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "GALDERMA LABS LP",
+   "parent": "Galderma",
+   "brands": [
+    "Aklief",
+    "Nemluvio",
+    "Vectical (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "GENMAB US, INC.",
+   "parent": "Genmab",
+   "brands": [
+    "Epkinly",
+    "Epkinly (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "GENUS LIFESCIENCES",
+   "parent": "Genus Lifesciences",
+   "brands": [
+    "Levolet (earlier-approved)",
+    "Oxycodone Hydrochloride (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "GERON",
+   "parent": "Geron",
+   "brands": [
+    "Rytelo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "GISKIT",
+   "parent": "Giskit",
+   "brands": [
+    "Exem Foam Kit"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "GUERBET",
+   "parent": "Guerbet",
+   "brands": [
+    "Dotarem (earlier-approved)",
+    "Elucirem",
+    "Elucirem (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "Gamida Cell Ltd.",
+   "parent": "Gamida Cell",
+   "brands": [
+    "Omisirge"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Grifols Therapeutics LLC",
+   "parent": "Grifols",
+   "brands": [
+    "Xembify"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Grifols Therapeutics, Inc.",
+   "parent": "Grifols",
+   "brands": [
+    "Fesilty"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "HAISCO",
+   "parent": "Haisco",
+   "brands": [
+    "Cypsedo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "HALEON US HOLDINGS",
+   "parent": "Haleon Holdings",
+   "brands": [
+    "Advil Allergy And Congestion Relief (earlier-approved)",
+    "Voltaren Arthritis Pain (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "HARMONY",
+   "parent": "Harmony",
+   "brands": [
+    "Wakix",
+    "Wakix (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "HELSINN HLTHCARE",
+   "parent": "Helsinn",
+   "brands": [
+    "Akynzeo",
+    "Truseltiq"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "HIKMA",
+   "parent": "Hikma",
+   "brands": [
+    "Morphine Sulfate (earlier-approved)",
+    "Robinul (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "HONG KONG",
+   "parent": "Hong Kong",
+   "brands": [
+    "Xenleta"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "HORIZON",
+   "parent": "Horizon",
+   "brands": [
+    "Procysbi (earlier-approved)",
+    "Vimovo (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "HUGEL INC",
+   "parent": "Hugel",
+   "brands": [
+    "Letybo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "HUMAN GENOME SCIENCES INC.",
+   "parent": "Human Genome Sciences",
+   "brands": [
+    "Benlysta (earlier-approved)",
+    "Raxibacumab (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "Humacyte Global, Inc.",
+   "parent": "Humacyte Global",
+   "brands": [
+    "Symvess"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "IBSA",
+   "parent": "Ibsa",
+   "brands": [
+    "Flector (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "IDORSIA",
+   "parent": "Idorsia",
+   "brands": [
+    "Quviviq",
+    "Quviviq (earlier-approved)",
+    "Tryvio"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "IMCLONE",
+   "parent": "Imclone",
+   "brands": [
+    "Erbitux (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "IMMEDICA PHARMA",
+   "parent": "Immedica",
+   "brands": [
+    "Ztalmy",
+    "Ztalmy (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "IMMEDICA PHARMA AB",
+   "parent": "Immedica",
+   "brands": [
+    "Loargys"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "IMMUNEX",
+   "parent": "Immunex",
+   "brands": [
+    "Enbrel (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "IMMUNOCORE LTD",
+   "parent": "Immunocore",
+   "brands": [
+    "Kimmtrak"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "INCYTE CORP",
+   "parent": "Incyte",
+   "brands": [
+    "Jakafi (earlier-approved)",
+    "Niktimvo",
+    "Pemazyre",
+    "Pemazyre (earlier-approved)",
+    "Zynyz",
+    "Zynyz (earlier-approved)"
+   ],
+   "n": 6
+  },
+  {
+   "sponsor": "INDIVIOR",
+   "parent": "Indivior",
+   "brands": [
+    "Suboxone (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "INNATE PHARMA",
+   "parent": "Innate",
+   "brands": [
+    "Lumoxiti"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "INSMED INC",
+   "parent": "Insmed",
+   "brands": [
+    "Brinsupri"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "INTERCEPT",
+   "parent": "Intercept",
+   "brands": [
+    "Lynavoy"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "INTRABIO",
+   "parent": "Intrabio",
+   "brands": [
+    "Aqneursa",
+    "Aqneursa (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "ISTX",
+   "parent": "Istx",
+   "brands": [
+    "Zevtera"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ITALFARMACO SPA",
+   "parent": "Italfarmaco",
+   "brands": [
+    "Duvyzat"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ITERUM THERAP",
+   "parent": "Iterum",
+   "brands": [
+    "Orlynvah"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Iovance Biotherapeutics, Inc.",
+   "parent": "Iovance Biotherapeutics",
+   "brands": [
+    "Amtagvi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "JAZZ",
+   "parent": "Jazz",
+   "brands": [
+    "Zepzelca",
+    "Zepzelca (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "JAZZ PHARMS",
+   "parent": "Jazz",
+   "brands": [
+    "Rylaze",
+    "Rylaze (earlier-approved)",
+    "Xyrem (earlier-approved)",
+    "Ziihera",
+    "Ziihera (earlier-approved)"
+   ],
+   "n": 5
+  },
+  {
+   "sponsor": "JAZZ PHARMS RES",
+   "parent": "Jazz",
+   "brands": [
+    "Epidiolex",
+    "Epidiolex (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "JUBILANT",
+   "parent": "Jubilant",
+   "brands": [
+    "Draximage Dtpa (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KADMON PHARMS LLC",
+   "parent": "Kadmon",
+   "brands": [
+    "Rezurock"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KALEO INC",
+   "parent": "Kaleo",
+   "brands": [
+    "Auvi-Q (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KALVISTA",
+   "parent": "Kalvista",
+   "brands": [
+    "Ekterly"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KARYOPHARM THERAPS",
+   "parent": "Karyopharm",
+   "brands": [
+    "Xpovio",
+    "Xpovio (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "KENVUE BRANDS",
+   "parent": "Kenvue Brands",
+   "brands": [
+    "Visine (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KERYX BIOPHARMS",
+   "parent": "Keryx Biopharms",
+   "brands": [
+    "Auryxia (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KINIKSA PHARMACEUTICALS (UK), LTD.",
+   "parent": "Kiniksa ( )",
+   "brands": [
+    "Arcalyst (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KNOA PHARMA",
+   "parent": "Knoa",
+   "brands": [
+    "Butrans (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KOWA CO",
+   "parent": "Kowa",
+   "brands": [
+    "Livalo (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "KURA",
+   "parent": "Kura",
+   "brands": [
+    "Komzifti"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Kamada Ltd.",
+   "parent": "Kamada",
+   "brands": [
+    "Kedrab"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Kedrion S.p.A.",
+   "parent": "Kedrion S P A",
+   "brands": [
+    "Qivigy"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Krystal Biotech, Inc.",
+   "parent": "Krystal",
+   "brands": [
+    "Vyjuvek"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "LA JOLLA PHARMA",
+   "parent": "La Jolla",
+   "brands": [
+    "Giapreza"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "LACER PHARMA",
+   "parent": "Lacer",
+   "brands": [
+    "Ultravate (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "LEGACY",
+   "parent": "Legacy",
+   "brands": [
+    "Naftin (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "LENZ THERAP",
+   "parent": "Lenz",
+   "brands": [
+    "Vizz"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "LEXICON PHARMS INC",
+   "parent": "Lexicon",
+   "brands": [
+    "Inpefa"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "LIB THERAPEUTICS, INC.",
+   "parent": "Lib",
+   "brands": [
+    "Lerochol"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "LNHC",
+   "parent": "Lnhc",
+   "brands": [
+    "Xeglyze",
+    "Xepi",
+    "Zelsuvmi"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "LUMICELL",
+   "parent": "Lumicell",
+   "brands": [
+    "Lumisight"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "LXO IRELAND",
+   "parent": "Lxo",
+   "brands": [
+    "Barhemsys"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MADRIGAL",
+   "parent": "Madrigal",
+   "brands": [
+    "Rezdiffra"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MANNKIND",
+   "parent": "Mannkind",
+   "brands": [
+    "Afrezza (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MD Anderson Cord Blood Bank",
+   "parent": "Md Anderson Cord Blood Bank",
+   "brands": [
+    "HPC, Cord Blood - MD Anderson Cord Blood Bank"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MDD US",
+   "parent": "Mdd",
+   "brands": [
+    "Apokyn (earlier-approved)",
+    "Xadago"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "MDGH",
+   "parent": "Mdgh",
+   "brands": [
+    "Moxidectin",
+    "Moxidectin (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "MEDEXUS",
+   "parent": "Medexus",
+   "brands": [
+    "Grafapex"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MEDICINES360",
+   "parent": "Medicines360",
+   "brands": [
+    "Liletta (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MEDIWOUND, LTD",
+   "parent": "Mediwound",
+   "brands": [
+    "NexoBrid",
+    "Nexobrid (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "MEITHEAL",
+   "parent": "Meitheal",
+   "brands": [
+    "Topotecan Hydrochloride (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MELINTA",
+   "parent": "Melinta",
+   "brands": [
+    "Baxdela",
+    "Baxdela (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "MERIDIAN BIOSCIENCE",
+   "parent": "Meridian",
+   "brands": [
+    "Idkit:Hp (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MERUS N.V.",
+   "parent": "Merus N V",
+   "brands": [
+    "Bizengri",
+    "Bizengri (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "MERZ PHARMS",
+   "parent": "Merz",
+   "brands": [
+    "Xeomin (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "METHAPHARM",
+   "parent": "Methapharm",
+   "brands": [
+    "Provocholine (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MILESTONE PHARMS USA",
+   "parent": "Milestone",
+   "brands": [
+    "Cardamyst"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MIRUM",
+   "parent": "Mirum",
+   "brands": [
+    "Atebrioz",
+    "Livmarli",
+    "Livmarli (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "MMT",
+   "parent": "Mmt",
+   "brands": [
+    "Duodote (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MORPHOSYS US INC",
+   "parent": "Morphosys",
+   "brands": [
+    "Monjuvi",
+    "Monjuvi (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "MSP Vaccine Company",
+   "parent": "Msp Vaccine",
+   "brands": [
+    "Vaxelis"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "MUNDIPHARMA",
+   "parent": "Mundipharma",
+   "brands": [
+    "Rezzayo",
+    "Rezzayo (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "MYCOVIA PHARMS",
+   "parent": "Mycovia",
+   "brands": [
+    "Vivjoa"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Mesoblast, Inc.",
+   "parent": "Mesoblast",
+   "brands": [
+    "Ryoncil"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "NEUROCRINE",
+   "parent": "Neurocrine",
+   "brands": [
+    "Crenessity",
+    "Ingrezza",
+    "Ingrezza (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "NIPPON SHINYAKU",
+   "parent": "Nippon Shinyaku",
+   "brands": [
+    "Viltepso"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "NOVIMMUNE S.A.",
+   "parent": "Novimmune S A",
+   "brands": [
+    "Gamifant",
+    "Gamifant (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "NUVALENT",
+   "parent": "Nuvalent",
+   "brands": [
+    "Jideytro"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "NUVATION",
+   "parent": "Nuvation",
+   "brands": [
+    "Ibtrozi",
+    "Ibtrozi (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "Neurotech Pharmaceuticals, Inc.",
+   "parent": "Neurotech",
+   "brands": [
+    "Encelto"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "OCUVEX THERAP",
+   "parent": "Ocuvex",
+   "brands": [
+    "Omlonti"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "OMEROS CORP",
+   "parent": "Omeros",
+   "brands": [
+    "Yartemlea"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ON TARGET LABS",
+   "parent": "On Target",
+   "brands": [
+    "Cytalux",
+    "Cytalux (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "ORCHID PHARMA",
+   "parent": "Orchid",
+   "brands": [
+    "Exblifep"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ORGANON",
+   "parent": "Organon",
+   "brands": [
+    "Implanon (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ORGANON LLC",
+   "parent": "Organon",
+   "brands": [
+    "Asmanex Hfa (earlier-approved)",
+    "Dulera (earlier-approved)",
+    "Vtama",
+    "Vtama (earlier-approved)"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "OUTLOOK THERAPEUTICS, INC.",
+   "parent": "Outlook",
+   "brands": [
+    "Lytenava"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Oncopeptides",
+   "parent": "Oncopeptides",
+   "brands": [
+    "Pepaxto"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Orca Biosystems Inc",
+   "parent": "Orca Biosystems",
+   "brands": [
+    "Tregzi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PACIRA PHARMS INC",
+   "parent": "Pacira",
+   "brands": [
+    "Exparel (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PARATEK PHARMS",
+   "parent": "Paratek",
+   "brands": [
+    "Nuzyra",
+    "Nuzyra (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "PARKE DAVIS",
+   "parent": "Parke Davis",
+   "brands": [
+    "Cerebyx (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PF PRISM CV",
+   "parent": "Pf Prism Cv",
+   "brands": [
+    "Bosulif (earlier-approved)",
+    "Chantix (earlier-approved)",
+    "Inlyta (earlier-approved)",
+    "Pristiq (earlier-approved)",
+    "Vfend (earlier-approved)",
+    "Xalkori (earlier-approved)"
+   ],
+   "n": 9
+  },
+  {
+   "sponsor": "PH HEALTH",
+   "parent": "Ph Health",
+   "brands": [
+    "Adrenalin (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "PHARMAAND",
+   "parent": "Pharmaand",
+   "brands": [
+    "Rubraca",
+    "Rubraca (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "PHARMACIA",
+   "parent": "Pharmacia",
+   "brands": [
+    "Somavert (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PHARMACOSMOS",
+   "parent": "Pharmacosmos",
+   "brands": [
+    "Cosela"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PHARMAESSENTIA CORP",
+   "parent": "Pharmaessentia",
+   "brands": [
+    "Besremi",
+    "Besremi (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "PHARMING",
+   "parent": "Pharming",
+   "brands": [
+    "Joenja",
+    "Joenja (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "PHATHOM",
+   "parent": "Phathom",
+   "brands": [
+    "Voquezna"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PHOTOCURE ASA",
+   "parent": "Photocure Asa",
+   "brands": [
+    "Cysview Kit (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "POLAREAN",
+   "parent": "Polarean",
+   "brands": [
+    "Xenoview",
+    "Xenoview (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "PRIOVANT THERAP",
+   "parent": "Priovant",
+   "brands": [
+    "Lisraya"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PROF DSPLS",
+   "parent": "Prof Dspls",
+   "brands": [
+    "Prevantics Swabstick (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PROGENICS PHARMS INC",
+   "parent": "Progenics",
+   "brands": [
+    "Pylarify"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PROVEPHARM SAS",
+   "parent": "Provepharm Sas",
+   "brands": [
+    "Provayblue (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PTC THERAP",
+   "parent": "Ptc",
+   "brands": [
+    "Emflaza",
+    "Emflaza (earlier-approved)",
+    "Sephience"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "PTC Therapeutics",
+   "parent": "Ptc",
+   "brands": [
+    "Kebilidi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "PUMA BIOTECH",
+   "parent": "Puma",
+   "brands": [
+    "Nerlynx",
+    "Nerlynx (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "Pharmaand GmbH",
+   "parent": "Pharmaand",
+   "brands": [
+    "Pegasys (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Precigen, Inc.",
+   "parent": "Precigen",
+   "brands": [
+    "Papzimeos"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Prometic Biotherapeutics Inc.",
+   "parent": "Prometic Biotherapeutics",
+   "brands": [
+    "Ryplazim"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "RADIUS",
+   "parent": "Radius",
+   "brands": [
+    "Tymlos",
+    "Tymlos (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "RARE THYROID",
+   "parent": "Rare Thyroid",
+   "brands": [
+    "Emcitate"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "RAYNER SURGICAL",
+   "parent": "Rayner Surgical",
+   "brands": [
+    "Omidria (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "RECORDATI RARE",
+   "parent": "Recordati Rare",
+   "brands": [
+    "Carbaglu (earlier-approved)",
+    "Cosmegen (earlier-approved)",
+    "Isturisa",
+    "Isturisa (earlier-approved)",
+    "Signifor (earlier-approved)",
+    "Signifor Lar Kit (earlier-approved)"
+   ],
+   "n": 6
+  },
+  {
+   "sponsor": "RECORDATI RARE DISEASES, INC.",
+   "parent": "Recordati Rare",
+   "brands": [
+    "Enjaymo",
+    "Enjaymo (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "REMPEX",
+   "parent": "Rempex",
+   "brands": [
+    "Vabomere"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "RENEW PHARMS",
+   "parent": "Renew",
+   "brands": [
+    "Ic-Green (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "REVANCE THERAPEUTICS, INC.",
+   "parent": "Revance",
+   "brands": [
+    "Daxxify",
+    "Daxxify (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "REVOLUTION MEDICINES",
+   "parent": "Revolution",
+   "brands": [
+    "Rasonque"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "RHODES PHARMS",
+   "parent": "Rhodes",
+   "brands": [
+    "Aptensio Xr (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "RHYTHM",
+   "parent": "Rhythm",
+   "brands": [
+    "Imcivree",
+    "Imcivree (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "RIDGEBACK BIOTHERAPEUTICS",
+   "parent": "Ridgeback Biotherapeutics",
+   "brands": [
+    "Ebanga"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "RIGEL PHARMS",
+   "parent": "Rigel",
+   "brands": [
+    "Gavreto",
+    "Gavreto (earlier-approved)",
+    "Rezlidhia",
+    "Tavalisse",
+    "Veppanu"
+   ],
+   "n": 5
+  },
+  {
+   "sponsor": "SANDOZ",
+   "parent": "Sandoz",
+   "brands": [
+    "Arranon (earlier-approved)",
+    "Erelzi (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "SAREPTA THERAPS INC",
+   "parent": "Sarepta",
+   "brands": [
+    "Amondys 45",
+    "Vyondys 53"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "SCHOLAR ROCK INC",
+   "parent": "Scholar Rock",
+   "brands": [
+    "Isembyld"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SECURA",
+   "parent": "Secura",
+   "brands": [
+    "Copiktra"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SENTYNL THERAPS INC",
+   "parent": "Sentynl",
+   "brands": [
+    "Nulibry",
+    "Nulibry (earlier-approved)",
+    "Zokinvy",
+    "Zycubo"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "SERONO INC",
+   "parent": "Serono",
+   "brands": [
+    "Rebif (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SHIELD TX",
+   "parent": "Shield",
+   "brands": [
+    "Accrufer",
+    "Accrufer (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "SHIONOGI",
+   "parent": "Shionogi",
+   "brands": [
+    "Fetroja",
+    "Fetroja (earlier-approved)",
+    "Radicava",
+    "Xocova"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "SICOR BIOTECH",
+   "parent": "Sicor",
+   "brands": [
+    "Granix (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SIGA TECHNOLOGIES",
+   "parent": "Siga Technologies",
+   "brands": [
+    "Tpoxx",
+    "Tpoxx (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "SIGMA TAU",
+   "parent": "Sigma Tau",
+   "brands": [
+    "Oncaspar (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SK LIFE",
+   "parent": "Sk Life",
+   "brands": [
+    "Xcopri"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SMITH AND NEPHEW",
+   "parent": "Smith And Nephew",
+   "brands": [
+    "Regranex (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SOBI",
+   "parent": "Sobi",
+   "brands": [
+    "Vonjo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SPECTRUM PHARMS",
+   "parent": "Spectrum",
+   "brands": [
+    "Rolvedon"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SPRINGWORKS",
+   "parent": "Springworks",
+   "brands": [
+    "Gomekli",
+    "Ogsiveo"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "SPROUT PHARMS",
+   "parent": "Sprout",
+   "brands": [
+    "Addyi (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "STEALTH BIOTHERAPS",
+   "parent": "Stealth Biotheraps",
+   "brands": [
+    "Forzinity"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "STEMLINE THERAP",
+   "parent": "Stemline",
+   "brands": [
+    "Orserdu"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "STEMLINE THERAPEUTICS INC",
+   "parent": "Stemline",
+   "brands": [
+    "Elzonris",
+    "Elzonris (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "STRIDES PHARMA INTL",
+   "parent": "Strides Intl",
+   "brands": [
+    "Methotrexate Sodium (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SUCAMPO PHARMA LLC",
+   "parent": "Sucampo",
+   "brands": [
+    "Amitiza (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "SWEDISH ORPHAN",
+   "parent": "Swedish Orphan",
+   "brands": [
+    "Orfadin (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "SYNDAX",
+   "parent": "Syndax",
+   "brands": [
+    "Revuforj",
+    "Revuforj (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "Sarepta Therapeutics, Inc.",
+   "parent": "Sarepta",
+   "brands": [
+    "Elevidys"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Seqirus, Inc.",
+   "parent": "Seqirus",
+   "brands": [
+    "Audenz"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "StemCyte, Inc.",
+   "parent": "Stemcyte",
+   "brands": [
+    "Regenecyte"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Stratatech Corporation",
+   "parent": "Stratatech",
+   "brands": [
+    "Stratagraft"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "TAIHO ONCOLOGY",
+   "parent": "Taiho Oncology",
+   "brands": [
+    "Inqovi",
+    "Inqovi (earlier-approved)",
+    "Lonsurf (earlier-approved)",
+    "Lytgobi"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "TARSUS",
+   "parent": "Tarsus",
+   "brands": [
+    "Xdemvy"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "TELIX",
+   "parent": "Telix",
+   "brands": [
+    "Pixclara"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "TERSERA",
+   "parent": "Tersera",
+   "brands": [
+    "Xermelo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "TERSERA THERAPEUTICS LLC",
+   "parent": "Tersera",
+   "brands": [
+    "Margenza",
+    "Margenza (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "TETRAPHASE PHARMS",
+   "parent": "Tetraphase",
+   "brands": [
+    "Xerava"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "TG THERAPEUTICS, INC",
+   "parent": "Tg",
+   "brands": [
+    "Briumvi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "TG THERAPS",
+   "parent": "Tg",
+   "brands": [
+    "Ukoniq"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "THERACOSBIO",
+   "parent": "Theracosbio",
+   "brands": [
+    "Brenzavvy"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "THERATECHNOLOGIES",
+   "parent": "Theratechnologies",
+   "brands": [
+    "Trogarzo",
+    "Trogarzo (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "TOLMAR",
+   "parent": "Tolmar",
+   "brands": [
+    "Eligard Kit (earlier-approved)"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "TONIX MEDS",
+   "parent": "Tonix Meds",
+   "brands": [
+    "Zembrace Symtouch (Autoinjector) (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "TRAVERE",
+   "parent": "Travere",
+   "brands": [
+    "Filspari",
+    "Filspari (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "TREVENA",
+   "parent": "Trevena",
+   "brands": [
+    "Olinvyk"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "TRIS PHARMA INC",
+   "parent": "Tris",
+   "brands": [
+    "Dyanavel Xr (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "UIHC PET IMAGING",
+   "parent": "Uihc Pet Imaging",
+   "brands": [
+    "Gallium Ga 68 Edotreotide"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ULTRAGENYX PHARM INC",
+   "parent": "Ultragenyx",
+   "brands": [
+    "Dojolvi",
+    "Mepsevii",
+    "Mepsevii (earlier-approved)"
+   ],
+   "n": 3
+  },
+  {
+   "sponsor": "UNITED THERAP",
+   "parent": "United",
+   "brands": [
+    "Orenitram (earlier-approved)",
+    "Tyvaso (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "UNIV CA LOS ANGELES",
+   "parent": "Univ Ca Los Angeles",
+   "brands": [
+    "Gallium Ga 68 Gozetotide"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "UPJOHN",
+   "parent": "Upjohn",
+   "brands": [
+    "Celebrex (earlier-approved)",
+    "Lipitor (earlier-approved)",
+    "Lyrica (earlier-approved)"
+   ],
+   "n": 4
+  },
+  {
+   "sponsor": "UPSHER SMITH LABS",
+   "parent": "Upsher Smith",
+   "brands": [
+    "Qudexy Xr (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Ultragenyx Pharmaceutical Inc",
+   "parent": "Ultragenyx",
+   "brands": [
+    "Fayuvi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Ultragenyx Pharmaceutical Inc.",
+   "parent": "Ultragenyx",
+   "brands": [
+    "Genglycos"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VANCOCIN ITALIA",
+   "parent": "Vancocin Italia",
+   "brands": [
+    "Mulpleta"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VANDA PHARMS INC",
+   "parent": "Vanda",
+   "brands": [
+    "Bysanti",
+    "Fanapt (earlier-approved)",
+    "Hetlioz (earlier-approved)",
+    "Nereus",
+    "Ponvory"
+   ],
+   "n": 5
+  },
+  {
+   "sponsor": "VBI Vaccines (Delaware) Inc.",
+   "parent": "Vbi Vaccines (Delaware)",
+   "brands": [
+    "Prehevbrio"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VELOXIS PHARMS INC",
+   "parent": "Veloxis",
+   "brands": [
+    "Envarsus Xr (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VERA THERAPEUTICS INC.",
+   "parent": "Vera",
+   "brands": [
+    "Trutakna"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VERASTEM INC",
+   "parent": "Verastem",
+   "brands": [
+    "Avmapki Fakzynja Co-Pack"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VERTICAL PHARMS",
+   "parent": "Vertical",
+   "brands": [
+    "Divigel (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VICURON HOLDINGS",
+   "parent": "Vicuron Holdings",
+   "brands": [
+    "Eraxis (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VIELA BIO",
+   "parent": "Viela Bio",
+   "brands": [
+    "Uplizna",
+    "Uplizna (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "VIRIDIAN THERAPEUTICS INC",
+   "parent": "Viridian",
+   "brands": [
+    "Lumvoa"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VISTAPHARM LLC",
+   "parent": "Vistapharm",
+   "brands": [
+    "Oxycodone Hydrochloride (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "VIVUS LLC",
+   "parent": "Vivus",
+   "brands": [
+    "Qsymia (earlier-approved)",
+    "Stendra (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "Valneva Austria GmbH",
+   "parent": "Valneva Austria",
+   "brands": [
+    "Ixchiq"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Vericel Corporation",
+   "parent": "Vericel",
+   "brands": [
+    "Maci"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "WOCKHARDT BIO AG",
+   "parent": "Wockhardt Bio",
+   "brands": [
+    "Zaynich"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "X4 PHARMS",
+   "parent": "X4",
+   "brands": [
+    "Xolremdi"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "XCOVERY",
+   "parent": "Xcovery",
+   "brands": [
+    "Ensacove"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "XERIS",
+   "parent": "Xeris",
+   "brands": [
+    "Keveyis (earlier-approved)"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "Y-MABS THERAPEUTICS INC",
+   "parent": "Y-Mabs",
+   "brands": [
+    "Danyelza"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "ZEALAND PHARMA",
+   "parent": "Zealand",
+   "brands": [
+    "Zegalogue",
+    "Zegalogue (earlier-approved)"
+   ],
+   "n": 2
+  },
+  {
+   "sponsor": "ZEVRA DENMARK",
+   "parent": "Zevra Denmark",
+   "brands": [
+    "Miplyffa"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "bluebird bio Inc.",
+   "parent": "Bluebird Bio",
+   "brands": [
+    "Zynteglo"
+   ],
+   "n": 1
+  },
+  {
+   "sponsor": "bluebird bio, Inc.",
+   "parent": "Bluebird Bio",
+   "brands": [
+    "Lyfgenia",
+    "Skysona"
+   ],
+   "n": 2
+  }
+ ],
+ "possible_variants": [
+  [
+   "Bausch Health",
+   "Ph Health"
+  ],
+  [
+   "Cardinal Health 414",
+   "Ph Health"
+  ],
+  [
+   "Merck & Co.",
+   "Merck KGaA"
+  ]
+ ],
+ "sponsor_variants": {
+  "AbbVie": [
+   "ABBVIE",
+   "ABBVIE ENDOCRINE INC",
+   "ABBVIE INC",
+   "ALLERGAN",
+   "IMMUNOGEN INC",
+   "PHARMACYCLICS LLC"
+  ],
+  "Amgen": [
+   "AMGEN",
+   "AMGEN INC",
+   "CHEMOCENTRYX",
+   "HORIZON PHARMA",
+   "HORIZON THERAP US",
+   "HORIZON THERAPEUTICS IRELAND",
+   "KAI PHARMS INC",
+   "ONYX PHARMS AMGEN"
+  ],
+  "Ascendis": [
+   "ASCENDIS",
+   "ASCENDIS PHARMA BONE",
+   "ASCENDIS PHARMA ENCOCRINOLOGY DIV A/S"
+  ],
+  "AstraZeneca": [
+   "ALEXION PHARM",
+   "ALEXION PHARMS INC",
+   "ASTRAZENECA",
+   "ASTRAZENECA AB",
+   "ASTRAZENECA UK LTD",
+   "AstraZeneca AB",
+   "PORTOLA PHARMS INC"
+  ],
+  "Bausch Health": [
+   "BAUSCH",
+   "BAUSCH AND LOMB",
+   "BAUSCH AND LOMB INC",
+   "SALIX",
+   "VALEANT LUXEMBOURG"
+  ],
+  "Baxter": [
+   "BAXTER HLTHCARE",
+   "BAXTER HLTHCARE CORP"
+  ],
+  "Bayer": [
+   "BAYER HEALTHCARE",
+   "BAYER HEALTHCARE PHARMS",
+   "BAYER HLTHCARE",
+   "Bayer Healthcare, Inc"
+  ],
+  "BeOne Medicines": [
+   "BEIGENE",
+   "BEONE MEDICINES USA"
+  ],
+  "Biogen": [
+   "BIOGEN",
+   "BIOGEN IDEC INC",
+   "BIOGEN INC",
+   "BIOGEN MA",
+   "BIOGEN US"
+  ],
+  "Biomarin": [
+   "BIOMARIN PHARM",
+   "BioMarin Pharmaceutical Inc."
+  ],
+  "Bluebird Bio": [
+   "bluebird bio Inc.",
+   "bluebird bio, Inc."
+  ],
+  "Boehringer Ingelheim": [
+   "BOEHRINGER INGELHEIM",
+   "BOEHRINGER INGELHEIM PHARMACEUTICALS INC"
+  ],
+  "Bristol Myers Squibb": [
+   "BRISTOL",
+   "BRISTOL MYERS SQUIBB",
+   "BRISTOL-MYERS",
+   "CELGENE CORP",
+   "Celgene Corporation, a Bristol-Myers Squibb Company",
+   "Juno Therapeutics, Inc., a Bristol-Myers Squibb Company"
+  ],
+  "CSL Behring": [
+   "CSL BEHRING LLC",
+   "CSL Behring GmbH",
+   "CSL Behring LLC"
+  ],
+  "Chiesi": [
+   "CHIESI",
+   "CHIESI FARMACEUTICI SPA",
+   "CHIESI USA INC"
+  ],
+  "Daiichi Sankyo": [
+   "DAIICHI SANKYO",
+   "DAIICHI SANKYO INC"
+  ],
+  "Eli Lilly": [
+   "ELI LILLY AND CO",
+   "ELI LILLY CO",
+   "LILLY",
+   "LOXO ONCOL"
+  ],
+  "Emergent BioSolutions": [
+   "EMERGENT",
+   "Emergent BioDefense Operations Lansing LLC."
+  ],
+  "Ferring": [
+   "FERRING",
+   "FERRING PHARMS INC",
+   "Ferring Pharmaceuticals A/S"
+  ],
+  "GE HealthCare": [
+   "GE HEALTHCARE",
+   "GE HLTHCARE",
+   "GE HLTHCARE INC"
+  ],
+  "GSK": [
+   "GLAXO GRP ENGLAND",
+   "GLAXO GRP LTD",
+   "GLAXOSMITHKLINE",
+   "GLAXOSMITHKLINE LLC",
+   "GlaxoSmithKline",
+   "GlaxoSmithKline Biologicals",
+   "GlaxoSmithKline Biologicals SA",
+   "GlaxoSmithKline Biologicals, S.A.",
+   "VIIV HLTHCARE"
+  ],
+  "Gilead Sciences": [
+   "GILEAD",
+   "GILEAD SCIENCES INC",
+   "IMMUNOMEDICS INC",
+   "Kite Pharma Inc.",
+   "Kite Pharmaceuticals, Inc."
+  ],
+  "Grifols": [
+   "Grifols Therapeutics LLC",
+   "Grifols Therapeutics, Inc."
+  ],
+  "HRA Pharma": [
+   "LAB HRA PHARMA",
+   "LABORATOIRE HRA"
+  ],
+  "Immedica": [
+   "IMMEDICA PHARMA",
+   "IMMEDICA PHARMA AB"
+  ],
+  "Ionis": [
+   "AKCEA THERAPS",
+   "IONIS PHARMS INC"
+  ],
+  "Ipsen": [
+   "IPSEN",
+   "IPSEN BIOPHARM LTD",
+   "IPSEN INC",
+   "IPSEN PHARMA"
+  ],
+  "Jazz": [
+   "JAZZ",
+   "JAZZ PHARMS",
+   "JAZZ PHARMS RES"
+  ],
+  "Johnson & Johnson": [
+   "ACTELION",
+   "INTRA-CELLULAR",
+   "JANSSEN BIOTECH",
+   "JANSSEN PHARMS",
+   "JANSSEN PRODS",
+   "JANSSEN R AND D",
+   "JANSSEN THERAP",
+   "Janssen Biotech, Inc."
+  ],
+  "Kyowa Kirin": [
+   "KYOWA KIRIN",
+   "Orchard Therapeutics (Europe) Limited"
+  ],
+  "Lantheus": [
+   "CERVEAU LANTHEUS",
+   "LANTHEUS",
+   "LANTHEUS MEDCL"
+  ],
+  "Lundbeck": [
+   "LUNDBECK PHARMS LLC",
+   "Lundbeck Seattle BioPharmaceuticals, Inc."
+  ],
+  "Mallinckrodt": [
+   "MALLINCKRODT HOSP",
+   "MALLINCKRODT IRELAND"
+  ],
+  "Mayne": [
+   "MAYNE PHARMA",
+   "MAYNE PHARMA COMMRCL"
+  ],
+  "Merck & Co.": [
+   "MERCK AND CO INC",
+   "MERCK SHARP DOHME",
+   "MSD",
+   "MSD MERCK CO",
+   "MSD SUB MERCK",
+   "Merck Sharp & Dohme LLC",
+   "Merck Sharp & Dohme, LLC",
+   "SCHERING"
+  ],
+  "Moderna": [
+   "Moderna Tx, Inc",
+   "ModernaTX, Inc."
+  ],
+  "Novartis": [
+   "AAA USA INC",
+   "NOVARTIS",
+   "NOVARTIS PHARM",
+   "NOVARTIS PHARMS",
+   "NOVARTIS PHARMS CORP",
+   "Novartis Gene Therapies, Inc.",
+   "Novartis Pharmaceuticals Corporation"
+  ],
+  "Novo Nordisk": [
+   "NOVO",
+   "NOVO NORDISK INC",
+   "Novo Nordisk Inc.",
+   "Novo Nordisk, Inc."
+  ],
+  "Octapharma": [
+   "OCTAPHARMA Pharmazeutika Produktionsges.m.b.H.",
+   "Octapharma Pharmazeutika Produktionsges.m.b.H",
+   "Octapharma Pharmazeutika Produktiosges.m.b.H."
+  ],
+  "Organon": [
+   "ORGANON",
+   "ORGANON LLC"
+  ],
+  "Otsuka": [
+   "OTSUKA",
+   "OTSUKA ICU MEDCL",
+   "OTSUKA PHARM CO LTD",
+   "OTSUKA PHARMACEUTICAL CO LTD"
+  ],
+  "Pfizer": [
+   "ARRAY BIOPHARMA INC",
+   "GLOBAL BLOOD THERAPS",
+   "HOSPIRA",
+   "HOSPIRA INC",
+   "PFIZER",
+   "PFIZER INC",
+   "PFIZER IRELAND PHARMACEUTICALS",
+   "Pfizer Inc.",
+   "Pfizer Ireland Pharmaceuticals",
+   "Pfizer, Inc.",
+   "SEAGEN",
+   "SEATTLE GENETICS",
+   "WYETH PHARMS",
+   "WYETH PHARMS INC",
+   "Wyeth Pharmaceuticals LLC"
+  ],
+  "Pharmaand": [
+   "PHARMAAND",
+   "Pharmaand GmbH"
+  ],
+  "Ptc": [
+   "PTC THERAP",
+   "PTC Therapeutics"
+  ],
+  "Recordati Rare": [
+   "RECORDATI RARE",
+   "RECORDATI RARE DISEASES, INC."
+  ],
+  "Regeneron": [
+   "REGENERON PHARMACEUTICALS",
+   "REGENERON PHARMACEUTICALS, INC",
+   "RENGENERON PHARMACEUTICALS, INC.",
+   "Regeneron Pharmaceuticals, Inc."
+  ],
+  "Roche": [
+   "GENENTECH",
+   "GENENTECH INC",
+   "HOFFMAN-LA ROCHE",
+   "HOFFMANN LA ROCHE",
+   "HOFFMANN-LA ROCHE",
+   "ROCHE",
+   "ROCHE PALO",
+   "Spark Therapeutics, Inc."
+  ],
+  "Sanofi": [
+   "ABLYNX NV",
+   "Bioverativ Therapeutics Inc.",
+   "GENZYME",
+   "GENZYME CORP",
+   "PROVENTION BIO INC",
+   "SANOFI",
+   "SANOFI AVENTIS US",
+   "SANOFI SYNTHELABO",
+   "SANOFI US SERVICES",
+   "SANOFI-AVENTIS US",
+   "Sanofi Pasteur, Inc.",
+   "Sanofi Vaccines US, Inc"
+  ],
+  "Sarepta": [
+   "SAREPTA THERAPS INC",
+   "Sarepta Therapeutics, Inc."
+  ],
+  "Servier": [
+   "SERVIER",
+   "SERVIER PHARMA LLC"
+  ],
+  "Stemline": [
+   "STEMLINE THERAP",
+   "STEMLINE THERAPEUTICS INC"
+  ],
+  "Sumitomo Pharma": [
+   "SUMITOMO PHARMA AM",
+   "SUNOVION PHARMS INC"
+  ],
+  "Sun": [
+   "SUN PHARM",
+   "SUN PHARM INDS INC",
+   "SUN PHARMA CANADA",
+   "SUN PHARMA GLOBAL"
+  ],
+  "Supernus": [
+   "SAGE THERAP SUPERNUS",
+   "SUPERNUS PHARMS"
+  ],
+  "Takeda": [
+   "TAKEDA PHARMS AM",
+   "TAKEDA PHARMS USA",
+   "Takeda Pharmaceuticals U.S.A., Inc."
+  ],
+  "Tersera": [
+   "TERSERA",
+   "TERSERA THERAPEUTICS LLC"
+  ],
+  "Teva": [
+   "TEVA BRANDED PHARM",
+   "TEVA PHARMS USA"
+  ],
+  "Tg": [
+   "TG THERAPEUTICS, INC",
+   "TG THERAPS"
+  ],
+  "Ultragenyx": [
+   "ULTRAGENYX PHARM INC",
+   "Ultragenyx Pharmaceutical Inc",
+   "Ultragenyx Pharmaceutical Inc."
+  ],
+  "Vertex": [
+   "VERTEX PHARMS",
+   "VERTEX PHARMS INC",
+   "Vertex Pharmaceuticals Incorporated"
+  ],
+  "Viatris": [
+   "MYLAN IRELAND LTD",
+   "VIATRIS"
+  ],
+  "Vifor": [
+   "VIFOR FRESENIUS",
+   "VIFOR INTL",
+   "VIFOR PHARMA"
+  ]
+ },
+ "unverified_candidates": [
+  {
+   "sponsor": "DYAX CORP.",
+   "brand": "Takhzyro",
+   "candidate_parent": "Takeda",
+   "basis": "Dyax was acquired by Shire in 2016 and Shire by Takeda in 2019"
+  },
+  {
+   "sponsor": "PROGENICS PHARMS INC",
+   "brand": "Pylarify",
+   "candidate_parent": "Lantheus",
+   "basis": "Progenics was acquired by Lantheus in 2020"
+  },
+  {
+   "sponsor": "ANACOR PHARMS INC",
+   "brand": "Eucrisa",
+   "candidate_parent": "Pfizer",
+   "basis": "Anacor was acquired by Pfizer in 2016"
+  },
+  {
+   "sponsor": "FOLDRX PHARMS",
+   "brand": "Vyndaqel",
+   "candidate_parent": "Pfizer",
+   "basis": "FoldRx was acquired by Pfizer in 2010"
+  },
+  {
+   "sponsor": "VIELA BIO",
+   "brand": "Uplizna",
+   "candidate_parent": "Amgen",
+   "basis": "Viela was acquired by Horizon (2021), which Amgen then acquired (2023); Horizon is already mapped to Amgen"
+  },
+  {
+   "sponsor": "MORPHOSYS US INC",
+   "brand": "Monjuvi",
+   "candidate_parent": "Novartis",
+   "basis": "MorphoSys was acquired by Novartis in 2024"
+  },
+  {
+   "sponsor": "LA JOLLA PHARMA",
+   "brand": "Giapreza",
+   "candidate_parent": "Innoviva",
+   "basis": "La Jolla was acquired by Innoviva in 2022"
+  },
+  {
+   "sponsor": "Enzyvant Therapeutics GmbH",
+   "brand": "Rethymic",
+   "candidate_parent": "Sumitomo Pharma",
+   "basis": "Enzyvant was owned by Sumitomo; FDA's Purple Book now lists Sumitomo Pharma America as the applicant"
+  },
+  {
+   "sponsor": "STEMLINE THERAP",
+   "brand": "Elzonris / Orserdu",
+   "candidate_parent": "Menarini",
+   "basis": "Stemline was acquired by the Menarini Group in 2020"
+  },
+  {
+   "sponsor": "REMPEX",
+   "brand": "Vabomere",
+   "candidate_parent": "Melinta",
+   "basis": "Rempex was acquired by Melinta in 2017; Melinta is a separate parent in this data"
+  },
+  {
+   "sponsor": "AKARX INC",
+   "brand": "Doptelet",
+   "candidate_parent": "Sobi",
+   "basis": "AkaRx held the Doptelet application, marketed by Dova Pharmaceuticals, which Sobi acquired in 2019; AkaRx ownership to be confirmed"
+  },
+  {
+   "sponsor": "SENTYNL THERAPS INC",
+   "brand": "Zokinvy / Nulibry / Zycubo",
+   "candidate_parent": "Zydus",
+   "basis": "Sentynl is a Zydus Lifesciences subsidiary"
+  },
+  {
+   "sponsor": "LNHC",
+   "brand": "Xepi / Xeglyze / Zelsuvmi",
+   "candidate_parent": "unknown",
+   "basis": "LNHC, Inc. is a subsidiary of another company (possibly Sato Pharmaceutical); owner not confirmed"
+  },
+  {
+   "sponsor": "LXO IRELAND",
+   "brand": "Barhemsys",
+   "candidate_parent": "unknown",
+   "basis": "Sponsor name does not identify its owner; check the application holder"
+  },
+  {
+   "sponsor": "COMMAVE SUB",
+   "brand": "Azstarys",
+   "candidate_parent": "unknown",
+   "basis": "Commave Therapeutics, a licensee of KemPharm/Zevra; owner not confirmed"
+  },
+  {
+   "sponsor": "VIFOR PHARMA / VIFOR INTL / VIFOR FRESENIUS",
+   "brand": "Veltassa / Velphoro",
+   "candidate_parent": "CSL Behring",
+   "basis": "CSL acquired Vifor Pharma in 2022"
+  }
+ ]
+}

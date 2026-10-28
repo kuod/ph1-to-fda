@@ -32,7 +32,7 @@ Run in this order (`03` reads `09`'s CBER output, and `07` reads `08`'s):
 
 - `01_approvals.py`: 2021–2026 from FDA's tables; 2016–2020 rebuilt from openFDA and checked against Wayback copies of FDA's original lists (the page year is trusted over typo'd dates). Pages that change (this year's table, CBER pages) expire from the cache after 6 hours; **never serve the approvals tables from a stale cache**, or a refresh silently drops new approvals.
 - `common.py`: cached `get_json`/`get_text` (cache in `.cache/`, override with `EASY_AS_CACHE`) and `marketed_before()`, the "already FDA-approved before the window" check. Network errors and timeouts retry; openFDA is slow and occasionally times out, so long steps are best run in the background.
-- `taxonomy.py`: sponsor → parent regexes (`PARENTS`), keyword therapeutic-area rules, hand overrides (`TA_OVERRIDE`, `CBER_TA`), condition grouping for product pipelines. **Word-boundary every short regex**: a bare substring once matched `RA PHARM` inside "Deciphera Pharms".
+- `taxonomy.py`: sponsor → parent mapping (rules in `data/sponsor_parents.json`, with an as-of date: parent means owner on that date, not at approval; `tools/sponsor_report.py` writes `data/sponsor_review.json`, the review list of no-shared-word mappings, unmapped sponsors and possible variants), keyword therapeutic-area rules, hand overrides (`TA_OVERRIDE`, `CBER_TA`), condition grouping for product pipelines. **Word-boundary every short regex** (`test_taxonomy.py` enforces it): a bare substring once matched `RA PHARM` inside "Deciphera Pharms".
 - `09_cber.py`: CBER's pages keep only recent letters, so first-approval dates live in `data/cber_curated.json` (date, category, BLA, sources, status); pages supply BLA number, manufacturer and indication. Add new CBER products to that file (with the Purple Book or approval-letter source) and to `CBER_TA`/`CBER_GENE` in `taxonomy.py`. Use the original letter's effective approval date, not a replacement letter's. `09b_cber_verify.py` checks every date against FDA's Purple Book, applies the blood-product inclusion rule (written in its docstring) to every CBER original BLA, crawls FDA's fractionated-plasma index, writes `data/cber_coverage.json` (omitted products and the index crawl), and exits non-zero on an unexplained mismatch or a blood product that passes the rule but is missing. After adding CBER products, rerun `04_trials_approved.py` before `07` (07 reads 04's output, not `approvals_clean.json`).
 - `02_enrich.py`: openFDA label text, with DailyMed as a fallback for labels openFDA lacks; any indication still blank goes in `USE_OVERRIDE` (`taxonomy.py`).
 - `07_build.py`: revenue model, company cards, writes `data.js`. `ANCHOR` holds editorial peak-sales overrides.
@@ -56,6 +56,8 @@ No test suite. CI (`.github/workflows/check.yml`) runs:
 node tools/check-scripts.js   # syntax-check the inline script
 node tools/check-data.js      # sanity-check data.js (unique ids, 10 revenue years, rates in [0,1], bands)
 ```
+
+Not yet in CI (the workflow file was being edited elsewhere): `python3 tools/test_taxonomy.py` (sponsor-mapping regressions: Deciphera/UCB, Marathon, Ardelyx, Xencor and others; fails on a new no-shared-word mapping until `sponsor_report.py` is rerun and reviewed) and `python3 tools/09b_cber_verify.py` (needs network).
 
 Also open `index.html` in a browser and click through the tabs after any change; the checks do not catch rendering or interaction bugs.
 

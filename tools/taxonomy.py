@@ -1,52 +1,12 @@
 """Sponsor -> parent-company mapping and therapeutic-area keyword rules."""
-import re
+import json, os, re
 
-# (regex on openFDA sponsor_name, parent as of Oct 2026). First match wins.
-PARENTS = [
-    (r"PFIZER|WYETH|SEAGEN|SEATTLE GEN|ARRAY BIO|MEDIVATION|ARENA PHARM|BIOHAVEN|GLOBAL BLOOD|HOSPIRA", "Pfizer"),
-    (r"MERCK SHARP|^MSD\b|MSD MERCK|SCHERING|^MERCK AND CO|MERCK CO\b|ACCELERON|PROMETHEUS", "Merck & Co."),
-    (r"NOVARTIS|^AAA\b|ADVANCED ACCELERATOR|AVEXIS|ENDOCYTE|CHINOOK|TOURMALINE", "Novartis"),
-    (r"GENENTECH|HOFFMANN|ROCHE|CHUGAI|SPARK THERAP|FOUNDATION MEDICINE|89BIO", "Roche"),
-    (r"ASTRAZENECA|ALEXION|MEDIMMUNE|PORTOLA|ACERTA|ZS PHARMA|AMPLIMMUNE|FUSION PHARM", "AstraZeneca"),
-    (r"GLAXOSMITHKLINE|^GSK|TESARO|VIIV|BELLUS", "GSK"),
-    (r"SANOFI|GENZYME|ABLYNX|PRINCIPIA|BIOVERATIV|KYMAB|PROVENTION|AVENTIS", "Sanofi"),
-    (r"ELI LILLY|\bLILLY\b|LOXO|\bDICE\b|MORPHIC|POSEIDA|SIGILON|\bVERVE\b", "Eli Lilly"),
-    (r"BRISTOL|CELGENE|\bJUNO\b|MIRATI|KARUNA|TURNING POINT|RAYZEBIO|MYOKARDIA|\bBMS\b", "Bristol Myers Squibb"),
-    (r"JANSSEN|JOHNSON|ACTELION|MOMENTA|INTRA.?CELLULAR|ABIOMED|ARAGON|CILAG", "Johnson & Johnson"),
-    (r"ABBVIE|ALLERGAN|PHARMACYCLICS|CEREVEL|IMMUNOGEN|STEMCENTRX", "AbbVie"),
-    (r"AMGEN|HORIZON THERAP|HORIZON PHARMA|CHEMOCENTRYX|ONYX|KAI PHARM|FIVE PRIME", "Amgen"),
-    (r"TAKEDA|SHIRE|MILLENNIUM|BAXALTA|NIMBUS|TIGENIX|ARIAD", "Takeda"),
-    (r"GILEAD|KITE|IMMUNOMEDICS|FORTY SEVEN|CYMABAY|TIZONA", "Gilead Sciences"),
-    (r"NOVO NORDISK|^NOVO\b", "Novo Nordisk"),
-    (r"BAYER|ASKBIO", "Bayer"),
-    (r"BOEHRINGER", "Boehringer Ingelheim"),
-    (r"REGENERON", "Regeneron"),
-    (r"VERTEX", "Vertex"),
-    (r"ASTELLAS|IVERIC|AUDENTES|POTENZA|XYPHOS", "Astellas"),
-    (r"DAIICHI", "Daiichi Sankyo"),
-    (r"BIOGEN|REATA|HI BIO", "Biogen"),
-    (r"EISAI", "Eisai"),
-    (r"OTSUKA|AVANIR|ASTEX", "Otsuka"),
-    (r"\bUCB\b|ZOGENIX|\bRA PHARM", "UCB"),
-    (r"SUMITOMO|SUNOVION|MYOVANT|URO?VANT|DAINIPPON", "Sumitomo Pharma"),
-    (r"KYOWA|ORCHARD THERAP", "Kyowa Kirin"),
-    (r"EMD SERONO|MERCK KGAA|MERCK KGA", "Merck KGaA"),
-    (r"BEONE|BEIGENE", "BeOne Medicines"),
-    (r"^MODERNA", "Moderna"),
-    (r"OCTAPHARMA", "Octapharma"),
-    (r"^GE\b|GE HEALTHCARE", "GE HealthCare"),
-    (r"^CSL", "CSL Behring"),
-    (r"^GC\b|GC BIOPHARMA", "GC Biopharma"),
-    (r"^LFB", "LFB"),
-    (r"BIONTECH", "BioNTech"),
-    (r"IONIS|AKCEA", "Ionis"),
-    (r"TEVA|ACTAVIS", "Teva"),
-    (r"^SERVIER", "Servier"),
-    (r"ALCON|AERIE", "Alcon"),
-    (r"LEO PHARMA", "LEO Pharma"),
-    (r"VIATRIS|MYLAN", "Viatris"),
-    (r"BAUSCH|VALEANT|SALIX", "Bausch Health"),
-]
+# Sponsor -> parent company. The rules live in data/sponsor_parents.json (reviewable, with an as-of date): the parent is who
+# owns the sponsor of record AS OF that date, not at approval. Rules are tried in order and the first match wins.
+_SPEC = json.load(open(os.path.join(os.path.dirname(__file__), "..", "data", "sponsor_parents.json")))
+AS_OF = _SPEC["as_of"]
+PARENTS = [("|".join(p["re"] for p in r["patterns"]), r["parent"]) for r in _SPEC["rules"]]
+_COMPILED = [(re.compile(p["re"]), r["parent"]) for r in _SPEC["rules"] for p in r["patterns"]]
 SHORT = {"Bristol Myers Squibb": "BMS", "Johnson & Johnson": "J&J"}
 
 
@@ -60,13 +20,19 @@ def title(s):
     return s.title() if s else "Unknown"
 
 
-def parent(sponsor):
+def match_rule(sponsor):
+    """(parent, matching pattern) for a sponsor; pattern is None when no rule matched and the cleaned name stands in."""
     if not sponsor:
-        return "Unknown"
-    for rx, p in PARENTS:
-        if re.search(rx, sponsor.upper()):
-            return p
-    return title(sponsor)
+        return "Unknown", None
+    up = sponsor.upper()
+    for rx, par in _COMPILED:
+        if rx.search(up):
+            return par, rx.pattern
+    return title(sponsor), None
+
+
+def parent(sponsor):
+    return match_rule(sponsor)[0]
 
 
 # Therapeutic areas: ordered rules; text = indication + label + pharm class + ingredient. Highest score wins.

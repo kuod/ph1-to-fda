@@ -39,6 +39,7 @@ No build step for the site: `index.html` plus `data.js` and two vendored librari
 | 7 | `07_build.py` | Revenue model, company cards, `data.js` |
 | 9 | `09_cber.py` | CBER first approvals: cell and gene therapies, vaccines, blood products (run before 03) |
 | 9b | `09b_cber_verify.py` | Check the CBER dates against FDA's Purple Book (read-only; not part of the build loop below) |
+| – | `sponsor_report.py`, `test_taxonomy.py` | Review report and regression tests for the sponsor → parent mapping in `data/sponsor_parents.json` (parent as of 27 Oct 2026, not at approval); not part of the build loop |
 | 8 | `08_expansions.py` | Efficacy supplements per product, earlier-approved drugs with new indications, per-condition pipelines for the busiest products (run before 07) |
 
 ```sh

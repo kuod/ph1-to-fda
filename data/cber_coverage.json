@@ -1,0 +1,134 @@
+{
+ "purple_book_file": "https://www.accessdata.fda.gov/drugsatfda_docs/PurpleBook/2026/purplebook-search-September-data-download.csv",
+ "window_start": "2016-10-21",
+ "blood_rule": "immune globulin|globulin \\(human\\)|coagulation factor|antihemophilic|fibrinogen|c1 esterase|prothrombin complex|plasminogen|adamts13|factor (?:viii|ix|x|xiii|vii)|von willebrand|antithrombin|alpha.?1.?(?:proteinase|antitrypsin)|protein c\\b|rho\\(d\\)",
+ "blood_missing": [],
+ "blood_excluded_by_rule": [
+  {
+   "bla": "125592",
+   "brand": "Odactra",
+   "proper_name": "House Dust Mites (Dermatophagoides farinae and Dermatophagoides pteronyssinus) Allergen Extract",
+   "applicant": "ALK - Abello A/S",
+   "approved": "2017-03-01",
+   "status": "Licensed",
+   "reason": "allergenic extract or patch test"
+  },
+  {
+   "bla": "125579",
+   "brand": "hudquzco rubber panel,rubber panel t.r.u.e. test",
+   "proper_name": "Rubber Panel Thin-Layer Rapid Use Epicutaneous Patch Test",
+   "applicant": "SmartPractice Denmark ApS",
+   "approved": "2017-03-03",
+   "status": "Licensed",
+   "reason": "allergenic extract or patch test"
+  },
+  {
+   "bla": "125640",
+   "brand": "Vistaseal",
+   "proper_name": "Fibrin Sealant (Human)",
+   "applicant": "Instituto Grifols, S.A.",
+   "approved": "2017-11-01",
+   "status": "Licensed",
+   "reason": "topical (fibrin sealant, thrombin, hemostat)"
+  },
+  {
+   "bla": "125644",
+   "brand": "Albuminex",
+   "proper_name": "Albumin (Human)-kjda",
+   "applicant": "Bio Products Laboratory Limited",
+   "approved": "2018-06-19",
+   "status": "Licensed",
+   "reason": "albumin"
+  },
+  {
+   "bla": "125696",
+   "brand": "Palforzia",
+   "proper_name": "Peanut (Arachis hypogaea) Allergen Powder-dnfp",
+   "applicant": "Greer Laboratories, Inc.",
+   "approved": "2020-01-31",
+   "status": "Licensed",
+   "reason": "allergenic extract or patch test"
+  },
+  {
+   "bla": "125739",
+   "brand": "Rebyota",
+   "proper_name": "fecal microbiota, live-jslm",
+   "applicant": "Ferring Pharmaceuticals Inc.",
+   "approved": "2022-11-30",
+   "status": "Licensed",
+   "reason": "fecal microbiota"
+  },
+  {
+   "bla": "125757",
+   "brand": "Vowst",
+   "proper_name": "fecal microbiota spores, live-brpk",
+   "applicant": "Aimmune Therapeutics, Inc.",
+   "approved": "2023-04-26",
+   "status": "Licensed",
+   "reason": "fecal microbiota"
+  },
+  {
+   "bla": "125816",
+   "brand": "avance nerve graft",
+   "proper_name": "acellular nerve allograft-arwx",
+   "applicant": "Axogen Corporation",
+   "approved": "2025-12-03",
+   "status": "Licensed",
+   "reason": "tissue graft"
+  }
+ ],
+ "other_cber_not_curated": [
+  {
+   "bla": "125806",
+   "brand": "kresladi",
+   "proper_name": "marnetegragene autotemcel",
+   "applicant": "Rocket Pharmaceuticals Inc",
+   "approved": "2026-03-26",
+   "status": "Licensed"
+  },
+  {
+   "bla": "125869",
+   "brand": "flusiva,mflusiva",
+   "proper_name": "Influenza Vaccine, mRNA",
+   "applicant": "ModernaTX, Inc.",
+   "approved": "2026-08-05",
+   "status": "Licensed"
+  },
+  {
+   "bla": "125827",
+   "brand": "TUDRIQEV",
+   "proper_name": "vusolimogene oderparepvec-wtpg",
+   "applicant": "Replimune, Inc.",
+   "approved": "2026-08-06",
+   "status": "Licensed"
+  }
+ ],
+ "index": {
+  "pages_crawled": 295,
+  "product_pages": 87,
+  "in_window_blood_linked": [
+   "Altuviiio",
+   "Asceniv",
+   "Fesilty",
+   "Haegarda",
+   "Kedrab",
+   "Panzyga",
+   "Rebinyn"
+  ],
+  "in_window_blood_not_linked": [
+   "Adzynma",
+   "Alyglo",
+   "Andexxa",
+   "Balfaxar",
+   "Cutaquig",
+   "Esperoct",
+   "Fibryga",
+   "Jivi",
+   "Qivigy",
+   "Ryplazim",
+   "Sevenfact",
+   "Xembify",
+   "Yimmugo"
+  ]
+ }
+}

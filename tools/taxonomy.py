@@ -203,7 +203,7 @@ CBER_TA = {
     "rebinyn": "Hematology", "fibryga": "Hematology", "andexxa": "Hematology", "jivi": "Hematology", "esperoct": "Hematology",
     "sevenfact": "Hematology", "ryplazim": "Hematology", "altuviiio": "Hematology", "balfaxar": "Hematology", "fesilty": "Hematology",
     "haegarda": "Immunology", "panzyga": "Immunology", "cutaquig": "Immunology", "asceniv": "Immunology", "xembify": "Immunology",
-    "alyglo": "Immunology", "kedrab": "Infectious disease",
+    "alyglo": "Immunology", "kedrab": "Infectious disease", "yimmugo": "Immunology", "qivigy": "Immunology", "adzynma": "Hematology",
 }
 CBER_GENE = {"luxturna", "zolgensma", "itvisma", "elevidys", "skysona", "lenmeldy", "kebilidi", "otarmeni", "hemgenix", "roctavian", "beqvez",
              "zynteglo", "lyfgenia", "casgevy", "vyjuvek", "zevaskyn", "adstiladrin", "waskyra", "fayuvi", "genglycos", "papzimeos", "encelto"}

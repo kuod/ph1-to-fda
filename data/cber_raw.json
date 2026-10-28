@@ -110,15 +110,15 @@
   "letters": 2
  },
  {
-  "path": null,
+  "path": "/vaccines-blood-biologics/cellular-gene-therapy-products/andexxa",
   "cat": "Blood product",
   "brand": "Andexxa",
   "ingredient": "coagulation factor xa (recombinant), inactivated-zhzo",
   "date": "2018-05-03",
-  "sponsor": "Portola Pharmaceuticals, Inc.",
-  "use": "Reversal of anticoagulation with rivaroxaban or apixaban in life-threatening or uncontrolled bleeding",
-  "stn": "BL 125586",
-  "letters": 0
+  "sponsor": "AstraZeneca AB",
+  "use": "Indicated for patients treated with rivaroxaban and apixaban, when reversal of anticoagulation is needed due to life-threatening or uncontrolled bleeding.",
+  "stn": "BLA 125586",
+  "letters": 4
  },
  {
   "path": "/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-md-anderson-cord-blood-bank",
@@ -616,6 +616,17 @@
   "letters": 0
  },
  {
+  "path": "/vaccines-blood-biologics/adzynma",
+  "cat": "Blood product",
+  "brand": "Adzynma",
+  "ingredient": "adamts13, recombinant-krhn",
+  "date": "2023-11-09",
+  "sponsor": "Takeda Pharmaceuticals U.S.A., Inc.",
+  "use": "Prophylactic or on demand enzyme replacement therapy (ERT) in adult and pediatric patients with congenital thrombotic thrombocytopenic purpura (cTTP).",
+  "stn": "125795",
+  "letters": 2
+ },
+ {
   "path": "/vaccines-blood-biologics/casgevy",
   "cat": "Cell or gene therapy",
   "brand": "Casgevy",
@@ -691,6 +702,17 @@
   "use": "MRESVIA is a vaccine indicated for active immunization for the prevention of lower respiratory tract disease (LRTD) caused by respiratory syncytial virus (RSV) in Individuals 60 years of age and older Individuals 18 through 59 years of age who are at increased risk for LRTD caused by RSV",
   "stn": "125796",
   "letters": 5
+ },
+ {
+  "path": "/vaccines-blood-biologics/cellular-gene-therapy-products/yimmugo",
+  "cat": "Blood product",
+  "brand": "Yimmugo",
+  "ingredient": "immune globulin intravenous, human-dira",
+  "date": "2024-06-13",
+  "sponsor": "Biotest AG",
+  "use": "For the treatment of primary humoral immunodeficiency (PI) in patients 2 years of age or older.",
+  "stn": "125810",
+  "letters": 1
  },
  {
   "path": "/vaccines-blood-biologics/capvaxive",
@@ -845,6 +867,17 @@
   "use": "For the treatment of adults with recurrent respiratory papillomatosis.",
   "stn": "125832",
   "letters": 2
+ },
+ {
+  "path": "/vaccines-blood-biologics/qivigy",
+  "cat": "Blood product",
+  "brand": "Qivigy",
+  "ingredient": "immune globulin intravenous, human -kthm, 10% solution",
+  "date": "2025-09-26",
+  "sponsor": "Kedrion S.p.A.",
+  "use": "Treatment of adults with Primary Humoral Immunodeficiency (PI)",
+  "stn": "125822",
+  "letters": 1
  },
  {
   "path": "/vaccines-blood-biologics/cellular-gene-therapy-products/itvisma",

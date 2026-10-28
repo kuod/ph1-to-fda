@@ -1266,6 +1266,51 @@
     "fda_letter"
    ],
    "status": "verified"
+  },
+  "Yimmugo": {
+   "date": "2024-06-13",
+   "cat": "Blood product",
+   "bla": "125810",
+   "purple_book": "2024-06-13",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/yimmugo",
+    "https://www.fda.gov/media/179371/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Qivigy": {
+   "date": "2025-09-26",
+   "cat": "Blood product",
+   "bla": "125822",
+   "purple_book": "2025-09-26",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/qivigy",
+    "https://www.fda.gov/media/188985/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
+  },
+  "Adzynma": {
+   "date": "2023-11-09",
+   "cat": "Blood product",
+   "bla": "125795",
+   "purple_book": "2023-11-09",
+   "sources": [
+    "https://www.fda.gov/vaccines-blood-biologics/adzynma",
+    "https://www.fda.gov/media/173760/download"
+   ],
+   "verified_by": [
+    "purple_book",
+    "fda_letter"
+   ],
+   "status": "verified"
   }
  }
 }

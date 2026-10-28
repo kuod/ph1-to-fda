@@ -8085,9 +8085,9 @@
   "ingredient": "coagulation factor xa (recombinant), inactivated-zhzo",
   "date": "2018-05-03",
   "year": 2018,
-  "sponsor": "Portola Pharmaceuticals, Inc.",
+  "sponsor": "AstraZeneca AB",
   "company": "AstraZeneca",
-  "use": "Reversal of anticoagulation with rivaroxaban or apixaban in life-threatening or uncontrolled bleeding",
+  "use": "Indicated for patients treated with rivaroxaban and apixaban, when reversal of anticoagulation is needed due to life-threatening or uncontrolled bleeding.",
   "ta": "Hematology",
   "modality": "Blood / plasma product",
   "priority": "",
@@ -8816,6 +8816,22 @@
   "center": "CBER"
  },
  {
+  "id": "adzynma",
+  "brand": "Adzynma",
+  "ingredient": "adamts13, recombinant-krhn",
+  "date": "2023-11-09",
+  "year": 2023,
+  "sponsor": "Takeda Pharmaceuticals U.S.A., Inc.",
+  "company": "Takeda",
+  "use": "Prophylactic or on demand enzyme replacement therapy (ERT) in adult and pediatric patients with congenital thrombotic thrombocytopenic purpura (cTTP).",
+  "ta": "Hematology",
+  "modality": "Blood / plasma product",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125795",
+  "center": "CBER"
+ },
+ {
   "id": "casgevy",
   "brand": "Casgevy",
   "ingredient": "exagamglogene autotemcel",
@@ -8925,6 +8941,22 @@
   "priority": "",
   "orphan": false,
   "app": "BLA 125796",
+  "center": "CBER"
+ },
+ {
+  "id": "yimmugo",
+  "brand": "Yimmugo",
+  "ingredient": "immune globulin intravenous, human-dira",
+  "date": "2024-06-13",
+  "year": 2024,
+  "sponsor": "Biotest AG",
+  "company": "Biotest",
+  "use": "For the treatment of primary humoral immunodeficiency (PI) in patients 2 years of age or older.",
+  "ta": "Immunology",
+  "modality": "Blood / plasma product",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125810",
   "center": "CBER"
  },
  {
@@ -9149,6 +9181,22 @@
   "priority": "",
   "orphan": false,
   "app": "BLA 125832",
+  "center": "CBER"
+ },
+ {
+  "id": "qivigy",
+  "brand": "Qivigy",
+  "ingredient": "immune globulin intravenous, human -kthm, 10% solution",
+  "date": "2025-09-26",
+  "year": 2025,
+  "sponsor": "Kedrion S.p.A.",
+  "company": "Kedrion S P A",
+  "use": "Treatment of adults with Primary Humoral Immunodeficiency (PI)",
+  "ta": "Immunology",
+  "modality": "Blood / plasma product",
+  "priority": "",
+  "orphan": false,
+  "app": "BLA 125822",
   "center": "CBER"
  },
  {

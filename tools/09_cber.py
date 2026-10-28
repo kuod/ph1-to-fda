@@ -56,7 +56,7 @@ def page(path):
         except ValueError:
             pass
     ind = re.search(r"Indications?\s*:?\s*\n:?\s*\n?(.*?)\n(?:Product Information|Supporting Documents|Package Insert)", txt, re.S)
-    return dict(stn=field("STN"), proper=field("Proper Name"), trade=field("Tradename"), mfr=re.sub(r"Indications?$", "", field("Manufacturer")).strip(),
+    return dict(stn=field("STN"), proper=field("Proper Name"), trade=field("Trade ?[Nn]ame"), mfr=re.sub(r"Indications?$", "", field("Manufacturer")).strip(),
                 use=(re.sub(r"\s*\n\s*", " ", ind.group(1)).strip(" :") if ind else ""), first=min(dates).isoformat() if dates else None, n_letters=len(dates))
 
 
@@ -85,7 +85,7 @@ def main():
     with cf.ThreadPoolExecutor(6) as ex:
         res = list(ex.map(lambda h: page(h), cand))
     for name in BLOOD:
-        for pre in ("/vaccines-blood-biologics/", "/vaccines-blood-biologics/approved-blood-products/", "/vaccines-blood-biologics/blood-blood-products/"):
+        for pre in ("/vaccines-blood-biologics/", "/vaccines-blood-biologics/approved-blood-products/", "/vaccines-blood-biologics/blood-blood-products/", "/vaccines-blood-biologics/cellular-gene-therapy-products/"):
             h = pre + SLUG.get(name, name.lower())
             try:
                 pg = page(h)

@@ -35,26 +35,29 @@ Run in this order (`03` reads `09`'s CBER output, and `07` reads `08`'s):
 - `taxonomy.py`: sponsor → parent regexes (`PARENTS`), keyword therapeutic-area rules, hand overrides (`TA_OVERRIDE`, `CBER_TA`), condition grouping for product pipelines. **Word-boundary every short regex**: a bare substring once matched `RA PHARM` inside "Deciphera Pharms".
 - `09_cber.py`: CBER's pages keep only recent letters, so first-approval dates are **curated by hand** (`CURATED`, `BLOOD`); pages supply BLA number, manufacturer and indication. Add new CBER products to those dicts and to `CBER_TA`/`CBER_GENE` in `taxonomy.py`.
 - `02_enrich.py`: openFDA label text, with DailyMed as a fallback for labels openFDA lacks; any indication still blank goes in `USE_OVERRIDE` (`taxonomy.py`).
-- `07_build.py`: revenue model, company cards, writes `data.js`. `ANCHOR` holds editorial peak-sales overrides.
+- `07_build.py`: revenue model, company cards, funnel validation stats, writes `data.js`. `ANCHOR` holds editorial peak-sales overrides; `reported_sales.py` holds sourced FY2025 figures that floor them.
 
 Large raw crawls (`data/trials_*_raw.json`, `approvals_raw.json`, `approvals_enriched.json`) are gitignored and regenerated; `data/approvals_clean.json`, `programs.json`, `expansions.json`, `cber_*.json` and `data.js` are committed.
 
 ## Things that are easy to get wrong
 
 - **Revenue is modelled, not reported.** Never present it as actuals. The Buckets plot's sales do not depend on approval count; say so if you change it.
-- **Funnel rates are biased.** Failures that cannot be identified are not counted, and combination-arm partners, CBER blood programs and renamed assets distort them. Method text states the pooled rates and the direction of bias; update those numbers when the cohort changes (`index.html` Method tab, `README.md`).
+- **Funnel rates are biased.** Failures that cannot be identified are not counted, and combination-arm partners, CBER blood programs and renamed assets distort them. The Method tab table is built from `meta.funnel` (computed in `07_build.py`); the README quotes the pooled numbers by hand and `tools/check-funnel.js` fails when they go stale.
 - **Counts are written in prose** in `README.md` and the Method tab (approvals, cards, anchors, pooled rates). After a data change, grep for stale numbers.
 - CBER products have no orphan, priority or supplement data; keep them out of those statistics and out of the funnel, card rates, Buckets and Product Pipelines (`06_programs.py` marks them `cohort: false`).
-- "Approved" on Product Pipelines means the condition is mentioned in the current label (keyword match), and efficacy supplements are a proxy for new indications.
+- "In label" on Product Pipelines is `taxonomy.label_match` against the Indications text (1 = matched, 2 = broad group, 0 = none). Not-indicated clauses are stripped, acronyms are case-sensitive, and conditions outside `COND_GROUPS` need their words in one clause. Add a case to `tools/test_labels.py` for any misfire you fix. `python3 tools/08_expansions.py --relabel` recomputes the flags offline from stored label text. Efficacy supplements are a proxy for new indications, never a count of them.
+- **Revenue peaks have three bases**: `reported` (peak = a sourced FY2025 figure from `tools/reported_sales.py`, a floor), `editorial` (hand-set in `ANCHOR`, unsourced, marked † on the page) and `model`. Add a figure to `reported_sales.py` only after reading it in the sponsor's results document. The Method tab reconciliation is computed by `07_build.py`.
 - BD201 reading citations were written from memory; keep the "check each citation" footnote.
 
 ## Checks
 
-No test suite. CI (`.github/workflows/check.yml`) runs:
+CI (`.github/workflows/check.yml`) runs:
 
 ```sh
 node tools/check-scripts.js   # syntax-check the inline script
-node tools/check-data.js      # sanity-check data.js (unique ids, 10 revenue years, rates in [0,1], bands)
+node tools/check-data.js      # sanity-check data.js (unique ids, 10 revenue years, rates in [0,1], bands, revenue basis); also runs the next two
+node tools/check-funnel.js    # recompute pooled funnel rates from programs and compare with meta.funnel, README and the published benchmarks
+python3 -m unittest discover -s tools -p 'test_*.py'   # label-match tests
 ```
 
 Also open `index.html` in a browser and click through the tabs after any change; the checks do not catch rendering or interaction bugs.

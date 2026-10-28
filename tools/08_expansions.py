@@ -7,8 +7,8 @@ grouped by condition, which shows the pipeline hanging off one product.
 """
 import collections, concurrent.futures as cf, datetime as dt, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from common import get_json
-from taxonomy import parent, TA_OVERRIDE, condition_group, COND_GROUPS
+from common import get_json, get_text
+from taxonomy import parent, TA_OVERRIDE, condition_group, label_match
 import importlib.util
 
 
@@ -52,6 +52,28 @@ def summarise(a):
                   o=any(x.get("code") == "Orphan" for x in s.get("submission_property_type", []))) for s in sorted(eff, key=lambda s: s["submission_status_date"])])
 
 
+def dailymed_indications(brand):
+    """Complete Indications and Usage section from DailyMed's SPL, for labels openFDA does not return (Tecentriq, Tagrisso, Verzenio ...)."""
+    b = re.sub(r"\s*\(.*?\)", "", brand).strip()
+    try:
+        data = get_json("https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json", {"drug_name": b}).get("data") or []
+    except RuntimeError:
+        return ""
+    data.sort(key=lambda x: not x.get("title", "").upper().startswith(b.upper() + " ("))
+    for x in data[:3]:
+        try:
+            xml = get_text(f"https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/{x['setid']}.xml")
+        except RuntimeError:
+            continue
+        i = xml.find('code="34067-9"')
+        if i < 0:
+            continue
+        j = xml.find('code="34068-7"', i)  # next section: Dosage and Administration
+        txt = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", xml[xml.find(">", i) + 1: j if j > 0 else i + 40000]))
+        return txt.strip()[:30000]
+    return ""
+
+
 def full_label(brand, ingredient):
     """Newest label's complete Indications and Usage text (enrich.label truncates to 600 characters)."""
     b = re.sub(r"\s*\(.*?\)", "", brand).upper()
@@ -63,16 +85,7 @@ def full_label(brand, ingredient):
         res = [r for r in d.get("results", []) if r.get("indications_and_usage")]
         if res:
             return " ".join(max(res, key=lambda r: r.get("effective_time", ""))["indications_and_usage"])[:30000]
-    return ""
-
-
-def in_label(group, label):
-    """Does the product's current label mention this condition? (keyword match: approximate)"""
-    rx = dict(COND_GROUPS).get(group)
-    if rx:
-        return bool(re.search(rx, label, re.I))
-    words = [w for w in re.findall(r"[a-z]{5,}", group.lower()) if w not in ("cancer", "disease", "syndrome", "patients", "disorder")]
-    return bool(words) and any(w in label.lower() for w in words)
+    return dailymed_indications(brand)
 
 
 def conditions_matrix(studies, label=""):
@@ -93,7 +106,7 @@ def conditions_matrix(studies, label=""):
             r["done"] += st == "COMPLETED"
             if y:
                 r["last"], r["first"] = max(r["last"], y), min(r["first"], y)
-    out = [dict(g=g, lab=in_label(g, label), **dict(r, h=sorted(r["h"], key=lambda x: (not x["why"], -x["y"] if x["y"] else 0))[:8])) for g, r in rows.items()]
+    out = [dict(g=g, lab=label_match(g, label), **dict(r, h=sorted(r["h"], key=lambda x: (not x["why"], -x["y"] if x["y"] else 0))[:8])) for g, r in rows.items()]
     out.sort(key=lambda r: -(r["p1"] + r["p2"] + r["p3"]))
     return out[:30]
 
@@ -120,7 +133,25 @@ def pipeline(p):
     return dict(n=len(sts), conds=conditions_matrix(sts, p.get("label", "")), hy=dict(sorted(halts.items())))
 
 
+def relabel():
+    """Offline: recompute every condition's label flag from the label text already stored in expansions.json."""
+    path = os.path.join(D, "expansions.json")
+    rows = json.load(open(path))
+    before = after = changed = 0
+    for a in rows:
+        for c in a.get("pipeline", {}).get("conds", []):
+            new = label_match(c["g"], a.get("label", ""))
+            before += bool(c["lab"])
+            after += new == 1
+            changed += bool(c["lab"]) != bool(new)
+            c["lab"] = new
+    json.dump(rows, open(path, "w"))
+    print(f"relabelled: {before} conditions flagged before, {after} strictly in the label now; {changed} flags changed (broad matches are stored as 2)")
+
+
 def main():
+    if "--relabel" in sys.argv:
+        return relabel()
     novel = {a["app"]: a["id"] for a in json.load(open(os.path.join(D, "approvals_clean.json"))) if a["app"]}
     apps = [summarise(a) for pre in ("NDA", "BLA") for a in fetch_apps(pre)]
     apps = [a for a in apps if a["eff"]]

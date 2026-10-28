@@ -40,4 +40,7 @@ if (unmapped.length) console.warn('warning: ' + unmapped.length + ' drugs in "Ot
 console.log(`${drugs.length} drugs, ${programs.length} programs, ${cards.length} cards, ${expansions.length} expansions, ${products.length} products, ${errs.length} problem(s)`);
 errs.slice(0, 20).forEach(e => console.error(e));
 const funnelStatus = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'check-funnel.js')], { stdio: 'inherit' }).status;  // pooled funnel rates vs programs, README and benchmarks
-process.exit(errs.length || funnelStatus ? 1 : 0);
+const py = require('child_process').spawnSync('python3', ['-m', 'unittest', 'discover', '-s', path.join(__dirname), '-p', 'test_*.py'], { stdio: 'inherit' });  // label-match tests (python3 is on the CI runner)
+if (py.error) console.warn('warning: python3 not found, label tests skipped');
+products.forEach(p => p.pipe.conds.forEach(c => { if (![0, 1, 2].includes(c.lab)) errs.push('label flag ' + p.id + ' ' + c.g); }));
+process.exit(errs.length || funnelStatus || py.status ? 1 : 0);

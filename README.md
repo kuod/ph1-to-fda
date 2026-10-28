@@ -14,7 +14,7 @@ Live page: https://kuod.github.io/ph1-to-fda/
 
 **Approvals** — Searchable, sortable table of all approvals. Each row expands to a development timeline, studies started and halted per phase (with the stated reasons and links to ClinicalTrials.gov) and the modelled sales curve. CSV download. A toggle adds drugs first approved earlier that won a new indication (efficacy supplement) in the window.
 
-**Product Pipelines** — Ranks products by efficacy supplements approved in the window; pick one for an approval timeline with halted studies marked beneath it, and a table of the conditions its Phase 1–3 studies cover. Conditions are flagged as approved (in the label), halted, or both, with the stopped studies and their stated reasons one click away.
+**Product Pipelines** — Ranks products by efficacy supplements approved in the window; pick one for an approval timeline with halted studies marked beneath it, and a table of the conditions its Phase 1–3 studies cover. Conditions are flagged as in the label (a keyword match against the Indications text, with not-indicated clauses removed; broad groups are marked as such), halted, or both, with the stopped studies and their stated reasons one click away. Efficacy supplements are a proxy for new indications, not a count of them (Keytruda has 104 supplements and about a dozen matched label conditions).
 
 **Buckets** — Interactive scatter of first-time approvals by approvals since launch (one and done, one then a few, one then many, franchise) against modelled sales. Switch the y metric, log/linear, filter by area or company, pin a drug.
 

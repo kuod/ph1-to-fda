@@ -9,6 +9,7 @@ import collections, datetime as dt, json, math, os, re, statistics, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from reported_sales import REPORTED, SRC
+from taxonomy import COND_GROUPS
 
 D = os.path.join(os.path.dirname(__file__), "..", "data")
 OUT = os.path.join(os.path.dirname(__file__), "..", "data.js")
@@ -108,6 +109,19 @@ def reconcile(drugs, fy=2025):
     return out
 
 
+def label_stats(products):
+    """How firm the 'in the label' flags on Product Pipelines are, and how far efficacy supplements run ahead of the conditions found in labels."""
+    groups = {g for g, _ in COND_GROUPS}
+    cs = [(p, c) for p in products if p.get("pipe") for c in p["pipe"]["conds"]]
+    out = dict(conds=len(cs), strict=sum(1 for _, c in cs if c["lab"] == 1), broad=sum(1 for _, c in cs if c["lab"] == 2),
+               viaGroup=sum(1 for _, c in cs if c["g"] in groups), products=len({p["id"] for p, _ in cs}))
+    out["none"] = out["conds"] - out["strict"] - out["broad"]
+    top = sorted((p for p in products if p.get("pipe")), key=lambda p: -len(p["d"]))[:5]
+    out["top"] = [dict(brand=p["brand"], supps=len(p["d"]), matched=sum(1 for c in p["pipe"]["conds"] if c["lab"] == 1)) for p in top]
+    print("label flags:", {k: v for k, v in out.items() if k != "top"}, out["top"])
+    return out
+
+
 def ymd(s):
     if not s:
         return None
@@ -185,7 +199,7 @@ def pooled(coh):
     ok3 = [p for p in r3 if p["outcome"] == "approved"]
     out = dict(n=len(res), approved=len(ok), r2=len(r2), r3=len(r3), ok3=len(ok3))
     for k, a, b in (("p1", len(r2), len(res)), ("p2", len(r3), len(r2)), ("p3", len(ok3), len(r3)), ("hit", len(ok), len(res))):
-        out[k] = round(a / b, 4) if b else None
+        out[k] = round(a / b, 5) if b else None
         out[k + "ci"] = wilson(a, b)
     return out
 
@@ -270,7 +284,7 @@ def main():
         if e["prod"]:
             e["id"] = e["id"]
     recon = reconcile(drugs)
-    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr), expansions=len(expansions), recon=recon, src=SRC,
+    meta = dict(built=TODAY.isoformat(), from_="2016-10-21", n=len(drugs), cohort="2009-2018", programs=len(pr), expansions=len(expansions), recon=recon, src=SRC, labels=label_stats(products),
                 funnel=dict(funnel_stats(progs), bench=BENCH))
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:

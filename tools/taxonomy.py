@@ -137,7 +137,7 @@ COND_GROUPS = [
     ("Small cell lung cancer", r"small.?cell lung|sclc"),
     ("Lung cancer (other)", r"lung|bronch|thoracic"),
     ("Melanoma", r"melanoma"),
-    ("Breast cancer", r"breast|her2.positive"),
+    ("Breast cancer", r"breast"),
     ("Prostate cancer", r"prostat"),
     ("Colorectal cancer", r"colorectal|colon|rectal"),
     ("Gastric / oesophageal cancer", r"(gastric|stomach|oesophag\w*|esophag\w*|gastro.?oesophageal|gej)\W+(\w+\W+){0,3}(cancer|carcinoma|adenocarcinoma|tumou?r|neoplasm)|gastric cancer|\bgej\b"),
@@ -160,8 +160,8 @@ COND_GROUPS = [
     ("COPD", r"copd|chronic obstructive"),
     ("Crohn's / ulcerative colitis", r"crohn|ulcerative colitis|inflammatory bowel|\bibd\b"),
     ("Lupus", r"lupus"),
-    ("Type 2 diabetes", r"type 2 diabetes|type ii diabetes|t2dm|diabetes mellitus, type 2"),
-    ("Type 1 diabetes", r"type 1 diabetes|type i diabetes|t1dm"),
+    ("Type 2 diabetes", r"type ?2 ?diabetes|type ?ii diabetes|t2dm|diabetes mellitus,? (type (2|ii)\b|non.insulin)|non.insulin.dependent"),
+    ("Type 1 diabetes", r"type ?1 ?diabetes|type ?i diabetes|t1dm|diabetes mellitus,? (type (1|i)\b|insulin.dependent)"),
     ("Obesity / weight", r"obes|overweight|weight"),
     ("Heart failure", r"heart failure"),
     ("Hypertension / cardiovascular risk", r"hypertens|cardiovascular|myocardial|atrial|stroke|coronary"),
@@ -178,6 +178,87 @@ COND_GROUPS = [
     ("Cystic fibrosis", r"cystic fibrosis"),
     ("Healthy volunteers", r"healthy|volunteer"),
 ]
+
+
+# --- "Is this condition in the label?" -------------------------------------------------------------------------------
+# The condition groups above were written to bucket ClinicalTrials.gov condition strings. Reused on a label's Indications text they
+# misfired (an early version matched oesophagitis to oesophageal cancer), so label matching adds three guards:
+#   1. clauses that say the drug is NOT indicated (or "Limitations of Use") are removed before matching, so "TAFINLAR is not indicated for
+#      colorectal cancer" no longer counts as colorectal cancer;
+#   2. acronym alternatives (ALL, AML, CLL, HCC, RCC ...) must be upper case in the label, since a case-insensitive \ball\b matched the word "all";
+#   3. groups that are not a single disease return 2 ("broad") rather than 1, and conditions outside the groups need their full phrase.
+# label_match returns 1 (named in the indications), 2 (matched only through a broad group) or 0.
+LABEL_ACRONYMS = {"all", "aml", "cll", "hcc", "rcc", "ibd", "nsclc", "sclc", "hnscc", "dlbcl", "ckd", "copd", "t1dm", "t2dm", "hiv"}
+BROAD_GROUPS = {"Other solid tumours", "Lung cancer (other)", "Hypertension / cardiovascular risk"}
+NEVER_IN_LABEL = {"Healthy volunteers"}
+LABEL_OVERRIDE = {  # label-only regexes where the trial-condition regex is too loose for prose ("weight" matches "body weight")
+    "Obesity / weight": r"obes|overweight|weight (management|reduction|loss)",
+}
+NOT_A_CONDITION = re.compile(r"^(metastas[ie]s|mutations?|gene |metastatic|survival|progression|adult disease|patients?\b|unspecified|impairment|renal impairment|hepatic impairment|healthy|"
+                             r".*\b(mutations?|gene)\b|.*\b(free survival|overall survival|disease progression)\b)", re.I)
+NEGATED = re.compile(r"\bnot (indicated|recommended|approved|studied|intended)|limitations? of use|has not been (established|studied)|should not be used|is not for", re.I)
+
+
+def indicated_text(label):
+    """The label with clauses that rule a use out removed (a clause runs to the next full stop, semicolon or bullet)."""
+    parts = re.split(r"(?<=[.;])\s+|•", label or "")
+    return " ".join(p for p in parts if not NEGATED.search(p))
+
+
+def _split_rx(rx):
+    """(case-insensitive regex, list of upper-case acronyms) for a group regex: acronym alternatives are lifted out."""
+    acr = []
+    for a in sorted(LABEL_ACRONYMS):
+        pat = r"(^|\|)(\\b)?%s(\\b)?(?=\||$)" % a
+        if re.search(pat, rx):
+            rx = re.sub(pat, r"\1", rx)
+            acr.append(a.upper())
+    return re.sub(r"^\|+|\|+$", "", re.sub(r"\|\|+", "|", rx)), acr
+
+
+def _norm(text):
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", re.sub(r"\(.*?\)", " ", (text or "").lower().rstrip("…")))).strip()
+
+
+def label_match(group, label):
+    """1 if the label's indications name the condition, 2 if only a broad group matches, else 0. See the notes above."""
+    if group in NEVER_IN_LABEL or not label:
+        return 0
+    text = indicated_text(label)
+    rx = dict(COND_GROUPS).get(group)
+    if rx:
+        ci, acr = _split_rx(LABEL_OVERRIDE.get(group, rx))
+        hit = bool(ci and re.search(ci, text, re.I)) or any(re.search(r"\b%s\b" % a, text) for a in acr)
+        return (2 if group in BROAD_GROUPS else 1) if hit else 0
+    # a condition outside the groups: its content words must all (or, from four words up, three quarters of them) turn up in one clause of
+    # the indications, compared by their first seven letters so plurals and word order do not matter. A bare common word never counts.
+    ph = _norm(group)
+    if NOT_A_CONDITION.search(ph) or re.search(r"\d", ph):  # numbers ("Pd-L1 Positive", "Type1 ...") are biomarkers or types a word match cannot tell apart
+        return 0
+    ws = [w for w in _words(ph) if w not in STOP_WORDS]
+    if len(ws) == 1 and len(ws[0]) < 8 or not ws:
+        return 0
+    need = len(ws) if len(ws) <= 3 else -(-3 * len(ws) // 4)
+    for clause in re.split(r"(?<=[.;])\s+|•", text):
+        have = {w[:7] for w in _words(_norm_keep(clause))}
+        if sum(1 for w in ws if w[:7] in have) >= need:
+            return 1
+    return 0
+
+
+STOP_WORDS = {"the", "and", "for", "with", "from", "not", "nos", "other", "type", "adult", "adults", "patients", "treatment", "unspecified", "without", "who"}
+
+
+def _words(s):
+    """Words of three letters or more; digits are ignored (section numbers such as '( 1.1 )' would match any '1')."""
+    return re.findall(r"[a-z]{3,}", s)
+
+
+def _norm_keep(s):
+    """Like _norm but keeps parenthesised text (an acronym or a synonym in the label can carry the match) and strips accents."""
+    import unicodedata
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", s)).strip()
 
 
 def condition_group(c):
